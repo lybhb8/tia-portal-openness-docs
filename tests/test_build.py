@@ -12,6 +12,8 @@ def app():
     """创建 Sphinx 应用"""
     root = Path(__file__).parent.parent
     srcdir = root / "docs"
+    # confdir 默认为 srcdir，但我们的 conf.py 在项目根目录
+    # 使用 confoverrides 来指定配置
     confoverrides = {"master_doc": "index"}
 
     app = SphinxTestApp(
@@ -44,13 +46,13 @@ def test_chapters_html_exists(app):
     app.build()
 
     expected_files = [
-        "chapter_01_1-网络安全信息.html",
-        "chapter_02_2-TIA-Portal-Openness-自述文件.html",
-        "chapter_03_3-TIA-Portal-Openness-中的新功能.html",
-        "chapter_04_4-基本知识.html",
-        "chapter_05_5-TIA-Portal-Openness-API.html",
-        "chapter_06_6-导出导入.html",
-        "chapter_07_7-主要变化.html",
+        "chapter_01_1 网络安全信息.html",
+        "chapter_02_2 TIA Portal Openness 自述文件.html",
+        "chapter_03_3 TIA Portal Openness 中的新功能.html",
+        "chapter_04_4 基本知识.html",
+        "chapter_05_5 TIA Portal Openness API.html",
+        "chapter_06_6 导出导入.html",
+        "chapter_07_7 主要变化.html",
     ]
 
     for filename in expected_files:

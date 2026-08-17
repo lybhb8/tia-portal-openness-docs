@@ -1,0 +1,411 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>4 基本知识 &mdash; TIA Portal Openness Documentation 1.0 文档</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=f115507d"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="_static/translations.js?v=540d3cec"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="5 TIA Portal Openness API" href="chapter_05_5%20TIA%20Portal%20Openness%20API.html" />
+    <link rel="prev" title="3 TIA Portal Openness 中的新功能" href="chapter_03_3%20TIA%20Portal%20Openness%20%E4%B8%AD%E7%9A%84%E6%96%B0%E5%8A%9F%E8%83%BD.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            TIA Portal Openness Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="chapter_01_1%20%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E4%BF%A1%E6%81%AF.html">1 网络安全信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter_02_2%20TIA%20Portal%20Openness%20%E8%87%AA%E8%BF%B0%E6%96%87%E4%BB%B6.html">2 TIA Portal Openness 自述文件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter_03_3%20TIA%20Portal%20Openness%20%E4%B8%AD%E7%9A%84%E6%96%B0%E5%8A%9F%E8%83%BD.html">3 TIA Portal Openness 中的新功能</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">4 基本知识</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">4.1 安装</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#tia-portal-openness">4.1.1 TIA Portal Openness 的要求</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id3">TIA Portal Openness 应用程序的编程要求</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">用户必备知识</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">TIA Portal Openness 远程通道</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">4.1.2 TIA Portal Openness 的安装</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id7">步骤</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id8">结果</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#siemens-tia-openness">4.1.3 向“Siemens TIA Openness”用户组添加用户</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id9">简介</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#add">7. 单击“Add””。</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id10">8. 在输入字段中键入有效的用户名。</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ok">9. 单击 “OK” 确认选择。</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#windows">4.1.4 使用 Windows 服务</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id11">要求</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#tia-portal">4.1.5 访问 TIA Portal</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id12">概述</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id13">4.1.6 组态</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id14">应用程序和 TIA Portal 位于不同计算机上</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id15">应用程序和 TIA Portal 位于同一台计算机上</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#openness">4.2 Openness 任务</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id16">模块化机械工程中的典型应用</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id17">4.2.1 简介</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id18">应用</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id19">通过高效的工程组态确保竞争优势</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id20">同时使用项目数据</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id21">4.2.2 应用程序</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id22">访问 TIA Portal</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id23">访问项目和项目数据</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id24">4.2.3 导出/导入</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="chapter_05_5%20TIA%20Portal%20Openness%20API.html">5 TIA Portal Openness API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter_06_6%20%E5%AF%BC%E5%87%BA%E5%AF%BC%E5%85%A5.html">6 导出/导入</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter_07_7%20%E4%B8%BB%E8%A6%81%E5%8F%98%E5%8C%96.html">7 主要变化</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">TIA Portal Openness Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">4 基本知识</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/chapter_04_4 基本知识.md.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>4 基本知识<a class="headerlink" href="#id1" title="链接到此标题。"></a></h1>
+<section id="id2">
+<h2>4.1 安装<a class="headerlink" href="#id2" title="链接到此标题。"></a></h2>
+<section id="tia-portal-openness">
+<h3>4.1.1 TIA Portal Openness 的要求<a class="headerlink" href="#tia-portal-openness" title="链接到此标题。"></a></h3>
+<p>TIA Openness 应用程序的使用要求
+- 在 PC 上安装基于 TIA Portal 的产品，例如“STEP 7 Professional”或“WinCC Professional”。
+- 在 PC 上安装“TIA Portal Openness”。
+请<a class="reference internal" href="#TIA-Portal-Openness-%E7%9A%84%E5%AE%89%E8%A3%85"><span class="xref myst">TIA Portal Openness 的安装</span></a>”
+支持的 Windows 操作系统
+下表给出了相互兼容的 Windows 操作系统、TIA portal 和用户应用程序组合：</p>
+<table><tr><td>Windows 操作系统</td><td>TIA Portal</td><td>用户应用程序</td></tr><tr><td>64 位</td><td>64 位</td><td>32 位和 64 位,“任意 CPU”</td></tr></table>
+<section id="id3">
+<h4>TIA Portal Openness 应用程序的编程要求<a class="headerlink" href="#id3" title="链接到此标题。"></a></h4>
+<p>- Microsoft Visual Studio 2017 或以上版本，包含 .Net Framework SDK 4.8 和 Windows Classic Desktop package</p>
+</section>
+<section id="id4">
+<h4>用户必备知识<a class="headerlink" href="#id4" title="链接到此标题。"></a></h4>
+<p>- 作为系统工程师所必备的知识
+- 包含 .Net Framework SDK 4.8 的 Microsoft Visual Studio 2017 或更高版本的高级知识
+- C# / <a class="reference external" href="http://VB.net">VB.net</a> 和 .Net Framework 的高级知识
+- TIA Portal 的用户知识</p>
+</section>
+<section id="id5">
+<h4>TIA Portal Openness 远程通道<a class="headerlink" href="#id5" title="链接到此标题。"></a></h4>
+<p>TIA Portal Openness 远程通道注册为类型 IpcChannel，其中“ensureSecurity”参数设置为“false”。
+说明
+应该避免使用&quot;false&quot;之外的&quot;ensureSecurity&quot;参数值注册IpcChannel，并且优先级大于等于“1”。
+IpcChannel 使用以下属性定义:</p>
+<table><tr><td>属性</td><td>设置</td></tr><tr><td>&quot;name&quot; 和 &quot;portName&quot;</td><td>在 AppDomain 中注册时设置为“${Process.Name}_{Process.Id}&quot;或“${Process.Name}_{Process.Id}_{AppDomain.Id}&quot;,而非应用程序的默认值。</td></tr><tr><td>&quot;priority&quot;</td><td>设置为默认值“1”。</td></tr><tr><td>&quot;typeFilterLevel&quot;</td><td>设置为“Full”。</td></tr><tr><td>&quot;authorizedGroup&quot;</td><td>设置为内置用户帐户(即,所有人)的 NTAccount 值字符串。</td></tr></table>
+向“Siemens TIA Openness”用户组添加用户 (页 45)
+</section>
+</section>
+<section id="id6">
+<h3>4.1.2 TIA Portal Openness 的安装<a class="headerlink" href="#id6" title="链接到此标题。"></a></h3>
+<p>简介
+在 TIA Portal 安装期间，选中 TIA Portal Openness 复选框（在“选项”(Options)下）后可通过 TIA Portal 安装程序安装“TIA Portal Openness”。
+要求
+- PG/PC 的硬件和软件满足系统要求。
+- 具有管理员权限。
+- 关闭正在运行的程序。
+- 禁用自动运行功能。
+- 已安装 WinCC 和/或 STEP 7。
+- “TIA Portal Openness”的版本号与 WinCC 和 STEP 7 的版本号相匹配。
+如果已安装早期版本的TIA Portal Openness，则当前版本将与其并排安装。</p>
+<section id="id7">
+<h4>步骤<a class="headerlink" href="#id7" title="链接到此标题。"></a></h4>
+<p>要安装 TIA Portal Openness，请确保在安装 TIA Portal 期间选中 TIA Portal Openness 复选框。请按照以下步骤对 TIA Openness 的安装操作进行检查。</p>
+<ol class="arabic simple">
+<li><p>在 “组态”(Configuration) 菜单下，选择 “选项”(Options) 文件夹。</p></li>
+<li><p>选中 TIA Portal Openness 复选框。</p></li>
+<li><p>单击“Next”并选择所需选项。
+按照 TIA Portal 的安装步骤完成 TIA Portal Openness 的安装。</p></li>
+</ol>
+</section>
+<section id="id8">
+<h4>结果<a class="headerlink" href="#id8" title="链接到此标题。"></a></h4>
+<p>在 PC 上安装“TIA Portal Openness”。此外，还生成了本地用户组“Siemens TIA Openness”。
+安装“TIA Portal Openness”附加软件包之后，您仍然无权访问 TIA Portal。您必须是“Siemens TIA Openness”用户组的成员（请<a class="reference internal" href="#%E5%90%91Siemens-TIA-Openness%E7%94%A8%E6%88%B7%E7%BB%84%E6%B7%BB%E5%8A%A0%E7%94%A8%E6%88%B7"><span class="xref myst">向“Siemens TIA Openness”用户组添加用户</span></a>）。</p>
+</section>
+</section>
+<section id="siemens-tia-openness">
+<h3>4.1.3 向“Siemens TIA Openness”用户组添加用户<a class="headerlink" href="#siemens-tia-openness" title="链接到此标题。"></a></h3>
+<section id="id9">
+<h4>简介<a class="headerlink" href="#id9" title="链接到此标题。"></a></h4>
+<p>在 PC 上安装 TIA Portal Openness 时，会自动创建“Siemens TIA Openness”用户组。
+无论何时通过 TIA Portal Openness 应用程序访问 TIA Portal，TIA Portal 都会验证您是否通过其它用户组直接或间接地成为“Siemens TIA Openness”用户组的成员。如果您是“Siemens TIA Openness”用户组的成员，则 TIA Portal Openness 应用程序将启动并与 TIA Portal 建立连接。
+通过操作系统中的应用程序向“Siemens TIA Openness”用户组添加用户。TIA Portal 不支持该操作。
+根据您的域或计算机的配置，可能需要使用管理员权限进行登录来扩展用户组。
+例如，在 Windows 7 操作系统（语言设置为英语）中，可按以下步骤向用户组添加用户：</p>
+<ol class="arabic simple">
+<li><p>选择 “Start” &gt; “Control Panel”。</p></li>
+<li><p>在控制面板中双击 “Administrative Tools”。
+<img alt="" src="_images/b412deffd0ce6f31efc5f6f2752fd5eb4f521ec87baef58379e11cda1cebda67.jpg" /></p></li>
+<li><p>单击 “Computer Management” 打开同名的配置对话框。<br />
+<img alt="" src="_images/dca5e76d1a21ec89a8a0e460ca26d4c5c964fcedbe4263e7434f0a78e9e3dd1a.jpg" /></p></li>
+<li><p>选择 “Local Users and Groups &gt; Groups” 以显示创建的所有用户组。</p></li>
+<li><p>在右侧窗格的用户组列表中选择 “Siemens TIA Openness” 条目。
+<img alt="" src="_images/4e26a2393ccfa5ca06862c028c5f57ab76fae8bd224ad74fc43724e434fe6b71.jpg" /></p></li>
+<li><p>选择“Action &gt; Add to Group…”菜单命令。</p></li>
+</ol>
+<table><tr><td>Name</td><td>Description</td></tr><tr><td>Administrators</td><td>Gli amministratori hanno privilegi di accesso completo e sen...</td></tr><tr><td>Backup Operators</td><td>Al gruppo Backup Operators è consentito ignorare le restrizio...</td></tr><tr><td>Cryptographic Operators</td><td>I membri sono autorizzati a eseguire operazioni di crittografia.</td></tr><tr><td>Distributed COM Users</td><td>Ai membri di questo gruppo è consentito avviare, attivare e u...</td></tr><tr><td>Guests</td><td>Gli utenti del gruppo Guests dispongono dello stesso tipo di ...</td></tr><tr><td>IIS_IUSRS</td><td>Gruppo predefinito utilizzato da Internet Information Services.</td></tr><tr><td>Lettori registri eventi</td><td>I membri di questo gruppo possono leggere i registri eventi d...</td></tr><tr><td>Network Configuration Operators</td><td>I membri di questo gruppo possono godere di alcuni privileg...</td></tr><tr><td>Performance Log Users</td><td>I membri di questo gruppo possono pianificare la registrazione...</td></tr><tr><td>Performance Monitor Users</td><td>I membri del gruppo possono accedere in modo locale e rem...</td></tr><tr><td>Power Users</td><td>Il gruppo Power Users è incluso per motivi di compatibilità c...</td></tr><tr><td>Replicator</td><td>Supporta la replica dei file in un dominio</td></tr><tr><td>Siemens TIA Engineer</td><td>Administration of Siemens TIA products</td></tr><tr><td>Siemens TIA Openness</td><td>User for TIA Openness</td></tr><tr><td>SIMATIC HMI</td><td>SIMATIC HMI GROUP</td></tr><tr><td>SIMATIC HMI CS</td><td>SIMATIC group for configuration</td></tr><tr><td>SIMATIC HMI VIEWER</td><td>SIMATIC group for read only access</td></tr><tr><td>SQLServer2005SQLBrowserUser$WI...</td><td>Members in the group have the required access and privilege...</td></tr></table>
+Change Group membership.
+将打开用户组属性对话框:  
+![](images/9b916b4702f9e09f0edabc6c4c37a7d0d8ff2b7bd47f88257f801b20373b6f17.jpg)
+</section>
+<section id="add">
+<h4>7. 单击“Add””。<a class="headerlink" href="#add" title="链接到此标题。"></a></h4>
+<p>打开的选择对话框将显示可以选择的用户:
+<img alt="" src="_images/f43e06fd6490d1fe7922f41b9a86de0cdd7dd1e1fabcfaf173ff450531530c43.jpg" /></p>
+</section>
+<section id="id10">
+<h4>8. 在输入字段中键入有效的用户名。<a class="headerlink" href="#id10" title="链接到此标题。"></a></h4>
+<p>单击 “Check Names” 以验证已输入用户名是否具有对此域或计算机有效的用户账户。 “From this location” 字段显示已输入用户名的域或计算机名。有关详细信息，请联系您的系统管理员。</p>
+</section>
+<section id="ok">
+<h4>9. 单击 “OK” 确认选择。<a class="headerlink" href="#ok" title="链接到此标题。"></a></h4>
+<p>现在，新用户将显示在用户组的属性对话框中。
+<img alt="" src="_images/8b0ccc0b17cf76002ee4a1f6c759dcd4775bf18954ec6b04b2f6c8faad7f8150.jpg" />
+可通过单击 “Add” 按钮注册其它用户。
+10. 单击 “OK” 结束此操作。
+11. 重新登录 PC 以使更改生效。</p>
+</section>
+</section>
+<section id="windows">
+<h3>4.1.4 使用 Windows 服务<a class="headerlink" href="#windows" title="链接到此标题。"></a></h3>
+<p>Windows 服务是长时间运行的可执行文件，无需用户界面即可运行，并使用安装实用程序进行安装。可以开发使用 TIA Portal Openness 的此类 Windows 服务应用程序。
+为此，需要在 Microsoft Visual Studio 中创建“Windows 服务 (.NET Framework)”类型的项目。</p>
+<section id="id11">
+<h4>要求<a class="headerlink" href="#id11" title="链接到此标题。"></a></h4>
+<p>- Windows 服务应用程序的进程可执行文件需要事先在 TIA Portal Openness 防火墙中列入白名单。此过程可以通过在安装 Windows 服务时创建 Windows 注册表项来完成，例如作为使用 Windows Installer 项目创建的安装程序的一部分。
+有关白名单的更多信息，请<a class="reference internal" href="#TIA-Portal-Openness-%E9%98%B2%E7%81%AB%E5%A2%99"><span class="xref myst">TIA Portal Openness 防火墙</span></a>”一章中的 “在不使用 TIA Portal 的情况下添加白名单条目” 部分
+- 无法访问正在运行的 TIA Portal 进程或使用图形界面启动 TIA Portal。只能创建不带用户界面的新 TIA Portal 实例。
+- 强烈建议使用专用 Windows 用户帐户的凭据运行 Windows 服务。可以但不建议使用本地服务帐户或网络服务帐户。由于安全限制，不支持本地系统帐户，并且始终会抛出 Engineering SecurityException。
+- 使用的 Windows 帐户（服务或用户）需要是本地 Windows 用户组“Siemens TIA Openness”的一部分。
+TIA Portal Openness 防火墙 (页 97)</p>
+</section>
+</section>
+<section id="tia-portal">
+<h3>4.1.5 访问 TIA Portal<a class="headerlink" href="#tia-portal" title="链接到此标题。"></a></h3>
+<section id="id12">
+<h4>概述<a class="headerlink" href="#id12" title="链接到此标题。"></a></h4>
+<p>组态PC<br />
+<img alt="" src="_images/669ff31d7c1750609052ccf10a99dcf79f2946df1cfaae3280142df37badf6fa.jpg" /></p>
+<ol class="arabic simple">
+<li><p>设置开发环境以访问和启动 TIA Portal。</p></li>
+<li><p>实例化程序中门户应用程序的对象以启动 Portal。</p></li>
+<li><p>找到所需项目并将其打开。</p></li>
+<li><p>访问项目数据。</p></li>
+<li><p>关闭项目并退出 TIA Portal。
+连接到 TIA Portal (页 90)
+终止与 TIA Portal 的连接 (页 108)</p></li>
+</ol>
+</section>
+</section>
+<section id="id13">
+<h3>4.1.6 组态<a class="headerlink" href="#id13" title="链接到此标题。"></a></h3>
+<p>使用 TIA Portal Openness 分为以下两种情况:</p>
+<section id="id14">
+<h4>应用程序和 TIA Portal 位于不同计算机上<a class="headerlink" href="#id14" title="链接到此标题。"></a></h4>
+<p><img alt="" src="_images/b2c44c48d308cc4d2ef25b947347605d6a5322ec9b28034f5ec5622b17d487cf.jpg" />
+- 通过 XML 文件进行数据交换。可通过程序导出或导入 XML 文件。
+- 对于从 TIA Portal 项目导出至 PC2 的数据，可在 PC1 上进行修改并重新导入。
+必须为 PC2 开发可执行程序 “程序 2”，例如“program2.exe”。TIA Portal 与此程序一起在后台运行。
+只能通过 TIA Portal Openness API 对 XML 文件进行导入和导出操作。
+- 可以归档交换的文件以便进行验证。
+- 可以在不同的时间和位置对交换的数据进行处理。</p>
+</section>
+<section id="id15">
+<h4>应用程序和 TIA Portal 位于同一台计算机上<a class="headerlink" href="#id15" title="链接到此标题。"></a></h4>
+<p>组态 PC<br />
+<img alt="" src="_images/9239ff8ff8c370422d24e31476af662d1418500c39b03e3e5b7f6773880b2720.jpg" />
+- 无论是否使用用户界面，程序都可以启动 TIA Portal。程序可打开、保存和/或关闭项目。程序还可连接到正在运行的 TIA Portal。
+- 随后可使用 TIA Portal 功能请求、生成和修改项目数据，或启动导入或导出过程。
+- 数据在 TIA Portal 处理过程的控制下进行创建，并存储在项目数据中。</p>
+</section>
+</section>
+</section>
+<section id="openness">
+<h2>4.2 Openness 任务<a class="headerlink" href="#openness" title="链接到此标题。"></a></h2>
+<section id="id16">
+<h3>模块化机械工程中的典型应用<a class="headerlink" href="#id16" title="链接到此标题。"></a></h3>
+<p>组态计算机<br />
+<img alt="" src="_images/d9eb4b4195834dd91078ae28414b100045cf86a2076d9d8e7ab40d76d2529e54.jpg" />
+- 可对类似的机器应用高效的自动化系统。
+- TIA Portal 提供包含所有机器型号的组件的项目。
+- “生成器”工具控制着针对特定机器型号进行的项目创建。
+- “生成器”工具通过读取请求的机器型号的参数来获取默认值。
+- “生成器”工具可将相关元素从整个TIA Portal项目中过滤出来，并在必要时对其进行修改，以及生成请求的机器项目。</p>
+</section>
+<section id="id17">
+<h3>4.2.1 简介<a class="headerlink" href="#id17" title="链接到此标题。"></a></h3>
+<p>简介
+TIA Portal Openness 介绍了使用 TIA Portal 进行工程组态的开放接口。有关“TIA Portal Openness - Efficient generation of program code using code generators”的更多信息，请参见 SIEMENS YouTube 频道 (<a class="reference external" href="http://www.youtube.com/watch?v=Ki12pLbEcxs">www.youtube.com/watch?v=Ki12pLbEcxs</a>)。
+TIA Portal Openness 可以通过您创建的程序从外部控制 TIA Portal，从而实现工程组态的自动化。
+可借助 TIA Portal Openness 执行以下操作:
+- 创建项目数据
+- 修改项目和项目数据
+- 删除项目数据
+- 读取项目数据
+- 将项目和项目数据提供给其它应用程序。
+对于使用第三方软件通过这些接口传输的信息和数据的兼容性，西门子不会承担责任和提供保证。
+我们明确指出：接口的不当使用可能导致数据丢失或停产时间。
+本文档中包含的代码片段是使用 C# 语法编写的。
+由于所使用的代码片段不足，因此也省去了错误处理的说明。</p>
+<section id="id18">
+<h4>应用<a class="headerlink" href="#id18" title="链接到此标题。"></a></h4>
+<p>TIA Portal Openness 接口用于执行以下操作:
+- 提供项目数据。
+- 访问 TIA Portal 过程。
+- 使用项目数据。
+使用自动化工程现场中的默认值
+- 通过导入外部生成的数据
+- 通过远程控制 TIA Portal 生成项目
+为外部应用程序提供 TIA Portal 项目数据
+- 通过导出项目数据</p>
+</section>
+<section id="id19">
+<h4>通过高效的工程组态确保竞争优势<a class="headerlink" href="#id19" title="链接到此标题。"></a></h4>
+<p>- 无需在 TIA Portal 中组态现有的工程数据。
+- 以自动化的工程组态流程替代手动工程组态。
+- 与竞争对手相比，较低的工程组态成本巩固了投标地位。</p>
+</section>
+<section id="id20">
+<h4>同时使用项目数据<a class="headerlink" href="#id20" title="链接到此标题。"></a></h4>
+<p>- 测试例程和批量数据处理可以与组态同时执行。
+<a class="reference internal" href="#%E7%BB%84%E6%80%81"><span class="xref myst">组态</span></a></p>
+</section>
+</section>
+<section id="id21">
+<h3>4.2.2 应用程序<a class="headerlink" href="#id21" title="链接到此标题。"></a></h3>
+<p>TIA Portal Openness 为您提供了多种访问 TIA Portal 的方式，并且针对定义的任务提供了多个函数供您选择。
+可通过 TIA Portal Openness API 接口访问 TIA Portal 的以下区域：
+- 门户数据
+- 项目数据
+- PLC 数据
+- HMI 数据
+- 驱动数据</p>
+<section id="id22">
+<h4>访问 TIA Portal<a class="headerlink" href="#id22" title="链接到此标题。"></a></h4>
+<p>TIA Portal Openness 提供了多种访问 TIA Portal 的方式。无论是否使用用户界面，用户均可在过程中创建外部 TIA Portal 实例。同时，还可以访问当前 TIA Portal 过程。</p>
+</section>
+<section id="id23">
+<h4>访问项目和项目数据<a class="headerlink" href="#id23" title="链接到此标题。"></a></h4>
+<p>访问项目和项目数据时，主要使用 TIA Portal Openness 来执行以下任务：
+- 关闭、打开和保存项目
+- 枚举和查询对象
+- 创建对象
+- 删除对象</p>
+</section>
+</section>
+<section id="id24">
+<h3>4.2.3 导出/导入<a class="headerlink" href="#id24" title="链接到此标题。"></a></h3>
+<p>TIA Portal Openness 支持通过 XML 文件导入和导出项目数据。导入/导出功能支持现有工程数据的外部组态。使用该功能可使工程过程高效无误。
+可使用导入/导出功能进行以下操作：
+- 数据交换
+- 复制项目的一部分
+- 对组态数据进行外部处理，例如，使用查找和替换功能对数据进行批量操作
+- 基于现有组态对新项目的组态数据进行外部处理
+- 导入外部创建的组态数据，例如文本列表和变量
+- 为外部应用程序提供项目数据
+4.2 Openness 任务</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
+        <a href="chapter_03_3%20TIA%20Portal%20Openness%20%E4%B8%AD%E7%9A%84%E6%96%B0%E5%8A%9F%E8%83%BD.html" class="btn btn-neutral float-left" title="3 TIA Portal Openness 中的新功能" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="chapter_05_5%20TIA%20Portal%20Openness%20API.html" class="btn btn-neutral float-right" title="5 TIA Portal Openness API" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2024, TIA Portal Openness Community。</p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用的 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a> 开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
