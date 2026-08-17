@@ -42,15 +42,37 @@ var project = portal.GetCurrentProcess();
 #### 文档结构
 
 ```
-docs/
-├── chapter_01_1 网络安全信息.md
-├── chapter_02_2 TIA Portal Openness 自述文件.md
-├── chapter_03_3 TIA Portal Openness 中的新功能.md
-├── chapter_04_4 基本知识.md
-├── chapter_05_5 TIA Portal Openness API.md
-├── chapter_06_6 导出导入.md
-├── chapter_07_7 主要变化.md
-└── images/ (1087 张图片)
+TIA openness/
+├── README.md
+├── LICENSE
+├── conf.py
+├── Makefile
+├── requirements.txt
+├── .readthedocs.yaml
+├── docs/
+│   ├── index.md
+│   ├── chapter_*.md (7 个章节)
+│   └── images/ (1087 张图片)
+└── tests/
+    ├── README.md
+    ├── test_build.py
+    ├── test_content.py
+    ├── test_links.py
+    ├── test_examples.py
+    └── requirements-test.txt
+```
+
+#### 本地测试
+
+```bash
+# 运行所有测试
+make test
+
+# 或单独运行
+python tests/test_build.py
+python tests/test_content.py
+python tests/test_links.py
+python tests/test_examples.py
 ```
 
 #### 贡献
@@ -98,18 +120,40 @@ var portal = Engineering.Create("TIA Portal");
 var project = portal.GetCurrentProcess();
 ```
 
-#### Documentation Structure
+#### 文档结构
 
 ```
-docs/
-├── chapter_01_1 Cybersecurity Information.md
-├── chapter_02_2 TIA Portal Openness Readme.md
-├── chapter_03_3 New Features in TIA Portal Openness.md
-├── chapter_04_4 Basic Knowledge.md
-├── chapter_05_5 TIA Portal Openness API.md
-├── chapter_06_6 Export Import.md
-├── chapter_07_7 Major Changes.md
-└── images/ (1087 images)
+TIA openness/
+├── README.md
+├── LICENSE
+├── conf.py
+├── Makefile
+├── requirements.txt
+├── .readthedocs.yaml
+├── docs/
+│   ├── index.md
+│   ├── chapter_*.md (7 chapters)
+│   └── images/ (1087 images)
+└── tests/
+    ├── README.md
+    ├── test_build.py
+    ├── test_content.py
+    ├── test_links.py
+    ├── test_examples.py
+    └── requirements-test.txt
+```
+
+#### Local Testing
+
+```bash
+# Run all tests
+make test
+
+# Or run individually
+python tests/test_build.py
+python tests/test_content.py
+python tests/test_links.py
+python tests/test_examples.py
 ```
 
 #### Contributing
