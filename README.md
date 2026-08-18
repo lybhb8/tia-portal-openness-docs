@@ -169,11 +169,6 @@ TIA openness/
 │   ├── _templates/           # 自定义模板
 │   ├── _themes/              # Sphinx 主题
 │   └── images/               # 文档图片（1000+）
-└── tests/                    # 测试脚本
-    ├── test_build.py
-    ├── test_content.py
-    ├── test_links.py
-    └── test_examples.py
 ```
 
 ---
@@ -187,9 +182,6 @@ TIA openness/
 ```bash
 # 构建文档（确保无警告）
 make html
-
-# 运行测试
-make test
 ```
 
 ### 文档规范
