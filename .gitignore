@@ -50,3 +50,5 @@ Thumbs.db
 
 # Requirements (optional)
 # requirements-dev.txt
+
+.sphinx/
