@@ -9,7 +9,7 @@
 TIA Openness 应用程序的使用要求
 - 在 PC 上安装基于 TIA Portal 的产品，例如“STEP 7 Professional”或“WinCC Professional”。
 - 在 PC 上安装“TIA Portal Openness”。
-请[TIA Portal Openness 的安装](#TIA-Portal-Openness-的安装)”
+请[TIA Portal Openness 的安装](#412-tia-portal-openness-的安装)”
 支持的 Windows 操作系统
 下表给出了相互兼容的 Windows 操作系统、TIA portal 和用户应用程序组合：
 <table><tr><td>Windows 操作系统</td><td>TIA Portal</td><td>用户应用程序</td></tr><tr><td>64 位</td><td>64 位</td><td>32 位和 64 位,“任意 CPU”</td></tr></table>
@@ -58,7 +58,7 @@ IpcChannel 使用以下属性定义:
 #### 结果
 
 在 PC 上安装“TIA Portal Openness”。此外，还生成了本地用户组“Siemens TIA Openness”。
-安装“TIA Portal Openness”附加软件包之后，您仍然无权访问 TIA Portal。您必须是“Siemens TIA Openness”用户组的成员（请[向“Siemens TIA Openness”用户组添加用户](#向Siemens-TIA-Openness用户组添加用户)）。
+安装“TIA Portal Openness”附加软件包之后，您仍然无权访问 TIA Portal。您必须是“Siemens TIA Openness”用户组的成员（请[向“Siemens TIA Openness”用户组添加用户](#413-向siemens-tia-openness用户组添加用户)）。
 
 ### 4.1.3 向“Siemens TIA Openness”用户组添加用户
 
@@ -109,7 +109,7 @@ Windows 服务是长时间运行的可执行文件，无需用户界面即可运
 #### 要求
 
 - Windows 服务应用程序的进程可执行文件需要事先在 TIA Portal Openness 防火墙中列入白名单。此过程可以通过在安装 Windows 服务时创建 Windows 注册表项来完成，例如作为使用 Windows Installer 项目创建的安装程序的一部分。
-有关白名单的更多信息，请[TIA Portal Openness 防火墙](#TIA-Portal-Openness-防火墙)”一章中的 “在不使用 TIA Portal 的情况下添加白名单条目” 部分
+有关白名单的更多信息，请[TIA Portal Openness 防火墙](#529-tia-portal-openness-防火墙)”一章中的 “在不使用 TIA Portal 的情况下添加白名单条目” 部分
 - 无法访问正在运行的 TIA Portal 进程或使用图形界面启动 TIA Portal。只能创建不带用户界面的新 TIA Portal 实例。
 - 强烈建议使用专用 Windows 用户帐户的凭据运行 Windows 服务。可以但不建议使用本地服务帐户或网络服务帐户。由于安全限制，不支持本地系统帐户，并且始终会抛出 Engineering SecurityException。
 - 使用的 Windows 帐户（服务或用户）需要是本地 Windows 用户组“Siemens TIA Openness”的一部分。
@@ -201,7 +201,7 @@ TIA Portal Openness 接口用于执行以下操作:
 #### 同时使用项目数据
 
 - 测试例程和批量数据处理可以与组态同时执行。
-[组态](#组态)
+[组态](#416-组态)
 
 ### 4.2.2 应用程序
 

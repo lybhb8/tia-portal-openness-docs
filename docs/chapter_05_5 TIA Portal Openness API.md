@@ -37,7 +37,7 @@ Screen screen = screens.Find("myScreen");
 下图显示了对象模型和 TIA Portal 中的项目之间的关系:
 ![](images/de4b7ae0579e68836dfbbf1156d3dd84bd609947ab1ccbd4d1e21a561905816c.jpg)
 5.1 TIA Portal Openness 对象
-[TIA Portal Openness 对象模型的块和类型](#TIA-Portal-Openness-对象模型的块和类型)
+[TIA Portal Openness 对象模型的块和类型](#512-tia-portal-openness-对象模型的块和类型)
 对象模型的硬件对象的层级(页 71)
 
 ### 5.1.2 TIA Portal Openness 对象模型的块和类型
@@ -69,7 +69,7 @@ TIA Portal Openness API 中块和类型的组的表示
 
 ![](images/24d727023d508522cc9cbd8671f4c666bcfd99c6e1dd10d58975b670526ea7ca.jpg)  
 Openness: 用于工程组态工作流自动化的 API 系统手册, 11/2023
-[TIA Portal Openness 对象模型](#TIA-Portal-Openness-对象模型)
+[TIA Portal Openness 对象模型](#511-tia-portal-openness-对象模型)
 对象模型的硬件对象的层级 (页 71)
 
 ### 5.1.3 对象模型的硬件对象的层级
@@ -695,7 +695,7 @@ TiaPortalProcess tiaPortalProcess = TiaPortal.GetProcess(process.Id);
 - 允许连接一次
 - 不允许连接
 - 始终允许来自此应用程序的连接
-更多信息，请[TIA Portal Openness 防火墙](#TIA-Portal-Openness-防火墙)”。
+更多信息，请[TIA Portal Openness 防火墙](#529-tia-portal-openness-防火墙)”。
 如果注册表提示被拒绝三次，则系统会发生 EngineeringSecurityException 类型的异常。
 连接到进程后，可使用以下属性获取有关 TIA Portal 实例的信息：
 <table><tr><td>属性</td><td>信息</td></tr><tr><td>InstalledSoftware as IList</td><td>返回已安装产品的相关信息。</td></tr><tr><td>Mode as TiaPortalMode</td><td>返回 TIA Portal 的启动模式 (WithoutUserInterface/WithUserInterface)。</td></tr><tr><td>AttachedSessions as IList</td><td>返回连接到 TIA Portal 的应用程序的列表。</td></tr><tr><td>ProjectPath as FileInfo</td><td>返回在 TIA Portal 中打开的项目的文件名(包括文件夹),例如,&quot;D:\WinCCProjects\ColorMixing\ColorMixing.ap*&quot;如果未打开任何项目,则返回空字符串。</td></tr><tr><td>ID as int</td><td>返回 TIA Portal 实例的过程 ID。</td></tr><tr><td>Path as FileInfo</td><td>返回 TIA Portal 可执行项目的路径。</td></tr></table>
@@ -886,11 +886,11 @@ TIA Portal 通知具有以下属性:
 ### 5.2.11 由程序控制系统事件对话框的确认
 
 要求
-- TIA Portal Openness 应用程序已连接到 TIA Portal。[连接到 TIA Portal](#连接到-TIA-Portal)”
+- TIA Portal Openness 应用程序已连接到 TIA Portal。[连接到 TIA Portal](#528-连接到-tia-portal)”
 - 项目已经打开。
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 - 事件处理程序已注册。
-请[连接到 TIA Portal](#连接到-TIA-Portal)
+请[连接到 TIA Portal](#528-连接到-tia-portal)
 运行带用户界面的 TIA Portal 时，对某些程序操作会显示系统事件对话框。可基于这些系统事件决定继续执行的方式。
 通过 TIA Portal Openness 应用程序访问 TIA Portal 时，这些系统事件必须通过相应的".NET" 事件加以确认。
 Choices 列表中包含所允许的确认方式:
@@ -1001,7 +1001,7 @@ if (tiaPortal != null)
 
 ```
 
-[事件处理程序](#事件处理程序)
+[事件处理程序](#5210-事件处理程序)
 
 ### 5.2.13 TIA Portal 的诊断接口
 
@@ -1094,9 +1094,9 @@ public void OnAttaching(object sender, AttachingEventArgs e)
 
 ### 5.2.14 独占访问
 
-- TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
+- TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
 - 项目已经打开。
-请[打开项目](#打开项目)
+请[打开项目](#531-打开项目)
 "TIA Portal"类会提供方法"ExclusiveAccess(String text)"来建立附加 TIA Portal 过程的独占访问。即使不强制使用独占访问，也强烈建议使用。
 在“using”语句中使用“ExclusiveAccess”可确保正确对其进行处理，即使发生异常或应用程序关闭，亦能如此。
 如果在开放式独占访问范围内试图创建另一个独占访问，则会产生可恢复的异常。
@@ -1274,7 +1274,7 @@ break;
 
 #### IEngineeringObjectAssociation
 
-此接口通过一系列关联的工程组态对象实现。此接口由 IEngineeringAssociation 和 IEngineeringInstance 派生而来。请[使用关联](#使用关联)”
+此接口通过一系列关联的工程组态对象实现。此接口由 IEngineeringAssociation 和 IEngineeringInstance 派生而来。请[使用关联](#5216-使用关联)”
 
 #### IEngineeringServiceProvider
 
@@ -1290,7 +1290,7 @@ break;
 #### EngineeringObjectHandle
 
 提供唯一对象句柄的结构。
-[使用组合](#使用组合)
+[使用组合](#5217-使用组合)
 使用关联 (页 122)
 
 ### 5.2.16 使用关联
@@ -1445,9 +1445,9 @@ public abstract object GetAttribute(string name);
 
 ### 5.2.20 事务处理
 
-- TIA Portal Openness 应用程序已连接到 TIA Portal。[连接到 TIA Portal](#连接到-TIA-Portal)”
+- TIA Portal Openness 应用程序已连接到 TIA Portal。[连接到 TIA Portal](#528-连接到-tia-portal)”
 - 项目已经打开。
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 
 #### 操作
 
@@ -1860,7 +1860,7 @@ API 的这一扩展功能不会影响 XML 导出/导入。
 
 ### 5.3.1 打开项目
 
-- TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
+- TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
 - 要打开的项目不可在任何其它 TIA Portal 实例中打开。
 
 #### 撤消项目升级
@@ -2011,7 +2011,7 @@ Siemens.Engineering.Project project = tiaPortal.Projects.OpenWithUpgrade(new Fil
 
 ### 5.3.2 创建一个项目
 
-- TIA Portal Openness 应用程序已连接到 TIA Portal。[连接到 TIA Portal](#连接到-TIA-Portal)”
+- TIA Portal Openness 应用程序已连接到 TIA Portal。[连接到 TIA Portal](#528-连接到-tia-portal)”
 可采用以下几种方式通过 TIA Portal Openness API 创建项目
 - 在 ProjectComposition 中，调用“创建”(Create)类函数。
 - 在 IEngineeringComposition 中，调用“创建”(Create)类函数。
@@ -2070,9 +2070,9 @@ IEnumerable<KeyValuePair<string, object>> createParameters = new [] {
 
 ### 5.3.3 TIA Portal 的常规访问设置
 
-- TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
+- TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
 - 已打开一个项目。
-请[打开项目](#打开项目)
+请[打开项目](#531-打开项目)
 可通过 TIA Portal Openness 访问 TIA Portal 的常规设置:
 - 当前用户界面语言
 - “在项目中搜索”(Search in project) 选项创建在项目内搜索所需的搜索索引。
@@ -2122,11 +2122,11 @@ private static void SetUILanguage(Project project)
 
 ### 5.3.4 归档与检索项目
 
-- TIA Portal Openness 应用程序已连接到 TIA Portal 请[连接到 TIA Portal](#连接到-TIA-Portal)”
+- TIA Portal Openness 应用程序已连接到 TIA Portal 请[连接到 TIA Portal](#528-连接到-tia-portal)”
 - 已打开一个项目
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 - 已保存一个项目。
-请[保存项目](#保存项目)”
+请[保存项目](#5315-保存项目)”
 可在进行进一步更改之前使用 TIA Portal Openness 归档已打开且已保存的项目状态，之后可检索归档的项目。
 
 #### 归档项目
@@ -2221,9 +2221,9 @@ public void RetrieveProject()
 
 ### 5.3.5 访问只读 TIA Portal 项目
 
-- TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)”
+- TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)”
 - 已打开一个项目
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 处理只读 TIA Portal 项目时，使用 TIA Portal Openness 可执行选择操作。可以访问只读项目，但无法使用具有读写访问权限的用户所拥有的全套功能。例如，具有只读凭证的用户可以使用 Openness 打开受 UMAC 保护的项目，如打开项目 (页 140) 中所述。该功能不包括参考项目。
 访问只读项目时所提供的 Openness 功能列表可分类出两组功能 - 固有和启用的非修改性操作：
 
@@ -2247,9 +2247,9 @@ public void RetrieveProject()
 
 ### 5.3.6 访问语言
 
-- TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
+- TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
 - 项目已经打开。
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 在 TIA Portal 中，可在 “项目语言”(Project languages) 编辑器中设置和管理项目语言。
 TIA Portal Openness 支持对项目语言进行以下访问：
 - 通过支持的语言进行迭代。
@@ -2305,9 +2305,9 @@ public void DeactivatingLanguages()
 
 ### 5.3.7 确定对象结构和属性
 
-- TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)”
+- TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)”
 - 已通过 TIA Portal Openness 应用程序打开一个项目。
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 可使用 IEngineeringObject 接口通过对象层级确定浏览结构。结果将以列表形式返回：
 - 子对象
 - 子组合
@@ -2387,9 +2387,9 @@ public static void DisplayAttributeInfos(IEngineeringObject obj)
 ### 5.3.8 访问软件目标
 
 要求
-- TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)”
+- TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)”
 - 项目已经打开。
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 修改以下程序代码以使软件目标可用:
 
 ```cs
@@ -2421,9 +2421,9 @@ if (softwareContainer != null)
 
 ### 5.3.9 访问和枚举多语言文本
 
-- TIA Portal Openness 应用程序已连接到 TIA Portal。[连接到 TIA Portal](#连接到-TIA-Portal)”
+- TIA Portal Openness 应用程序已连接到 TIA Portal。[连接到 TIA Portal](#528-连接到-tia-portal)”
 - 项目已经打开。
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 TIA Portal 中的多语言文本示例包括：Project.Comment、PlcTag.Comment 等。在 TIA Portal Openness 中，多语言文本由 MultilingualText 对象表示。MultilingualText 对象由 MultilingualTextItemComposition 组成。
 MultilingualTextItemComposition 支持以下 Find 方法:
 
@@ -2473,9 +2473,9 @@ if (multilingualText != null)
 
 ### 5.3.10 更新项目特性
 
-- TIA Portal Openness 应用程序已连接到 TIA Portal。[连接到 TIA Portal](#连接到-TIA-Portal)”
+- TIA Portal Openness 应用程序已连接到 TIA Portal。[连接到 TIA Portal](#528-连接到-tia-portal)”
 - 已打开一个项目
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 可使用 TIA Portal Openness 更新项目的 “仿真支持” 特性，以创建 plc 程序。仿真支持特性的设置可用于虚拟 SINUMERIK 控制器和使用 PLCSIM Advanced 仿真的 SIMATIC PLC。
 Openness 支持使用以下特性访问 TIA Portal 项目的 “仿真支持” 特性。可在 "Siemens.Engineering.Project" 对象上找到 API。
 <table><tr><td>属性名称</td><td>数据类型</td><td>访问</td><td>描述</td></tr><tr><td>IsSimulationDuringBlockCompilationEnabled</td><td>System.Boolean</td><td>读/写</td><td>用于指示是否为项目启用了块编译期间的仿真支持</td></tr><tr><td>IsVirtualPlcDuringBlockCompilationEnabled</td><td>System.Boolean</td><td>读/写</td><td>用于指示是否为项目启用了块编译期间的虚拟 plc 支持</td></tr></table>
@@ -2499,9 +2499,9 @@ project.IsVirtualPlcDuringBlockCompilationEnabled = true;
 ### 5.3.11 读取项目相关的属性
 
 要求
-- TIA Portal Openness 应用程序已连接到 TIA Portal。[连接到 TIA Portal](#连接到-TIA-Portal)”
+- TIA Portal Openness 应用程序已连接到 TIA Portal。[连接到 TIA Portal](#528-连接到-tia-portal)”
 - 项目已经打开。
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 应用
 使用该功能，可从 TIA Portal Openness API 中获取项目相关的属性。提供的信息包含项目属性、项目历史以及项目所使用的产品。
 项目属性
@@ -2581,9 +2581,9 @@ foreach (UsedProduct usedProduct in usedProductComposition)
 
 ### 5.3.12 删除项目图形
 
-- TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)”
+- TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)”
 - 项目已经打开。
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 修改以下程序代码以删除项目图形:
 
 ```cs
@@ -2600,9 +2600,9 @@ graphic.Delete();
 
 ### 5.3.13 编译项目
 
-- TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
+- TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
 - 项目已经打开。
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 - 所有设备都处于“离线”状态。
 API 接口支持设备和程序块的编译。编译结果作为对象返回。将根据对象类型提供 HW、SW 或 HW/SW 编译。支持以下对象类型：
 - Device - HW & SW
@@ -2718,9 +2718,9 @@ Openness 功能权限的下述特性适用于在 TIA Portal V17 环境中运行�
 
 ### 5.3.15 保存项目
 
-- TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)”
+- TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)”
 - 项目已经打开。
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 应用
 要保存项目
 - 使用 Save() 方法保存项目
@@ -2769,9 +2769,9 @@ sampleProject.SaveAs(dirInfoSaveAsProject);
 ### 5.3.16 关闭项目
 
 要求
-- TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)”
+- TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)”
 - 已通过 TIA Portal Openness 应用程序打开一个项目。
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 程序代码
 修改以下程序代码以关闭项目：
 
@@ -2787,9 +2787,9 @@ public static void CloseProject(Project project)
 ### 5.3.17 导出/导入系统诊断设置
 
 要求
-- TIA Portal Openness 应用程序已连接到 TIA Portal [连接到 TIA Portal](#连接到-TIA-Portal)”
+- TIA Portal Openness 应用程序已连接到 TIA Portal [连接到 TIA Portal](#528-连接到-tia-portal)”
 - 项目已打开
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 简介
 可使用 TIA Portal Openness 应用程序为 TIA Portal 项目导出和导入系统诊断设置。导出和导入采用 .dat 文件的格式。
 以下服务和类别用于导出和导入系统诊断设置。
@@ -2823,9 +2823,9 @@ Siemens.Engineering.HW.Systemdiagnostics.Settings.SystemdiagnosticsSettingsExpor
 ### 5.4.1 连接到 Teamcenter Gateway
 
 要求
-- TIA Portal 应用程序已连接到 TIA Portal Openness 请[连接到 TIA Portal](#连接到-TIA-Portal)”
+- TIA Portal 应用程序已连接到 TIA Portal Openness 请[连接到 TIA Portal](#528-连接到-tia-portal)”
 - 已打开一个项目
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 应用
 可使用 TIA Portal Openness 通过 TcGateway 与 Teamcenter 建立连接。
 参数
@@ -2860,9 +2860,9 @@ public void function1()
 
 ### 5.4.2 断开与 Teamcenter Gateway 的连接
 
-- TIA Portal 应用程序已连接到 TIA Portal Openness 请[连接到 TIA Portal](#连接到-TIA-Portal)”
+- TIA Portal 应用程序已连接到 TIA Portal Openness 请[连接到 TIA Portal](#528-连接到-tia-portal)”
 - 已打开一个项目
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 可使用 TIA Portal Openness 通过 TcGateway 断开 Teamcenter 服务器与 TIA Portal 之间的连接。
 
 #### 参数
@@ -2897,9 +2897,9 @@ public void function2()
 ### 5.4.3 连接到 ConnectSSO
 
 要求
-- TIA Portal 应用程序已连接到 TIA Portal Openness 请[连接到 TIA Portal](#连接到-TIA-Portal)”
+- TIA Portal 应用程序已连接到 TIA Portal Openness 请[连接到 TIA Portal](#528-连接到-tia-portal)”
 - 已打开一个项目
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 如果活动 SSO 会话可用，则可使用 TIA Portal Openness 通过以下所需参数调用 ConnectSSO()。
 <table><tr><td>参数</td><td>数据类型</td><td>必选项</td><td>描述</td></tr><tr><td>hostURL</td><td>System.String</td><td>√</td><td>指定具有端口号的完全限定 Teamcenter 服务器主机。</td></tr><tr><td>instance</td><td>System.String</td><td>√</td><td>指定 Teamcenter 服务器实例</td></tr><tr><td>loginURL</td><td>System.String</td><td>√</td><td>指定组态为 Teamcenter 安全服务一部分的登录服务的 URL。</td></tr><tr><td>applicationID</td><td>System.String</td><td>√</td><td>指定通过识别服务在 Teamcenter 应用程序注册表中组态的应用程序 ID</td></tr></table>
 成功连接会返回一个加密的 TcGatewayConnectionInfo 对象。如果连接不成功，则会引发相应异常。
@@ -2930,9 +2930,9 @@ public void function3()
 
 ### 5.4.4 在 Teamcenter 中保存项目/全局库
 
-- TIA Portal 应用程序已连接到 TIA Portal Openness 请[连接到 TIA Portal](#连接到-TIA-Portal)”
+- TIA Portal 应用程序已连接到 TIA Portal Openness 请[连接到 TIA Portal](#528-连接到-tia-portal)”
 - 已打开一个项目
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 可使用 TIA Portal Openness 通过 TcGatewayWorkflowProvider 服务保存项目/全局库。该服务将在项目/全局库组合中提供。
 参数
 <table><tr><td>参数名称</td><td>数据类型</td><td>必须项</td><td>描述</td></tr><tr><td>tcGatewayConnectionInfo</td><td>TcGatewayConnectionInfo</td><td>√</td><td>在连接到Teamcenter 期间返回tcGatewayConnectionInfo。传递的tcGatewayConnectionInfo与活动连接的tcGatewayConnectionInfo匹配。</td></tr><tr><td>localCacheOption</td><td>LocalCacheOption(Enum)</td><td>√</td><td>TcGatewayLocalCacheOption,可覆盖Teamcenter 缓存中的 TIA 项目/全局库。</td></tr></table>
@@ -2981,9 +2981,9 @@ public void function4()
 ### 5.4.5 使用代理对象保存项目/全局库
 
 要求
-- TIA Portal 应用程序已连接到 TIA Portal Openness 请[连接到 TIA Portal](#连接到-TIA-Portal)”
+- TIA Portal 应用程序已连接到 TIA Portal Openness 请[连接到 TIA Portal](#528-连接到-tia-portal)”
 - 已打开一个项目
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 应用
 可使用 TIA Portal Openness 执行项目/全局库的归档，并将归档对象与代理对象（例如 Plc、程序块、UDT、其它支持的类型）一起保存到 Teamcenter 数据集。
 项目/全局库成功保存到 Teamcenter 后，API 将返回 ItemInfo 对象，其中包含 ItemId、RevisionId、ItemName 和 ItemType 详细信息。
@@ -3031,15 +3031,15 @@ public void function5()
 
 ```
 
-[连接到 TIA Portal](#连接到-TIA-Portal)
+[连接到 TIA Portal](#528-连接到-tia-portal)
 
 ### 5.4.6 使用新条目保存项目/全局库
 
 要求
 - 连接到 TIA Portal
-请[连接到 TIA Portal](#连接到-TIA-Portal)”
+请[连接到 TIA Portal](#528-连接到-tia-portal)”
 - 已打开一个项目
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 参数
 <table><tr><td>参数名称</td><td>数据类型</td><td>必须项</td><td>描述</td></tr><tr><td>tcGatewayConnectionInfo</td><td>Siemens.Engineering.TeamcenterGateway.TcGatewayConnectionInfo</td><td>√</td><td>连接到 Teamcenter Gateway 后,返回 tcGatewayConnectionInfo。已传递的 tcGatewayConnectionInfo 必须与活动连接的 tcGatewayConnectionInfo 匹配。</td></tr><tr><td>itemId</td><td>System.String</td><td>√</td><td>指定项目需要保存到的条目 ID。</td></tr><tr><td>revisionId</td><td>System.String</td><td>√</td><td>指定项目需要保存到的修订版 ID。</td></tr><tr><td>localCacheOption</td><td>Siemens.Engineering.TeamcenterGateway.LocalCacheOption(Enum)</td><td>√</td><td>如果项目的本地缓存或数据集版本与服务器项目版本不匹配,指定覆盖本地缓存项目内容</td></tr></table>
 
@@ -3084,9 +3084,9 @@ catch (TcGatewayException)
 
 ### 5.4.7 在 Teamcenter 中访问自定义属性
 
-- TIA Portal Openness 已连接到 TIA Portal 请[连接到 TIA Portal](#连接到-TIA-Portal)”
+- TIA Portal Openness 已连接到 TIA Portal 请[连接到 TIA Portal](#528-连接到-tia-portal)”
 - 已打开一个项目
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 应用
 可使用TIA Portal Openness在Teamcenter Gateway中获取和设置自定义属性值。
 参数
@@ -3168,7 +3168,7 @@ catch (TcGatewayException)
 
 - TIA Portal Openness 已连接到 TIA Portal 请参见“Hotspot-Text 连接到 TIA Portal (页 90)”
 - 已打开一个项目
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 可以使用 TIA Portal Openness 在 Teamcenter 中将 TIA Portal 项目另存为新条目。成功创建条目/修订版后，API 返回包含 ItemId、RevisionId、ItemType、ItemName 的 itemInfo 对象。
 参数
 <table><tr><td>参数名称</td><td>数据类型</td><td>必须项</td><td>描述</td></tr><tr><td>tcGatewayConnectionInfo</td><td>Siemens.Engineering.TeamcenterGateway.TcGatewayConnectionInfo</td><td>√</td><td>在连接到 Teamcenter 期间返回 tcGatewayConnectionInfo。 tcGatewayConnectionInfo 必须与活动连接的 tcGatewayConnectionInfo 匹配。</td></tr><tr><td>itemDetailsDelegate</td><td>delegate</td><td>√</td><td>此委托由 API 的调用程序定义,其中包含有关要在 Teamcenter 中创建的条目的信息:• ItemId [System.String]• RevisionId [System.String]• ItemName [System.String] (Required)• Comments [System.String]• TeamcenterFolder [System.String]• TeamcenterProject [System.String[]]• TeamcenterItemType [System.String] (Required)</td></tr><tr><td>customAttributes</td><td>lEnumerable</td><td>-</td><td>指定与项目/全局库一起保存的条目/修订版自定义属性。</td></tr></table>
@@ -3276,9 +3276,9 @@ catch (TcGatewayException)
 ### 5.4.9 使用代理对象将项目另存为新条目
 
 要求
-- TIA Portal Openness 已连接到 TIA Portal 请[连接到 TIA Portal](#连接到-TIA-Portal)”
+- TIA Portal Openness 已连接到 TIA Portal 请[连接到 TIA Portal](#528-连接到-tia-portal)”
 - 已打开一个项目
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 简介
 可使用 TIA Portal Openness 将 TIA Portal 项目和全局库与代理对象一起保存到 Team Center。成功创建新条目后，API 返回 ItemId、RevisionId、ItemType、ItemName 等 itemInfo 对象详细信息。
 参数
@@ -3384,8 +3384,8 @@ catch (TcGatewayException)
 
 ### 5.4.10 将项目作为新修订版保存到 Teamcenter
 
-• TIA Portal Openness 已连接到 TIA Portal 请[连接到 TIA Portal](#连接到-TIA-Portal)”
-• 已打开一个项目请[打开项目](#打开项目)”
+• TIA Portal Openness 已连接到 TIA Portal 请[连接到 TIA Portal](#528-连接到-tia-portal)”
+• 已打开一个项目请[打开项目](#531-打开项目)”
 可使用 TIA Portal Openness 将 TIA Portal 项目和全局库在 Teamcenter 中另存为新修订版。成功创建新修订版后，API 会返回 ItemInfo 对象，例如 ItemId、RevisionId、ItemName 和ItemType 详细信息。
 
 ## 5.4 用于访问 Teamcenter Gateway 的函数
@@ -3448,9 +3448,9 @@ private void SavingProjectToTeamcenterAsNewRevision()
 ### 5.4.11 从 Teamcenter 中下载项目/全局库
 
 要求
-• TIA Portal Openness 已连接到 TIA Portal 请[连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 已连接到 TIA Portal 请[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 应用
 可使用 TIA Portal Openness 从 Teamcenter 下载并打开项目和库。API 返回启动文件路径以在 TIA Portal 中打开项目或库。
 参数
@@ -3501,9 +3501,9 @@ private void DownloadProjectLibrary()
 ### 5.4.12 从 Teamcenter 搜索项目/全局库
 
 要求
-• TIA Portal Openness 已连接到 TIA Portal 请[连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 已连接到 TIA Portal 请[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 应用
 可使用 TIA Portal Openness 在 Teamcenter 中搜索项目和全局库。搜索 API 从 Teamcenter 返回 TIA Portal 对象列表，搜索结果包含详细信息，例如 ItemID、相关 RevisionId 列表。
 参数
@@ -3555,9 +3555,9 @@ Console.WriteLine(itemId + "-" + revision);
 ### 5.4.13 在 Teamcenter 中签出项目/全局库数据集
 
 要求
-• TIA Portal Openness 已连接到 TIA Portal请[打开项目](#打开项目)”
+• TIA Portal Openness 已连接到 TIA Portal请[打开项目](#531-打开项目)”
 • 已打开一个项目
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 可使用 TIA Portal Openness 对 Teamcenter 数据集中的 TIA Portal 项目和全局库执行签出操作。
 参数
 <table><tr><td>参数</td><td>数据类型</td><td>必须项</td><td>描述</td></tr><tr><td>tcGatewayConnectionInfo</td><td>Siemens.Engineering.TeamcenterGateway.TcGatewayConnectionInfo</td><td>√</td><td>在连接到 Teamcenter 期间返回 tcGatewayConnectionInfo。传递的 tcGatewayConnectionInfo 必须与活动连接的 tcGatewayConnectionInfo 匹配。</td></tr><tr><td>itemID</td><td>System.String</td><td>√</td><td>指定 Teamcenter 中 TIA 项目/库的条目 ID。</td></tr><tr><td>revisionID</td><td>System.String</td><td>√</td><td>指定数据集链接到的 Teamcenter 中 TIA 项目/库的修订版 ID。</td></tr></table>
@@ -3598,8 +3598,8 @@ private void function10()
 
 ### 5.4.14 在 Teamcenter 中签入项目/全局库数据集
 
-• TIA Portal Openness 已连接到 TIA Portal 请[连接到 TIA Portal](#连接到-TIA-Portal)”
-• 已打开一个项目请[打开项目](#打开项目)”
+• TIA Portal Openness 已连接到 TIA Portal 请[连接到 TIA Portal](#528-连接到-tia-portal)”
+• 已打开一个项目请[打开项目](#531-打开项目)”
 可使用 TIA Portal Openness 对 Teamcenter 数据集中的 TIA Portal 项目和全局库执行签入操作。
 参数
 <table><tr><td>参数名称</td><td>数据类型</td><td>必须项</td><td>描述</td></tr><tr><td>tcGatewayConnectionInfo</td><td>Siemens.Engineering.TeamcenterGateway.TcGatewayConnectionInfo</td><td>√</td><td>在连接到 Teamcenter 期间返回 tcGatewayConnectionInfo。传递的 tcGatewayConnectionInfo 必须与活动连接的 tcGatewayConnectionInfo 匹配</td></tr><tr><td>itemID</td><td>System.String</td><td>√</td><td>指定 Teamcenter 中 TIA Portal 项目/库的条目 ID。</td></tr><tr><td>revisionID</td><td>System.String</td><td>√</td><td>指定数据集链接到的 Teamcenter 中 TIA Portal 项目/库的修订版 ID。</td></tr><tr><td>datasetType</td><td>Siemens.Engineering.TeamcenterGateway.Dataset Type</td><td>√</td><td>指定对应于要签入项目/库的 Teamcenter 数据集类型。例如:T4TiaProjectDataset / T4TiaLibraryDataset。</td></tr><tr><td>datasetName</td><td>System.String</td><td>√</td><td>指定对应于要签入项目/库的 Teamcenter 数据集类型名称。</td></tr></table>
@@ -3643,8 +3643,8 @@ private void function11()
 ### 5.4.15 取消在 Teamcenter 中签出数据集
 
 要求
-• TIA Portal Openness 已连接到 TIA Portal 请[连接到 TIA Portal](#连接到-TIA-Portal)”
-• 已打开一个项目请[打开项目](#打开项目)”
+• TIA Portal Openness 已连接到 TIA Portal 请[连接到 TIA Portal](#528-连接到-tia-portal)”
+• 已打开一个项目请[打开项目](#531-打开项目)”
 5.4 用于访问 Teamcenter Gateway 的函数
 应用
 可使用 TIA Portal Openness 对 Teamcenter 中的 TIA Portal 项目和全局库数据集取消签出操作。还可使用 CancelCheckoutDataset() 来释放 Teamcenter 中数据集的锁定。
@@ -3696,9 +3696,9 @@ private void function12()
 ### 5.5.1 端口到端口连接的可组态属性
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[打开项目](#打开项目)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[打开项目](#531-打开项目)
 • 已打开一个项目。
-请[打开项目](#打开项目)
+请[打开项目](#531-打开项目)
 应用
 端口互连的属性位于端口设备项。通过 TIA Portal Openness 进行的属性读写访问与在 UI 中的访问相同。
 
@@ -3759,7 +3759,7 @@ private void function12()
 
 ### 5.6.2 访问全局库
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
 全局库有三种类型。
 • 系统全局库 (Siemens.Engineering.Library.SystemGlobalLibrary)：这些全局库随 TIAPortal 一起安装并采用 .asx 文件扩展名。所有系统全局库均为只读。
 • 企业全局库 (Siemens.Engineering.Library.CorporateGlobalLibrary)：这些全局库已由管理员选择，可在 TIA Portal 启动时进行预加载。所有企业全局库均为只读。
@@ -3797,9 +3797,9 @@ foreach (GlobalLibraryInfo info in availableLibraries)
 ### 5.6.3 访问库基础类型
 
 要求
-• 应用程序已使用 TIA Portal Openness 连接到 TIA Portal[连接到 TIA Portal](#连接到-TIA-Portal)”
+• 应用程序已使用 TIA Portal Openness 连接到 TIA Portal[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 项目已打开
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 可使用 TIA Portal Openness 访问库类型对象的基础类型类。这些类都有Siemens.Engineering.Library.Types.LibraryType 的直接基础类型
 可访问以下基础类型类：
 • Siemens.Engineering.Hmi.Faceplate.FaceplateLibraryType
@@ -3828,9 +3828,9 @@ VBScriptLibraryType libraryTypeAsVbScript = libraryType as VBScriptLibraryType;
 
 要求
 • TIA Portal Openness 应用程序已连接到 TIA Portal。
-请[连接到 TIA Portal](#连接到-TIA-Portal)”
+请[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 库已打开
-请[打开库](#打开库)”
+请[打开库](#565-打开库)”
 可使用语言设置导航器访问和管理全局库语言。
 TIA Portal Openness 支持对全局库语言进行以下访问：
 • 通过支持的语言进行迭代。
@@ -3901,8 +3901,8 @@ languageSettings.ReferenceLanguage = supportedGermanLanguage;
 
 ### 5.6.5 打开库
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
-• 已通过 TIA Portal Openness 应用程序打开一个项目。此要求仅适用于访问项目库。请[打开项目](#打开项目)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
+• 已通过 TIA Portal Openness 应用程序打开一个项目。此要求仅适用于访问项目库。请[打开项目](#531-打开项目)
 全局库可采用 System.IO.FileInfo 通过本地存储介质或网络存储的库文件路径打开。只有用户全局库才可通过路径打开。从系统全局库或企业全局库获取的路径无法用于打开操作。
 自 V14 SP1 起的全局库可使用 GlobalLibraryInfo 打开。OpenMode 可在 GlobalLibraryInfo 中指定。
 早期版本的 TIA Portal 的用户全局库可用当前版本的 TIA Portal 升级和打开。V13 或更早版本的全局库无法用升级版本打开。这些库必须首先升级至 V13 SP1。
@@ -3949,9 +3949,9 @@ UserGlobalLibrary userLib = tia.GlobalLibraries.OpenWithUpgrade(fileInfo);
 ### 5.6.6 比较库
 
 要求
-• 应用程序已使用 TIA Portal Openness 连接到 TIA Portal[连接到 TIA Portal](#连接到-TIA-Portal)”
+• 应用程序已使用 TIA Portal Openness 连接到 TIA Portal[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 项目已打开
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 可以使用 TIA Portal Openness 相互比较各个库。例如，可在将新版本更新到项目之前使用此功能确定版本间的差异。
 可使用 Openness 对所选库对象进行具体比较。可比较两个库对象
 • 类型对象
@@ -4030,9 +4030,9 @@ DetailedCompareResult detailedCompareResult = leftMasterCopy比較To(rightMaster
 
 ### 5.6.7 基于版本对象创建类型
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal [连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal [连接到 TIA Portal](#528-连接到-tia-portal)”
 • 项目已经打开。
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 简介
 可使用 TIA Portal Openness 基于版本对象创建类型。可通过在 LibraryTypeComposition 中执行 CreateType 操作来使用此 API 功能。
 
@@ -4079,7 +4079,7 @@ private static void createTypeFromVersionObject(project Project)
 
 ### 5.6.8 枚举打开的库
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
 应用
 TIA Portal 中所有打开（不论是通过 API 打开还是通过用户界面打开）的全局库均可枚举。如果早期版本的 TIA Portal 的全局库以写访问的方式打开，则无法对其进行枚举。
 程序代码
@@ -4100,8 +4100,8 @@ foreach (GlobalLibrary globLib in tia.GlobalLibraries)
 ### 5.6.9 保存并关闭库
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
-• 库已打开。 请[打开库](#打开库)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
+• 库已打开。 请[打开库](#565-打开库)
 用户全局库可关闭或保存。对全局库的所有更改不会自动保存。若关闭全局库，则所有未保存的更改均将丢弃且不会给予任何提示。
 系统全局库和企业全局库无法关闭或保存。
 要保存和关闭全局库：
@@ -4150,11 +4150,11 @@ UserGlobalLibrary userLib = ... // close and discard changes userLib.Close();
 
 ### 5.6.10 归档与检索库
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
 • 库已打开。
-请[打开库](#打开库)
+请[打开库](#565-打开库)
 • 库已保存
-[保存并关闭库](#保存并关闭库)”
+[保存并关闭库](#569-保存并关闭库)”
 进行任意进一步修改之前，可使用 TIA Portal Openness 来归档打开的全局库，并保存全局库，以防止出现意外结果，以便可使用 TIA Portal Openenss 检索归档的库。还可以在网络上轻松分享归档文件。
 
 #### 归档库
@@ -4235,7 +4235,7 @@ DirectoryInfo(retrievedLibraryDirectory), OpenMode.ReadWrite));
 ### 5.6.11 创建全局库
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
 简介
 在 GlobalLibraryComposition 中调用 Create 类函数，基于 TIA Portal Openness API 创建各种全局库。此时，系统将返回一个 UserGlobalLibrary
 
@@ -4252,14 +4252,14 @@ tia.GlobalLibraries.Create<UserGlobalLibrary>(targetDirectory, "Library1")
 根据本示例：
 • 将创建文件夹“D:\GlobalLibraries\Library1”
 • 将创建全局库文件“D:\GlobalLibraries\Library1\Library1.alXX”
-[打开项目](#打开项目)
+[打开项目](#531-打开项目)
 
 ### 5.6.12 在库中访问文件夹
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
-• 已通过 TIA Portal Openness 应用程序打开一个项目。[打开项目](#打开项目)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
+• 已通过 TIA Portal Openness 应用程序打开一个项目。[打开项目](#531-打开项目)”
 • 需具有指定库的访问权限。
-[访问全局库](#访问全局库)”
+[访问全局库](#562-访问全局库)”
 可以通过 TIA Portal Openness API 接口在库中访问有关类型和主副本的系统文件夹。您可以访问系统文件夹中的类型、类型版本、主副本以及用户定义文件夹。
 您可通过Find方法随时访问用户定义的文件夹，例如
 libTypeUserFolder.Folders.Find("SomeUserFolder");。
@@ -4404,10 +4404,10 @@ masterCopyUserFolder.SetAttributes(new[] {new KeyValuePair<string,object>("Name"
 
 ### 5.6.13 访问类型
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
-• 已通过 TIA Portal Openness 应用程序打开一个项目。请[打开项目](#打开项目)
-• 您具有所需库的访问权限。请[访问全局库](#访问全局库)。
-• 您具有类型组的访问权限。请[在库中访问文件夹](#在库中访问文件夹)。
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
+• 已通过 TIA Portal Openness 应用程序打开一个项目。请[打开项目](#531-打开项目)
+• 您具有所需库的访问权限。请[访问全局库](#562-访问全局库)。
+• 您具有类型组的访问权限。请[在库中访问文件夹](#5612-在库中访问文件夹)。
 您可以通过 TIA Portal Openness API 接口访问包含在库中的类型。
 • 您可以枚举类型。
 • 可以重命名类型。
@@ -4511,12 +4511,12 @@ type.SetAttributes(new[] {new KeyValuePair<string,object>("Name", "NewTypeName")
 ### 5.6.14 访问类型版本
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
-• 已通过 TIA Portal Openness 应用程序打开一个项目。[打开项目](#打开项目)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
+• 已通过 TIA Portal Openness 应用程序打开一个项目。[打开项目](#531-打开项目)”
 • 需具有指定库的访问权限。
-[访问全局库](#访问全局库)”。
+[访问全局库](#562-访问全局库)”。
 • 需具有该类型组的访问权限。
-[在库中访问文件夹](#在库中访问文件夹)”。
+[在库中访问文件夹](#5612-在库中访问文件夹)”。
 可使用 TIA Portal Openness 执行以下功能：
 • 访问类型版本
 • 枚举一个类型的多个类型版本
@@ -4680,11 +4680,11 @@ public static void FindVersionInLibrary(ILibrary library, Guid versionGUID)
 
 ```text
 
-- TIA Portal Openness 应用程序已连接到 TIA Portal [连接到 TIA Portal](#连接到-TIA-Portal)”
+- TIA Portal Openness 应用程序已连接到 TIA Portal [连接到 TIA Portal](#528-连接到-tia-portal)”
 
 ```
 
-• 已打开一个项目请[打开项目](#打开项目)”
+• 已打开一个项目请[打开项目](#531-打开项目)”
 可使用 TIA Portal Openness 从库对象中获取版本信息，无需将对象实例化并进行编译。
 将在 LibraryTypeVersion 工程组态对象上提供新的导出动作，以导出版本内容。
 此动作将在给定的 exportFileInfo 处创建已导出 xml 文件。
@@ -4733,15 +4733,15 @@ version.Export(new FileInfo(@"D:\ExportCodeBlock.xml"), ExportOptions.WithReadOn
 
 ```
 
-[打开项目](#打开项目)
+[打开项目](#531-打开项目)
 
 ### 5.6.16 访问实例
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
-• 已通过 TIA Portal Openness 应用程序打开一个项目。请[打开项目](#打开项目)
-• 您具有所需库的访问权限。请[访问全局库](#访问全局库)。
-• 您具有类型组的访问权限。请[在库中访问文件夹](#在库中访问文件夹)。
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
+• 已通过 TIA Portal Openness 应用程序打开一个项目。请[打开项目](#531-打开项目)
+• 您具有所需库的访问权限。请[访问全局库](#562-访问全局库)。
+• 您具有类型组的访问权限。请[在库中访问文件夹](#5612-在库中访问文件夹)。
 可通过 TIA Portal Openness API 接口访问类型版本的实例。
 使用 FindInstances(IInstanceSearchScope searchScope) 方法找到某一类型版本的所有实例。
 您可使用searchScope 参数指定要搜索的项目区域。以下类实现IInstanceSearchScope 接口，并可用于进行实例搜索：
@@ -4818,10 +4818,10 @@ if(instanceInfo != null)
 
 ### 5.6.17 访问主副本
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
-• 项目已经打开。[打开项目](#打开项目)”
-• 您具有所需库的访问权限。[访问全局库](#访问全局库)”
-• 您具有主副本组的访问权限。[在库中访问文件夹](#在库中访问文件夹)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
+• 项目已经打开。[打开项目](#531-打开项目)”
+• 您具有所需库的访问权限。[访问全局库](#562-访问全局库)”
+• 您具有主副本组的访问权限。[在库中访问文件夹](#5612-在库中访问文件夹)”
 TIA Portal Openness API 接口支持对全局库和项目库中的主副本进行访问：
 • 创建主副本
 • 枚举系统文件夹和用户定义文件夹中的主副本
@@ -4931,8 +4931,8 @@ Type type = contentDescription.ContentType;
 ### 5.6.18 创建库中项目的主副本
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
-• 已打开一个项目。[打开项目](#打开项目)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
+• 已打开一个项目。[打开项目](#531-打开项目)”
 如果库为读写库，则可在目标位置创建 IMasterCopySource 的主副本。
 
 #### MasterCopy
@@ -4980,9 +4980,9 @@ public static void Create(Project project, PlcSoftware plcSoftware)
 ### 5.6.19 从主副本创建对象
 
 • TIA Portal Openness 应用程序已连接到 TIA Portal。
-[连接到 TIA Portal](#连接到-TIA-Portal)”
+[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 项目已经打开。
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 • PLC 未在线。
 TIA Portal Openness API 接口支持在项目中使用主副本。可使用 CreateFrom 方法从项目库或全局库中的模板副本在对象的组成中创建对象。
 返回类型与相应组成的返回类型相对应。
@@ -5068,13 +5068,13 @@ DeviceGroup newDeviceGroup= project.DeviceGroups.CreateFrom(copyOfDeviceGroup);
 
 ```
 
-[访问主副本](#访问主副本)
+[访问主副本](#5617-访问主副本)
 
 ### 5.6.20 复制主副本
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
-• 项目已经打开。[打开项目](#打开项目)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
+• 项目已经打开。[打开项目](#531-打开项目)”
 TIA Portal Openness API 接口支持在库内复制模板副本，也可使用 CreateFrom 操作在多个库之间复制模板副本。
 该操作会创建一个基于新对象的源模板副本，并将它置于调用该操作的组合中。该操作试图创建具有与源模板副本相同名称的新模板副本。
 如果该名称不可用，系统将为新模板副本提供一个新名称。随后即可返回新模板副本。
@@ -5095,10 +5095,10 @@ projectLibrary.MasterCopyFolder.MasterCopies.CreateFrom(sampleMasterCopy);
 ### 5.6.21 确定过期类型实例
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
-• 已打开一个项目。请[打开项目](#打开项目)
-• 您具有所需库的访问权限。请[访问全局库](#访问全局库)
-• 您具有类型文件夹的访问权限。请[在库中访问文件夹](#在库中访问文件夹)。
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
+• 已打开一个项目。请[打开项目](#531-打开项目)
+• 您具有所需库的访问权限。请[访问全局库](#562-访问全局库)
+• 您具有类型文件夹的访问权限。请[在库中访问文件夹](#5612-在库中访问文件夹)。
 TIA Portal Openness API 接口可用于确定已打开项目中的实例下属的类型版本。TIA PortalOpenness API 将为每个实例返回以下两种状态之一：
 • 该实例引用了过期的类型版本。
 • 该实例引用的是最新的类型版本。
@@ -5180,10 +5180,10 @@ private static void RecursivelyWriteMessageParts (UpdateCheckResultMessageCompos
 ### 5.6.22 更新项目
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
-• 已通过 TIA Portal Openness 应用程序打开一个项目。请[打开项目](#打开项目)
-• 您具有所需库的访问权限。请[访问全局库](#访问全局库)。
-• 您具有类型文件夹的访问权限。请[在库中访问文件夹](#在库中访问文件夹)。
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
+• 已通过 TIA Portal Openness 应用程序打开一个项目。请[打开项目](#531-打开项目)
+• 您具有所需库的访问权限。请[访问全局库](#562-访问全局库)。
+• 您具有类型文件夹的访问权限。请[在库中访问文件夹](#5612-在库中访问文件夹)。
 TIA Portal Openness API 接口可用于在项目的类型文件夹中更新所选类型的实例。
 进行更新时，项目中所用的实例将根据最新发布的类型版本进行更新。如果要更新全局库中的实例，则应预先执行同步操作。
 使用 UpdateProject 方法可更新实例。
@@ -5213,10 +5213,10 @@ private static void UpdateInstances(ILibrary myLibrary, LibraryTypeFolder single
 
 ### 5.6.23 更新库
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
-• 已通过 TIA Portal Openness 应用程序打开一个项目。请[打开项目](#打开项目)
-• 您具有所需库的访问权限。请[访问全局库](#访问全局库)。
-• 您具有类型文件夹的访问权限。请[在库中访问文件夹](#在库中访问文件夹)。
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
+• 已通过 TIA Portal Openness 应用程序打开一个项目。请[打开项目](#531-打开项目)
+• 您具有所需库的访问权限。请[访问全局库](#562-访问全局库)。
+• 您具有类型文件夹的访问权限。请[在库中访问文件夹](#5612-在库中访问文件夹)。
 TIA Portal Openness API 接口支持在项目库中进行以下更新：
 • 同步两个库中的所选类型。
 不可在执行同步时修改文件夹结构。待更新的类型通过 GUID 进行识别，然后进行更新：
@@ -5236,9 +5236,9 @@ globalLibrary.UpdateLibrary(new[]{globalLibrary.TypeFolder}, projectLibrary);
 
 ### 5.6.24 清理库
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
 • 项目已打开
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 可使用 TIA Portal Openness 应用程序删除库中指定类型的未使用版本并删除库中指定文件夹中的所有类型。
 Cleanup() 可用于项目和全局库（相应的库必须具有读/写权限）。此功能类似于 TIA Portal用户界面中的清理库功能。
 Cleanup() 基于指定的 CleanupLibraryMode 标志执行功能。
@@ -5273,9 +5273,9 @@ myLibrary.Cleanup(new [] {myLibrary.TypeFolder}, cleanupLibraryMode);
 
 ### 5.6.25 统一项目库中的项目
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
 • 项目已打开
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 可使用 TIA Portal Openness 将类型实例的名称和路径与指定库中的类型统一。
 HarmonizeProject() 可用于项目和全局库。此功能类似于 TIA Portal 用户界面中的统一功能。
 可指定要统一项目中的哪些设备，还可选择要统一名称、路径还是两者均统一。如果在全局库中调用 HarmonizeProject 功能，将先统一项目库，然后再统一项目。
@@ -5386,9 +5386,9 @@ projectLibrary.HarmonizeProject(new[] {type1, type2}, new[] {harmonizeProjectSco
 ### 5.6.26 库更新期间更新结构
 
 • TIA Portal Openness 应用程序已连接到 TIA Portal。
-[连接到 TIA Portal](#连接到-TIA-Portal)”
+[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 可使用 TIA Portal Openness 更新或保留项目和全局库结构，即使存在冲突的情况也是如此。
 还可使用 TIA Portal Openness 保留或删除目标库中
 未使用的版本。
@@ -5658,9 +5658,9 @@ myProjectLibrary.UpdateLibrary(new[] { type1 }, globalLibrary, (ForceUpdateMode)
 ### 5.6.27 更新库类型
 
 要求
-• 应用程序已使用 TIA Portal Openness 连接到 TIA Portal[连接到 TIA Portal](#连接到-TIA-Portal)”
+• 应用程序已使用 TIA Portal Openness 连接到 TIA Portal[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 项目已打开
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 可使用 TIA Portal Openness 选择不更新到项目库或全局库中项目的类型。借助此功能，可为项目或项目库更新更新需要更新的类型，并忽略不需要的类型。
 借助此功能，还可在供应商提供附加功能并且不需要等待所有供应商交付整个库时分发来自不同供应商的链接库，并更新项目或项目库。
 仅可为未进行写保护的全局库类型使用 SetForUpdate 属性，此时可对所有库类型执行 Get操作。对于项目库中的类型，SetForUpdate 始终返回 True。
@@ -5693,10 +5693,10 @@ using Siemens.Engineering;
 
 ### 5.6.28 删除库内容
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
-• 已通过 TIA Portal Openness 应用程序打开一个项目。[打开项目](#打开项目)”
-• 需具有指定库的访问权限。[访问全局库](#访问全局库)”。
-• 您具有类型文件夹的访问权限。请[在库中访问文件夹](#在库中访问文件夹)。
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
+• 已通过 TIA Portal Openness 应用程序打开一个项目。[打开项目](#531-打开项目)”
+• 需具有指定库的访问权限。[访问全局库](#562-访问全局库)”。
+• 您具有类型文件夹的访问权限。请[在库中访问文件夹](#5612-在库中访问文件夹)。
 可使用 TIA Portal Openness API 接口删除以下项目库内容：
 • 类型
 • 类型版本
@@ -5779,8 +5779,8 @@ public static void DeleteMasterCopies(ILibrary library)
 
 ### 5.6.29 设置类型的默认版本
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
-• 已通过 TIA Portal Openness 应用程序打开一个项目。请[打开项目](#打开项目)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
+• 已通过 TIA Portal Openness 应用程序打开一个项目。请[打开项目](#531-打开项目)”
 可使用 TIA Portal Openness 将任何已发布的版本设为该类型项目库和用户全局库的默认版本。
 默认版本被视为类型的首选版本。
 
@@ -5804,8 +5804,8 @@ versionA.setAsDefault(); // set the version as a default version of the type.
 
 ### 5.6.30 获取类型的默认版本
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
-• 已通过 TIA Portal Openness 应用程序打开一个项目。请[打开项目](#打开项目)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
+• 已通过 TIA Portal Openness 应用程序打开一个项目。请[打开项目](#531-打开项目)
 可使用 TIA Portal Openness 获取某一类型项目库和全局库的默认版本，还可以使用 TIA PortalOpenness 应用程序检查版本是否为默认版本。默认版本被视为类型的首选版本。
 
 ```javascript
@@ -5829,8 +5829,8 @@ var status = typeADefaultVersion.State;
 ### 5.6.31 改进了类型一致性状态
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
-• 已通过 TIA Portal Openness 应用程序打开一个项目。请[打开项目](#打开项目)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
+• 已通过 TIA Portal Openness 应用程序打开一个项目。请[打开项目](#531-打开项目)
 可使用 TIA Portal Openness 检查类型是否一致。类型可具有不同的一致性状态。如果Dependent Type 正在使用 Dependency 的默认版本，则 Type 为 Consistent。如果Dependent Type 未使用 Dependency Type 的默认版本，则 Type 为 Inconsistent。
 文件夹级别一致性状态显示结构下的任何类型为 Consistent 或 Inconsistent。
 Status API 是 Siemens.Engineering.Library.Types.LibraryType 和 Siemens.Engineering.Library.Types.LibraryTypeFolder 类的组成部分，为 ConsistencyStatustype 类型。
@@ -5914,13 +5914,13 @@ var status = typeFolder.Status; // throws博弈NullException
 
 ```
 
-[打开项目](#打开项目)
+[打开项目](#531-打开项目)
 
 ### 5.6.32 管理 PLC 和主副本库中的报警文本列表
 
 要求
-• TIA Portal Openness 已连接到 TIA Portal 请[连接到 TIA Portal](#连接到-TIA-Portal)”
-• 项目已打开[打开项目](#打开项目)”
+• TIA Portal Openness 已连接到 TIA Portal 请[连接到 TIA Portal](#528-连接到-tia-portal)”
+• 项目已打开[打开项目](#531-打开项目)”
 可使用 TIA Portal Openness 将 PLC 文本列表作为模板副本复制到库中，或从库的模板副本文件夹中删除 PLC 文本列表。项目库和全局库都可以使用。
 还可使用 TIA Portal Openness 来支持以下功能：
 • 访问用户文本列表和系统文本列表
@@ -5987,9 +5987,9 @@ project.ProjectLibrary.MasterCopyFolder.MasterCopies.Create(userTextlist);
 
 ### 5.7.1 打开“设备和网络”编辑器
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
 • 已打开一个项目。
-请[打开项目](#打开项目)
+请[打开项目](#531-打开项目)
 可采用以下两种方法之一，通过 API 接口打开“设备和网络”编辑器：
 • ShowHwEditor(View.Topology 或 View.Network 或 View.Device)：从项目打开“设备和网络”编辑器。
 • ShowInEditor(View.Topology 或 View.Network 或 View.Device)：在“设备和网络”编辑器中显示指定的设备。
@@ -6021,12 +6021,12 @@ private static void OpenEditorDevicesAndNetworksFromDevice(Device device)
 
 ```
 
-[导入组态数据](#导入组态数据)
+[导入组态数据](#616-导入组态数据)
 
 ### 5.7.2 查询 PLC 和 HMI 目标
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
-• 已打开一个项目。请[打开项目](#打开项目)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
+• 已打开一个项目。请[打开项目](#531-打开项目)
 您可以决定软件基础可在 TIA Portal Openness API 中用作 PLC 目标 (PlcSoftware) 还是 HMI 目标。
 程序代码：PLC 目标
 修改以下程序代码以确定某一设备项是否可用作 PLC 目标：
@@ -6081,9 +6081,9 @@ private HmiTarget GetHmiTarget(Device device)
 
 ### 5.7.3 地址对象的访问属性
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
 • 项目已经打开。
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 • 对于写入访问，PLC 已处于离线状态。
 可以使用 TIA Portal Openness API 接口来获取或设置地址对象属性。
 还可为 OB 指定当前过程映像。
@@ -6174,8 +6174,8 @@ try
 
 ### 5.7.4 访问模块的通道
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
-• 已打开一个项目。请[打开项目](#打开项目)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
+• 已打开一个项目。请[打开项目](#531-打开项目)
 对于模拟量输入模块等信号模块，通常单个模块内具有多个通道。通常，通道可多次提供相似功能，例如，一个四通道的模拟量输入模块可同时测量四个电压值。
 要访问某一模块的所有通道，请使用设备项的通道属性。
 5.7 访问设备<sub>、</sub> 网络和连接的功能
@@ -6225,8 +6225,8 @@ DeviceItem aiModule = ... Channel channel = aiModule.Channels.Find(ChannelType.A
 
 ### 5.8.1 创建子网
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
-• 已打开一个项目。请[打开项目](#打开项目)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
+• 已打开一个项目。请[打开项目](#531-打开项目)
 可以用两种不同方式创建子网：
 • 创建连接至接口的子网：子网创建处的接口的类型决定了子网的类型
 • 创建未连接至接口的子网。
@@ -6266,9 +6266,9 @@ Subnet newSubnet = subnets.Create("System:Subnet.Ethernet", "NewSubnet");
 
 ### 5.8.2 访问子网
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
 • 已打开一个项目。
-请[打开项目](#打开项目)
+请[打开项目](#531-打开项目)
 为实现某些网络相关的功能，例如，将接口分配给某一子网，必须访问项目中的子网。通常，子网会直接在项目级别聚合。
 
 #### 程序代码：访问某一项目的所有子网
@@ -6321,9 +6321,9 @@ NetType type = net.NetType;
 ### 5.8.3 访问内部子网
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
 • 已打开一个项目。
-请[打开项目](#打开项目)
+请[打开项目](#531-打开项目)
 应用
 如果一个设备项能够构建一个子网，则该设备项可提供附加功能“子网所有者”。若要访问此附加功能，必须使设备项的特定服务。
 
@@ -6358,8 +6358,8 @@ foreach(Subnet subnet in subnetOwner.Subnets)
 ### 5.8.4 获取子网的类型标识符
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
-• 已打开一个项目。[打开项目](#打开项目)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
+• 已打开一个项目。[打开项目](#531-打开项目)”
 属性 TypeIdentifier 用于识别子网。TypeIdentifier 字符串包含多个部分：<TypeIdentifierType>:<SystemIdentifier>
 TypeIdentifierType 可能具有的值为：
 • System
@@ -6379,9 +6379,9 @@ string typeIdentifier = subnet.TypeIdentifier;
 
 ### 5.8.5 访问子网属性
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目。
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 子网提供了某些可供读取和/或写入的强制属性。这些属性仅当其在 UI 中可用时才可用。通常仅当属性可以由用户在 UI 中修改时才允许写入。这可能因子网的类型而异。例如，只有当IsochronousMode 为“真”且 DpCycleMinTimeAutoCalculation 为“假”时用户才能设置DpCycleTime。
 
 #### ASI 类型子网的属性
@@ -6446,9 +6446,9 @@ bool isDefaultSubnet = ((IEngineeringObject) subnet).GetAttribute("DefaultSubnet
 
 ### 5.8.6 删除全局子网
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
 • 项目已经打开。
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 修改以下程序代码以删除项目中的全局子网：
 
 ```text
@@ -6464,9 +6464,9 @@ subnetToDelete.Delete();
 
 ### 5.8.7 枚举子网的所有参与者
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
 • 已打开一个项目。
-请[打开项目](#打开项目)
+请[打开项目](#531-打开项目)
 枚举子网上的所有参与者。
 程序代码
 修改以下程序代码以枚举子网的 DP 主站系统：
@@ -6483,9 +6483,9 @@ foreach (Node node in subnet.Nodes)
 
 ### 5.8.8 枚举子网的 IO 系统
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
 • 已打开一个项目。
-请[打开项目](#打开项目)
+请[打开项目](#531-打开项目)
 枚举 IoSystem 可提供所有存在于子网上的 io 系统。主站系统和 io 系统均由类别 IoSystem 表示。
 程序代码
 修改以下程序代码以枚举子网的 DP 主站系统：
@@ -6502,8 +6502,8 @@ foreach (IoSystem ioSystem in subnet.IoSystems)
 
 ### 5.8.9 访问节点
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
-• 已打开一个项目。请[打开项目](#打开项目)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
+• 已打开一个项目。请[打开项目](#531-打开项目)
 角色接口聚合节点访问与接口地址和子网分配相关的属性。
 节点名称可在 TIA Portal 的接口属性中查看。聚合在接口的节点，每个节点均具有一个唯一的标示符 NodeId，只能通过 TIA Portal Openness 查看其值。
 修改以下程序代码以访问某一接口的所有节点：
@@ -6533,9 +6533,9 @@ Openness: 用于工程组态工作流自动化的 API
 
 ### 5.8.10 访问节点的属性
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目。
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 设备项提供了某些可供读取和/或写入的强制属性。这些属性仅当其在 UI 中可用时才可用。通常仅当属性可以由用户在 UI 中修改时才允许写入。这可能因设备项的类型而异。例如，只有当 RouterUsed 为“真”时用户才能设置 RouterAddress。如果用户修改了 IO 控制器上的SubnetMask，则所有 IO 设备上的子网掩码也将更改为同一值。
 
 #### ASI 类型节点的属性
@@ -6609,9 +6609,9 @@ foreach (var attributeName in attributeNames)
 
 要求
 • TIA Portal Openness 应用程序已连接到 TIA Portal。
-请[连接到 TIA Portal](#连接到-TIA-Portal)
+请[连接到 TIA Portal](#528-连接到-tia-portal)
 • 已打开一个项目。
-请[打开项目](#打开项目)
+请[打开项目](#531-打开项目)
 修改以下程序代码以将节点（设备、接口）分配给网络：
 Node node = ...;
 Subnet subnet = ...;
@@ -6620,9 +6620,9 @@ node.ConnectToSubnet(subnet);
 ### 5.8.12 从子网断开节点
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
 • 已打开一个项目。
-请[打开项目](#打开项目)
+请[打开项目](#531-打开项目)
 修改以下程序代码以断开节点（设备、接口）与网络的连接：
 
 ```text
@@ -6634,9 +6634,9 @@ node.DisconnectFromSubnet();
 
 ### 5.8.13 创建 IO 系统
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
 • 项目已经打开。
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 通过在 IoController 类型的对象上调用操作 IoController.CreateIoSystem("name") 创建 io 系统。如果 name 为空或 String.Empty，则使用默认名称。通过访问 NetworkInterface 上的属性 IoControllers 对象获取 io 控制器。 IoControllers 导航器将返回一个 IoController 对象。
 创建 io 系统的先决条件：
 • io 控制器的接口连接到子网。
@@ -6666,9 +6666,9 @@ if((interface12.InterfaceOperatingMode & InterfaceOperatingModes.IoController) !
 ### 5.8.14 访问 IO 系统的属性
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
 • 项目已经打开。
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 应用
 主站系统和 io 系统均由 IoSystem 类别表示。
 
@@ -6701,11 +6701,11 @@ Subnet subnet = ioSystem.Subnet;
 ### 5.8.15 将 IO 连接器连接到 IO 系统
 
 • TIA Portal Openness 应用程序已连接到 TIA Portal。
-[连接到 TIA Portal](#连接到-TIA-Portal)”
+[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 项目已经打开。
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 使用 IoConnector 的 ConnectToIoSystem(IoSystem ioSystem) 操作将 profinet 或 DPIoConnector 连接至现有 io 系统。
-使用操作 GetIoController 导航至远程 IoController。有关如何导航至本地 IoConnector 和 io系统的更多信息，请[获取接口的主站系统或 IO 系统](#获取接口的主站系统或-IO-系统)。
+使用操作 GetIoController 导航至远程 IoController。有关如何导航至本地 IoConnector 和 io系统的更多信息，请[获取接口的主站系统或 IO 系统](#5816-获取接口的主站系统或-io-系统)。
 先决条件：
 • IoConnector 未连接到 io 系统。
 • IoConnector 接口与所需 IoController 的接口连接到相同的子网。
@@ -6728,9 +6728,9 @@ foreach (IoController ioController in itf.IoControllers)
 ### 5.8.16 获取接口的主站系统或 IO 系统
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
 • 项目已经打开。
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 服务 NetworkInterface 可提供导航 IoControllers，每个 IoController 又可提供导航IoSystem。主站系统和 io 系统均由类别 IoSystem 表示。io 设备和从站被统称为 io 设备。
 • 若网络接口具有 io 系统，则　IoControllers 导航将返回 IoController 对象。此时仅会返回一个 io 控制器。
 • 如果网络接口可作为 io 设备连接至 io 系统，则 IoConnectors 导航将返回 IoConnector 对 象。此时仅会返回一个 io 连接器。
@@ -6766,9 +6766,9 @@ foreach (IoConnector ioConnector in itf.IoConnectors)
 ### 5.8.17 获取 IO 控制器
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
 • 已打开一个项目。
-请[打开项目](#打开项目)
+请[打开项目](#531-打开项目)
 当前仅可配置一个 IoController。IoController 不提供任何建模属性或操作。
 程序代码
 修改以下程序代码以获取 IO 控制器：
@@ -6786,9 +6786,9 @@ foreach (IoController ioController in itf.IoControllers)
 ### 5.8.18 获取 IO 连接器
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
 • 已打开一个项目。
-请[打开项目](#打开项目)
+请[打开项目](#531-打开项目)
 应用
 IoConnector 提供已建模的属性或动作。
 IoConnector 提供以下属性和动作：
@@ -6812,8 +6812,8 @@ foreach (IoConnector ioConnector in itf.IoConnectors)
 
 ### 5.8.19 端口 IO 控制器与 IO 系统或 DP 主站系统的连接
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
-• 已打开一个项目。请[打开项目](#打开项目)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
+• 已打开一个项目。请[打开项目](#531-打开项目)
 使用 IoConnector 的 DisconnectFromIoSystem() 操作从现有 io 系统或现有 DP 主站系统中断开 IoConnector。
 有关如何导航至本地 IoConnector 和 io 系统的更多信息，请参见获取接口的主站系统或 IO系统 (页 330)。
 程序代码
@@ -6829,9 +6829,9 @@ IoConnector ioConnector = ...;
 ### 5.8.20 访问 DP 主站系统的属性
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
 • 项目已经打开。
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 简介
 DP 主站系统提供了某些可供读取和/或写入的属性。这些属性仅当其在 TIA Portal 中可用时才可用。通常仅当属性可以由用户在 TIA Portal 中修改时才允许写入。具体取决于分配给此 DP主站系统的 DP 主站和 DP 从站。
 
@@ -6878,9 +6878,9 @@ dpMastersystem.Number=42;
 ### 5.8.22 访问 profinet io 系统的属性
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
 • 已打开一个项目。
-请[打开项目](#打开项目)
+请[打开项目](#531-打开项目)
 IO 系统提供了某些可供读取和/或写入的属性。这些属性仅当其在 UI 中可用时才可用。通常仅当属性可以由用户在 UI 中修改时才允许写入。具体取决于分配给此 IO 系统的 IO 控制器和IO 设备。
 
 #### PROFINET IO 系统的属性
@@ -6935,9 +6935,9 @@ IoSystem ioSystem = ...;
 ### 5.8.23 删除 DP 主站系统
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
 • 已打开一个项目。
-请[打开项目](#打开项目)
+请[打开项目](#531-打开项目)
 程序代码：删除 PROFINET io 系统
 修改以下程序代码以删除 PROFINET io 系统：
 
@@ -6957,9 +6957,9 @@ ioSystem.Delete();
 ### 5.8.24 删除 profinet io 系统
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
 • 已打开一个项目。
-请[打开项目](#打开项目)
+请[打开项目](#531-打开项目)
 程序代码
 修改以下程序代码以删除profinet io 系统：
 
@@ -6974,9 +6974,9 @@ ioSystem.Delete();
 ### 5.8.25 创建 DP 主站系统
 
 • TIA Portal Openness 应用程序已连接到 TIA Portal。
-[连接到 TIA Portal](#连接到-TIA-Portal)”
+[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 项目已经打开。
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 通过在 IoController 类型的对象上调用 CreateIoSystem(string nameOfIoSystem) 操作创建DP 主站系统。通过访问 NetworkInterface 上的属性 IoControllers 对象获取 io 控制器。
 创建 DP 主站系统的先决条件：
 • io 控制器的接口连接到子网。
@@ -7003,9 +7003,9 @@ if((interface12.InterfaceOperatingMode & InterfaceOperatingModes.IoController) !
 
 ### 5.8.26 访问端口设备项的端口互连信息
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
 • 已打开一个项目。
-请[打开项目](#打开项目)
+请[打开项目](#531-打开项目)
 NetworkPort 提供链接 ConnectedPorts，该链接用于对端口进行枚举，从而访问某个端口的所有互连伙伴端口。
 只能对在 TIA UI 中同样可以互连的端口进行互连，例如，不能对同一以太网接口的两个端口进行互连。以下情况会出现可恢复的异常状况：
 • 已经存在到同一伙伴端口的互连
@@ -7089,9 +7089,9 @@ TIA Portal Openness 支持端口互连的以下属性。如果 UI 中提供属�
 
 ### 5.8.28 访问端口的属性
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
 • 已打开一个项目。
-请[打开项目](#打开项目)
+请[打开项目](#531-打开项目)
 如果设备项为端口，则除简单的设备项功能外，其还可提供附加功能。
 • 可以访问该端口的已链接伙伴端口
 • 可以访问该端口的接口
@@ -7124,9 +7124,9 @@ var myInterface = port.Interface;
 ### 5.8.29 枚举子网的 DP 主站系统
 
 • TIA Portal Openness 应用程序已连接到 TIA Portal。
-请[连接到 TIA Portal](#连接到-TIA-Portal)
+请[连接到 TIA Portal](#528-连接到-tia-portal)
 • 已打开一个项目。
-请[打开项目](#打开项目)
+请[打开项目](#531-打开项目)
 枚举 IoSystem 可提供所有存在于子网上的 DP 主站系统。主站系统和 io 系统均由类别IoSystem 表示。
 修改以下程序代码以枚举子网的 DP 主站系统：
 
@@ -7142,8 +7142,8 @@ foreach (IoSystem ioSystem in subnet.IoSystems)
 
 ### 5.8.30 枚举已分配的 IO 连接器
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
-• 已打开一个项目。请[打开项目](#打开项目)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
+• 已打开一个项目。请[打开项目](#531-打开项目)
 主站系统和 io 系统均由类别 IoSystem 表示。
 它用于：
 • 枚举 dp 主站系统的 IO 连接器
@@ -7162,11 +7162,11 @@ foreach (IoConnector ioConnector in ioSystem-connectedIoDevices)
 
 ### 5.8.31 将 DP IO 连接器连接到 DP 主站系统
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
 • 已打开一个项目。
-请[打开项目](#打开项目)
+请[打开项目](#531-打开项目)
 使用 IoConnector 的 ConnectToIoSystem(IoSystem ioSystem) 操作将 IoConnector 连接至现有 DP 主站系统。
-使用操作 GetIoController 导航至远程 IoController。有关如何导航至本地 IoConnector 和 io系统的更多信息，请[获取接口的主站系统或 IO 系统](#获取接口的主站系统或-IO-系统)。
+使用操作 GetIoController 导航至远程 IoController。有关如何导航至本地 IoConnector 和 io系统的更多信息，请[获取接口的主站系统或 IO 系统](#5816-获取接口的主站系统或-io-系统)。
 先决条件：
 • IoConnector 未连接到 io 系统。
 • IoConnector 接口与所需 IoController 的接口连接到相同的子网。
@@ -7184,9 +7184,9 @@ IoController ioController = ioConnector.GetIoController();
 ### 5.8.32 访问虚拟从站的 AS-i 配置文件和参数属性
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal 请[连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal 请[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 TIA Portal Openness 支持 CTT5 AS-i 从站（使用 StructuredData 名称）的虚拟从站的以下附加 AS-i 配置文件参数：
 <table><tr><td>名称</td><td>描述</td></tr><tr><td>AsiProfileVirtualSlave1</td><td>包含虚拟从站 1 的 AS-i 配置文件参数</td></tr><tr><td>AsiProfileVirtualSlave2</td><td>包含虚拟从站 2 的 AS-i 配置文件参数</td></tr><tr><td>AsiProfileVirtualSlave3</td><td>包含虚拟从站 3 的 AS-i 配置文件参数</td></tr></table>
 虚拟从站的 AS-i 从站参数位于：
@@ -7229,14 +7229,14 @@ slaveModule.SetAttribute(attributeName, (UInt32)5);
 
 ```
 
-[连接到 TIA Portal](#连接到-TIA-Portal)
+[连接到 TIA Portal](#528-连接到-tia-portal)
 打开项目 (页 140)
 
 ### 5.8.33 访问作为 DP 从站的 CM DP 和传送区
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal [连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal [连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 如果已插入 CM DP，则可使用 TIA Portal Openness 将 ET200SP PLC 组态为 DP 从站。还可以在 TIA Portal Openness 中创建、组态和删除 DP 接口的传送区。处理过程类似于“PnPn 耦合器的 Openness 传输区 (页 359)”中介绍的对 PN 接口的传输区域的处理过程。
 设备项 DP 接口支持以下动态属性。
 <table><tr><td>属性名称</td><td>数据类型</td><td>访问</td><td>可写入</td></tr><tr><td>DpUseForTestCommissioningRouting</td><td>Boolean</td><td>仅在组态为DP从站时可用</td><td>读/写</td></tr><tr><td>DpWatchdog</td><td>Boolean</td><td>仅在组态为DP从站且分配给DP主站时可用</td><td>读/写</td></tr></table>
@@ -7269,14 +7269,14 @@ transferAreaExample.Delete();
 
 ```
 
-[打开项目](#打开项目)
+[打开项目](#531-打开项目)
 
 ### 5.8.34 耦合 1516 等时同步集中和分散 Profinet
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 可使用 TIA Portal Openness 执行以下操作：
 • 假定 1516 PLC 包含一个具有等式同步功能的模块，且可以将该 PLC 设为等时同步模式
 • 假定在之前的组态中，该模块分配给 OB61，且可以将该模块设为等时同步模式
@@ -7341,9 +7341,9 @@ address.SetAttribute("ProcessImage", 3);
 
 ### 5.8.35 Openness 适用于 CP 1604/CP 1616/CP 1626
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
 • 项目已经打开。
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 • 编译项目前，所有设备必须为“离线”状态。
 可以使用 TIA Portal Openness 应用程序为通信处理器 CP 1604/CP 1616 V2.8 及更高版本（也可以为 V2.7 及更高版本，取决于订货号）和 CP 1626 V1.1 及更高版本组态传输区和传输区映像规则。
 
@@ -7459,8 +7459,8 @@ route.Delete();
 
 ### 5.8.36 PnPn 耦合器的 Openness 传输区
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal [连接到 TIA Portal](#连接到-TIA-Portal)”
-• 已打开一个项目请[打开项目](#打开项目)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal [连接到 TIA Portal](#528-连接到-tia-portal)”
+• 已打开一个项目请[打开项目](#531-打开项目)”
 • 要编译项目，所有设备必须“离线”
 可使用 TIA Portal Openness 为 PnPn 耦合器添加模块和子模块、删除和搜索传输区域。
 
@@ -7549,9 +7549,9 @@ TransferArea transferAreaFind = transferAreas.Find(5);
 ### 5.8.37 ET 200SP PN HF 的 Openness 虚拟模块/子模块
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal [连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal [连接到 TIA Portal](#528-连接到-tia-portal)”
 • 项目已打开
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 简介
 可使用 TIA Portal Openness 添加和删除 ET 200 SP PN HF 的虚拟模块/子模块。
 虚拟模块中支持以下特性：
@@ -7616,9 +7616,9 @@ SubModule3.Delete();
 
 ### 5.8.38 访问域设置
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal 请[连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal 请[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 可使用 TIA Portal Openness 访问完整的域管理。以下两个新服务添加到 Subnet 类中，用于通过 TIA Portal Openness 访问域管理：
 • 服务 MrpDomainOwner
 • 服务 SyncDomainOwner
@@ -7711,13 +7711,13 @@ newSyncDomain.Delete();
 
 ```
 
-[连接到 TIA Portal](#连接到-TIA-Portal)打开项目 (页 140)
+[连接到 TIA Portal](#528-连接到-tia-portal)打开项目 (页 140)
 
 ### 5.8.39 访问冗余模式属性
 
 要求
-• TIA Portal Openness 已连接到 TIA Portal 请[连接到 TIA Portal](#连接到-TIA-Portal)”
-• 已打开一个项目请[打开项目](#打开项目)”
+• TIA Portal Openness 已连接到 TIA Portal 请[连接到 TIA Portal](#528-连接到-tia-portal)”
+• 已打开一个项目请[打开项目](#531-打开项目)”
 可使用 TIA Portal Openness 访问支持 S2 的设备，将其作为切换的 S1 设备运行。使用Openness，应该能够在 TIA Portal 用户界面上为 IOD 更改模式设置，该 IOD 能够将 S2 类型的系统冗余切换为“S1”，如下所示：
 <table><tr><td colspan="2">Network overview</td><td>Connections</td><td>Relations</td><td>I/O communication</td><td>VPN</td><td>Telecontrol</td><td></td></tr><tr><td colspan="2">Offline configuration</td><td>Online assignment</td><td colspan="5">→ ←</td></tr><tr><td colspan="8"></td></tr><tr><td></td><td colspan="2">Partner 1</td><td>↔</td><td>Partner 2</td><td>Interface partner 2</td><td colspan="2">Mode</td></tr><tr><td>1</td><td colspan="2">PLC_1</td><td></td><td></td><td></td><td colspan="2"></td></tr><tr><td>2</td><td colspan="2">PROFINET interface_1</td><td></td><td></td><td></td><td colspan="2"></td></tr><tr><td>3</td><td colspan="2">X1</td><td>↔</td><td>IO device_5</td><td>PROFINET interface</td><td colspan="2">IO device(S2)</td></tr><tr><td>4</td><td colspan="2">PLC_2</td><td></td><td></td><td></td><td colspan="2">IO device(S2)</td></tr><tr><td>5</td><td colspan="2">PROFINET interface_1</td><td></td><td></td><td></td><td colspan="2">IO device(S1)</td></tr><tr><td>6</td><td colspan="2">X1</td><td>↔</td><td>IO device_5</td><td>PROFINET interface</td><td colspan="2">IO device(S2)</td></tr><tr><td>7</td><td colspan="2"></td><td></td><td></td><td></td><td colspan="2"></td></tr></table>
 TIA Portal 的“模式”(Mode) 特性在名为 RedundancyMode 的 TIA Portal Openness 中可用。此属性在 S2 和 R1 IO 设备的 Profinet 接口上提供。
@@ -7748,8 +7748,8 @@ Assert.AreEqual(0, compileResult?.ErrorCount);
 
 ### 5.8.40 创建 CCDX 传输区域
 
-• 应用程序已通过 TIA Portal Openness 连接到 TIA Portal[连接到 TIA Portal](#连接到-TIA-Portal)”
-• 已打开一个项目请[打开项目](#打开项目)”
+• 应用程序已通过 TIA Portal Openness 连接到 TIA Portal[连接到 TIA Portal](#528-连接到-tia-portal)”
+• 已打开一个项目请[打开项目](#531-打开项目)”
 可在 TIA Portal Openness 中使用 MulticastableTransferArea 对象的 Create() 创建 CCDX 传送区。可多播是指表示发送方传输区域可向多个接收方伙伴传输区域传递信息的一对多关系。而在相反的方向上，接收方传输区域只能与一个发送方伙伴通信。
 重载 Create() 接受 Openness 中的以下参数名：
 <table><tr><td>参数</td><td>返回类型</td><td>描述</td></tr><tr><td>Create(NetworkInterface, TransferAreaType)</td><td>MulticastableTransferArea</td><td>创建一个传输区域,并将其添加到指定网络接口上具有指定状态(例如DDX)的现有CCDX连接</td></tr><tr><td>Create(NetworkInterface, TransferAreaType, Name)</td><td>MulticastableTransferArea</td><td>通过指定的名称创建一个传输区域,并将其添加到指定网络接口上具有指定状态(例如DDX)的现有CCDX连接</td></tr><tr><td>Create(NetworkInterface, TransferAreaType, Name, Length)</td><td>MulticastableTransferArea</td><td>通过指定的名称和长度创建一个传输区域,并将其添加到指定网络接口上具有指定状态(例如DDX)的现有CCDX连接。</td></tr><tr><td>Create(MulticastableTransferArea, TransferAreaType)</td><td>MulticastableTransferArea</td><td>新建一个具有指定类型的传输区域,并将分配为现有发送方端传输区域的接收方。</td></tr></table>
@@ -7777,14 +7777,14 @@ private void CreatingTransferArea()
 
 ```
 
-[打开项目](#打开项目)
+[打开项目](#531-打开项目)
 
 ### 5.8.41 删除 CCDX 传输区域
 
 要求
-• 应用程序已通过 TIA Portal Openness 连接到 TIA Portal[连接到 TIA Portal](#连接到-TIA-Portal)”
+• 应用程序已通过 TIA Portal Openness 连接到 TIA Portal[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 简介
 可在 TIA Portal Openness 中使用 MulticastableTransferArea 对象的 Delete() 创建删除传输区域。可多播是指表示发送方传输区域可向多个接收方伙伴传输区域传递信息的一对多关系。而在相反的方向上，接收方传输区域只能与一个发送方伙伴通信。
 删除接收方时，Delete() 的行为有所不同。始终只有 1 个发送方（一对多）。
@@ -7809,8 +7809,8 @@ private void DeleteTransferArea()
 
 ### 5.8.42 修改 CCDX 传输区域组态
 
-• TIA Portal 已连接到 TIA Portal Openness 请[连接到 TIA Portal](#连接到-TIA-Portal)”
-• 已打开一个项目请[打开项目](#打开项目)”
+• TIA Portal 已连接到 TIA Portal Openness 请[连接到 TIA Portal](#528-连接到-tia-portal)”
+• 已打开一个项目请[打开项目](#531-打开项目)”
 可使用 TIA Portal Openness 来相关 CCDX 传输区域的组态。在 Openness 中，可通过NetworkInterface （作为 TransferAreaMulticastableComposition 对象）访问传输区域，该对象包含属于同一 PLC 的同一接口的所有传输区域。
 可多播是指表示发送方传输区域可向多个接收方伙伴传输区域传递信息的一对多关系。而在相反的方向上，接收方传输区域只能与一个发送方伙伴通信。（例如 CCDX 传输区域）。
 特性
@@ -7859,9 +7859,9 @@ private void ModifyingCCDXTransferArea()
 ### 5.9.1 设备的强制属性
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 项目已经打开。
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 应用
 每个设备或设备项均具备可进行读取和/或写入的特定强制属性。这些属性始终与 TIA Porta用户界面中的属性相同。
 Openness 支持以下属性：
@@ -7889,8 +7889,8 @@ foreach (var attributeName in attributeNames){object attributeValue = ((IEnginee
 
 ### 5.9.2 获取设备和设备项的类型标识符
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#连接到-TIA-Portal)”
-• 项目已经打开。请[打开项目](#打开项目)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#528-连接到-tia-portal)”
+• 项目已经打开。请[打开项目](#531-打开项目)”
 属性 TypeIdentifier 用于识别可通过 TIA Portal Openness API 创建的硬件对象。TypeIdentifier 字符串包含多个部
 
 ```twig
@@ -7938,9 +7938,9 @@ string typeIdentifier = hardwareObject.TypeIdentifier;
 ### 5.9.3 设置设备的 App ID 并设置设备项
 
 • TIA Portal Openness 应用程序已连接到 TIA Portal。
-[连接到 TIA Portal](#连接到-TIA-Portal)”
+[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 项目已打开
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 可以使用 TIA Portal Openness 设置设备的应用程序 ID 以及 TIA Portal 项目的设备项，从而将应用程序 ID 保留在 TIA Portal 的当前会话中以供稍后使用。
 可设置应用程序 ID，方法是提供 API 的“应用程序键”(Application Key) 和“应用程序值”(Application Value) 对。
 下列限制适用于设备的应用程序 ID 和设备项对象：
@@ -7963,9 +7963,9 @@ customIdentityProviderService.Set("Application_Key", "Application_Value");
 
 ### 5.9.4 获取设备的 App ID 和设备项
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 如果设备或设备项已设置了应用程序 ID，则可以使用 TIA Portal Openness 获取设备的应用程序 ID 以及 TIA Portal 项目的设备项。
 应用程序 ID 将以“应用程序键”(Application Key) 和“应用程序值”(Application Value) 对的形式存储，并作为 TIA Portal 的一部分。可使用 TIA Portal Openness 获取应用程序 ID 值，方法是提供“应用程序键”(Application Key)。
 修改以下程序代码以获取对象的应用程序 ID 值，该值事先已使用“应用程序键”(ApplicationKey) 进行设置：
@@ -7987,11 +7987,11 @@ var applicationValue = customIdentityProviderService.Get("Application_Key");
 
 ```text
 
-- TIA Portal Openness 应用程序已连接到 TIA Portal。[连接到 TIA Portal](#连接到-TIA-Portal)”
+- TIA Portal Openness 应用程序已连接到 TIA Portal。[连接到 TIA Portal](#528-连接到-tia-portal)”
 
 ```
 
-• 项目已打开[打开项目](#打开项目)”
+• 项目已打开[打开项目](#531-打开项目)”
 可以使用 TIA Portal Openness 移除设备的应用程序 ID（自定义身份）以及 TIA Portal 项目的设备项，以便通过相关应用程序 ID 更新设备和设备项对象。
 如果作为参数进行传递的应用程序 ID 不存在，则 CustomIdentityNotFoundException 会发生异常。
 修改以下程序代码来移除设备的应用程序 ID 和设备项：
@@ -8015,8 +8015,8 @@ catch(CustomIdentityNotFoundException ex)
 
 ### 5.9.6 创建设备
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
-• 项目已经打开。[打开项目](#打开项目)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
+• 项目已经打开。[打开项目](#531-打开项目)”
 可以通过两种方法创建设备，即在项目中或在设备组中：
 
 ```text
@@ -8063,8 +8063,8 @@ Device gsdDeviceOnly = devices.Create("GSD:SIEM8139.GSD/D", "GSD Device");
 ### 5.9.7 枚举设备
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
-• 项目已经打开。[打开项目](#打开项目)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
+• 项目已经打开。[打开项目](#531-打开项目)”
 使用 TIA Portal Openness API 定位设备的方式与 TIA Portal 中项目导航的方式非常类似。PNV.
 • 使用项目组合“Devices”集合作为直接子项目的设备
 • 使用文件夹组合“Devices”集成设备文件夹中的设备。
@@ -8215,9 +8215,9 @@ Device plc1 = group.Devices.First(d => d.Name == "MyStationName");
 
 要求
 • TIA Portal Openness 应用程序已连接到 TIA Portal。
-[连接到 TIA Portal](#连接到-TIA-Portal)”
+[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 项目已经打开。
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 简介
 每个基于 GSD 或 GSDML 的 IO 设备都具有属性。其中某些属性可用于识别特定类型的设备。
 <table><tr><td>名称</td><td>数据类型</td><td>可写入</td><td>访问</td><td>描述</td></tr><tr><td>Author</td><td>string</td><td>读/写</td><td>动态</td><td>-</td></tr><tr><td>Comment</td><td>string</td><td>读/写</td><td>动态</td><td>-</td></tr><tr><td>GsdName</td><td>string</td><td>读</td><td>动态</td><td>GSD/GSDML 文件的名称。</td></tr><tr><td>GsdType</td><td>string</td><td>读</td><td>动态</td><td>硬件对象的类型。对于设备,该值始终为“D”。</td></tr><tr><td>GsdId</td><td>string</td><td>读</td><td>动态</td><td>硬件对象的特定标识符。对于设备,始终为空</td></tr><tr><td>IsGsd</td><td>bool</td><td>读</td><td>模型化</td><td>对于 GSD 设备或 GSDML 设备为 TRUE</td></tr><tr><td>Name</td><td>string</td><td>读/写</td><td>模型化</td><td>-</td></tr><tr><td>Typeldentifier</td><td>string</td><td>读</td><td>模型化</td><td>-</td></tr></table>
@@ -8296,9 +8296,9 @@ bool isProfinet = gsdDevice.IsProfinet;
 
 ### 5.9.9 访问 TIA Portal 硬件目录
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
 • 项目已打开
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 运行 Openness 应用程序之前，可在目录中手动检查所需硬件。当需要添加到 Openness 应用程序中的设备在硬件目录中不可用时，还可以使用 TIA Portal Opennss 进行正确响应，例如向用户发出一条消息，通知其需要先安装 GSD(ML) 或 HSP。
 引入了新类型 Siemens.Engineering.HW.HardwareCatalog.CatalogEntry，其中包含以下属性成员：
 <table><tr><td>属性名称</td><td>数据类型</td><td>描述</td><td>访问</td></tr><tr><td>ArticleNumber</td><td>System.String</td><td>指定硬件对象的订货号,例如:6ES7516-3AN00-0AB0</td><td>读</td></tr><tr><td>CatalogPath</td><td>System.String</td><td>指定项目的目录路径,例如:Root\PLC\SIMATIC S7-1500\CPU\CPU 1516-3 PN/DP\6ES7 516-3AN00-0AB0</td><td>读</td></tr><tr><td>Description</td><td>System.String</td><td>指定硬件目录条目的描述,例如:带显示屏的CPU;1 MB代码工作内存,5 MB数据工作内存10 ns位指令时间;4级保护概念,集成工艺功能:运动控制、闭环控制、计数与测量集成跟踪第1个接口:PROFINET IO控制器,支持RT/IRT,2个端口,MRP,传输协议TCP/IP,S7通信,Web服务器,恒定总线循环时间,路由第2个接口:PROFINET基本服务,传输协议TCP/IP,Web服务器,路由第3个接口:PROFIBUS DP主站,恒定总线循环时间,路由;固件版本V1.0</td><td>读</td></tr></table>
@@ -8341,9 +8341,9 @@ Console.ReadKey();
 
 要求
 • TIA Portal Openness 应用程序已连接到 TIA Portal。
-请[连接到 TIA Portal](#连接到-TIA-Portal)”
+请[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 项目已经打开。
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 
 #### 修改以下程序代码以删除设备：
 
@@ -8390,9 +8390,9 @@ deviceToDelete.Delete();
 
 ### 5.9.11 批量更改硬件参数
 
-• TIA Portal 已连接到 TIA Portal Openness 请[连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal 已连接到 TIA Portal Openness 请[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 项目已打开
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 可使用 TIA Portal Openness 通过单个 SetAttributes 调用来组态硬件对象的多个属性。该 API 还消除了在调用函数时对属性及其相应值的顺序和依赖关系的顾虑。
 SetAttributes(IEnumerable<KeyValuePair<string, object>> attributes, AttributeDelegate errorHandler);
 这是 SetAttributes(IEnumerable<KeyValuePair<string, object>> attributes) API 的重载。自 TIA Portal V19 起，批量更改硬件参数的排序方式与所有重载“SetAttributes”方法相同。
@@ -8428,8 +8428,8 @@ attributeConfiguration.CurrentSelection = AttributeChoiceSelection.Ignore;
 ### 5.10.1 设备项的强制属性
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
-• 已打开一个项目。请[打开项目](#打开项目)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
+• 已打开一个项目。请[打开项目](#531-打开项目)
 每个设备或设备项均具备可进行读取和/或写入的特定强制属性。这些属性始终与 TIA Porta用户界面中的属性相同。
 TIA Portal Openness 支持以下属性：
 <table><tr><td>属性名称</td><td>数据类型</td><td>可写</td><td>访问</td><td>注释</td></tr><tr><td>Author</td><td>string</td><td>读/写</td><td>动态</td><td>-</td></tr><tr><td>Classification</td><td>DeviceItemClassification</td><td>读</td><td>模型化</td><td>关于设备项所属的分类、标志枚举,请参见设备项分类。</td></tr><tr><td>Comment</td><td>string</td><td>读/写</td><td>动态</td><td>有时仅限读访问</td></tr><tr><td>CommentML</td><td>MultilingualTextltem</td><td>读/写</td><td>动态</td><td>有时仅限读访问</td></tr><tr><td>FirmwareVersion</td><td>string</td><td>读</td><td>动态</td><td>-</td></tr><tr><td>InterfaceOperatingMode</td><td>InterfaceOperatingModes</td><td>读/写</td><td>动态</td><td>适用于提供 NetworkInterface 功能的设备项</td></tr><tr><td>InterfaceType</td><td>NetType</td><td>读/写</td><td>动态</td><td>适用于提供 NetworkInterface 功能的设备项</td></tr><tr><td>IsBuiltIn</td><td>bool</td><td>读</td><td>模型化</td><td>对于可由用户创建的对象而言为 FALSE</td></tr><tr><td>IsGsd</td><td>bool</td><td>读</td><td>模型化</td><td>TRUE,前提是通过 GSD/GSDML 安装设备说明</td></tr><tr><td>IsPlugged</td><td>bool</td><td>读</td><td>模型化</td><td>对于已插入的设备而言为 TRUE</td></tr><tr><td>Label</td><td>string</td><td>读</td><td>动态</td><td>适用于提供 NetworkPort或 NetworkInterface 功能的设备项。如果接口或端口不具备标签,Label 将为 String.Empty。</td></tr><tr><td>LocationIdentifier</td><td>string</td><td>读/写</td><td>动态</td><td>-</td></tr><tr><td>Name</td><td>string</td><td>读/写</td><td>模型化</td><td>有时仅限读访问</td></tr><tr><td>OrderNumber</td><td>string</td><td>读</td><td>动态</td><td>-</td></tr><tr><td>PlantDesignation</td><td>string</td><td>读/写</td><td>动态</td><td>-</td></tr><tr><td>PositionNumber</td><td>int</td><td>读</td><td>模型化</td><td>-</td></tr><tr><td>Typeldentifier</td><td>string</td><td>读</td><td>模型化</td><td>-</td></tr></table>
@@ -8472,9 +8472,9 @@ DeviceItem deviceItem = ...;
 
 ### 5.10.2 创建和插入设备项
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
 • 已打开一个项目。
-请[打开项目](#打开项目)
+请[打开项目](#531-打开项目)
 
 ```text
 
@@ -8574,9 +8574,9 @@ foreach (PlugLocation item in result)
 ### 5.10.3 将设备项移到另一插槽中
 
 • TIA Portal Openness 应用程序已连接到 TIA Portal。
-[连接到 TIA Portal](#连接到-TIA-Portal)”
+[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 项目已经打开。
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 HardwareObject 的 PlugMove(DeviceItem deviceItem, int positionNumber) 操作可用于移动现有设备项并将其插入现有硬件对象中。PlugMove 方法在 UI 中模块无法插入的位置插入设备项。PlugMove 操作完成时会出现编译错误。
 CanPlugMove(DeviceItem deviceItem, int positionNumber) 操作可用于确定是否可以进行移动。如果不能进行移动，则 CanPlugMove 将返回“假”。如果方法返回“真”，该操作仍然可能会因以下意外原因而失败。
 • 位置编号已由另一个设备项使用
@@ -8604,9 +8604,9 @@ if (hwObject.CanPlugMove(deviceItemToMove, positionNumber)
 
 ### 5.10.4 复制设备项
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
 • 已打开一个项目。
-请[打开项目](#打开项目)
+请[打开项目](#531-打开项目)
 使用 HardwareObject 的 PlugCopy(DeviceItem deviceItem, int positionNumber) 操作将项目中的设备复制并插入现有的硬件。如果无法在 UI 中插入模块，则只有在极少数情况下PlugCopy 方法才能起作用。此时，复制后会发生编译错误。当 PlugCopy 成功时，将返回设备项对象的副本，否则，会出现可恢复的异常情况。
 操作失败的可能原因：
 • 位置编号已由另一个设备项使用
@@ -8633,9 +8633,9 @@ if (hwObject.CanPlugCopy(deviceItemToCopy, positionNumber))
 
 ### 5.10.5 进行用户自定义徽标设置
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal [连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal [连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 可使用 TIA Portal Openness 在 S71500 PLC 的 CPU 显示器中设置用户自定义徽标设置功能。并非所有 S71500 PLC 都支持该功能。
 功能 FrontPanel Display 在 CPU 显示设备项中可用，可提供以下方法：
 <table><tr><td>方法名称</td><td>数据类型</td><td>描述</td></tr><tr><td>SetUserDefinedLogo()</td><td>FileInfo</td><td>在CPU显示器中设置要上传的图像的路径。只有在the UserDefinedLogoActivated特性已启用时,才可使用SetUserDefinedLogo()。否则,如果UserDefinedLogoActivated特性被禁用,则会出现EngineeringTargetInvocation异常。</td></tr></table>
@@ -8660,8 +8660,8 @@ frontPanelDisplay.SetUserDefinedLogo(new FileInfo(@"C:\Pictures\CompanyLogo.jpg"
 
 ### 5.10.6 删除设备项
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
-• 项目已经打开。[打开项目](#打开项目)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
+• 项目已经打开。[打开项目](#531-打开项目)”
 修改以下程序代码以删除设备项：
 
 ```text
@@ -8676,9 +8676,9 @@ deviceItem.Delete();
 
 ### 5.10.7 枚举设备项
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
 • 已打开一个项目。
-请[打开项目](#打开项目)
+请[打开项目](#531-打开项目)
 为获取设备项，请使用 HardwareObject。硬件对象的项目为插入硬件对象时 TIA Portal 用户所看到的内容：
 • 位于设备中的机架
 • 位于机架中的模块
@@ -8741,8 +8741,8 @@ private static void EnumerateDeviceItemsWithAssociation(Device device)
 ### 5.10.8 访问设备项
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
-• 项目已经打开。[打开项目](#打开项目)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
+• 项目已经打开。[打开项目](#531-打开项目)”
 
 ```text
 
@@ -8887,9 +8887,9 @@ gsdDeviceItem.SetPrmData(dsNumber, byteOffset, prmData);
 
 ### 5.10.9 访问接口设备项
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
 • 项目已经打开。
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 如果设备项为接口，则除简单的设备项功能外，其还可提供附加功能。使用该接口，用户可以访问接口的节点和操作模式。凭借此功能，设备项可通过访问 NetworkInterface 功能（设备项的特定服务）来作为 IoDevice（从设备）或 IoController（主设备）使用。
 使用枚举 InterfaceOperatingModes 访问接口的属性。
 <table><tr><td>值</td><td>描述</td></tr><tr><td>InterfaceOperatingModes.None</td><td>默认值</td></tr><tr><td>InterfaceOperatingModes.IoDevice</td><td>接口操作模式“IoDevice”(从站)。</td></tr><tr><td>InterfaceOperatingModes.IoController</td><td>接口操作模式“IoController”(主站)。</td></tr><tr><td>InterfaceOperatingModes.IoDeviceorInterfaceOperatingModes.IoController</td><td>接口设置为以上两种工作模式。</td></tr></table>
@@ -8922,9 +8922,9 @@ NetworkPortAssociation nodes2 = itf.Ports;
 
 ### 5.10.10 访问更改设备
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal [连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal [连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 可使用 ChangeType() API 更改设备或设备项的类型。与 TIA Portal 用户界面相比，TIA PortalOpenness 中的功能存在一些限制：
 • 未提供可能的更改伙伴列表。
 • 没有反馈消息可用于通知已更改设备或设备项的类型更改。
@@ -8958,9 +8958,9 @@ private void ChangeTypeDeviceItem()
 ### 5.10.11 I/O 设备接口的访问属性
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
 • 已打开一个项目。
-请[打开项目](#打开项目)
+请[打开项目](#531-打开项目)
 • 对于写入访问，PLC 已处于离线状态。
 可以使用 TIA Portal Openness API 接口来获取或设置 I/O 设备接口上 IRT 及等时模式的属性。
 
@@ -9021,9 +9021,9 @@ pnInterface.SetAttribute("IsochronousMode", true);
 
 ### 5.10.12 获取设备项的子网
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal [连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal [连接到 TIA Portal](#528-连接到-tia-portal)”
 • 项目已打开
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 可使用 NetworkInterface 服务访问导航器节点。每个节点都会通过调用 ConnectedSubnet特性，依次提供对子网链接的访问权限。
 要获取设备或设备项的子网，请修改以下程序代码：
 
@@ -9048,8 +9048,8 @@ private void GetSubnetDeviceItem()
 ### 5.10.13 访问 IoController 的属性
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
-• 已打开一个项目。请[打开项目](#打开项目)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
+• 已打开一个项目。请[打开项目](#531-打开项目)
 • 对于写入访问，PLC 已处于离线状态。
 可以使用 TIA Portal Openness API 接口获取或设置 IoController 的属性。以下属性仅在PROFINET IoController（位于 Profinet 接口下方）可用。如果用户可以修改 UI 中的属性，那么也可以通过 TIA Portal Openness 进行设置。
 <table><tr><td>属性名称</td><td>数据类型</td><td>类型</td><td>访问</td><td>说明</td></tr><tr><td>SyncRole</td><td>SyncRole</td><td>读写</td><td>动态属性</td><td>-</td></tr><tr><td>PnDeviceNumber</td><td>int</td><td>只读</td><td>动态属性</td><td>在 TIA Portal UI中,此属性位于以太网节点中(PROFINET 部分)</td></tr></table>
@@ -9067,9 +9067,9 @@ SyncRole syncRole = (SyncRole)((IEngineeringObject)ioController).GetAttribute("S
 
 ### 5.10.14 访问 IoConnector 的属性
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
 • 已打开一个项目。
-请[打开项目](#打开项目)
+请[打开项目](#531-打开项目)
 • 对于写入访问，PLC 已处于离线状态。
 可以使用 TIA Portal Openness API 接口获取或设置 IoConnector 的属性。以下属性仅在PROFINET IoController（位于 Profinet 接口下方）可用。如果用户可以修改 UI 中的属性，那么也可以通过 TIA Portal Oopenness 进行设置。
 属性分为四种类型：更新时间属性、看门狗时间属性、同步属性和设备编号属性。
@@ -9114,13 +9114,13 @@ connector.SetAttribute("PnUpdateTimeAutoCalculation", true);
 
 ```
 
-[打开项目](#打开项目)
+[打开项目](#531-打开项目)
 
 ### 5.10.15 访问地址控制器
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
 • 已打开一个项目。
-请[打开项目](#打开项目)
+请[打开项目](#531-打开项目)
 如果设备项为地址控制器，则可提供附加功能：要访问地址控制器的注册地址，请使用角色AddressController。
 
 #### 程序代码：获取地址控制器
@@ -9155,9 +9155,9 @@ foreach (Address registeredAddress in addressController.RegisteredAddresses)
 
 ### 5.10.16 访问地址
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
 • 已打开一个项目。
-请[打开项目](#打开项目)
+请[打开项目](#531-打开项目)
 通过设备项的组合链接Addresses 获取地址对象。属性 Addresses 将返回可枚举的 AddressComposition 类型集合。
 程序代码：获取设备项的地址
 要获取设备项的地址，请修改以下程序代码：
@@ -9225,9 +9225,9 @@ object attributeValue = ((IEngineeringObject)address).GetAttribute("Context");
 ### 5.10.17 访问硬件标识符
 
 • TIA Portal Openness 应用程序已连接到 TIA Portal。
-[连接到 TIA Portal](#连接到-TIA-Portal)”
+[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 项目已经打开。
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 从下列对象中获取硬件标识符对象：
 • Device
 • DeviceItem
@@ -9259,9 +9259,9 @@ Int64 Identifier = hwIdentifier.Identifier;
 
 ### 5.10.18 访问硬件标识符控制器
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
 • 已打开一个项目。
-请[打开项目](#打开项目)
+请[打开项目](#531-打开项目)
 如果设备项为硬件标识符控制器，则可以访问已注册的硬件标识符。要访问这些HwIdentifierController，清使用设备项的特定服务。
 
 #### 程序代码：获取硬件标识符控制器
@@ -9293,9 +9293,9 @@ HwIdentifierAssociation controllers = hwIdentifierController.RegisteredHwIdentif
 
 ### 5.10.19 访问设备项的通道
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
 • 项目已经打开。
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 通道可由 Channel 类别表示。通道可通过 DeviceItem 类别的属性 Channels 从设备项获取。属性 Channels 将返回可枚举的 ChannelComposition 实施。如果设备项无通道，属性Channels 将返回一个空集合。
 
 #### 强制属性
@@ -9355,9 +9355,9 @@ Channel channel = ...;
 
 ### 5.10.20 访问标准化的类型标识符
 
-• TIA Portal Openness 已连接到 TIA Portal 请[连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 已连接到 TIA Portal 请[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 项目已打开
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 可在 TIA Portal Openness 中使用 GetTypeIdentifierNormalized() 来获取模块 TypeIdentifier的标准化格式。模块使用 TypeIdentifier 指定。
 GetTypeIdentifierNormalized() 支持以下特性：
 <table><tr><td>特性名称</td><td>数据类型</td><td>描述</td></tr><tr><td>typeIdentifier</td><td>String</td><td>指定设备项的类型标识符</td></tr></table>
@@ -9376,9 +9376,9 @@ private void ProvideTypeIdentifier(ModuleInformationProvider moduleInformationPr
 
 ### 5.10.21 创建和导出 psc 文件
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
 • 打开项目
-请[打开项目](#打开项目)
+请[打开项目](#531-打开项目)
 可使用 TIA Portal Openness API 创建 .psc 文件以及将设备下载到其中。若要创建 .psc 文件并将设备组态下载到其中，可使用 Export 方法（基于服务 CardReaderPscProvider）。此服务位于命名空间 Siemens.Engineering.HW.Utilities 下。
 修改以下程序代码，以创建和导出 .psc 文件。
 
@@ -9403,9 +9403,9 @@ crp.Export(ipcDevice, exportFile);
 
 ### 5.10.22 扩展机架的连接处理
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal 请[连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal 请[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 可使用 TIA Portal Openness 获取、添加和移除扩展机架连接，以便可在 CAx 导出/导入期间利用 TIA Portal Openness 实现扩展机架连接支持。
 
 ```typescript
@@ -9432,9 +9432,9 @@ var imConnectionOwner = imConnection.OwnedBy;
 
 要求
 • TIA Portal Openness 应用程序已连接到 TIA Portal。
-[连接到 TIA Portal](#连接到-TIA-Portal)”
+[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已通过 TIA Portal Openness 应用程序打开一个项目。
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 简介
 可使用 TIA Portal Openness 组态 Plus PLC 1500 的系统诊断特性。
 TIA Portal Openness 支持以下 PLC1500 系统诊断特性：
@@ -9442,10 +9442,10 @@ TIA Portal Openness 支持以下 PLC1500 系统诊断特性：
 
 #### 5.11.1.2 下载 PC 系统
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
-• 已通过 TIA Portal Openness 应用程序打开一个项目。[打开项目](#打开项目)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
+• 已通过 TIA Portal Openness 应用程序打开一个项目。[打开项目](#531-打开项目)”
 可使用 TIA Portal Openness 单独下载 PC-Station Plus 和 SW-CPU。要下载 PC-Station Plus 组态，必须检索设备机架的 stationmanager 设备项，并以服务形式获取 download provider 。SW-CPU 本身必须已作为设备项检索才能实现相同操作。
-下载 SW-CPU 与下载常规 PLC 类似。有关下载 SW-CPU 的信息，[下载到 PLC 设备](#下载到-PLC-设备)”。
+下载 SW-CPU 与下载常规 PLC 类似。有关下载 SW-CPU 的信息，[下载到 PLC 设备](#5111-用于将数据下载到-plc-设备中的函数)”。
 与 HW-CPU 中相同，SW-CPU 目前不支持下载 F-Activated PLC。
 
 ##### 程序代码：下载软件和硬件组件
@@ -9534,7 +9534,7 @@ catch (EngineeringTargetInvocationException e)
 {
     Console.WriteLine("Exception Thrown, Message: " + e.Message.ToString());
 }
-下载 SW-CPU 与下载常规 PLC 类似。有关下载 SW-CPU 的信息，[下载到 PLC 设备](#下载到-PLC-设备)”。
+下载 SW-CPU 与下载常规 PLC 类似。有关下载 SW-CPU 的信息，[下载到 PLC 设备](#5111-用于将数据下载到-plc-设备中的函数)”。
 
 ```
 
@@ -9557,12 +9557,12 @@ if (compileCheck != true)
 
 #### 5.11.1.3 下载到 PLC 设备
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
 
 ```text
 
 - 已通过 TIA Portal Openness 应用程序打开一个项目。
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 
 ```
 
@@ -9615,7 +9615,7 @@ DownloadResult result = downloadProvider.Download(targetConfiguration, onlineAdd
 ##### IConfiguration
 
 需要向 Download 方法提供 IConfiguration 对象。IConfiguration 将用于与给定 PLC 设备建立连接。IConfiguration 接口通过 ConfigurationAddress 和 ConfigurationTargetInterface 实现。这两个对象可通过 ConnectionConfiguration 实例进行访问。ConnectionConfiguration实例可从 DownloadProvider.Connection:ConnectionConfiguration 获取，也可选择从OnlineProvider.Connection:ConnectionConfiguration 特性获取。
-有关 ConnectionConfiguration 对象的组态说明，请[访问在线连接的参数](#访问在线连接的参数) 部分。
+有关 ConnectionConfiguration 对象的组态说明，请[访问在线连接的参数](#51125-访问在线连接的参数) 部分。
 
 ```matlab
 
@@ -9658,7 +9658,7 @@ preDownloadDelegate, postDownloadDelegate, loadOption);
 
 ##### 需要实现两个 void DownloadConfigurationDelegate(DownloadConfiguration
 
-downloadConfiguration)。预下载组态时将调用第一个委托，下载完成后将调用第二个委托。每次组态需要用户操作时，都将调用委托。有关回调处理的更多信息，请[支持回调](#支持回调)”。如果组态处理不当，将抛出 EngineeringTargetInvocationException，下载过程将中止。某些组态只包含一个信息，因此将不会需要用户操作。还可以跳过阻止下载的组态。
+downloadConfiguration)。预下载组态时将调用第一个委托，下载完成后将调用第二个委托。每次组态需要用户操作时，都将调用委托。有关回调处理的更多信息，请[支持回调](#51119-支持回调)”。如果组态处理不当，将抛出 EngineeringTargetInvocationException，下载过程将中止。某些组态只包含一个信息，因此将不会需要用户操作。还可以跳过阻止下载的组态。
 除解析委托实现中的下载组态而需进行的修改外，应避免进行任何修改。
 下面列出了可能的下载组态类型。
 <table><tr><td>组态名称</td><td>描述和特性</td></tr><tr><td>DownloadConfiguration</td><td>适用于所有组态的基础类别。仅当无法映射为特定组态时,才会包含信息。IConfiguration 包含单个特性:DownloadConfiguration.Message : string(只读特性,包含组态消息)</td></tr><tr><td>DownloadSelectionConfiguration</td><td>适用于所有可选组态的基础类别。DownloadSelectionConfiguration 的特性不包含其他特性。必须在从其派生而来的所有子类别中提供选择。</td></tr><tr><td>DownloadCheckConfiguration</td><td>适用于所有可选中和取消选中的组态的基础类别。包含单个特性 DownloadCheckConfiguration.Checked: bool(读/写特性标识组态是否选中)</td></tr><tr><td>DownloadPasswordConfiguration</td><td>适用于所有需要输入密码才能继续下载(PLC 保护密码和块绑定密码)的组态的基础类别。DownloadPasswordConfiguration 的方法:包含单个用于设置密码的方法。DownloadPasswordConfiguration.SetPassword (password: SecureString): void - 设置密码。SecureString</td></tr></table>
@@ -9839,8 +9839,8 @@ RecursivelyWriteMessages(message总价，indent);
 
 #### 5.11.1.4 将 PLC 下载至 Windows 文件夹
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
-• 已通过 TIA Portal Openness 应用程序打开一个项目。[打开项目](#打开项目)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
+• 已通过 TIA Portal Openness 应用程序打开一个项目。[打开项目](#531-打开项目)”
 可使用 TIA Portal Openness 将 PLC 下载到 Windows 文件系统的 Windows 文件夹中。可以自动创建 SIMATIC 存储卡和 PLC 程序，而无需连接到 PLC 或 PLCSIM Advanced。
 此功能适用于以下产品/设备：
 • S7-1500 CPU（含 Safety）（固件 >= 2.1）
@@ -9852,10 +9852,10 @@ RecursivelyWriteMessages(message总价，indent);
 • S7-1200 CPU（含 Safety）（固件 >= V4.2）
 DownloadProvider.Download() 和 RHDownloadProvider.Download() 接受以下参数定义。这两种方法均返回 DownloadResult。
 <table><tr><td>参数名称</td><td>类型</td><td>描述</td></tr><tr><td>directoryInfo</td><td>System.IO.DirectoryInfo</td><td>指定用于保存组态的 windows 文件夹路径</td></tr><tr><td>preDownloadConfigurationDelegate</td><td>Siemens.Engineering.Download.DownloadConfigurationDelegate</td><td>指定在下载前进行调用以检查组态的委托。</td></tr></table>
-有关 DownloadConfigurationDelegate 和 DownloadResult 的更多详细信息，请[下载到 PLC 设备](#下载到-PLC-设备)”
+有关 DownloadConfigurationDelegate 和 DownloadResult 的更多详细信息，请[下载到 PLC 设备](#5111-用于将数据下载到-plc-设备中的函数)”
 要将 PLC 下载到 Windows 文件夹，支持以下组态：
 <table><tr><td>数据类型</td><td>动作</td></tr><tr><td>OverwriteOnMemoryCard</td><td>设置 CurrentSelection: OverwriteOnMemoryCardSelections可用枚举值为:NoAction(无动作)Load(下载到设备)</td></tr><tr><td>TargetForSoftware</td><td>设置 CurrentSelection: TargetForSoftwareSelections可用枚举值为:CPU(CPU)PlcSimulationAdvanced(高级PLC仿真)</td></tr><tr><td>ConsistentBlocksDownload</td><td>设置 CurrentSelection: ConsistentBlocksDownloadSelections可用枚举值为:ConsistentDownload(一致的下载)</td></tr><tr><td>AlarmTextLibrariesDownload</td><td>设置 CurrentSelection: AlarmTextLibrariesDownloadSelections可用枚举值为:ConsistentDownload(一致的下载)NoAction(无动作)</td></tr><tr><td>SafetyProgram</td><td>设置 CurrentSelection: SafetyProgramSelections可用枚举值为:ConsistentDownload(一致的下载)</td></tr></table>
-有关支持的其它下载组态类型的更多信息，请[下载到 PLC 设备](#下载到-PLC-设备)”
+有关支持的其它下载组态类型的更多信息，请[下载到 PLC 设备](#5111-用于将数据下载到-plc-设备中的函数)”
 
 ##### 程序代码：下载至 Windows 文件夹说明
 
@@ -9934,14 +9934,14 @@ PrintAllMessages(downloadResult.Messages, 0, downloadResult);
 
 #### 5.11.1.5 将主密码下载到 PLC
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#连接到-TIA-Portal)”
-• 已通过 TIA Portal Openness 应用程序打开一个项目。请[打开项目](#打开项目)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#528-连接到-tia-portal)”
+• 已通过 TIA Portal Openness 应用程序打开一个项目。请[打开项目](#531-打开项目)”
 可使用 TIA Portal Openness 的 PlcMasterSecretPassword（从下载组态访问）将主密码下载到 PLC。要进行下载，需要为预下载组态提供 void DownloadConfigurationDelegate(DownloadConfiguration downloadConfiguration) 的实现。
 每次组态需要用户操作时，都将调用该委托。PlcMasterSecretPassword 组态负责处理用于输入主密码的用户操作。
-有关回调处理以及是否支持下载到 PLC 设备的更多信息，请[支持回调](#支持回调)”和“下载到 PLC 设备 (页 439)”。
+有关回调处理以及是否支持下载到 PLC 设备的更多信息，请[支持回调](#51119-支持回调)”和“下载到 PLC 设备 (页 439)”。
 5.11 PLC 设备的数据访问函数
 程序代码：PlcMasterSecretPassword 下载
-可使用以下代码示例通过 DownloadProvider 服务将软件和硬件组件下载到设备中。有关IsSecureCommunication 的信息，请[支持安全 S7 通信 TLS](#支持安全-S7-通信-TLS)”
+可使用以下代码示例通过 DownloadProvider 服务将软件和硬件组件下载到设备中。有关IsSecureCommunication 的信息，请[支持安全 S7 通信 TLS](#511218-支持安全-s7-通信-tls)”
 
 ```cs
 
@@ -10039,9 +10039,9 @@ throw new NotImplementedError();
 #### 5.11.1.6 管理 PLC 中的 PLC 主密码
 
 • TIA Portal Openness 应用程序已连接到 TIA Portal。
-[连接到 TIA Portal](#连接到-TIA-Portal)”
+[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已通过 TIA Portal Openness 应用程序打开一个项目。
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 可使用 TIA Portal Openness 保护敏感 PLC 组态数据。可组态将用于加密证书组态的 PLC 主密钥。
 此外，如果不优先考虑保护 PLC 组态数据，也可禁用此项。
 还是使用 TIA Portal Openness，通过设备的设备项 CPU 上的硬件功能
@@ -10106,8 +10106,8 @@ plcMasterSecretConfigurator.Reset();
 
 #### 5.11.1.7 设置/删除 PLC 中的 PLC 主密码
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#连接到-TIA-Portal)”
-• 已通过 TIA Portal Openness 应用程序打开一个项目。请[打开项目](#打开项目)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#528-连接到-tia-portal)”
+• 已通过 TIA Portal Openness 应用程序打开一个项目。请[打开项目](#531-打开项目)”
 可使用 TIA Portal Openness 设置或复位 PLC 的 PlcMasterSecret。要实现 TIA Portal Openness的功能，会使用新方法对 OnlineProvider 进行扩展：
 • SetPlcMasterSecret()
 • ResetPlcMasterSecret()
@@ -10154,8 +10154,8 @@ onlineProvider.ResetPlcMasterSecret();
 
 #### 5.11.1.8 运行和停止 PLC
 
-• Openness 应用程序连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
-• 已打开一个项目。请[打开项目](#打开项目)
+• Openness 应用程序连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
+• 已打开一个项目。请[打开项目](#531-打开项目)
 • PLC 处于离线状态。
 当通过 Openness API 与 TIA Portal 交互时，可能需要更改 PLC 的工作模式。TIA PortalOpenness 提供了一种修改 PLC 的工作状态（启动或停止）的方法。
 修改以下程序代码以设置 PLC 工作状态为 STOP。
@@ -10190,8 +10190,8 @@ public void ConfigurePostDownload(DownloadConfiguration downloadConfiguration)
 
 #### 5.11.1.9 支持回调
 
-• Openness 应用程序连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
-• 已打开一个项目。请[打开项目](#打开项目)
+• Openness 应用程序连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
+• 已打开一个项目。请[打开项目](#531-打开项目)
 某些 API 方法需要在执行期间与用户定义的应用程序代码进行交互。Delegates 用于在用户定义的应用程序代码中处理这些回调操作。您需要使用兼容签名来执行方法，并将其作为delegate 参数传递给操作。为了继续执行，TIA Portal 调用已执行的方法。
 使用和执行 delegate 的用户应用程序代码的示例：
 
@@ -10225,9 +10225,9 @@ STAThread 属性将确保在执行的主线程中调用 delegates。
 
 #### 5.11.1.10 通过密码保护 PLC
 
-• Openness 应用程序连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
+• Openness 应用程序连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
 • 已打开一个项目。
-请[打开项目](#打开项目)
+请[打开项目](#531-打开项目)
 • PLC 处于离线状态。
 当通过 Openness API 与 TIA Portal 交互时，可能需要更改 PLC 的保护等级。TIA PortalOpenness 提供了一种通过密码保护 PLC 的方法。可以设置密码对 PLC 进行读保护和写保护。
 
@@ -10270,8 +10270,8 @@ API 用户负责保证通过代码处理密码时的安全措施。
 #### 5.11.1.11 处理 PLC 块绑定密码
 
 要求
-• Openness 应用程序连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
-• 已打开一个项目。请[打开项目](#打开项目)
+• Openness 应用程序连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
+• 已打开一个项目。请[打开项目](#531-打开项目)
 • PLC 处于离线状态。
 TIA Portal Openness 支持客户应用程序密码的数据绑定。TIA Portal Openness 为客户提供了一种指定块绑定密码的方式。例如，使用 DownloadPasswordConfiguration 类通过调用SetPassword 方法对块绑定密码进行组态。
 说明
@@ -10293,8 +10293,8 @@ public void ConfigurePreDownload(DownloadConfiguration downloadConfiguration)
 
 #### 5.11.1.12 上传 PLC 设备
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
-• 已通过 TIA Portal Openness 应用程序打开一个项目。[打开项目](#打开项目)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
+• 已通过 TIA Portal Openness 应用程序打开一个项目。[打开项目](#531-打开项目)”
 简介
 用户可使用 TIA Portal Openness 通过 StationUploadProvider 将站上传至项目中。如果通过project 调用 GetService()，则会返回 StationUploadProvider 实例以执行上传。设备组不支持上传站。
 
@@ -10370,13 +10370,13 @@ internal void PreConfigureUpload(UploadConfiguration uploadConfiguration)
 ##### 参数 2：UploadConfigurationDelegate
 
 用户需实现 void UploadConfigurationDelegate (UploadConfiguration
-uploadConfiguration)。预上传组态时将调用委托。每次组态需要用户操作时，都将调用委托。有关回调处理的更多信息，请[支持回调](#支持回调)”。某些组态只包含一个信息，因此将不会需要用户操作。
+uploadConfiguration)。预上传组态时将调用委托。每次组态需要用户操作时，都将调用委托。有关回调处理的更多信息，请[支持回调](#51119-支持回调)”。某些组态只包含一个信息，因此将不会需要用户操作。
 下面列出了可能的上传组态类型。
 <table><tr><td>组态名称</td><td>描述和特性</td></tr><tr><td>UploadConfiguration</td><td>适用于所有组态的基础类别。消息属性中包含信息包含单个特性UploadConfiguration.Message:string(只读特性,包含组态消息)</td></tr><tr><td>UploadPasswordConfiguration</td><td>衍生自UploadConfiguration适用于所有需要密码进行上传的组态的基础类别。包含单个用于设置密码的方法。UploadPasswordConfiguration.SetPassword (password: SecureString):void - 设置密码</td></tr><tr><td>UploadSelectionConfiguration</td><td>UploadConfiguration的派生类不包含其他特性</td></tr></table>
 下面给出了组态的数据类型：
 <table><tr><td>组态</td><td>数据类型</td><td>描述和操作</td></tr><tr><td rowspan="2">UploadPasswordConfiguration</td><td>ModuleReadAccessPassword</td><td>Set password viaSetPassword(password:SecureString) 方法。输入密码,获得模块的读访问权限。</td></tr><tr><td>PasswordReadAccess</td><td>Set password viaSetPassword(password:SecureString) 方法。输入密码以进行典型 PLC 的 SW 上传,获得模块的读访问权限。</td></tr><tr><td>UploadSelectionConfiguration</td><td>UploadMissingProducts</td><td>SetCurrentSelection:UploadMissingProductsSelections 可用枚举值为:TryUpload (Consistent upload)NoAction (No action)设置上传选项。</td></tr></table>
 不需要支持故障安全密码。对于通过上传 F-PLC 的读访问，无需密码。
-所有组态均有属性：IsSecureCommunication。如果已与 PLC 建立“安全通信”（TLS 握手）连接，该属性提供“TRUE”。其它所有情况下，该属性均提供“FALSE”。有关IsSecureCommunication 的更多信息，[支持安全 S7 通信 TLS](#支持安全-S7-通信-TLS)”
+所有组态均有属性：IsSecureCommunication。如果已与 PLC 建立“安全通信”（TLS 握手）连接，该属性提供“TRUE”。其它所有情况下，该属性均提供“FALSE”。有关IsSecureCommunication 的更多信息，[支持安全 S7 通信 TLS](#511218-支持安全-s7-通信-tls)”
 
 ```text
 
@@ -10499,8 +10499,8 @@ PrintAllMessages(message总价, level+1);
 
 #### 5.11.1.13 比较 PLC 软件
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
-• 已通过 TIA Portal Openness 应用程序打开一个项目。请[打开项目](#打开项目)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
+• 已通过 TIA Portal Openness 应用程序打开一个项目。请[打开项目](#531-打开项目)
 可使用以下方式确定两个设备的软件之间的差异：
 • 比较两个已组态 PLC 的软件
 • 比较 PLC 软件和项目库
@@ -10617,8 +10617,8 @@ private static void ComparePlcToOnlinePlc(PlcSoftware plcSoftware)
 #### 5.11.1.14 更新 PLC 程序
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
-• 已通过 TIA Portal Openness 应用程序打开一个项目。[打开项目](#打开项目)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
+• 已通过 TIA Portal Openness 应用程序打开一个项目。[打开项目](#531-打开项目)”
 简介
 可使用 UpdateProgram() 将指令升级到 PLC 的最新版本。可通过 PlcSoftware 实例访问UpdateProgram().
 程序代码
@@ -10633,13 +10633,13 @@ private void UpdateProgramPLC()
 
 ```
 
-[打开项目](#打开项目)
+[打开项目](#531-打开项目)
 
 #### 5.11.1.15 比较 PLC 硬件
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#连接到-TIA-Portal)”
-• 已通过 TIA Portal Openness 应用程序打开一个项目。请[打开项目](#打开项目)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#528-连接到-tia-portal)”
+• 已通过 TIA Portal Openness 应用程序打开一个项目。请[打开项目](#531-打开项目)”
 可以使用 TIA Portal Openness 来比较两个 PLC 设备的硬件。
 签名
 使用 CompareTo 方法比较两个硬件对象。
@@ -10678,15 +10678,15 @@ else if (resultState == CompareResultState.FolderContentsIdentical)
 
 Openness：用于工程组态工作流自动化的 API  
 系统手册, 11/2023
-[连接到 TIA Portal](#连接到-TIA-Portal)
+[连接到 TIA Portal](#528-连接到-tia-portal)
 打开项目 (页 140)
 
 #### 5.11.1.16 设置 PLC 的密码策略
 
 要求
-• TIA Portal 已连接到 TIA Portal Openness 请[连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal 已连接到 TIA Portal Openness 请[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 简介
 可使用 TIA Portal Openness 为旧版和 plus PLC 设置安全密码策略。
 
@@ -10734,9 +10734,9 @@ public void PlusPlc_SecuritySettingPasswordPolicy_SetAttributes()
 #### 5.11.1.17 管理动态证书设置
 
 要求
-• TIA Portal 已连接到 TIA Portal Openness 请[连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal 已连接到 TIA Portal Openness 请[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 可使用 TIA Portal Openness 在 TIA Portal 的中心位置为所有受支持的服务组态动态证书管理，而非单独修改每个应用程序和服务。
 可使用 Certificate Management Configuration 服务来管理动态证书，该服务可用于 V3.0 及更高版本的所有 PLC 设备系列的 PLC 实例。
 Openness：用于工程组态工作流自动化的 API
@@ -10788,9 +10788,9 @@ private void DownloadConfigurationDelegate(DownloadConfiguration downloadConfigu
 
 #### 5.11.2.1 访问等级设置
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal请[连接到 TIA Portal](#连接到-TIA-Portal)
+• TIA Portal Openness 应用程序已连接到 TIA Portal请[连接到 TIA Portal](#528-连接到-tia-portal)
 • 已打开一个项目
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 
 ```text
 
@@ -10847,8 +10847,8 @@ myPlcAccessLevelProvider.ResetPassword(PlcProtectionAccessLevel.ReadAccess);
 
 #### 5.11.2.2 访问软件校验和
 
-•  TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
-• 已通过 TIA Portal Openness 应用程序打开一个项目请[打开项目](#打开项目)
+•  TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
+• 已通过 TIA Portal Openness 应用程序打开一个项目请[打开项目](#531-打开项目)
 可使用 Openness API 访问 PLC 站的软件校验和。
 要进行访问，请获取 PlcSoftware 的实例并加载 PlcChecksumProvider 的服务实例。
 
@@ -10867,8 +10867,8 @@ string softwareChecksum = checksumProvider.Software;
 
 #### 5.11.2.3 分配 PC 接口
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal 请[连接到 TIA Portal](#连接到-TIA-Portal)”
-• 已打开一个项目请[打开项目](#打开项目)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal 请[连接到 TIA Portal](#528-连接到-tia-portal)”
+• 已打开一个项目请[打开项目](#531-打开项目)”
 要进行接口分配，需要从设备项接口上的 Siemens.HW.Features 获取PcInterfaceAssignment 服务。
 如果 PC-Station 版本 <= 2.0，此服务的方法将返回空值，并且将无法为分配给“PC-Station”、“仅 Windows”或“无”的接口进行接口分配。对于分配给 SW-CPU 的接口，可再次进行分配。
 说明
@@ -10946,8 +10946,8 @@ provider.HardwareResource = HardwareResource.X101;
 #### 5.11.2.4 确定 PLC 的状态
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
-• 已通过 TIA Portal Openness 应用程序打开一个项目。请[打开项目](#打开项目)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
+• 已通过 TIA Portal Openness 应用程序打开一个项目。请[打开项目](#531-打开项目)
 您可确定项目中的一个 PLC 或所有 PLC 的状态。
 TIA Portal Openness 分为以下状态：
 • 离线
@@ -10992,16 +10992,16 @@ public static void DetermineOnlineStateOfAllProjectDevices(Project project)
 
 #### 5.11.2.5 访问在线连接的参数
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
 • 已打开一个项目。
-请[打开项目](#打开项目)
+请[打开项目](#531-打开项目)
 可使用 TIA Portal Openness API 接口确定或设置在线连接的参数：
 • 枚举 PLC 的可用连接模式
 • 枚举 PLC 的可用接口
 • 枚举分配的插槽
 • 枚举子网和网关的可用地址
 • 设置连接参数。
-有关 IsSecureCommunication 的信息，请[支持安全 S7 通信 TLS](#支持安全-S7-通信-TLS)”
+有关 IsSecureCommunication 的信息，请[支持安全 S7 通信 TLS](#511218-支持安全-s7-通信-tls)”
 
 ##### 程序代码：确定连接参数
 
@@ -11150,14 +11150,14 @@ public static void SetConnectionWithSubnetAddress(OnlineProvider onlineProvider,
 
 ```
 
-[支持安全 S7 通信 TLS](#支持安全-S7-通信-TLS)
+[支持安全 S7 通信 TLS](#511218-支持安全-s7-通信-tls)
 
 #### 5.11.2.6 访问特征码以进行快速站比较
 
 要求
-• Openness 应用程序已连接 TIA Portal。 请[连接到 TIA Portal](#连接到-TIA-Portal)”
+• Openness 应用程序已连接 TIA Portal。 请[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目。
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 • PLC 处于离线状态。
 应用
 可以使用 TIA Portal Openness 获取 FingerprintData，以了解 PLC 设备组态的不同方面，从而实现快速站比较。通过从给定 TIA Portal 获取的 FingerprintDataProvider 服务来实现。调用 GetService 时将返回 FingerprintDataProvider 的实例，否则服务将返回 null 值。
@@ -11184,7 +11184,7 @@ FingerprintDataProvider 支持以下属性：
 
 ##### 组态地址
 
-用户应该为 GetFingerprintData 提供 ConfigurationAddress 对象。对于必须提取fingerprintData 的设备，地址对象将用于为其建立一个连接。ConfigurationAddress 对象必须在 FingerprintDataProvider 的 ConnectionConfiguration 中创建。有关IsSecureCommunication 的信息，请[支持安全 S7 通信 TLS](#支持安全-S7-通信-TLS)”
+用户应该为 GetFingerprintData 提供 ConfigurationAddress 对象。对于必须提取fingerprintData 的设备，地址对象将用于为其建立一个连接。ConfigurationAddress 对象必须在 FingerprintDataProvider 的 ConnectionConfiguration 中创建。有关IsSecureCommunication 的信息，请[支持安全 S7 通信 TLS](#511218-支持安全-s7-通信-tls)”
 例如，用户可以使用以下代码创建地址对象：
 
 ```text
@@ -11457,8 +11457,8 @@ if (!fingerprintDataSet.CompareDataSets(loadDataSet, fingerprintDataSet.Fingerpr
 
 #### 5.11.2.7 访问 Step7 上的交叉引用服务
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#连接到-TIA-Portal)”
-• 已打开一个项目。请[打开项目](#打开项目)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#528-连接到-tia-portal)”
+• 已打开一个项目。请[打开项目](#531-打开项目)”
 可在 Step7 对象上使用 TIA Portal Openness 通过 GetService 方法访问CrossReferenceService。交叉引用在适用的 Step7 对象上提供 IEngineeringService，即CrossReferenceService。对于试图通过 GetService 方法访问 CrossReferenceService 的不适用 Step7 对象，从 TIA Portal Openness 返回空值。
 提供交叉引用 Openness 支持的 Step7 对象如下：
 • OB • FB • FC • DB • InstanceDB • GlobalDB
@@ -11494,9 +11494,9 @@ Console.WriteLine(e.Message);
 
 #### 5.11.2.8 获取 Step7 的交叉引用
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目。
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 可以使用 TIA Portal Openness 提供有关适用 Step7 对象的交叉引用信息。Openness API 返回 CrossReferenceResult，其提供交叉引用用户界面的文本值和适用 Step7 对象的实际IEngineeringObject。
 交叉引用将尝试提供 Step7 对象本身，可以在该对象上执行相应 TIA Portal Openness 对象支持的附加操作。
 目前，Step7 对象的成员不支持 IEngineeringObject 类型（即 Step7 对象成员 - DB 成员、FB成员、FC 成员、变量成员、UDT 成员），但 CrossReferenceResult 包括所有已经可用的文本信息。
@@ -11601,14 +11601,14 @@ private void PrintReferences(ReferenceObjectComposition referenceObjects)
 
 ```
 
-[连接到 TIA Portal](#连接到-TIA-Portal)打开项目 (页 140)
+[连接到 TIA Portal](#528-连接到-tia-portal)打开项目 (页 140)
 5.11 PLC 设备的数据访问函数
 
 #### 5.11.2.9 将 R/H 系统 PLC 设置为在线
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
 • 已打开一个项目。
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 可使用 RHOnlineProvider 服务，将 R/H 系统的主 PLC 或备用 PLC 设置为在线。
 
 ##### 程序代码：从设备访问 RHOnlineProvider 服务
@@ -11622,8 +11622,8 @@ RHOnlineProvider rhOnlineProvider = device.GetService<RHOnlineProvider>();
 
 ```
 
-可使用 ConnectionConfiguration 对象设置设备连接。可通过 RHOnlineProvider 的Configuration属性进行访问。关于如何设置连接的更多信息，请[访问在线连接的参数](#访问在线连接的参数)
-修改以下程序代码，以设置连接模式并按名称访问 PC 接口。有关 IsSecureCommunication的信息，请[支持安全 S7 通信 TLS](#支持安全-S7-通信-TLS)”
+可使用 ConnectionConfiguration 对象设置设备连接。可通过 RHOnlineProvider 的Configuration属性进行访问。关于如何设置连接的更多信息，请[访问在线连接的参数](#51125-访问在线连接的参数)
+修改以下程序代码，以设置连接模式并按名称访问 PC 接口。有关 IsSecureCommunication的信息，请[支持安全 S7 通信 TLS](#511218-支持安全-s7-通信-tls)”
 
 ```text
 
@@ -11652,7 +11652,7 @@ R/H 系统包含两个 PLC，并提供单个连接组态。
 
 ##### 程序代码：确定 R/H 系统的在线状态
 
-可以使用 RHOnlineProvider 的 PrimaryState 和 BackupState 属性，分别确定主 PLC 和备用PLC 的在线连接状态。两种属性都会返回枚举 OnlineState。有关识别 PLC 在线状态的更多信息，请[确定 PLC 的状态](#确定-PLC-的状态)
+可以使用 RHOnlineProvider 的 PrimaryState 和 BackupState 属性，分别确定主 PLC 和备用PLC 的在线连接状态。两种属性都会返回枚举 OnlineState。有关识别 PLC 在线状态的更多信息，请[确定 PLC 的状态](#51124-确定-plc-的状态)
 修改以下程序代码以确定主 PLC 和备用 PLC 的状态：
 
 ```matlab
@@ -11681,11 +11681,11 @@ rhOnlineProvider.GoOffline();
 
 #### 5.11.2.10 通过 R/H 系统的主 PLC 访问软件容器
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
 • 已打开一个项目。
-请[打开项目](#打开项目)
+请[打开项目](#531-打开项目)
 可使用 R/H 系统的主 PLC 设备访问软件容器，例如，R/H 系统将为代表 PLC\_1 的主 PLC 设备项提供软件容器。否则，如果尝试访问代表 PLC\_2 的备用 PLC 设备的软件容器，该系统将不会提供软件容器。
-有关软件容器的详细信息及其软件属性，请[访问软件目标](#访问软件目标)
+有关软件容器的详细信息及其软件属性，请[访问软件目标](#538-访问软件目标)
 
 ##### 程序代码：访问软件容器
 
@@ -11710,8 +11710,8 @@ foreach (DeviceItem deviceItem in rhDevice.DeviceItems)
 
 #### 5.11.2.11 下载 R/H 系统的 PLC
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#连接到-TIA-Portal)”
-• 已打开一个项目。请[打开项目](#打开项目)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#528-连接到-tia-portal)”
+• 已打开一个项目。请[打开项目](#531-打开项目)”
 可使用 TIA Portal Openness 应用程序下载 R/H 系统的主 PLC 和备用 PLC。可下载系统的硬件和软件组件。（请参见将硬件和软件组件下载到 PLC 设备中 (页 439)）
 
 ##### 程序代码：检索 RHDownloadProvider
@@ -11731,7 +11731,7 @@ RHDownloadProvider rhDownloadProvider = device.GetService<RHDownloadProvider>();
 
 ##### 程序代码：检索 IConfiguration
 
-RHDownloadProvider 通过 Configuration 属性以提供 ConnectionConfiguration 对象，用于组态设备连接。有关 IsSecureCommunication 的信息，请[支持安全 S7 通信 TLS](#支持安全-S7-通信-TLS)”修改以下程序代码以通过 RHDownloadProvider 上的 ConnectionConfiguration 检索IConfiguration 对象：
+RHDownloadProvider 通过 Configuration 属性以提供 ConnectionConfiguration 对象，用于组态设备连接。有关 IsSecureCommunication 的信息，请[支持安全 S7 通信 TLS](#511218-支持安全-s7-通信-tls)”修改以下程序代码以通过 RHDownloadProvider 上的 ConnectionConfiguration 检索IConfiguration 对象：
 
 ```matlab
 
@@ -11872,9 +11872,9 @@ private static void RecursivelyWriteMessages(DownloadResultMessageComposition me
 
 要求
 • TIA Portal Openness 应用程序已连接到 TIA Portal。请参见连接到 TIA Portal (页 90)
-• 已打开一个项目。请[打开项目](#打开项目)
+• 已打开一个项目。请[打开项目](#531-打开项目)
 • 所有设备均已枚举。
-请[访问设备项](#访问设备项)。
+请[访问设备项](#5108-访问设备项)。
 可以建立到 PLC 的在线连接，或断开现有的在线连接。
 修改以下程序代码以建立或断开至 PLC 的在线连接：
 
@@ -11922,9 +11922,9 @@ public static void SetOnlineConnectionForAllPLCs(Project project)
 
 #### 5.11.2.13 为 PLC 分配项目语言
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal 请[连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal 请[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 可使用 TIA Portal Openness 分配 Web 服务器的项目语言以及 S71500 PLC 的显示语言。为此，需要使用 StructuredData 类型的动态属性。
 为访问多语言设置，已新增 TableData 类型的动态属性 MultilingualSupport。该属性可划分到各行中。在每一行中，可使用动态属性 ProjectLanguage 设置或读取分配的项目语言。
 
@@ -11948,11 +11948,11 @@ var assign得太German = firstRow.GetAttribute("DisplayLanguage");
 
 ```text
 
-- TIA Portal Openness 应用程序已连接到 TIA Portal 请[连接到 TIA Portal](#连接到-TIA-Portal)”
+- TIA Portal Openness 应用程序已连接到 TIA Portal 请[连接到 TIA Portal](#528-连接到-tia-portal)”
 
 ```
 
-• 已打开一个项目请[打开项目](#打开项目)”
+• 已打开一个项目请[打开项目](#531-打开项目)”
 可使用 TIA Portal Openness 为 Web 服务器分配已创建的监视表和强制表。监视表和强制表是可在软件容器中查找、创建和删除的软件。可使用 TIA Portal Openness 导出/导入监视表和强制表。有关导出/导入监视表/强制表的信息，请参见导出/导入监视表和强制表(页1584)
 要向 Web 服务器分配监视表和强制表，请在 PLC DeviceItem 使用WatchAndForceTableAccessManager 服务。
 该服务包含监视表和强制表的导航程序。
@@ -12046,8 +12046,8 @@ ForceTableAccessRuleComposition forceTableCmp = mngr.ForceTableAccessRules; forc
 
 #### 5.11.2.15 管理证书
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal 请[连接到 TIA Portal](#连接到-TIA-Portal)”
-• 已打开一个项目请[打开项目](#打开项目)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal 请[连接到 TIA Portal](#528-连接到-tia-portal)”
+• 已打开一个项目请[打开项目](#531-打开项目)”
 可使用 TIA Portal Openness 管理以下与证书相关的任务：
 • 创建和删除证书
 • 导出和导入证书
@@ -12216,8 +12216,8 @@ certTemplate.ValidateUntil = validUntilDateTime;
 
 #### 5.11.2.16 管理 SIWAREX 模块的 Web 服务器用户
 
-• TIA Portal 已连接到 TIA Portal Openness 请[连接到 TIA Portal](#连接到-TIA-Portal)”
-• 已打开一个项目请[打开项目](#打开项目)”
+• TIA Portal 已连接到 TIA Portal Openness 请[连接到 TIA Portal](#528-连接到-tia-portal)”
+• 已打开一个项目请[打开项目](#531-打开项目)”
 可使用 TIA Portal Openness 管理 SIWAREX 模块的 Web 服务器用户的以下功能：
 • 激活或禁用 Web 服务器用户
 • 更改用户名
@@ -12260,9 +12260,9 @@ private void SettingWebserverUser()
 #### 5.11.2.17 管理 Syslog 组态
 
 • TIA Portal Openness 应用程序已连接到 TIA Portal。
-[连接到 TIA Portal](#连接到-TIA-Portal)”
+[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 项目已打开
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 可使用 TIA Portal Openness 中的 SysLogConfigurationManager 服务，以组态启用和禁用Syslog 功能。借助此功能，可选择不同的传输协议并为 syslog 组态不同的服务器。
 此功能在 S7-1500 PLC 固件版本 3.1 及更高版本中提供。
 SysLogConfigurationManager 服务提供以下属性来修改系统记录组态。
@@ -12338,9 +12338,9 @@ plc.SetAttribute("SysLogClientCertificateId", (uint)1);
 
 #### 5.11.2.18 支持安全 S7 通信 TLS
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 可使用 TIA Portal Openness 设置参数实现在线连接。
 这些在线连接是在可通过 OnlineProvider 服务的组态导航器访问的ConnectionConfiguration对象上建立的。该服务存在于代表 PLC 的设备项上。
 
@@ -12499,15 +12499,15 @@ TlsVerificationConfigurationSelection.Trusted;
 参数为其它值的情况下均不能进入在线状态，并会抛出用户异常。
 TlsVerificationConfiguration 还支持两个属性：
 <table><tr><td>方法名称</td><td>说明</td></tr><tr><td>PlcName</td><td>调用委托的 PLC 的名称。</td></tr><tr><td>VerificationInfo</td><td>发送给用户的消息。包含调用委托的原因。</td></tr></table>
-[连接到 TIA Portal](#连接到-TIA-Portal)
+[连接到 TIA Portal](#528-连接到-tia-portal)
 打开项目 (页 140)
 
 #### 5.11.2.19 更新模块描述
 
 要求
-• TIA Portal Openness 已连接到 TIA Portal 请[连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 已连接到 TIA Portal 请[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 在 TIA Portal Openness 中，会对设备项使用特定服务 ModuleDescriptionUpdater ，以将当前模块描述更新为模块的最新版本。要获取拥有服务实例的设备项，可使用特性OwnedBy。
 可使用 CanUpdate 属性显示该设备项是否有新的 ConfigObject 版本可用。
 <table><tr><td>属性</td><td>数据类型</td><td>描述</td></tr><tr><td>CanUpdate</td><td>bool</td><td>TRUE:有新版本可用FALSE:没有新版本</td></tr></table>
@@ -12533,9 +12533,9 @@ if (descriptionUpdater != null)
 
 #### 5.11.2.20 支持 PLC 设备上的 UMAC
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
-• 项目已打开[打开项目](#打开项目)”
-可使用 TIA Portal Openness 在通过用户管理访问控制 (UMAC) 保护的 PLC 设备上执行操作。所有需要合法性并支持 UMAC 的在线 PLC 功能都需要通过事件处理程序 OnlineLegitimation实现合法性。这与用于通过 TLS 进行通信的事件处理程序相同。有关 OnlineLegitimation 事件处理程序的信息，请[支持安全 S7 通信 TLS](#支持安全-S7-通信-TLS)”的“订阅 Tls 通知的事件”部分
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
+• 项目已打开[打开项目](#531-打开项目)”
+可使用 TIA Portal Openness 在通过用户管理访问控制 (UMAC) 保护的 PLC 设备上执行操作。所有需要合法性并支持 UMAC 的在线 PLC 功能都需要通过事件处理程序 OnlineLegitimation实现合法性。这与用于通过 TLS 进行通信的事件处理程序相同。有关 OnlineLegitimation 事件处理程序的信息，请[支持安全 S7 通信 TLS](#511218-支持安全-s7-通信-tls)”的“订阅 Tls 通知的事件”部分
 要基于在线合法性注册事件处理程序，需要连接组态对象。可通过相应在线服务（例如OnlineProvider、FingerprintDataProvider、DownloadProvider、StationUploadProvider等）的组态导航器访问“连接组态”对象。
 
 ##### 程序代码：访问连接组态对象
@@ -12588,7 +12588,7 @@ private void OnlineCallBackMethod(OnlineConfiguration onlineConfiguration)
 ##### OnlineAuthenticationConfiguration
 
 OnlineAuthenticationConfiguration 具有以下属性和方法：
-<table><tr><td>OnlineAuthenticationConfiguration</td><td>描述</td></tr><tr><td>bool IsSecureCommunication{ get; }</td><td>在与 PLC 进行“安全通信”(TLS 握手)连接的情况下,该属性提供“true”。在所有其它情况下,属性都提供“false”。更多相关信息,请[下载到 PLC 设备](#下载到-PLC-设备)”</td></tr><tr><td>IList&lt;AuthenticationType&gt;GetSupportedAuthenticationTypes()</td><td>从 PLC 中通过 GetSupportedAuthenticationTypes() 获取所有支持的 AuthenticationType。</td></tr><tr><td>OnlineCredentialsOnlineCredentials { get; }</td><td>组态凭据详细信息的属性。</td></tr></table>
+<table><tr><td>OnlineAuthenticationConfiguration</td><td>描述</td></tr><tr><td>bool IsSecureCommunication{ get; }</td><td>在与 PLC 进行“安全通信”(TLS 握手)连接的情况下,该属性提供“true”。在所有其它情况下,属性都提供“false”。更多相关信息,请[下载到 PLC 设备](#5111-用于将数据下载到-plc-设备中的函数)”</td></tr><tr><td>IList&lt;AuthenticationType&gt;GetSupportedAuthenticationTypes()</td><td>从 PLC 中通过 GetSupportedAuthenticationTypes() 获取所有支持的 AuthenticationType。</td></tr><tr><td>OnlineCredentialsOnlineCredentials { get; }</td><td>组态凭据详细信息的属性。</td></tr></table>
 在OnlineAuthenticationConfiguration对象中，可使用 IsSecureCommunication 选项验证连接是否使用安全 Tls。这类似于通过 DownloadConfiguration 上传或下载的组态。
 
 ```text
@@ -12678,9 +12678,9 @@ if (onlineAuthenticationConfiguration != null)
 
 #### 5.11.2.21 支持 IP 访问功能
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal 请[连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal 请[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 可使用 TIA Portal Openness 支持 IP 访问功能。在 TIA Portal Openness 中，会在设备项 CPU上提供新的动态属性 PlcAccessCommunicationModule。该属性为类型对象属性，因此用户可访问要为 IP 访问功能选择的 CP 对象并为该对象分配 PlcAccessCommunicationModule。如果已选择 CP，则可通过获取 PlcAccessCommunicationModule 值的方式检索 CP 对象。
 
 ```go
@@ -12698,9 +12698,9 @@ Plc.SetAttribute("PlcAccessCommunicationModule", cP);
 #### 5.11.2.22 访问 PLC 访问控制组态提供程序
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
 • 项目已打开
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 简介
 可使用 TIA Portal Openness 中的 PlcAccessControlConfigurationProvider 服务，以在运行时启用和禁用访问控制组态。
 方法
@@ -12743,9 +12743,9 @@ PlcAccessControlConfiguration.EnabledWithAccessControlViaAccessLevel);
 
 #### 5.11.2.23 设置显示密码
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal 请[连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal 请[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 可使用 TIA Portal Openness 设置显示保护密码。可使用方法 SetPassword(SecureStringpassword) 设置显示保护密码，其中密码的参数将是 SecureString。Openness 中不需要确认密码，因此不提供确认密码。
 满足以下前提条件后，将提供此功能。
 • PLC 具有“显示”实例。
@@ -12760,8 +12760,8 @@ displayProtection.SetPassword(someSecuredString); //Sets the string someSecuredS
 
 #### 5.11.2.24 访问 Web 服务器和 OPC UA 用户管理
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal 请[连接到 TIA Portal](#连接到-TIA-Portal)”
-• 已打开一个项目请[打开项目](#打开项目)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal 请[连接到 TIA Portal](#528-连接到-tia-portal)”
+• 已打开一个项目请[打开项目](#531-打开项目)”
 可使用 TIA Portal Openness 访问 Web 服务器以及 PLC 的 OPC UA 子模块。可以为 Web 服务器和 PLC 的 OPC UA 子模块添加最大数量的用户。用户具有用户名和密码。
 
 ```text
@@ -12888,7 +12888,7 @@ user.Delete();
 
 修改并使用以下程序代码，将当前密码替换为提供的密码：
 OpcUaUserComposition opcUaUserComposition = opcUaUserManagement.OpcUaUsers; OpcUaUser user = opcUaUserComposition.Find("user1"); user.SetPassword(someSecureString);
-[连接到 TIA Portal](#连接到-TIA-Portal)
+[连接到 TIA Portal](#528-连接到-tia-portal)
 打开项目 (页 140)
 
 ### 5.11.3 块
@@ -12897,8 +12897,8 @@ OpcUaUserComposition opcUaUserComposition = opcUaUserManagement.OpcUaUsers; OpcU
 #### 5.11.3.1 查询“程序块”组
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
-• 已打开一个项目。请[打开项目](#打开项目)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
+• 已打开一个项目。请[打开项目](#531-打开项目)
 • 已在项目中确定 PLC。
 程序代码
 修改以下程序代码以查询“程序块”(Program blocks) 组：
@@ -12916,9 +12916,9 @@ private static void GetBlockGroupOfPLC(PlcSoftware plcsoftware)
 #### 5.11.3.2 查询系统块的系统组
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
 • 已打开一个项目。
-请[打开项目](#打开项目)
+请[打开项目](#531-打开项目)
 
 ##### 程序代码：
 
@@ -12944,8 +12944,8 @@ foreach (PlcSystemBlockGroup systemGroup in plcSoftware.BlockGroup.SystemBlockGr
 #### 5.11.3.3 枚举系统子组
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
-• 已打开一个项目。请[打开项目](#打开项目)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
+• 已打开一个项目。请[打开项目](#531-打开项目)
 
 ##### 程序代码：枚举所有系统子组
 
@@ -12996,9 +12996,9 @@ private static void AccessSbGroup(PlcSystemBlockGroup systemBlockGroup)
 #### 5.11.3.4 枚举用户自定义的块组
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
 • 已打开一个项目。
-请[打开项目](#打开项目)
+请[打开项目](#531-打开项目)
 • 已在项目中确定 PLC。
 应用
 子组将以递归形式考虑在内，以进行枚举。
@@ -13044,9 +13044,9 @@ private static void AccessBlockusergroup(PlcSoftware plcsoftware)
 
 #### 5.11.3.5 枚举所有块
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
 • 已打开一个项目。
-请[打开项目](#打开项目)
+请[打开项目](#531-打开项目)
 • 已在项目中确定 PLC。
 如果已知程序块名称，则可对其进行针对性访问。
 程序代码：枚举所有块
@@ -13081,9 +13081,9 @@ private static void AccessASingleBlock(PlcSoftware plcsoftware)
 
 #### 5.11.3.6 查询块/用户数据类型的信息
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
 • 已打开一个项目。
-请[打开项目](#打开项目)
+请[打开项目](#531-打开项目)
 应用
 TIA Portal Openness API 支持针对程序和数据块以及用户数据类型查询以下信息：
 • UTC 时间格式的时间戳。
@@ -13107,7 +13107,7 @@ TIA Portal Openness API 支持针对程序和数据块以及用户数据类型�
 
 - 块标题
 - 块版本
-更多详细信息，请[TIA Portal Openness 对象模型的块和类型](#TIA-Portal-Openness-对象模型的块和类型)。
+更多详细信息，请[TIA Portal Openness 对象模型的块和类型](#512-tia-portal-openness-对象模型的块和类型)。
 
 ```
 
@@ -13137,8 +13137,8 @@ private static void GetPlcBlockInformation(PlcSoftware plcSoftware)
 
 #### 5.11.3.7 设置和删除块的保护
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
-• 项目已经打开。[打开项目](#打开项目)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
+• 项目已经打开。[打开项目](#531-打开项目)”
 • PLC 未在线。
 可使用 TIA Portal Openness 通过 PlcBlockProtectionProvider 类和
 PlcBlockProtectionProvider 服务设置或删除块的密码保护。可在满足以下条件的块上访问PlcBlockProtectionProvider 服务：
@@ -13229,8 +13229,8 @@ SecureString CreatePasswordString(ProtectionProvider protectionProvider, IEnumer
 
 #### 5.11.3.8 删除块
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
-• 已打开一个项目。请[打开项目](#打开项目)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
+• 已打开一个项目。请[打开项目](#531-打开项目)
 • PLC 未处于在线状态。
 修改以下程序代码以删除块：
 
@@ -13258,8 +13258,8 @@ private static void DeleteBlocks(PlcSoftware plcsoftware)
 #### 5.11.3.9 创建块组
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
-• 已打开一个项目。请[打开项目](#打开项目)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
+• 已打开一个项目。请[打开项目](#531-打开项目)
 修改以下程序代码以创建块组：
 
 ```text
@@ -13274,13 +13274,13 @@ private static void CreateBlockGroup(PlcSoftware plcsoftware)
 
 ```
 
-[导入组态数据](#导入组态数据)
+[导入组态数据](#616-导入组态数据)
 
 #### 5.11.3.10 删除块组
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
-• 已打开一个项目。请[打开项目](#打开项目)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
+• 已打开一个项目。请[打开项目](#531-打开项目)
 • PLC 未处于在线状态。
 修改以下程序代码以删除块组：
 
@@ -13305,8 +13305,8 @@ private static void DeleteBlockFolder(PlcSoftware plcSoftware)
 
 #### 5.11.3.11 访问所有块的属性
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
-• 项目已经打开。[打开项目](#打开项目)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
+• 项目已经打开。[打开项目](#531-打开项目)”
 可通过 TIA Portal Openness 使用 SetAttribute() 和 SetAttributes() 方法设置适用于所有块的属性。
 SetAttributes() 可用于支持可写 openness 属性的所有对象类型。对于一个输入项，则采用SetAttribute 形式。
 参数检查：
@@ -13314,7 +13314,7 @@ SetAttributes() 可用于支持可写 openness 属性的所有对象类型。对
 • 运行 SetAttributes 期间进行序列检查。处理顺序与输入列表元素的顺序相同
 SetAttributes 仅用于一个事务。如果无法设置输入列表的属性，则属性值保持不变。
 SetAttributes 按参数列表中显示的顺序设置属性。参数可彼此相关，也可彼此独立。如果一个参数与列表中的前面参数之一相关，则根据另一个属性的当前值（而不是调用时的原始值）检查和评估此参数。如果无法执行 SetAttributes，则会显示错误详细信息。错误消息包含第一个属性名称及其无法进行管理设置的值以及原因。
-以下程序代码示例基于两个属性 AutoNumber 和 Number（使用 SetAttribute() ）给出（请[导出块](#导出块)”了解所有适用于块的属性）。
+以下程序代码示例基于两个属性 AutoNumber 和 Number（使用 SetAttribute() ）给出（请[导出块](#64213-导出块)”了解所有适用于块的属性）。
 程序代码：SetAttribute
 
 ```javascript
@@ -13355,9 +13355,9 @@ if (block != null)
 
 #### 5.11.3.12 创建 ProDiag-FB
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
 • 项目已经打开。
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 可使用 PLCBlock 组合的创建操作来创建包含以下参数的 ProDiag FB。
 1. 名称
 2. 自动编号标记
@@ -13398,14 +13398,14 @@ if (blockComposition != null)
 #### 5.11.3.13 访问 ProDiag-FB 的监控和属性
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
 • 项目已经打开。
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 
 ##### 访问 User-FB 的监控
 
 可使用 TIA Portal Openness 访问 FB 块的监控。每个 FB 都有包含经典 PLC 和 Plus PLC 的监控列表。AssignedProDiagFB（位于
-InstanceDB）可通过属性 AssignedProDiagFB 设置（[导出块](#导出块)”）。
+InstanceDB）可通过属性 AssignedProDiagFB 设置（[导出块](#64213-导出块)”）。
 可使用 GetAttribute(), GetAttributes()、 and SetAttribute() 方法访问属性。
 不能在 TIA Portal Openness 中使用 SetAttributes() 设置多个属性。如果尝试使用SetAttributes() 设置多个属性，TIA Portal Openness 中将抛出异常。
 
@@ -13442,9 +13442,9 @@ var assignedProDiagFB = instanceDB.GetAttribute("AssignedProDiagFB");
 
 #### 5.11.3.14 为 DB 和变量表分配 ProDiag FB
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal 请[连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal 请[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 可使用 TIA Portal Openness 通过 GetAttribute/SetAttribute 方法获取和设置为全局 DB 和TagTable 中的成员分配的 proDiagFB 值。
 Siemens.Engineering.SW.Blocks.Interface.Member 类型名称提供以下属性：
 <table><tr><td>属性名称</td><td>数据类型</td><td>访问权限</td></tr><tr><td>名称</td><td>字符串</td><td>读取</td></tr><tr><td>AssignedProDiagFB</td><td>字符串</td><td>读/写</td></tr></table>
@@ -13521,14 +13521,14 @@ tag.SetAttribute ("AssignedProDiagFB ", "ProDiagFBName");
 ProDiagFB 的 GetAttribute 和 SetAttribute 属于动态属性，仅对全局 DB 和变量表中的 UDT 实例有效。
 简单数据类型（例如整型、字符串等）以及派生数据类型（例如结构体、数组）、所有系统定义的类型、用户常量和系统常量类型等对象不支持此属性。
 如果尝试为无效对象获取/设置属性，将抛出异常。
-[连接到 TIA Portal](#连接到-TIA-Portal)
+[连接到 TIA Portal](#528-连接到-tia-portal)
 打开项目 (页 140)
 
 #### 5.11.3.15 读取 ProDiag-FB 块和属性
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#连接到-TIA-Portal)”
-• 已通过 TIA Portal Openness 应用程序打开一个项目请[打开项目](#打开项目)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#528-连接到-tia-portal)”
+• 已通过 TIA Portal Openness 应用程序打开一个项目请[打开项目](#531-打开项目)”
 可使用 TIA Portal Openness 读取 ProDiag 功能块版本以及其他与 ProDiag 相关的属性值，使用GetAttribute ( ) 和 GetAttributes ( ) 方法读取现有的 ProDiag FB 语言特定属性。
 Openness 中的 ProDiag-FB 支持以下属性：
 <table><tr><td>属性</td><td>类型</td></tr><tr><td>ProDiagVersion</td><td>版本</td></tr><tr><td>InitialValueAcquisition</td><td>bool</td></tr><tr><td>UseCentralTimeStamp</td><td>bool</td></tr></table>
@@ -13537,9 +13537,9 @@ Openness 中的 ProDiag-FB 支持以下属性：
 
 #### 5.11.3.16 “正在导出 ProDiag”报警消息
 
-• TIA Portal Openness 已连接到 TIA Portal 请[连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 已连接到 TIA Portal 请[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 项目已打开
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 可在 TIA Portal Openness 中使用 CodeBlock 的 ExportProDIAGInfo() 来以 csv 格式导出特定ProDiag 块的报警消息。得到的输出可在 Microsoft Excel 中
 打开。
 要以 csv 格式导出 ProDiag-块，应确保 ProDiag-FB 的编程语言为“ProDiag”，否则将抛出可恢复异常。
@@ -13570,8 +13570,8 @@ private static void ExportProDiagBlock(PlcBlock plcBlock)
 #### 5.11.3.17 添加外部文件
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
-• 已通过 TIA Portal Openness 应用程序打开一个项目：请[打开项目](#打开项目)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
+• 已通过 TIA Portal Openness 应用程序打开一个项目：请[打开项目](#531-打开项目)
 可以向 PLC 添加外部文件。此外部文件存储在文件系统的指定路径下。
 支持以下格式：
 • STL • SCL • DB • UDT
@@ -13599,8 +13599,8 @@ private static void CreateBlockFromFile(PlcSoftware plcSoftware)
 
 #### 5.11.3.18 生成块的源文件
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
-• 项目已经打开。[打开项目](#打开项目)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
+• 项目已经打开。[打开项目](#531-打开项目)”
 • PLC 未在线。
 TIA Portal Openness API 接口支持生成 STL 或 SCL 块、数据块和 PLC 类型（用户数据类型）的 UTF-8 格式源文件。要生成块的源文件，调用 PlcExternalSourceSystemGroup 实例上的 GenerateSource 方法。
 生成的源文件的大小取决于此函数的生成选项：
@@ -13647,12 +13647,12 @@ systemGroup.GenerateSource(types, fileInfo, GenerateOptions.WithDependencies);
 
 ```
 
-[导入组态数据](#导入组态数据)
+[导入组态数据](#616-导入组态数据)
 
 #### 5.11.3.19 从源生成块
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#连接到-TIA-Portal)”
-• 已打开一个项目。请[打开项目](#打开项目)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#528-连接到-tia-portal)”
+• 已打开一个项目。请[打开项目](#531-打开项目)”
 • PLC 未处于在线状态。
 可以从“外部源文件”(External source files) 组的所有外部文件生成块。仅支持格式为 ASCI的外部文件。
 说明
@@ -13676,9 +13676,9 @@ plcSoftware.ExternalSourceGroup.ExternalSources)
 #### 5.11.3.20 由已知源格式的源生成
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
 •  项目已经打开。
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 • PLC 未处于在线状态
 TIA Portal Openness API 接口支持生成块和 UDT 对象。有些情况下，生成的块和 UDT 编译失败。
 通常是某些部分缺失或无效，从而使块和 UDT 不兼容：
@@ -13756,14 +13756,14 @@ try
 
 ```
 
-[连接到 TIA Portal](#连接到-TIA-Portal)
+[连接到 TIA Portal](#528-连接到-tia-portal)
 打开项目 (页 140)
 
 #### 5.11.3.21 删除用户数据类型
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
-• 已打开一个项目。请[打开项目](#打开项目)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
+• 已打开一个项目。请[打开项目](#531-打开项目)
 • PLC 未处于在线状态。
 修改以下程序代码以删除用户类型：
 
@@ -13782,13 +13782,13 @@ private static void DeleteUserDataType(PlcSoftware plcSoftware)
 
 ```
 
-[导入组态数据](#导入组态数据)
+[导入组态数据](#616-导入组态数据)
 
 #### 5.11.3.22 访问 PLC 系统数据类型
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal [连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal [连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 可使用特性 Siemens.Engineering.SW.PlcSystemTypeGroup 和
 Siemens.Engineering.SW.PlcSystemTypeGroupComposition 访问系统生成的类型列表。
 PlcSystemTypeGroupComposition 可用于访问 PLC 系统类型组，而 PlcSystemTypeGroup 则允许访问每个系统的数据类型。
@@ -13797,8 +13797,8 @@ PlcSystemTypeGroupComposition 可用于访问 PLC 系统类型组，而 PlcSyste
 #### 5.11.3.23 删除外部文件
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal请[连接到 TIA Portal](#连接到-TIA-Portal)
-• 已通过 TIA Portal Openness 应用程序打开一个项目：请[打开项目](#打开项目)
+• TIA Portal Openness 应用程序已连接到 TIA Portal请[连接到 TIA Portal](#528-连接到-tia-portal)
+• 已通过 TIA Portal Openness 应用程序打开一个项目：请[打开项目](#531-打开项目)
 • PLC 未处于在线状态。
 修改以下程序代码以从“外部源文件”(External source files) 组中删除外部文件。
 
@@ -13824,9 +13824,9 @@ private static void DeleteExternalSource(PlcSoftware plcSoftware)
 #### 5.11.3.24 启动块编辑器
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
 • 已打开一个项目。
-请[打开项目](#打开项目)
+请[打开项目](#531-打开项目)
 • 已通过用户界面打开 TIA Portal 的实例。
 修改以下程序代码以在 TIA Portal 实例中为PlcBlock类型的对象参考启动关联编辑器：
 
@@ -13859,8 +13859,8 @@ private static void StartPlcTypEditor(PlcSoftware plcSoftware)
 
 #### 5.11.3.25 使用特征码更改块
 
-• 应用程序已通过 TIA Portal Openness 连接到 TIA Portal[连接到 TIA Portal](#连接到-TIA-Portal)”
-• 已打开一个项目请[打开项目](#打开项目)”
+• 应用程序已通过 TIA Portal Openness 连接到 TIA Portal[连接到 TIA Portal](#528-连接到-tia-portal)”
+• 已打开一个项目请[打开项目](#531-打开项目)”
 TIA Portal Openness 支持包含程序代码名称的校验信息，该代码会比较纯代码，并会忽略行内注释、多行注释、换行符和跳格。Openness fingerprintId ProgramCode 用于提取校验信息“程序代码”的校验和值
 可以使用 TIA Portal Openness 检测块和 UDT 内部的更改。通过比较对象的校验信息可实现功能。校验信息实例包含一个将校验信息类型和校验信息值定义为字符串的 FingerprintId。
 提供的全部fingerprints均只考虑用户输入，不考虑编译结果或系统所做的任何其它更改。可使用 FingerprintProvider 服务来检索指纹信息的实例。 FingerprintProvider 服务适用于块和UDT，但不适用于变量表。在校验信息实例上调用 GetFingerprints()，以计算并返回所有可用的校验信息对象。为获得有效的调研信息，在调用校验信息之前，块或 UDT 需要保持一致。否则会抛出 RecoverableException。如果计算后校验信息仍然无效，则会抛出RecoverableException。
@@ -13887,8 +13887,8 @@ foreach(var fingerprint in fingerprints)
 
 #### 5.11.3.26 生成/删除用户自定义页面的块
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal 请[连接到 TIA Portal](#连接到-TIA-Portal)”
-• 已打开一个项目请[打开项目](#打开项目)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal 请[连接到 TIA Portal](#528-连接到-tia-portal)”
+• 已打开一个项目请[打开项目](#531-打开项目)”
 可使用 TIA Portal Openness 在 PLC 的 Web 服务器中创建用户自定义 Web 页面。这些用户自定义页面的数据会存储在特定的系统生成的 PLC 数据块中。也可以手动编辑和删除这些块。但如果修改这些数据块中的任何数据或特性，Web 服务器将无法正常运行。
 在 TIA Portal Openness 中，在 DeviceItem PLC 中添加了新服务WebserverUserDefinedPages。可使用此服务生成用户自定义页面的 DB：List<PLCBlock>GenerateBlocks(Arguments)。调用此函数时，会生成相应 DB，并会向用户返回已生成 DB的列表。
 该函数可能有两种过载情况：
@@ -13927,8 +13927,8 @@ IList<PlcBlock> blocks = WebserverUserDefinedPagesService.GenerateBlocks(htmlDir
 
 #### 5.11.3.27 OB 块优先级属性的写访问
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal [连接到 TIA Portal](#连接到-TIA-Portal)”
-• 已打开一个项目请[打开项目](#打开项目)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal [连接到 TIA Portal](#528-连接到-tia-portal)”
+• 已打开一个项目请[打开项目](#531-打开项目)”
 应用
 可使用 TIA Portal Openness 对 OB 块特性进行写访问。可使用 TIA Portal Openness 在单元和非单元编程模型中更改块优先级。
 可访问块的以下特性：
@@ -13943,13 +13943,13 @@ obBlock.SetAttribute("PriorityNumber", 14);
 
 ```
 
-[打开项目](#打开项目)
+[打开项目](#531-打开项目)
 
 #### 5.11.3.28 通过特定用户组中的外部源文件生成块/UDT
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
-• 已通过 TIA Portal Openness 应用程序打开一个项目。请[打开项目](#打开项目)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
+• 已通过 TIA Portal Openness 应用程序打开一个项目。请[打开项目](#531-打开项目)”
 可使用 TIA Portal Openness 在 PLC 编程模型和单元编程模型中的用户特定组下生成块/udt。
 
 ##### 函数
@@ -13981,8 +13981,8 @@ plc.ExternalSourceGroup.ExternalSources.Find("User\_data\_type\_1.udt").Generate
 
 #### 5.11.3.29 为软件单元之外的块生成可加载文件
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal [连接到 TIA Portal](#连接到-TIA-Portal)”
-• 已打开一个 TIA Portal 项目请[打开项目](#打开项目)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal [连接到 TIA Portal](#528-连接到-tia-portal)”
+• 已打开一个 TIA Portal 项目请[打开项目](#531-打开项目)”
 • 必须清楚编译 PLC
 可使用 TIA Portal Openness 通过以下方法为软件单元之外的块生成可加载文
 件：GenerateLoadable(FileInfo path, IEnumerable<PlcBlock> blocks, TargetOption targetOption)
@@ -14120,10 +14120,10 @@ S7-1500 Motion Control (页 629)
 #### 5.11.4.4 查询工艺对象的组成
 
 要求
-• Openness 应用程序将连接至 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
-• 已打开一个项目。[打开项目](#打开项目)”
+• Openness 应用程序将连接至 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
+• 已打开一个项目。[打开项目](#531-打开项目)”
 • 在项目中确定 PLC。
-[查询 PLC 和 HMI 目标](#查询-PLC-和-HMI-目标)”
+[查询 PLC 和 HMI 目标](#572-查询-plc-和-hmi-目标)”
 
 ##### 修改以下程序代码以获取 PLC 的所有工艺对象：
 
@@ -14145,9 +14145,9 @@ private static void GetTechnologicalObjectsOfPLC(PlcSoftware plcSoftware)
 #### 5.11.4.5 创建工艺对象
 
 要求
-• 将 Openness 应用连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
-• 已打开一个项目。请[打开项目](#打开项目)”
-• 在项目中确定 PLC。[查询 PLC 和 HMI 目标](#查询-PLC-和-HMI-目标)”
+• 将 Openness 应用连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
+• 已打开一个项目。请[打开项目](#531-打开项目)”
+• 在项目中确定 PLC。[查询 PLC 和 HMI 目标](#572-查询-plc-和-hmi-目标)”
 只能创建在“工艺对象和版本概述 (页 603)”部分中列出的工艺对象。如果工艺对象不支持或参数错误，则将发生异常错误。另请[处理异常](#处理异常)。
 修改以下程序代码，创建一个工艺对象并将其添加到现有的 PLC 中：
 
@@ -14167,7 +14167,7 @@ private static void CreateTechnologicalObject(PlcSoftware plcSoftware)
 
 ```
 
-有关工艺对象的可能值和名称组合、类型和版本，请[工艺对象和版本概述](#工艺对象和版本概述)”部分。
+有关工艺对象的可能值和名称组合、类型和版本，请[工艺对象和版本概述](#51142-工艺对象和版本概述)”部分。
 
 ```text
 
@@ -14179,10 +14179,10 @@ S7-1500 Motion Control (页 629)
 #### 5.11.4.6 删除工艺对象
 
 要求
-• Openness 应用程序将连接至 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
-• 已打开一个项目。[打开项目](#打开项目)”
-• 在项目中确定 PLC。[查询 PLC 和 HMI 目标](#查询-PLC-和-HMI-目标)”
-• 该工艺对象存在。 [查找工艺对象](#查找工艺对象)”
+• Openness 应用程序将连接至 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
+• 已打开一个项目。[打开项目](#531-打开项目)”
+• 在项目中确定 PLC。[查询 PLC 和 HMI 目标](#572-查询-plc-和-hmi-目标)”
+• 该工艺对象存在。 [查找工艺对象](#511412-查找工艺对象)”
 修改以下程序代码以删除工艺对象：
 
 ```text
@@ -14199,9 +14199,9 @@ private static void DeleteTechnologicalObject(TechnologicalInstanceDB technologi
 
 #### 5.11.4.7 创建工艺对象组
 
-• 将 Openness 应用连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
-• 已打开一个项目。请[打开项目](#打开项目)”
-• 在项目中确定 PLC。[查询 PLC 和 HMI 目标](#查询-PLC-和-HMI-目标)”
+• 将 Openness 应用连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
+• 已打开一个项目。请[打开项目](#531-打开项目)”
+• 在项目中确定 PLC。[查询 PLC 和 HMI 目标](#572-查询-plc-和-hmi-目标)”
 修改以下程序代码以创建工艺对象组：
 
 ```cs
@@ -14219,9 +14219,9 @@ private static void CreateTechnologicalObjectGroup(PlcSoftware plcsoftware)
 #### 5.11.4.8 删除工艺对象组
 
 要求
-• Openness 应用程序将连接至 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
-• 已打开一个项目。请[打开项目](#打开项目)”
-• 在项目中确定 PLC。[查询 PLC 和 HMI 目标](#查询-PLC-和-HMI-目标)”
+• Openness 应用程序将连接至 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
+• 已打开一个项目。请[打开项目](#531-打开项目)”
+• 在项目中确定 PLC。[查询 PLC 和 HMI 目标](#572-查询-plc-和-hmi-目标)”
 修改以下程序代码以删除工艺对象组：
 
 ```cs
@@ -14244,18 +14244,18 @@ private static void DeleteTechnologicalObjectGroup(PlcSoftware plcsoftware)
 #### 5.11.4.9 编译工艺对象
 
 要求
-• Openness 应用程序将连接至 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
+• Openness 应用程序将连接至 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
 • 项目已打开。
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 
 ```text
 
 - 在项目中确定 PLC。
-[查询 PLC 和 HMI 目标](#查询-PLC-和-HMI-目标)”
+[查询 PLC 和 HMI 目标](#572-查询-plc-和-hmi-目标)”
 
 ```
 
-• 该工艺对象存在。[创建工艺对象](#创建工艺对象)”
+• 该工艺对象存在。[创建工艺对象](#51145-创建工艺对象)”
 
 ##### 程序代码：编译工艺对象
 
@@ -14292,7 +14292,7 @@ private static void CompileTechnologicalObjectGroup(PlcSoftware plcSoftware)
 ##### 编译结果
 
 工艺对象的编译结果将进行递归存储。
-有关对编译结果进行递归评估的示例，请[编译项目](#编译项目)”部分。
+有关对编译结果进行递归评估的示例，请[编译项目](#5313-编译项目)”部分。
 
 ##### 其它参数
 
@@ -14304,13 +14304,13 @@ private static void CompileTechnologicalObjectGroup(PlcSoftware plcSoftware)
 #### 5.11.4.10 枚举工艺对象
 
 要求
-可以枚举顶级 TO，比如“TO\_Axis”和“TO\_Cam”。要查找下级 TO（例如“TO\_OutputCam”），请[创建和查找 TO\_OutputCam、TO\_CamTrack 和 TO\_MeasuringInput](#创建和查找-TO_OutputCamTO_CamTrack-和-TO_MeasuringInput)”。
+可以枚举顶级 TO，比如“TO\_Axis”和“TO\_Cam”。要查找下级 TO（例如“TO\_OutputCam”），请[创建和查找 TO\_OutputCam、TO\_CamTrack 和 TO\_MeasuringInput](#创建和查找-to_outputcamto_camtrack-和-to_measuringinput)”。
 • Openness 应用程序将连接至 TIA Portal。
-[连接到 TIA Portal](#连接到-TIA-Portal)”
+[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目。
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 • 在项目中确定 PLC。
-[查询 PLC 和 HMI 目标](#查询-PLC-和-HMI-目标)”
+[查询 PLC 和 HMI 目标](#572-查询-plc-和-hmi-目标)”
 
 ##### 修改以下程序代码以枚举工艺对象：
 
@@ -14333,9 +14333,9 @@ private static void EnumerateTechnologicalObjects(PlcSoftware plcSoftware)
 
 #### 5.11.4.11 枚举工艺对象组
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
-• 已打开一个项目。请[打开项目](#打开项目)
-• 在项目中确定 PLC。[查询 PLC 和 HMI 目标](#查询-PLC-和-HMI-目标)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
+• 已打开一个项目。请[打开项目](#531-打开项目)
+• 在项目中确定 PLC。[查询 PLC 和 HMI 目标](#572-查询-plc-和-hmi-目标)”
 子组将以递归形式考虑在内，以进行枚举。
 修改以下程序代码以枚举工艺对象组：
 
@@ -14380,9 +14380,9 @@ private static void AccessTechnologicalInstanceDBUserGroup(PlcSoftware sw)
 #### 5.11.4.12 查找工艺对象
 
 要求
-• Openness 应用程序将连接至 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
+• Openness 应用程序将连接至 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目。
-• 在项目中确定 PLC。[查询 PLC 和 HMI 目标](#查询-PLC-和-HMI-目标)”
+• 在项目中确定 PLC。[查询 PLC 和 HMI 目标](#572-查询-plc-和-hmi-目标)”
 程序代码
 修改以下程序代码以查找特定的工艺对象：
 
@@ -14399,16 +14399,16 @@ private static void FindTechnologicalObject(PlcSoftware plcSoftware)
 
 ```
 
-[标准库](#标准库)
+[标准库](#524-标准库)
 
 #### 5.11.4.13 枚举工艺对象的参数
 
 要求
-• Openness 应用程序将连接至 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
-• 已打开一个项目。[打开项目](#打开项目)”
+• Openness 应用程序将连接至 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
+• 已打开一个项目。[打开项目](#531-打开项目)”
 • 在项目中确定 PLC。
-[查询 PLC 和 HMI 目标](#查询-PLC-和-HMI-目标)”
-• 该工艺对象存在。[创建工艺对象](#创建工艺对象)”或“查找工艺对象的参数 (页 616)”
+[查询 PLC 和 HMI 目标](#572-查询-plc-和-hmi-目标)”
+• 该工艺对象存在。[创建工艺对象](#51145-创建工艺对象)”或“查找工艺对象的参数 (页 616)”
 • 该工艺对象 (页 603)支持此功能。
 修改以下程序代码以枚举特定工艺对象的参数：
 
@@ -14437,10 +14437,10 @@ private static void EnumerateParameters(PlcSoftware plcSoftware)
 
 #### 5.11.4.14 查找工艺对象的参数
 
-• Openness 应用程序将连接至 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
-• 已打开一个项目。[打开项目](#打开项目)”
-• 在项目中确定 PLC。[查询 PLC 和 HMI 目标](#查询-PLC-和-HMI-目标)”
-• 该工艺对象存在。[创建工艺对象](#创建工艺对象)”
+• Openness 应用程序将连接至 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
+• 已打开一个项目。[打开项目](#531-打开项目)”
+• 在项目中确定 PLC。[查询 PLC 和 HMI 目标](#572-查询-plc-和-hmi-目标)”
+• 该工艺对象存在。[创建工艺对象](#51145-创建工艺对象)”
 • 该工艺对象 (页 603)支持此功能。
 修改以下程序代码以查找特定工艺对象的参数：
 
@@ -14477,16 +14477,16 @@ Easy Motion Control 的参数 (页 665)
 #### 5.11.4.15 读取工艺对象的参数
 
 • Openness 应用程序将连接至 TIA Portal。
-[连接到 TIA Portal](#连接到-TIA-Portal)”
+[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目。
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 • 在项目中确定 PLC。
-[查询 PLC 和 HMI 目标](#查询-PLC-和-HMI-目标)”
+[查询 PLC 和 HMI 目标](#572-查询-plc-和-hmi-目标)”
 
 ```text
 
 - 该工艺对象存在。
-[创建工艺对象](#创建工艺对象)”
+[创建工艺对象](#51145-创建工艺对象)”
 
 ```
 
@@ -14521,11 +14521,11 @@ private static void ReadParameterOfTechnologicalObject(PlcSoftware plcSoftware)
 #### 5.11.4.16 写入工艺对象的参数
 
 要求
-• Openness 应用程序将连接至 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
-• 已打开一个项目。[打开项目](#打开项目)”
-• 在项目中确定 PLC。[查询 PLC 和 HMI 目标](#查询-PLC-和-HMI-目标)”
+• Openness 应用程序将连接至 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
+• 已打开一个项目。[打开项目](#531-打开项目)”
+• 在项目中确定 PLC。[查询 PLC 和 HMI 目标](#572-查询-plc-和-hmi-目标)”
 • 该工艺对象存在。
-[创建工艺对象](#创建工艺对象)”
+[创建工艺对象](#51145-创建工艺对象)”
 • 该工艺对象 (页 603)支持此功能。
 
 ##### 意外错误
@@ -14558,7 +14558,7 @@ S7-1500 Motion Control 的参数 (页 629)
 PID 控制的参数 (页 664)
 计数的参数 (页 664)
 Easy Motion Control 的参数 (页 665)
-[标准库](#标准库)
+[标准库](#524-标准库)
 查找工艺对象 (页 615)
 
 #### 5.11.4.17 S7-1200 Motion Control
@@ -14567,12 +14567,12 @@ Easy Motion Control 的参数 (页 665)
 ##### 连接 PTO 输出
 
 要求
-• Openness 应用程序连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)。
+• Openness 应用程序连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)。
 • 已打开一个项目。
-请[打开项目](#打开项目)。
+请[打开项目](#531-打开项目)。
 • 已在项目中确定使用 PTO 输出的 S7-1200 PLC。
 • 存在工艺对象。
-请[创建工艺对象](#创建工艺对象)。
+请[创建工艺对象](#51145-创建工艺对象)。
 修改以下程序代码以将 PTO 输出连接至“TO\_PositioningAxis”。
 
 ```cs
@@ -14593,11 +14593,11 @@ Easy Motion Control 的参数 (页 665)
 
 ##### 基于硬件地址连接 PROFIdrive
 
-• Openness 应用程序已连接至 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)。
-• 已打开一个项目。请[打开项目](#打开项目)。
+• Openness 应用程序已连接至 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)。
+• 已打开一个项目。请[打开项目](#531-打开项目)。
 • 已在项目中确定 S7-1200 PLC。
 • 项目中包含 PROFIdrive，且已连接 S7-1200 PLC。
-• 工艺对象已存在。请[创建工艺对象](#创建工艺对象)。
+• 工艺对象已存在。请[创建工艺对象](#51145-创建工艺对象)。
 修改以下程序代码，基于硬件地址连接 PROFIdrive 和“TO\_PositioningAxis”。
 
 ```cs
@@ -14619,12 +14619,12 @@ Easy Motion Control 的参数 (页 665)
 ##### 基于硬件地址连接 PROFIdrive 的编码器
 
 要求
-• Openness 应用程序已连接至 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)。
-• 已打开一个项目。请[打开项目](#打开项目)。
+• Openness 应用程序已连接至 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)。
+• 已打开一个项目。请[打开项目](#531-打开项目)。
 • 已在项目中确定 S7-1200 PLC。
 • 项目中包含 PROFIdrive，且已连接 S7-1200 PLC。
 • 工艺对象已存在。
-请[创建工艺对象](#创建工艺对象)。
+请[创建工艺对象](#51145-创建工艺对象)。
 修改以下程序代码，基于硬件地址连接编码器和“TO\_PositioningAxis”：
 
 ```cs
@@ -14647,11 +14647,11 @@ Easy Motion Control 的参数 (页 665)
 
 ##### 基于硬件地址连接模拟量驱动装置
 
-• Openness 应用程序已连接至 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)。
-• 已打开一个项目。请[打开项目](#打开项目)。
+• Openness 应用程序已连接至 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)。
+• 已打开一个项目。请[打开项目](#531-打开项目)。
 • 已在项目中确定 S7-1200 PLC。
 • 项目中包含模拟量驱动装置，且已连接 S7-1200 PLC。
-• 工艺对象已存在。请[创建工艺对象](#创建工艺对象)。
+• 工艺对象已存在。请[创建工艺对象](#51145-创建工艺对象)。
 修改以下程序代码，基于硬件地址连接模拟量驱动装置和“TO\_PositioningAxis”：
 
 ```cs
@@ -14671,11 +14671,11 @@ Easy Motion Control 的参数 (页 665)
 ##### 基于硬件地址连接模拟量驱动装置的编码器
 
 要求
-• Openness 应用程序已连接至 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)。
-• 已打开一个项目。请[打开项目](#打开项目)。
+• Openness 应用程序已连接至 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)。
+• 已打开一个项目。请[打开项目](#531-打开项目)。
 • 已在项目中确定 S7-1200 PLC。
 • 项目中包含模拟量驱动装置，且已连接 S7-1200 PLC。
-• 工艺对象已存在。请[创建工艺对象](#创建工艺对象)。
+• 工艺对象已存在。请[创建工艺对象](#51145-创建工艺对象)。
 
 ##### 修改以下程序代码，基于硬件地址连接编码器和“TO\_PositioningAxis”：
 
@@ -14710,15 +14710,15 @@ technologicalObject)
 
 通过数据块连接驱动装置
 要求
-• Openness 应用程序已连接至 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)。
+• Openness 应用程序已连接至 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)。
 • 已打开一个项目。
-请[打开项目](#打开项目)。
+请[打开项目](#531-打开项目)。
 • 已在项目中确定 S7-1200 PLC。
 • 项目中包含有数据块，且设置为“未优化”(Not optimized)
 如果该数据块为 PROFIdrive 轴类型，则该数据块中包含一个该类型的变量。如，PD\_TEL3。
 对于模拟量驱动装置，该数据块中包含一个 WORD 数据类型的变量。
 • 工艺对象已存在。
-请[创建工艺对象](#创建工艺对象)。
+请[创建工艺对象](#51145-创建工艺对象)。
 修改以下程序代码，通过数据块连接 PROFIdrive 和“TO\_PositioningAxis”。
 
 ```cs
@@ -14754,11 +14754,11 @@ technologicalObject)
 
 ##### 通过数据块连接编码器
 
-• Openness 应用程序已连接至 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)。
-• 已打开一个项目。请[打开项目](#打开项目)。
+• Openness 应用程序已连接至 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)。
+• 已打开一个项目。请[打开项目](#531-打开项目)。
 • 已在项目中确定 S7-1200 PLC。
 • 项目中包含有数据块，且设置为“未优化”(Not optimized)对于 PROFIdrive，则该数据块中包含一个该类型的变量。如，PD\_TEL3
-• 工艺对象已存在。请[创建工艺对象](#创建工艺对象)。
+• 工艺对象已存在。请[创建工艺对象](#51145-创建工艺对象)。
 
 ##### 修改以下程序代码以根据数据块连接编码器：
 
@@ -14789,9 +14789,9 @@ technologicalObject)
 ##### 创建和查找 TO\_OutputCam、TO\_CamTrack 和 TO\_MeasuringInput
 
 要求
-• Openness 应用程序连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)。
+• Openness 应用程序连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)。
 • 已打开一个项目。
-请[打开项目](#打开项目)。
+请[打开项目](#531-打开项目)。
 • 已在项目中确定 S7-1500 PLC。
 • 已在项目中确定 TO\_PositioningAxis、TO\_SynchronousAxis 或 TO\_ExternalEncoder 类型的工艺对象。
 输出凸轮、凸轮轨迹和测量输入工艺对象与定位轴、同步轴或外部编码器工艺对象相关。要访问输出凸轮、凸轮轨迹或测量输入工艺对象，请使用服务OutputCamMeasuringInputContainer。
@@ -14961,9 +14961,9 @@ https://support.industry.siemens.com/cs/ww/en/view/109751049 (https:// support.i
 要求
 • Openness 应用程序连接到 TIA Portal。请参见连接到 TIA Portal (页 90)。
 • 已打开一个项目。
-请[打开项目](#打开项目)。
+请[打开项目](#531-打开项目)。
 • 已在项目中确定 S7-1500 PLC。
-请[查询 PLC 和 HMI 目标](#查询-PLC-和-HMI-目标)。
+请[查询 PLC 和 HMI 目标](#572-查询-plc-和-hmi-目标)。
 • 已在项目中确定 TO\_SpeedAxis、TO\_PositioningAxis 或 TO\_SynchronousAxis 类型的工艺对象。
 • 已在项目中确定驱动器。
 要将轴与驱动器相连，需要在单个调用中同时指定多个值。
@@ -15108,7 +15108,7 @@ public void Connect_PathToDBMember()
 
 ##### 连接报文 750
 
-• Openness 应用程序连接到 TIA Portal。 请[连接到 TIA Portal](#连接到-TIA-Portal)”
+• Openness 应用程序连接到 TIA Portal。 请[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目。
 • 已在项目中确定 S7-1500 PLC。
 • 已在项目中确定 TO\_SpeedAxis、TO\_PositioningAxis 或 TO\_SynchronousAxis V4.0 类型的工艺对象。
@@ -15140,8 +15140,8 @@ private static void ConnectTorqueInterface(TechnologicalInstanceDB technologyObj
 
 ##### 连接编码器
 
-• Openness 应用程序连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)。
-• 已打开一个项目。请[打开项目](#打开项目)。
+• Openness 应用程序连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)。
+• 已打开一个项目。请[打开项目](#531-打开项目)。
 • 已在项目中确定 S7-1500 PLC。
 • 已在项目中确定 TO\_ExternalEncoder 类型的工艺对象。
 • 已在项目中确定可提供 PROFIdrive 报文 81 或 83 的对象。
@@ -15175,8 +15175,8 @@ private static void UseServiceEncoderHardwareConnectionProvider(TechnologicalIns
 ##### 将输出凸轮和凸轮轨迹连接至硬件
 
 要求
-• Openness 应用程序连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)。
-• 已打开一个项目。请[打开项目](#打开项目)。
+• Openness 应用程序连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)。
+• 已打开一个项目。请[打开项目](#531-打开项目)。
 • 已在项目中确定 S7-1500 PLC。
 • 已在项目中确定 TO\_OutputCam 或 TO\_CamTrack 类型的工艺对象。
 • 已在项目中确定数字量输出模块，例如 TM Timer DIDQ。
@@ -15224,8 +15224,8 @@ public void Connect_PlcTag(PlcSoftware plcSoftware)
 ##### 将测量输入与硬件相连
 
 要求
-• Openness 应用程序连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)。
-• 已打开一个项目。请[打开项目](#打开项目)。
+• Openness 应用程序连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)。
+• 已打开一个项目。请[打开项目](#531-打开项目)。
 • 已在项目中确定 S7-1500 PLC。
 • 已在项目中确定 TO\_MeasuringInput 类型的工艺对象。
 • 已在驱动器或项目中确定数字量输入模块，例如 TM Timer DIDQ。
@@ -15254,8 +15254,8 @@ UseServiceMeasuringInputHardwareConnectionProvider(TechnologicalInstanceDB techn
 
 ##### 将同步轴与主值相连
 
-• Openness 应用程序连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)。
-• 已打开一个项目。请[打开项目](#打开项目)。
+• Openness 应用程序连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)。
+• 已打开一个项目。请[打开项目](#531-打开项目)。
 • 已在项目中确定 S7-1500 PLC。
 • 已在项目中确定用作主轴的 TO\_PositioningAxis、TO\_SynchronousAxis、TO\_ExternalEncoder 或 TO\_LeadingAxisProxy 类型的工艺对象。
 • 已在项目中确定用作从轴的 TO\_SynchronousAxis 类型的工艺对象。
@@ -15282,9 +15282,9 @@ synchronousTechnologyObject.GetService<SynchronousAxisMasterValues>();
 
 ##### 连接运动系统的传送带跟踪和主值
 
-• Openness 应用程序已连接至 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)。
-• 已打开一个项目。请[打开项目](#打开项目)。
-• 已在项目中确定 S7-1500T PLC。请[查询 PLC 和 HMI 目标](#查询-PLC-和-HMI-目标)。
+• Openness 应用程序已连接至 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)。
+• 已打开一个项目。请[打开项目](#531-打开项目)。
+• 已在项目中确定 S7-1500T PLC。请[查询 PLC 和 HMI 目标](#572-查询-plc-和-hmi-目标)。
 • 已在项目中确定用作主轴的 TO\_PositioningAxis、TO\_SynchronousAxis 或TO\_ExternalEncoder 类型的工艺对象。
 • 已在项目中确定用作从轴的 TO\_Kinematics 类型的工艺对象。
 要组态用于传送带跟踪的主值，请为版本不低于 V5.0 的 TO 运动系统使用服务SW.TechnologicalObjects.Motion.ConveyorTrackingLeadingValues。
@@ -15300,10 +15300,10 @@ synchronousTechnologyObject.GetService<SynchronousAxisMasterValues>();
 
 ##### 导出和导入凸轮工艺对象 (S7-1500T)
 
-• Openness 应用程序连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)。
-• 已打开一个项目。请[打开项目](#打开项目)。
+• Openness 应用程序连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)。
+• 已打开一个项目。请[打开项目](#531-打开项目)。
 • 已在项目中确定 S7-1500 PLC。
-请[查询 PLC 和 HMI 目标](#查询-PLC-和-HMI-目标)”
+请[查询 PLC 和 HMI 目标](#572-查询-plc-和-hmi-目标)”
 • 工艺对象已存在。
 若要导出或导入 TO\_Cam 或 TO\_Cam\_10k 类型的凸轮工艺对象的数据，需要指定格式和使用的分隔符。公共 API 类型 CamDataSupport 提供了以下可用来导出凸轮工艺对象数据的方法。有关凸轮导出格式的更多信息，请参见《使用 S7-1500/S7-1500T 同步操作功能》功能手册中的“导入/导出凸轮”一章。
 <table><tr><td>方法</td><td>说明</td></tr><tr><td>void SaveCamDataBinary(System.IO.FileInfodestinationFile)</td><td>以二进制格式将凸轮数据保存在目标文件中。</td></tr><tr><td>void SaveCamDataPointList(System.IO.FileInfodestinationFile, CamDataFormatSeparator separator, int samplePoints)</td><td>以“PointList”格式将凸轮数据保存在目标文件中。</td></tr><tr><td>void SaveCamData(System.IO.FileInfodestinationFile, CamDataFormat format,CamDataFormatSeparator separator)</td><td>将凸轮数据保存在目标文件中。可将数据格式指定为“MCD”、“SCOUT”或“Pointlist”等,将分隔符指定为“tab”或“comma”等。如果选择“PointList”,将导出360个插补点。</td></tr><tr><td>void LoadCamData(System.IO.FileInfo sourceFile,CamDataFormatSeparator separator)</td><td>将凸轮数据以“MCD”、“SCOUT”或“Pointlist”格式加载到项目中。</td></tr><tr><td>void LoadCamDataBinary(System.IO.FileInfo sourceFile)</td><td>将二进制文件中的凸轮数据加载到项目中。</td></tr></table>
@@ -15347,9 +15347,9 @@ synchronousTechnologyObject.GetService<SynchronousAxisMasterValues>();
 ##### 加载并保存解释器程序的源代码 (S71500T)
 
 要求
-• Openness 应用程序连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)。
-• 已打开一个项目。请[打开项目](#打开项目)。
-• 已在项目中确定 S7-1500T PLC。请[查询 PLC 和 HMI 目标](#查询-PLC-和-HMI-目标)。
+• Openness 应用程序连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)。
+• 已打开一个项目。请[打开项目](#531-打开项目)。
+• 已在项目中确定 S7-1500T PLC。请[查询 PLC 和 HMI 目标](#572-查询-plc-和-hmi-目标)。
 • 已在项目中确定 TO\_InterpeterProgram 类型的工艺对象。
 公共 API 类型 InterpreterProgramSupport 提供了以下方法将文本文件中的 MCL 程序加载到TO\_InterpreterProgram 工艺对象或将其保存到文本文件。
 MCL 程序由源文件的路径提供。
@@ -15443,9 +15443,9 @@ support.industry.siemens.com/cs/ww/zh/view/109744932) 网页中的产品信息�
 
 要求
 • TIA Portal Openness 应用程序已连接到 TIA Portal。
-请[连接到 TIA Portal](#连接到-TIA-Portal)
+请[连接到 TIA Portal](#528-连接到-tia-portal)
 • 已打开一个项目。
-请[打开项目](#打开项目)
+请[打开项目](#531-打开项目)
 • 已通过用户界面打开 TIA Portal 的实例。
 修改以下程序代码以在 TIA Portal 实例中启动 PlcTagTable 类型对象参考的相应编辑器：
 
@@ -15464,9 +15464,9 @@ plcTagTable.ShowInEditor();
 
 #### 5.11.5.2 查询 PLC 变量的系统组
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
-• 已打开一个项目。请[打开项目](#打开项目)
-• 从 PLC 设备项中检索 PlcSoftware 实例。请[查询 PLC 和 HMI 目标](#查询-PLC-和-HMI-目标)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
+• 已打开一个项目。请[打开项目](#531-打开项目)
+• 从 PLC 设备项中检索 PlcSoftware 实例。请[查询 PLC 和 HMI 目标](#572-查询-plc-和-hmi-目标)
 修改以下程序代码以查询 PLC 变量的系统组：
 
 ```text
@@ -15484,22 +15484,22 @@ private PlcTagTableSystemGroup GetControllerTagfolder(PlcSoftware plcSoftware)
 
 要求
 • TIA Portal Openness 应用程序已连接到 TIA Portal。
-请[连接到 TIA Portal](#连接到-TIA-Portal)
+请[连接到 TIA Portal](#528-连接到-tia-portal)
 • 已打开一个项目。
-请[打开项目](#打开项目)
+请[打开项目](#531-打开项目)
 • 从 PLC 设备项中检索 PlcSoftware 实例。
-请[查询 PLC 和 HMI 目标](#查询-PLC-和-HMI-目标)
+请[查询 PLC 和 HMI 目标](#572-查询-plc-和-hmi-目标)
 修改以下程序代码以创建 PLC 变量表。它将使用组合中给定的名称创建新变量表。
 PlcTagTable myTable = plc.TagTableGroup.TagTables.Create("myTable");
 查询 PLC 和 HMI 目标 (页 301)
 
 #### 5.11.5.4 枚举用户自定义的 PLC 变量组
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
 • 已打开一个项目。
-请[打开项目](#打开项目)
+请[打开项目](#531-打开项目)
 • 从 PLC 设备项中检索 PlcSoftware 实例。
-请[查询 PLC 和 HMI 目标](#查询-PLC-和-HMI-目标)
+请[查询 PLC 和 HMI 目标](#572-查询-plc-和-hmi-目标)
 子文件夹将被递归考虑以进行枚举。
 
 ##### 程序代码：枚举用户自定义的 PLC 变量组
@@ -15541,9 +15541,9 @@ private static void AccessPlcTagTableUserGroupWithFind(PlcSoftware plcSoftware, 
 #### 5.11.5.5 创建用户自定义的 PLC 变量组
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
 • 已打开一个项目。
-请[打开项目](#打开项目)
+请[打开项目](#531-打开项目)
 应用
 TIA Portal Openness API 接口支持创建用户自定义的 PLC 变量组。
 程序代码
@@ -15568,9 +15568,9 @@ myCreatedGroup.Groups.Create("MySubSubGroupName");
 #### 5.11.5.6 删除用户自定义的 PLC 变量组
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
 • 已打开一个项目。
-请[打开项目](#打开项目)
+请[打开项目](#531-打开项目)
 应用
 TIA Portal Openness API 接口支持删除特定的用户自定义 PLC 变量表组。
 修改以下程序代码以删除特定的用户自定义 PLC 变量表组：
@@ -15591,9 +15591,9 @@ private static void DeletePlcTagTableUserGroup(PlcSoftware plcSoftware)
 #### 5.11.5.7 枚举文件夹中的 PLC 变量表
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
 • 已打开一个项目。
-请[打开项目](#打开项目)
+请[打开项目](#531-打开项目)
 
 ##### 程序代码：枚举 PLC 变量表
 
@@ -15635,9 +15635,9 @@ private static void AccessToPlcTagTableWithFind(PlcSoftware plcSoftware)
 
 #### 5.11.5.8 从 PLC 变量表中查询信息
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目。
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 通过 PLC 变量表，可访问常量、系统常量和变量。变量表中的变量组合数等于变量表的变量数。PLCTagTable 包含以下导航、属性和操作。
 可在 PLC 变量表中访问以下属性。
 <table><tr><td>名称</td><td>类型</td><td>类型</td></tr><tr><td>IsDefault</td><td>bool</td><td>只读</td></tr><tr><td>ModifiedTimeStamp</td><td>DateTime</td><td>只读</td></tr><tr><td>名称</td><td>string</td><td>只读</td></tr></table>
@@ -15674,9 +15674,9 @@ private static void EnumeratePlcTagsUsingFind(PlcTagTable tagTable)
 #### 5.11.5.9 读取上次对 PLC 变量表进行更改的时间
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
 • 已打开一个项目。
-请[打开项目](#打开项目)
+请[打开项目](#531-打开项目)
 应用
 时间戳的格式为 UTC。
 程序代码
@@ -15696,8 +15696,8 @@ private static void GetLastModificationDateOfTagtable(PlcSoftware plcSoftware)
 #### 5.11.5.10 从组中删除 PLC 变量表
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
-• 已打开一个项目。请[打开项目](#打开项目)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
+• 已打开一个项目。请[打开项目](#531-打开项目)
 程序代码
 修改以下程序代码以从组中删除特定的变量表：
 
@@ -15720,9 +15720,9 @@ private static void DeletePlcTagTableInAGroup(PlcSoftware plcSoftware)
 
 要求
 • TIA Portal Openness 应用程序已连接到 TIA Portal。
-[连接到 TIA Portal](#连接到-TIA-Portal)”
+[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目。
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 程序代码：枚举变量表中的 PLC 变量
 修改以下程序代码以枚举变量表中的所有 PLC 变量：
 
@@ -15742,9 +15742,9 @@ private static void EnumerateAllPlcTagsInTagTable(PlcSoftware plcSoftware)
 
 #### 5.11.5.12 访问 PLC 变量
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目。
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 使用类型 PlcTagComposition 表示一个 PLC 变量集。
 
 ##### 程序代码：访问特定的 PLC 变量
@@ -15827,9 +15827,9 @@ private static void DeleteTagFromPLCTagtable(PlcSoftware plcsoftware)
 
 #### 5.11.5.13 访问 PLC 常量
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
 • 已打开一个项目。
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 使用类型 PlcUserConstantComposition 表示一个 PLC 用户常量集。此时，可访问以下属性：
 • 名称（只读）
 • 数据类型的名称
@@ -15905,9 +15905,9 @@ private static void AccessSystemConstant(PlcTagTable tagTable)
 
 #### 5.11.6.1 访问软件单元
 
-• 应用程序已使用 TIA Portal Openness 连接到 TIA Portal[连接到 TIA Portal](#连接到-TIA-Portal)”
+• 应用程序已使用 TIA Portal Openness 连接到 TIA Portal[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 可使用 TIA Portal Openness 访问单元。单元是 PLC 编程的重要组成部分。只有一组选定的PLC 支持单元，因此单元不会在对象模型中以静态方式建模，进而不能直接在 PLC 软件容器下浏览。
 PlcUnitProvider 使单元可访问，并可使用 PlcSoftware 通过 GetService( ) 访问。
 PlcUnitProvider 允许通过 UnitGroup navigator 访问 PlcUnitSystemGroup，其中包含PlcUnitComposition（可具有常规组合特定内容，如 PlcUnits 的迭代、查找、创建、导入等）。
@@ -15991,8 +15991,8 @@ return plcUnit;
 
 #### 5.11.6.2 使用软件单元
 
-• 应用程序已使用 TIA Portal Openness 连接到 TIA Portal[连接到 TIA Portal](#连接到-TIA-Portal)”
-• 已打开一个项目请[打开项目](#打开项目)”
+• 应用程序已使用 TIA Portal Openness 连接到 TIA Portal[连接到 TIA Portal](#528-连接到-tia-portal)”
+• 已打开一个项目请[打开项目](#531-打开项目)”
 简介
 单元是 PLC 编程的重要组成部分，位于 PlcSoftware 中。
 unit provider 在 PlcSoftware 中通过 GetService 检索，并可从中检索到 PlcUnitComposition 。
@@ -16150,8 +16150,8 @@ catch (EngineeringTargetInvocationException e)
 
 #### 5.11.6.3 访问软件单元基础对象
 
-• 应用程序已使用 TIA Portal Openness 连接到 TIA Portal[连接到 TIA Portal](#连接到-TIA-Portal)”
-• 项目已经打开。[打开项目](#打开项目)”
+• 应用程序已使用 TIA Portal Openness 连接到 TIA Portal[连接到 TIA Portal](#528-连接到-tia-portal)”
+• 项目已经打开。[打开项目](#531-打开项目)”
 可使用 TIA Portal Openness 访问：
 • 递归访问程序块系统组、包含的组以及块
 • 递归访问 PLC 数据类型系统组、包含的组以及数据类型
@@ -16255,8 +16255,8 @@ private void AccessPlcTagTableGroups(PlcUnit m_PlcUnit)
 #### 5.11.6.4 访问单元已存在的关系
 
 要求
-• 应用程序已使用 TIA Portal Openness 连接到 TIA Portal。[连接到 TIA Portal](#连接到-TIA-Portal)”
-• 项目已经打开。[打开项目](#打开项目)”
+• 应用程序已使用 TIA Portal Openness 连接到 TIA Portal。[连接到 TIA Portal](#528-连接到-tia-portal)”
+• 项目已经打开。[打开项目](#531-打开项目)”
 可使用 TIA Portal Openness 访问所有单元已存在的关系，以便可读取关系特性。
 在 Openness 中，单元关系支持以下属性：
 <table><tr><td>属性名称</td><td>类型</td><td>描述</td></tr><tr><td>RelationType</td><td>UnitRelationType</td><td>关系类型</td></tr><tr><td>RelatedObject</td><td>String</td><td>包含可访问元素的名称</td></tr></table>
@@ -16351,9 +16351,9 @@ private void SearchUnitRelationFromRelatedObject(PlcUnitProvider provider)
 
 #### 5.11.6.5 更新软件单元属性
 
-• 应用程序已使用 TIA Portal Openness 连接到 TIA Portal。[连接到 TIA Portal](#连接到-TIA-Portal)”
+• 应用程序已使用 TIA Portal Openness 连接到 TIA Portal。[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 可使用 TIA Portal Openness 更新“作者”和“注释”等单元特性。不能直接设置和获取备注的特性，因为它是 MultilingualText。可以更新注释项的文本特性。
 Comment.Item 包含 TIA Portal 项目的各个语言分支。可通过赋值进行调节。项目语言在Comment.Item composition 中进行索引，0 标记为第一个默认项目语言。如果要设置多种语言，可以进行迭代，否则，如果语言分支不存在，则会抛出EngineeringTargetInvocationException。
 
@@ -16455,8 +16455,8 @@ private static void UpdateUnitProperty(PlcUnit unit1)
 
 #### 5.11.6.6 发布软件单元对象
 
-• 应用程序已通过 TIA Portal Openness 连接到 TIA Portal.[连接到 TIA Portal](#连接到-TIA-Portal)”
-• 已打开一个项目。请[打开项目](#打开项目)”
+• 应用程序已通过 TIA Portal Openness 连接到 TIA Portal.[连接到 TIA Portal](#528-连接到-tia-portal)”
+• 已打开一个项目。请[打开项目](#531-打开项目)”
 可使用 TIA Portal Opennes 获取并设置单元基础对象的“Access”属性，以便对单元之间的可访问性进行控制。
 Openness 单元中支持以下对象：
 • 程序块和数据块（OB 除外）
@@ -16543,8 +16543,8 @@ private void AccessAttributeOfPLCTypes(PlcUnit plcUnit, string typeName = "UDT_1
 #### 5.11.6.7 在单元中添加外部源
 
 要求
-• 应用程序已使用 TIA Portal Openness 连接到 TIA Portal[连接到 TIA Portal](#连接到-TIA-Portal)”
-• 项目已打开[打开项目](#打开项目)”
+• 应用程序已使用 TIA Portal Openness 连接到 TIA Portal[连接到 TIA Portal](#528-连接到-tia-portal)”
+• 项目已打开[打开项目](#531-打开项目)”
 可使用 TIA Portal Openness 在软件单元下添加外部源。可以添加 .SCL 等源文件。.DB、UDT等源文件。
 使用 Openness API 时，可以在软件单元下对外部源组执行以下任务：
 • 在单元下添加 ExternalSourceGroup
@@ -16648,11 +16648,11 @@ unitExtSrc.GenerateBlocksFromSource(GenerateBlockOption.None);
 
 #### 5.11.6.8 单元作为主模板
 
-• 应用程序已使用 TIA Portal Openness 连接到 TIA Portal。[连接到 TIA Portal](#连接到-TIA-Portal)”
+• 应用程序已使用 TIA Portal Openness 连接到 TIA Portal。[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 项目已打开
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 • 单元已创建
-请[使用软件单元](#使用软件单元)”
+请[使用软件单元](#51162-使用软件单元)”
 可使用 TIA Portal Openness 将作为模板副本的单元复制到项目库和全局库。
 使用 TIA Portal Openness 时，可以对作为模板副本的单元执行以下任务：
 • 通过软件单元在项目库中创建作为模板副本的单元
@@ -16746,9 +16746,9 @@ private void RecreateUnitFromGlobalLibrary(TiaPorta m_TiaPortal, string plcUnitN
 #### 5.11.6.9 更新已有的关系并创建/删除关系
 
 要求
-• 应用程序已使用 TIA Portal Openness 连接到 TIA Portal[连接到 TIA Portal](#连接到-TIA-Portal)”
+• 应用程序已使用 TIA Portal Openness 连接到 TIA Portal[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 项目已打开
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 可使用 TIA Portal Openness 修改 PLC 单元的关系，以便可管理其它 PLC 单元中或 PLC 单元以外存在的对象的可访问性。
 可使用 TIA Portal Openness 执行以下类型的修改：
 • 创建新关系
@@ -17065,8 +17065,8 @@ private void ModifyingUnitRelation(PlcUnitRelation m_Relation)
 #### 5.11.6.10 访问软件单元的命名空间
 
 要求
-• 应用程序已使用 TIA Portal Openness 连接到 TIA Portal[连接到 TIA Portal](#连接到-TIA-Portal)”
-• 已打开一个项目请[打开项目](#打开项目)”
+• 应用程序已使用 TIA Portal Openness 连接到 TIA Portal[连接到 TIA Portal](#528-连接到-tia-portal)”
+• 已打开一个项目请[打开项目](#531-打开项目)”
 应用
 可使用 TIA Portal Openness 获取和设置软件单元的命名空间属性。
 <table><tr><td>特性名称</td><td>数据类型</td><td>访问</td></tr><tr><td>NamespacePreset</td><td>String</td><td>读/写</td></tr></table>
@@ -17085,14 +17085,14 @@ private void AccessNamespacesForUnits(PlcUnitProvider unitProvider, string plcUn
 
 ```
 
-[打开项目](#打开项目)
+[打开项目](#531-打开项目)
 
 #### 5.11.6.11 访问程序块的命名空间
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 应用
 可使用 TIA Portal Openness 通过属性集为软件单元下的程序块分配命名空间属性。分配给程序块的命名空间可通过 SimaticML 在单元下导出和导入。
 <table><tr><td>特性名称</td><td>数据类型</td><td>访问</td></tr><tr><td>命名空间</td><td>String</td><td>读/写</td></tr></table>
@@ -17109,8 +17109,8 @@ unitBlock.SetAttribute(name:"Namespace", value:"Unit.Siemens");
 #### 5.11.6.12 访问 UDT 的命名空间
 
 要求
-• 应用程序已通过 TIA Portal Openness 连接到 TIA Portal[连接到 TIA Portal](#连接到-TIA-Portal)”
-• 已打开一个项目请[打开项目](#打开项目)”
+• 应用程序已通过 TIA Portal Openness 连接到 TIA Portal[连接到 TIA Portal](#528-连接到-tia-portal)”
+• 已打开一个项目请[打开项目](#531-打开项目)”
 简介
 可使用 TIA Portal Openness 通过软件单元下的 GetAttribute 和 SetAttribute 获取和设置 UDT的命名空间。分配给 UDT 的命名空间可通过 SimaticML 在单元下导出和导入。
 <table><tr><td>特性名称</td><td>数据类型</td><td>访问</td></tr><tr><td>Namespace</td><td>String</td><td>读/写</td></tr></table>
@@ -17189,8 +17189,8 @@ Openness：用于工程组态工作流自动化的 API系统手册, 11/2023
 #### 5.11.6.13 为软件单元生成可加载文件
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal [连接到 TIA Portal](#连接到-TIA-Portal)”
-• TIA Portal 项目已打开[打开项目](#打开项目)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal [连接到 TIA Portal](#528-连接到-tia-portal)”
+• TIA Portal 项目已打开[打开项目](#531-打开项目)”
 • 必须清楚编译 PLC
 可使用 TIA Portal Openness 通过以下方法为软件单元生成可加载文
 件：GenerateLoadable(FileInfo path, IEnumerable<PlcUnit> unit, TargetOption targetOption)
@@ -17277,10 +17277,10 @@ private void GenerateLoadableFileSoftwareUnit(string loadablePath)
 #### 5.11.7.1 生成故障安全单元
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目
-请[打开项目](#打开项目)”
-可使用 TIA Portal Openness 将故障安全程序添加到软件单元中。安全软件单元是系统生成的、唯一软件单元，它只能由故障安全 PLC 托管。有关软件单元的信息，[使用软件单元](#使用软件单元)”
+请[打开项目](#531-打开项目)”
+可使用 TIA Portal Openness 将故障安全程序添加到软件单元中。安全软件单元是系统生成的、唯一软件单元，它只能由故障安全 PLC 托管。有关软件单元的信息，[使用软件单元](#51162-使用软件单元)”
 仅当通过 ManagementOfFail-safeInSoftwareUnitsEnvironment API 启用 SafetyInUnit 选项时，才能在软件单元下生成故障安全程序。可创建支持软件单元的新故障安全 PLC。然后自动创建一个 SafetyUnit，作为软件单元环境中 F 程序的唯一主机
 TIA Portal Openness 提供以下方法，可用于生成带有故障安全程序的故障安全 PLC：
 <table><tr><td>方法</td><td>描述</td></tr><tr><td>bool GenerationOfDefaultFailsafe Program()</td><td>检索用于生成默认故障安全程序的设置。</td></tr><tr><td>void GenerationOfDefaultFailsafe Program(bool)</td><td>在创建新的故障安全 PLC 时启用/禁用默认故障安全程序的生成。</td></tr></table>
@@ -17344,9 +17344,9 @@ namespace GenerateFailSafeUnit
 
 要求
 • TIA Portal Openness 应用程序已连接到 TIA Portal。
-[连接到 TIA Portal](#连接到-TIA-Portal)”
+[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 可使用 TIA Portal Openness 通过类型“PlcSafetyUnitComposition”UnitGroup 访问安全单元。创建 PLC 后，便不能创建或删除安全单元。
 安全单元是系统生成的唯一单元。
 TIA Openness 支持以下特性来访问在 TIA Portal 的 SoftwareUnits 文件夹下创建的安全单元：
@@ -17400,9 +17400,9 @@ namespace AccessingSafetyUnit
 #### 5.11.7.3 创建/删除 SafetyUnit 关系
 
 • TIA Portal Openness 应用程序已连接到 TIA Portal。
-[连接到 TIA Portal](#连接到-TIA-Portal)”
+[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 可使用 TIA Portal Openness 创建和删除安全单元关系。TO 和 GlobalDB 可以像标准单元关系一样创建和删除。
 修改以下程序代码以创建和删除关系：
 
@@ -17451,13 +17451,13 @@ namespace CreateDeleteRelationshipsForTheSafetyUnit
 
 ```
 
-[打开项目](#打开项目)
+[打开项目](#531-打开项目)
 
 #### 5.11.7.4 创建/访问 SafetyUnit 元素/对象
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 可使用 TIA Portal Openness 创建、删除、访问、更新和发布底层对象，例如块、变量、安全单元的 UDT。可以在标准单元中处理安全单元下的对象，但故障安全系统生成的块除外。还可以使用 TIA Portal Openness 导出和导入安全单元下的块。
 修改以下程序代码以创建和访问安全单元变量：
 
@@ -17556,7 +17556,7 @@ Openness：用于工程组态工作流自动化的 API系统手册, 11/2023
 要求
 • TIA Portal Openness 应用程序已连接到 TIA Portal。 参见“连接到 TIA Portal (页 90)”
 • 已打开一个项目
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 简介
 可使用 TIA Portal Openness 通过从安全单元 prodiag 块访问监控提供程序来导出和导入安全单元下的监控。
 以下限制适用于 SafetyUnit：
@@ -17625,8 +17625,8 @@ var superVisionResult = globalSupervisionProvider.ImportSupervisionSettingsFromX
 
 #### 5.11.7.6 在 SafetyUnit 下发布块
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
-• 已打开一个项目请[打开项目](#打开项目)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
+• 已打开一个项目请[打开项目](#531-打开项目)”
 可使用 TIA Portal Openness 发布在安全单元的程序块文件夹下创建的所有块（FC、FB、DB和 IDB）。SafetyUnit 中的所有系统生成块都被排除在可发布内容之外，并且在访问时会引发运行系统异常。
 修改以下程序代码，设置 safetyunit 下的已发布属性：
 
@@ -17674,7 +17674,7 @@ namespace PublishingBlocksUnderSafetyUnit
 
 ```
 
-[打开项目](#打开项目)
+[打开项目](#531-打开项目)
 
 ## 5.12 HMI 设备的数据访问函数
 
@@ -17685,9 +17685,9 @@ namespace PublishingBlocksUnderSafetyUnit
 #### 5.12.1.1 创建用户定义的画面文件夹
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
 • 已打开一个项目。
-请[打开项目](#打开项目)
+请[打开项目](#531-打开项目)
 程序代码
 修改以下程序代码以创建用户自定义画面文件夹：
 
@@ -17705,9 +17705,9 @@ private static void CreateScreenFolder(HmiTarget hmitarget)
 #### 5.12.1.2 从文件夹中删除画面
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
 • 已打开一个项目。
-请[打开项目](#打开项目)
+请[打开项目](#531-打开项目)
 
 ```text
 
@@ -17737,8 +17737,8 @@ hmiTarget.ScreenFolder.Folders.Find("myScreenFolder");
 #### 5.12.1.3 从文件夹中删除画面模板
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
-• 已打开一个项目。请[打开项目](#打开项目)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
+• 已打开一个项目。请[打开项目](#531-打开项目)
 • 此项目包含 HMI 设备。
 
 ```text
@@ -17768,8 +17768,8 @@ hmiTarget.ScreenTemplateFolder.Folders.Find("myScreenTemplateFolder");
 
 #### 5.12.1.4 从文件夹中删除所有画面
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
-• 已打开一个项目。请[打开项目](#打开项目)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
+• 已打开一个项目。请[打开项目](#531-打开项目)
 修改以下程序代码以从指定文件夹中删除所有画面：
 
 ```cs
@@ -17798,8 +17798,8 @@ private static void DeleteAllScreensFromFolder(HmiTarget hmitarget)
 
 #### 5.12.2.1 删除周期
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
-• 已打开一个项目。请[打开项目](#打开项目)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
+• 已打开一个项目。请[打开项目](#531-打开项目)
 • 此项目包含 HMI 设备。
 无法删除标准周期。
 可确定周期实际上是否已根据相应周期的对象模型中的组合 (composition count) 进行删除。无法再访问这些周期。
@@ -17822,8 +17822,8 @@ public static void DeleteCycle(HmiTarget hmiTarget)
 #### 5.12.3.1 删除文本列表
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
-• 已打开一个项目。请[打开项目](#打开项目)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
+• 已打开一个项目。请[打开项目](#531-打开项目)
 • 此项目包含 HMI 设备。
 修改以下程序代码以从 HMI 设备中删除所选文本列表和所有相关列表条目：
 
@@ -17846,9 +17846,9 @@ public static void DeleteTextList(HmiTarget hmiTarget)
 #### 5.12.4.1 删除图形列表
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
 • 已打开一个项目。
-请[打开项目](#打开项目)
+请[打开项目](#531-打开项目)
 • 此项目包含 HMI 设备。
 程序代码
 修改以下程序代码以从 HMI 设备中删除所选图形列表和所有相关列表条目：
@@ -17870,9 +17870,9 @@ private static void DeleteGraphicList(HmiTarget hmiTarget)
 #### 5.12.5.1 删除连接
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
 • 已打开一个项目。
-请[打开项目](#打开项目)
+请[打开项目](#531-打开项目)
 • 此项目包含 HMI 设备。
 修改以下程序代码以从 HMI 设备中删除所选通信连接：
 
@@ -17893,9 +17893,9 @@ private static void DeleteConnection(HmiTarget hmiTarget)
 #### 5.12.6.1 创建用户定义的 HMI 变量文件夹
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
 • 已打开一个项目。
-请[打开项目](#打开项目)
+请[打开项目](#531-打开项目)
 修改以下程序代码以创建用户自定义的 HMI 变量文件夹：
 
 ```text
@@ -17912,9 +17912,9 @@ private static void CreateUserfolderForHMITags(HmiTarget hmitarget)
 #### 5.12.6.2 枚举 HMI 变量表的变量
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
 • 已打开一个项目。
-请[打开项目](#打开项目)
+请[打开项目](#531-打开项目)
 修改以下程序代码以枚举 HMI 变量表中的所有变量：
 
 ```cs
@@ -17937,9 +17937,9 @@ private static void EnumerateTagsInTagtable(HmiTarget hmitarget)
 #### 5.12.6.3 从 HMI 变量表中删除单个变量
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
 • 项目已经打开。
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 修改以下程序代码以从 HMI 变量表中删除特定变量：
 
 ```java
@@ -17958,8 +17958,8 @@ private static void DeleteATag(HmiTarget hmiTarget)
 #### 5.12.6.4 从文件夹中删除变量表
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
-• 已打开一个项目。请[打开项目](#打开项目)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
+• 已打开一个项目。请[打开项目](#531-打开项目)
 • 此项目包含 HMI 设备。
 无法删除默认变量表
 修改以下程序代码：
@@ -17984,8 +17984,8 @@ private static void DeleteTagTable(HmiTarget hmiTarget)
 #### 5.12.7.1 创建用户定义的脚本文件夹
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
-• 已打开一个项目。请[打开项目](#打开项目)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
+• 已打开一个项目。请[打开项目](#531-打开项目)
 程序代码
 修改以下程序代码以在系统文件夹或其它用户自定义的文件夹下创建用户自定义的脚本子文件夹：
 
@@ -18004,9 +18004,9 @@ private static void CreateFolderInScriptfolder(HmiTarget hmitarget)
 #### 5.12.7.2 从文件夹中删除 VB 脚本
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
 • 已打开一个项目。
-请[打开项目](#打开项目)
+请[打开项目](#531-打开项目)
 • 此项目包含 HMI 设备。
 修改以下程序代码以从指定文件夹中删除 VB 脚本：
 
@@ -18029,9 +18029,9 @@ private static void DeleteVBScriptFromScriptFolder(HmiTarget hmitarget)
 
 #### 5.12.7.3 删除 HMI 设备的用户自定义文件夹
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
 • 项目已经打开。
-请[打开项目](#打开项目)
+请[打开项目](#531-打开项目)
 修改以下程序代码以删除 HMI 设备的用户自定义文件夹：
 
 ```javascript
@@ -18170,7 +18170,7 @@ HmiAlarmClass alarmClassObj = alarmsClasses.Find(alarmClassName);
 • 删除报警类别 AlarmClasses.Delete() (页 753)
 • 报警类别属性：访问报警类别属性 (页 753)
 • 报警类别交叉引用服务：访问报警类别上的交叉引用服务 (页 755)
-[连接到 TIA Portal](#连接到-TIA-Portal)
+[连接到 TIA Portal](#528-连接到-tia-portal)
 打开项目 (页 140)
 AlarmClasses.Create() (RT Unified)
 要求
@@ -18191,7 +18191,7 @@ private void AlarmClassCreate()
 
 ```
 
-[连接到 TIA Portal](#连接到-TIA-Portal)
+[连接到 TIA Portal](#528-连接到-tia-portal)
 打开项目 (页 140)
 AlarmClasses.Delete() (RT Unified)
 要求
@@ -18212,7 +18212,7 @@ public void DeleteAlarmClass()
 
 ```
 
-[连接到 TIA Portal](#连接到-TIA-Portal)
+[连接到 TIA Portal](#528-连接到-tia-portal)
 打开项目 (页 140)
 访问报警类别属性 (RT Unified)
 属性
@@ -18367,7 +18367,7 @@ private void AlarmLogDelete()
 
 ```
 
-[连接到 TIA Portal](#连接到-TIA-Portal)
+[连接到 TIA Portal](#528-连接到-tia-portal)
 打开项目 (页 140)
 访问报警日志属性 (RT Unified)
 属性
@@ -18413,7 +18413,7 @@ private void AlarmLogPropertiesAccess()
 
 ```
 
-[连接到 TIA Portal](#连接到-TIA-Portal)打开项目 (页 140)
+[连接到 TIA Portal](#528-连接到-tia-portal)打开项目 (页 140)
 
 ```text
 
@@ -18518,7 +18518,7 @@ private void AnalogAlarmDelete()
 
 ```
 
-[连接到 TIA Portal](#连接到-TIA-Portal)
+[连接到 TIA Portal](#528-连接到-tia-portal)
 打开项目 (页 140)
 访问模拟量报警属性 (RT Unified)
 属性
@@ -18642,7 +18642,7 @@ AuditTrail auditTrailObj = auditLogObject.Find(auditTrailName);
 
 使用 TIA Portal Openness 时，可以对审计跟踪执行以下任务：
 • 审计跟踪属性：访问审计跟踪属性 (页 769)
-[连接到 TIA Portal](#连接到-TIA-Portal)
+[连接到 TIA Portal](#528-连接到-tia-portal)
 打开项目 (页 140)
 
 ##### 访问审计跟踪属性 (RT Unified)
@@ -18690,7 +18690,7 @@ auditLogObject.Segment.SegmentStartTime = DateTime.Now.Date;
 
 ```
 
-[连接到 TIA Portal](#连接到-TIA-Portal)
+[连接到 TIA Portal](#528-连接到-tia-portal)
 打开项目 (页 140)
 
 #### 5.13.1.7 Connections (RT Unified)
@@ -18751,7 +18751,7 @@ TIA Portal Openness API
 
 • 连接属性：访问连接属性 (页 773)
 • 连接交叉引用服务：访问连接上的交叉引用服务 (页 774)
-[连接到 TIA Portal](#连接到-TIA-Portal)
+[连接到 TIA Portal](#528-连接到-tia-portal)
 打开项目 (页 140)
 Connections.Create() (RT Unified)
 要求
@@ -18771,7 +18771,7 @@ private void ConnectionCreate()
 
 ```
 
-[连接到 TIA Portal](#连接到-TIA-Portal)
+[连接到 TIA Portal](#528-连接到-tia-portal)
 打开项目 (页 140)
 Connections.Delete() (RT Unified)
 要求
@@ -18791,7 +18791,7 @@ private void ConnectionDelete()
 
 ```
 
-[连接到 TIA Portal](#连接到-TIA-Portal)
+[连接到 TIA Portal](#528-连接到-tia-portal)
 打开项目 (页 140)
 访问连接属性 (RT Unified)
 属性
@@ -18941,8 +18941,8 @@ private void DatalogCreate()
 
 ##### Datalogs.Delete() (RT Unified)
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#连接到-TIA-Portal)”
-• 已打开一个项目。请[打开项目](#打开项目)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#528-连接到-tia-portal)”
+• 已打开一个项目。请[打开项目](#531-打开项目)”
 • 可访问 HMI 软件对象请参见“HMISoftware 说明 (页 748)”
 要通过 HmiDataLog 类的 Delete() 删除数据日志，请修改以下程序代码：
 
@@ -19000,7 +19000,7 @@ private void DatalogPropertiesAccess()
 
 ```
 
-[连接到 TIA Portal](#连接到-TIA-Portal)打开项目 (页 140)
+[连接到 TIA Portal](#528-连接到-tia-portal)打开项目 (页 140)
 
 #### 5.13.1.9 DiscreteAlarms (RT Unified)
 
@@ -19046,7 +19046,7 @@ HmiDiscreteAlarm discreteAlarmObj = discreteAlarms.Find(discreteAlarmName);
 5.13 HMI Unified 设备的数据访问函数 (RT Unified)
 • 离散量报警属性：访问离散量报警属性 (页 783)
 • 离散量报警交叉引用服务：访问离散量报警上的交叉引用服务 (页 786)
-[连接到 TIA Portal](#连接到-TIA-Portal)
+[连接到 TIA Portal](#528-连接到-tia-portal)
 打开项目 (页 140)
 DiscreteAlarms.Create() (RT Unified)
 要求
@@ -19066,7 +19066,7 @@ private void CreateDiscreteAlarm()
 
 ```
 
-[连接到 TIA Portal](#连接到-TIA-Portal)
+[连接到 TIA Portal](#528-连接到-tia-portal)
 打开项目 (页 140)
 DiscreteAlarms.Delete() (RT Unified)
 要求
@@ -19093,7 +19093,7 @@ public void DeleteDiscreteAlarm()
 
 ```
 
-[打开项目](#打开项目)
+[打开项目](#531-打开项目)
 连接到 TIA Portal (页 90)
 访问离散量报警属性 (RT Unified)
 属性
@@ -19157,7 +19157,7 @@ Console.WriteLine(e.Message);
 
 ```
 
-[连接到 TIA Portal](#连接到-TIA-Portal)打开项目 (页 140)
+[连接到 TIA Portal](#528-连接到-tia-portal)打开项目 (页 140)
 
 #### 5.13.1.10 LoggingTags (RT Unified)
 
@@ -19233,8 +19233,8 @@ private void LoggingTagCreate()
 
 连接到 TIA Portal (页 90)
 LoggingTags.Delete() (RT Unified)
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#连接到-TIA-Portal)”
-• 已打开一个项目。请[打开项目](#打开项目)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#528-连接到-tia-portal)”
+• 已打开一个项目。请[打开项目](#531-打开项目)”
 • 可访问 HMI 软件对象请参见“HMISoftware 说明 (页 748)”
 要通过 HmiLoggingTag 类的 Delete() 删除变量的记录变量，请修改以下程序代码：
 
@@ -19328,7 +19328,7 @@ foreach (RuntimeSetting runtimeSetting in runtimeSettings)
 
 使用 TIA Portal Openness 时，可以对运行系统设置执行以下任务：
 • 运行系统设置属性：访问运行系统设置属性 (页 793)
-[连接到 TIA Portal](#连接到-TIA-Portal)
+[连接到 TIA Portal](#528-连接到-tia-portal)
 打开项目 (页 140)
 
 ##### 访问运行系统设置属性 (RT Unified)
@@ -19391,7 +19391,7 @@ HmiSystemTag hmiSystem选股Obj = hmiSystemTags.Find(systemOmega);
 
 使用 TIA Portal Openness 时，可以对系统变量执行以下任务：
 • 系统变量属性：访问系统变量属性 (页 796)
-[连接到 TIA Portal](#连接到-TIA-Portal)
+[连接到 TIA Portal](#528-连接到-tia-portal)
 打开项目 (页 140)
 访问系统变量属性 (RT Unified)
 属性
@@ -19550,7 +19550,7 @@ private void ScreenDelete()
     }
 }
 
-```[连接到 TIA Portal](#连接到-TIA-Portal)
+```[连接到 TIA Portal](#528-连接到-tia-portal)
 
 打开项目 (页 140)
 访问画面属性 (RT Unified)
@@ -22248,7 +22248,7 @@ HmiTag hmiTag4 = hmiSoftware.HmiTagTables.Find("TagTable1").HmiTags.Find("Tag1")
 5.13 HMI Unified 设备的数据访问函数 (RT Unified)
 • 变量属性：访问变量属性 (页 932)
 • 变量交叉引用服务：访问变量上的交叉引用服务 (页 940)
-[连接到 TIA Portal](#连接到-TIA-Portal)
+[连接到 TIA Portal](#528-连接到-tia-portal)
 打开项目 (页 140)
 HMISoftware 对象 (页 746)
 Tags.Create() (RT Unified)
@@ -22335,7 +22335,7 @@ hmiTag2.Delete();
 
 ```
 
-[连接到 TIA Portal](#连接到-TIA-Portal)
+[连接到 TIA Portal](#528-连接到-tia-portal)
 打开项目 (页 140)
 访问变量属性 (RT Unified)
 属性
@@ -22422,8 +22422,8 @@ string commentEng = textItemEnglish.Text;
 
 连接到 TIA Portal (页 90)打开项目 (页 140)
 为变量分配用户自定义数据类型 (RT Unified)
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#连接到-TIA-Portal)”
-• 已打开一个项目。请[打开项目](#打开项目)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#528-连接到-tia-portal)”
+• 已打开一个项目。请[打开项目](#531-打开项目)”
 • 可访问 HMI 软件对象请参见“HMISoftware 说明 (页 748)”
 要在无连接的条件下为变量分配用户自定义数据类型，请修改以下程序代码：
 
@@ -22553,7 +22553,7 @@ Console.WriteLine(e.Message);
 
 ```
 
-[连接到 TIA Portal](#连接到-TIA-Portal)打开项目 (页 140)HMISoftware 对象 (页 746)
+[连接到 TIA Portal](#528-连接到-tia-portal)打开项目 (页 140)HMISoftware 对象 (页 746)
 
 #### 5.13.1.16 TagTables (RT Unified)
 
@@ -22610,7 +22610,7 @@ HmiTagTable tagTableObj = tagTables.Find("tagTableName");
 • 变量表属性：访问变量表属性 (页 943)
 说明
 变量表不支持查询错误，因为其没有任何可处于错误状态的属性。
-[连接到 TIA Portal](#连接到-TIA-Portal)
+[连接到 TIA Portal](#528-连接到-tia-portal)
 打开项目 (页 140)
 TagTables.Create() (RT Unified)
 要求
@@ -22630,7 +22630,7 @@ private void TagTableCreate()
 
 ```
 
-[连接到 TIA Portal](#连接到-TIA-Portal)
+[连接到 TIA Portal](#528-连接到-tia-portal)
 打开项目 (页 140)
 TagTables.Delete() (RT Unified)
 要求
@@ -22801,7 +22801,7 @@ bool ImportResult = tagTable.Tags.Import(directoryInfo);
 
 ```
 
-[连接到 TIA Portal](#连接到-TIA-Portal)
+[连接到 TIA Portal](#528-连接到-tia-portal)
 打开项目 (页 140)
 
 #### 5.13.1.17 TagTableGroups (RT Unified)
@@ -22933,8 +22933,8 @@ private void AccessTagTableGroupProperties(HmiSoftware hmiSoftware)
 • 设备运行系统设置
 • OPC UA 报警
 此功能不适用于系统变量和变量表，因为其中没有任何可能处于错误状态的属性。
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)。
-• 已打开一个项目。请[打开项目](#打开项目)。
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)。
+• 已打开一个项目。请[打开项目](#531-打开项目)。
 • 访问 HMI 统一软件对象请参见 HMI 统一软件对象 (页 748)
 修改以下程序代码以查询变量、报警、运行系统设置和画面的错误：
 
@@ -23044,9 +23044,9 @@ HMISoftware 说明 (页 748)
 #### 5.13.2.3 访问简单的动态内容 (RT Unified)
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目。
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 • 可访问 HMI 软件对象
 请参见“HMI 统一软件对象 (页 748)”
 可以使用 TIA Portal Openness 通过简单的动态完全访问动态化。画面及其画面项目可以使用以下简单的动态化选项之一进行动态化：
@@ -23146,8 +23146,8 @@ HMISoftware 说明 (页 748)
 可访问和编辑 HMI 设备中的以下属性：
 <table><tr><td>属性</td><td>数据类型</td><td>说明</td><td>访问权限</td></tr><tr><td>Name</td><td>String</td><td>HMI 设备的名称</td><td>R/W</td></tr></table>
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)。
-• 已打开一个项目。请[打开项目](#打开项目)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)。
+• 已打开一个项目。请[打开项目](#531-打开项目)”
 
 ```text
 
@@ -23180,9 +23180,9 @@ var deviceName = deviceItem.Name;
 
 要求
 • TIA Portal Openness 已连接到 TIA Portal
-请[连接到 TIA Portal](#连接到-TIA-Portal)"
+请[连接到 TIA Portal](#528-连接到-tia-portal)"
 • 已打开一个项目
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 程序代码
 修改以下程序代码，以创建工厂视图：
 PlantViewComposition plantViews = m_tiaPortalApp.Projects[0].PlantViews;
@@ -23211,7 +23211,7 @@ plantView.Name = "New_PlantView_Name";
 
 ```
 
-[连接到 TIA Portal](#连接到-TIA-Portal)
+[连接到 TIA Portal](#528-连接到-tia-portal)
 打开项目 (页 140)
 使用工厂视图节点 (RT Unified)
 简介
@@ -23221,9 +23221,9 @@ plantView.Name = "New_PlantView_Name";
 • 重命名工厂视图节点
 使用 TIA Portal Openness 的工厂视图节点中支持以下属性：
 <table><tr><td>属性名称</td><td>数据类型</td><td>可访问性</td></tr><tr><td>HierarchyPath</td><td>String</td><td>R</td></tr><tr><td>PlantObject</td><td>Siemens.Engineering.HmiUnified.Cpm.PlantObject</td><td>R</td></tr><tr><td>Name</td><td>String</td><td>R/W</td></tr><tr><td>PlantView</td><td>String</td><td>R</td></tr><tr><td>ViewPath</td><td>String</td><td>R</td></tr><tr><td>PlantViewNodes</td><td>PlantViewNodeComposition</td><td>R</td></tr></table>
-• TIA Portal Openness 已连接到 TIA Portal 请[连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 已连接到 TIA Portal 请[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 修改以下程序代码，以在工厂视图下创建工厂视图节点：
 5.13 HMI Unified 设备的数据访问函数 (RT Unified)
 修改以下程序代码，以在工厂视图节点下创建另一个工厂视图节点：
@@ -23276,11 +23276,11 @@ mixingNode.Name = "New_PlantViewNode_Name";
 
 ```text
 
-- TIA Portal Openness 已连接到 TIA Portal 请[连接到 TIA Portal](#连接到-TIA-Portal)”
+- TIA Portal Openness 已连接到 TIA Portal 请[连接到 TIA Portal](#528-连接到-tia-portal)”
 
 ```
 
-• 已打开一个项目请[打开项目](#打开项目)”
+• 已打开一个项目请[打开项目](#531-打开项目)”
 修改以下程序代码，以枚举项目的所有工厂视图：
 
 ```text
@@ -23388,7 +23388,7 @@ plantView.AssignedHmiDevice = string.Empty;
 ```
 
 要移除设备，请仅使用 string.empty。传递 NULL 或空格（“ ”）将被视为设备名，并将返回“未找到设备”错误消息。
-[连接到 TIA Portal](#连接到-TIA-Portal)
+[连接到 TIA Portal](#528-连接到-tia-portal)
 打开项目 (页 140)
 
 #### 5.13.2.6 访问通用工厂模型实例 (RT Unified)
@@ -23400,9 +23400,9 @@ plantView.AssignedHmiDevice = string.Empty;
 • 创建 CPM 对象实例
 • 删除 CPM 对象实例
 • 重命名 CPM 对象实例
-• TIA Portal Openness 已连接到 TIA Portal 请[连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 已连接到 TIA Portal 请[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 • 创建工厂
 修改以下程序代码，以创建 CPM 对象实例：
 
@@ -23442,7 +23442,7 @@ mixerObject.Name = "New_PlantViewNode_Name";
 
 ```
 
-[连接到 TIA Portal](#连接到-TIA-Portal)
+[连接到 TIA Portal](#528-连接到-tia-portal)
 打开项目 (页 140)
 使用 CPM 对象实例的工厂视图节点 (RT Unified)
 使用 TIA Portal Openness 时，可以执行以下有关访问 CPM 对象实例的工厂视图节点的任务：
@@ -23450,8 +23450,8 @@ mixerObject.Name = "New_PlantViewNode_Name";
 • 删除工厂视图节点
 • 重命名工厂视图节点
 要求
-• TIA Portal Openness 已连接到 TIA Portal 请[连接到 TIA Portal](#连接到-TIA-Portal)”
-• 已打开一个项目请[打开项目](#打开项目)”
+• TIA Portal Openness 已连接到 TIA Portal 请[连接到 TIA Portal](#528-连接到-tia-portal)”
+• 已打开一个项目请[打开项目](#531-打开项目)”
 5.13 HMI Unified 设备的数据访问函数 (RT Unified)
 修改以下程序代码，以在 CPM 对象实例内创建工厂视图节点：
 
@@ -23503,14 +23503,14 @@ mixingNode.Name = "New_PlantViewNode_Name";
 
 TIA Portal Openness API
 5.13 HMI Unified 设备的数据访问函数 (RT Unified)
-[连接到 TIA Portal](#连接到-TIA-Portal)
+[连接到 TIA Portal](#528-连接到-tia-portal)
 打开项目 (页 140)
 枚举 CPM 对象实例的接口变量 (RT Unified)
 简介
 可使用 TIA Portal Openness 枚举大量 CPM 对象实例。
 要求
-• TIA Portal Openness 已连接到 TIA Portal 请[连接到 TIA Portal](#连接到-TIA-Portal)”
-• 已打开一个项目请[打开项目](#打开项目)”
+• TIA Portal Openness 已连接到 TIA Portal 请[连接到 TIA Portal](#528-连接到-tia-portal)”
+• 已打开一个项目请[打开项目](#531-打开项目)”
 修改以下程序代码，以枚举 CPM 对象实例的所有成员：
 
 ```javascript
@@ -23561,8 +23561,8 @@ PlantObjectInterface interface = interfaces[0];
 5.13 HMI Unified 设备的数据访问函数 (RT Unified)
 <table><tr><td>属性名称</td><td>数据类型</td><td>说明</td><td>可访问性</td></tr><tr><td>PlcName</td><td>System.String</td><td>与接口变量关联的PLC名称</td><td>R</td></tr><tr><td>AccessMode</td><td>PlantObjectTagAccessMode</td><td>接口变量的访问模式</td><td>R</td></tr><tr><td>DataType</td><td>System.String</td><td>接口变量的对象类型</td><td>R</td></tr><tr><td>MaxLength</td><td>System.Int</td><td>接口变量的长度</td><td>R</td></tr><tr><td>HmiDataType</td><td>System.Int</td><td>接口变量的HMI数据类型</td><td>R</td></tr><tr><td>AcquisitionMode</td><td>PlantObjectTagAcquisitionMode</td><td>接口变量的采集模式</td><td>R/W</td></tr><tr><td>AcquisitionCycle</td><td>System.Int</td><td>接口变量的采集周期</td><td>R/W</td></tr><tr><td>Persistent</td><td>System.Boolean</td><td>CPM对象实例内部变量的保留情况</td><td>R</td></tr><tr><td>Comment</td><td>System.String</td><td>注释</td><td>R/W</td></tr><tr><td>Members</td><td>PlantObjectInterfaceMemberComposition</td><td>接口变量的成员</td><td>R</td></tr></table>
 PLCTag 和连接属性仅在将 HMI 设备分配给工厂视图之后才可组态。
-• TIA Portal Openness 已连接到 TIA Portal 请[连接到 TIA Portal](#连接到-TIA-Portal)”
-• 已打开一个项目请[打开项目](#打开项目)”
+• TIA Portal Openness 已连接到 TIA Portal 请[连接到 TIA Portal](#528-连接到-tia-portal)”
+• 已打开一个项目请[打开项目](#531-打开项目)”
 
 ```text
 
@@ -23612,10 +23612,10 @@ interfaceTag.PlcTag = "PLC_Tag_1";
 可使用 TIA Portal Openness 访问和更新接口变量的成员变量属性。
 可访问接口变量的以下成员变量属性：
 <table><tr><td>属性名称</td><td>数据类型</td><td>说明</td><td>可访问性</td></tr><tr><td>Name</td><td>System.String</td><td>成员变量名称</td><td>R</td></tr><tr><td>DataType</td><td>System.String</td><td>成员变量的对象类型</td><td>R</td></tr><tr><td>MaxLength</td><td>System.Int</td><td>成员变量的长度</td><td>R</td></tr><tr><td>HmiDataType</td><td>System.String</td><td>成员变量的 HMI 数据类型</td><td>R</td></tr><tr><td>InitialMinValue</td><td>PlantObjectTagLowerRange</td><td>范围值下限</td><td>R/W</td></tr><tr><td>InitialMaxValue</td><td>PlantObjectTagUpperRange</td><td>范围值上限</td><td>R/W</td></tr><tr><td>InitialValue</td><td>System.Object</td><td>初始值</td><td>R/W</td></tr><tr><td>SubstituteValue</td><td>PlantObjectTagSubstituteValue</td><td>替换值</td><td>R</td></tr><tr><td>Comment</td><td>MultilingualText</td><td>注释</td><td>R/W</td></tr><tr><td>Members</td><td>PlantObjectInterfaceMemberComposition</td><td>成员变量的成员</td><td>R</td></tr><tr><td>LoggingTags</td><td>PlantObjectLoggingTagComposition</td><td>MemberTag 的 LoggingTags</td><td>R</td></tr></table>
-• TIA Portal Openness 已连接到 TIA Portal 请[连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 已连接到 TIA Portal 请[连接到 TIA Portal](#528-连接到-tia-portal)”
 要求
 • 已打开一个项目
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 
 ```cs
 
@@ -23710,8 +23710,8 @@ PlantObjectLoggingTag loggingTag = loggingTags.First Or Default();
 可使用 TIA Portal Openness 访问 CPM 对象实例内成员变量的记录变量。
 可在 CPM 对象实例内成员变量的记录变量中访问以下属性：
 <table><tr><td>属性名称</td><td>数据类型</td><td>说明</td><td>可访问性</td></tr><tr><td>AggregationDelay</td><td>System.TimeSpan</td><td>汇总延迟值</td><td>R</td></tr><tr><td>AggregationMode</td><td>PlantObjectLoggingTagAggregationMode</td><td>汇总模式值</td><td>R</td></tr><tr><td>Cycle</td><td>System.String</td><td>记录变量的记录周期</td><td>R</td></tr><tr><td>CycleFactor</td><td>System UInt32</td><td>记录周期因数值</td><td>R</td></tr><tr><td>DataLog</td><td>System.String</td><td></td><td>R</td></tr><tr><td>Source</td><td>System.string</td><td>源记录变量</td><td>R</td></tr><tr><td>TriggerMode</td><td>PlantObjectLoggingTagTriggerMode</td><td>记录变量的 TriggerMode</td><td>R</td></tr><tr><td>TriggerTag</td><td>System.String</td><td>TriggerTag 值</td><td>R</td></tr><tr><td>TriggerTagBitNumber</td><td>System UInt32</td><td>TriggerTagBitNumber 值</td><td>R</td></tr><tr><td>Name</td><td>System.string</td><td>记录变量的名称</td><td>R</td></tr><tr><td>LogConfiguration</td><td>System.String</td><td>记录变量的数据日志</td><td>R</td></tr><tr><td>LoggingMode</td><td>PlantObjectLoggingTagLoggingMode</td><td>记录变量的记录模式</td><td>R</td></tr><tr><td>SmoothingMode</td><td>PlantObjectLoggingTagSmoothingMode</td><td>记录变量的滤波模式</td><td>R</td></tr><tr><td>SmoothingMinTime</td><td>System.TimeSpan</td><td>记录变量的最短时间</td><td>R</td></tr><tr><td>SmoothingMaxTime</td><td>System.TimeSpan</td><td>记录变量的最长时间</td><td>R</td></tr><tr><td>SmoothingDeltaValue</td><td>System.Double</td><td>记录变量的增量</td><td>R</td></tr><tr><td>LimitScope</td><td>PlantObjectLoggingTagLimitScope</td><td>记录变量的限值范围</td><td>R</td></tr><tr><td>HighLimit</td><td>System.Object</td><td>记录变量的上限</td><td>R</td></tr><tr><td>LowLimit</td><td>System.Object</td><td>记录变量的下限</td><td>R</td></tr></table>
-• TIA Portal Openness 已连接到 TIA Portal 请[连接到 TIA Portal](#连接到-TIA-Portal)”
-• 已打开一个项目请[打开项目](#打开项目)”
+• TIA Portal Openness 已连接到 TIA Portal 请[连接到 TIA Portal](#528-连接到-tia-portal)”
+• 已打开一个项目请[打开项目](#531-打开项目)”
 修改以下程序代码，以访问记录变量的所有属性：
 
 ```text
@@ -23741,8 +23741,8 @@ object lowLimit = loggingTag.LowLimit;
 可使用 TIA Openness 接口检查任何 Openness 客户端应用程序是否存在 WinCC Unified 许可证，这样客户端应用程序便无法使用 Openness 接口绕过许可。
 仅当 HMI Unified许可证不可用时，才能浏览 HMI Unified设备及其所有基础对象（例如，变量、报警、画面等）。设备级上的任何其它操作（例如，创建、查找、删除）都会导致从Openness API 返回 LicenseNotFoundException。
 对于 HMI Unified 软件，如果许可证无效，则将返回 LicenseNotFoundException。
-• TIA Portal Openness 应用程序已连接到 TIA Portal 请[连接到 TIA Portal](#连接到-TIA-Portal)”
-• 已打开一个项目请[打开项目](#打开项目)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal 请[连接到 TIA Portal](#528-连接到-tia-portal)”
+• 已打开一个项目请[打开项目](#531-打开项目)”
 • 可访问 HMI 软件对象请参见“HMI 统一软件对象 (页 748)”
 如果在许可证不可用时修改以下程序代码来访问设备或设备子系统，则会返回LicenseNotFoundException：
 
@@ -23821,9 +23821,9 @@ HMISoftware 说明 (页 748)
 
 可以使用 TIA Portal Openness 提供有关适用 WinCC Unified 对象的交叉引用信息。OpennessAPI 返回 CrossReferenceResult，其提供交叉引用用户界面的文本值和适用 WinCC Unified 对象的实际 IEngineeringObject。
 交叉引用将尝试提供 WinCC Unified对象本身，可以在该对象上执行相应 TIA Portal Openness对象支持的附加操作。
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目。
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 • 访问 HMI 软件对象
 请参见 HMI 统一软件 (页 748)
 有关 WinCC Unified 对象支持的属性列表的信息，请参见“为 Step7 获取 CrossReference(页 510)”中的属性
@@ -23895,9 +23895,9 @@ HMISoftware 说明 (页 748)
 • 访问脚本动态化的属性
 • 访问触发器的属性
 • 检查语法
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 • 可访问 HMI 统一软件对象
 请参见“HMI 统一软件对象 (页 748)”
 使用画面/画面项的脚本动态化时，可修改和使用以下程序代码示例。
@@ -24042,9 +24042,9 @@ HMISoftware 说明 (页 748)
 • 访问闪烁动态化的属性
 • 访问资源列表动态化的属性
 要在组成部分级别针对属性访问动态化，需要访问相应的控制部分。有关部分信息，请参见“访问趋势控件的属性 (页 90)”
-• TIA Portal Openness 应用程序已连接到 TIA Portal 请[连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal 请[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 • 可访问 HMI 软件对象
 请参见“HMI 统一软件对象 (页 748)”
 使用画面/画面项的动态化时，可修改和使用以下程序代码示例。
@@ -24182,8 +24182,8 @@ HMISoftware 说明 (页 748)
 
 ### 5.14.1 访问项目中的 VCI 系统组
 
-• Openness 应用程序已连接 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
-• 项目已经打开。[打开项目](#打开项目)”
+• Openness 应用程序已连接 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
+• 项目已经打开。[打开项目](#531-打开项目)”
 通过作为服务的项目中的 VersionControlInterface，可使用 TIA Portal Openness 访问 VCI 系统组。VersionControlInterface 是服务，将返回非空对象。
 修改以下程序代码以检索 VersionControlInterface: 中的工作区系统组：
 
@@ -24203,9 +24203,9 @@ public void function01()
 
 要求
 • Openness 应用程序已连接 TIA Portal。
-[连接到 TIA Portal](#连接到-TIA-Portal)”
+[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 项目已经打开。
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 修改以下程序代码以枚举其它 VCI 工作区组中的所有 VCI 工作区用户组。
 
 ```text
@@ -24228,13 +24228,13 @@ Siemens.Engineering.VersionControl.WorkspaceUserGroup workspaceUserGroup = works
 
 ```
 
-[连接到 TIA Portal](#连接到-TIA-Portal)
+[连接到 TIA Portal](#528-连接到-tia-portal)
 打开项目 (页 140)
 
 ### 5.14.3 在 VCI 组中创建 VCI 用户组
 
-• Openness 应用程序已连接 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
-• 项目已经打开。[打开项目](#打开项目)”
+• Openness 应用程序已连接 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
+• 项目已经打开。[打开项目](#531-打开项目)”
 可使用 TIA Portal Openness 在工作区组中创建工作区用户组。
 修改以下程序代码，以创建工作区用户组：
 
@@ -24255,9 +24255,9 @@ workspaceGroupComposition.Groups.Create("NewWorkspaceUserGroup");
 ### 5.14.4 更新 VCI 组特性
 
 要求
-• Openness 应用程序已连接 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
+• Openness 应用程序已连接 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
 • 项目已经打开。
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 简介
 可使用 TIA Portal Openness 更新工作区用户组的特性。
 可更新工作区组的以下特性：
@@ -24276,9 +24276,9 @@ workspaceUserGroup.Name = "New_Group_Name";
 
 要求
 • Openness 应用程序已连接 TIA Portal。
-[连接到 TIA Portal](#连接到-TIA-Portal)”
+[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 项目已经打开。
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 可使用 TIA Portal Openness 删除工作区用户组。删除工作区用户组时，将同时删除工作区用户组中包含的其它所有对象，包括其它工作区用户组和 VCI 工作区。
 程序代码
 修改以下程序代码，以删除工作区用户组：
@@ -24294,9 +24294,9 @@ workspaceUserGroup.Delete();
 ### 5.14.6 枚举 VCI 组中的 VCI 工作区
 
 要求
-• Openness 应用程序已连接 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
+• Openness 应用程序已连接 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
 • 项目已经打开。
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 修改以下程序代码以枚举 VCI 组中的所有 VCI 工作区：
 
 ```text
@@ -24323,13 +24323,13 @@ workspaceUserGroup.Workspaces.Find("SomeWorkspaceName");
 
 ## 5.14 版本控制接口的功能
 
-[连接到 TIA Portal](#连接到-TIA-Portal)
+[连接到 TIA Portal](#528-连接到-tia-portal)
 
 ### 5.14.7 在 VCI 组中创建 VCI 工作区
 
 要求
-• Openness 应用程序已连接 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
-• 项目已经打开。[打开项目](#打开项目)”
+• Openness 应用程序已连接 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
+• 项目已经打开。[打开项目](#531-打开项目)”
 
 ```text
 
@@ -24356,9 +24356,9 @@ Workspace result = workspaceComposition.Create("NewWorkspace");
 ```
 
 要按名称创建新工作区，要求提供的名称有效，且名称尚不存在于其它工作区用户组中。## 5.14.8 更新 VCI 工作区特性
-• Openness 应用程序已连接 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
+• Openness 应用程序已连接 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
 • 项目已经打开。
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 可使用 TIA Portal Openness 更新 VCI 工作区的特性。
 可更新工作区的以下特性：
 <table><tr><td>特性名称</td><td>返回类型</td><td>描述</td><td>可访问性</td></tr><tr><td>Name</td><td>System.String</td><td>工作区名称。</td><td>读/写</td></tr><tr><td>RootPath</td><td>System.IO.DirectoryInfo</td><td>组态的工作区路径。</td><td>读/写</td></tr></table>
@@ -24399,9 +24399,9 @@ workspace.RootPath = ...;
 
 要求
 • Openness 应用程序已连接 TIA Portal。
-[连接到 TIA Portal](#连接到-TIA-Portal)”
+[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 项目已经打开。
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 简介
 可使用 TIA Portal Openness 删除工作区。删除工作区时，还会同时删除所有工作区映射。
 程序代码
@@ -24419,9 +24419,9 @@ workspace.Delete();
 
 要求
 • Openness 应用程序已连接 TIA Portal。
-[连接到 TIA Portal](#连接到-TIA-Portal)”
+[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 项目已经打开。
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 
 ```cs
 
@@ -24441,14 +24441,14 @@ Siemens.Engineering.VersionControl.WorkspaceMapping workspaceMapping = workspace
 
 ```
 
-IEngineeringObject 接口由 IEngineeringCompositionObject 和 IEngineeringInstance 派生而 来。有关 IEngineeringObject 的信息，请[动态特性](#动态特性)”
+IEngineeringObject 接口由 IEngineeringCompositionObject 和 IEngineeringInstance 派生而 来。有关 IEngineeringObject 的信息，请[动态特性](#5215-动态特性)”
 连接到 TIA Portal (页 90)
 打开项目 (页 140)
 
 ### 5.14.11 在 VCI 工作区中创建 VCI 工作区映射
 
-• Openness 应用程序已连接 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
-• 项目已经打开。[打开项目](#打开项目)”
+• Openness 应用程序已连接 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
+• 项目已经打开。[打开项目](#531-打开项目)”
 简介
 可使用 TIA Portal Openness 在 VCI 工作区中创建工作区映射。
 可使用创建操作签名创建 Siemens.Engineering.VersionControl.WorkspaceMapping：
@@ -24478,9 +24478,9 @@ var result = workspace.Mappings.Create(@"\TestCopy\Block_1.xml", plcBlock);
 
 ### 5.14.12 更新 VCI 工作区映射特性
 
-• Openness 应用程序已连接 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
+• Openness 应用程序已连接 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
 • 项目已经打开。
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 可使用 TIA Openness Portal 更新 VCI 工作区映射的特性。
 工作区映射提供以下特性。
 <table><tr><td>特性名称</td><td>返回类型</td><td>描述</td><td>可访问性</td></tr><tr><td>RelativeWorkspacePath</td><td>System.String</td><td>源控制中已链接对象表示的相对文件路径。</td><td>读/写</td></tr><tr><td>LinkedProjectObject</td><td>IEngineeringObject</td><td>兼容链接到源控制中文件的VCI的工程组态对象</td><td>读</td></tr></table>
@@ -24496,9 +24496,9 @@ workspaceMapping.RelativeWorkspacePath = @"\Test\NewBlock_1.xml";
 
 ### 5.14.13 删除 VCI 工作区映射
 
-• Openness 应用程序已连接 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
+• Openness 应用程序已连接 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
 • 项目已经打开。
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 可使用 TIA Portal Openness 删除 VCI 工作区映射。
 修改以下程序代码，以删除 VCI 工作区映射：
 
@@ -24512,9 +24512,9 @@ workspaceMapping.Delete();
 
 ### 5.14.14 同步工作区映射
 
-• Openness 应用程序已连接 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
+• Openness 应用程序已连接 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
 • 项目已经打开。
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 可使用 TIA Portal Openness 查看同步工作区映射的状态。
 
 #### 程序代码：个别对象同步状态
@@ -24659,9 +24659,9 @@ individualObjectSynchronizationStatus.Synchronize(SynchronizationMode.ProjectToW
 
 ### 5.14.15 访问子对象的同步状态
 
-• Openness 应用程序已连接 TIA Portal。 请[连接到 TIA Portal](#连接到-TIA-Portal)”
+• Openness 应用程序已连接 TIA Portal。 请[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 项目已经打开。
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 可使用 TIA Portal Openness 获取子对象的同步状态。
 方法
 <table><tr><td>方法名称</td><td>描述</td></tr><tr><td>GetService()</td><td>从对象上的工作区映射返回 ChildObjectsStateProvider 服务对象,该对象具有一个或多个启用 VCI 的子对象。</td></tr></table>
@@ -24695,9 +24695,9 @@ var synchronizationResult= childObjectsStateProvider.GetStatus();
 
 ### 5.14.16 使用工作区语言创建 VCI 工作区
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal [连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal [连接到 TIA Portal](#528-连接到-tia-portal)”
 • 项目已打开
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 可使用 TIA Portal Openness 中的 Workspace.Create() 通过以下方式在版本控制界面 (VCI) 中创建工作区：
 • 创建一个工作区，将工作区语言设置为默认的 TIA Portal 用户界面语言，并将根路径设置为 Workspace.Create() API 中的参数。
 • 使用工作区语言创建一个工作区，方法是分配工作区语言并将根路径设置为Workspace.Create() API 中的参数。
@@ -24750,9 +24750,9 @@ Workspace workspace = WorkspaceGroup.Workspaces.Create("workspace1", newDirector
 
 ### 5.14.17 初始化 VCI 对象状态
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal [连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal [连接到 TIA Portal](#528-连接到-tia-portal)”
 • 项目已打开
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 可使用 TIA Portal Openness 将 VCI 对象状态初始化到映射文件。只有在确定文件和项目对象未被修改时，才能使用 API。
 API 可作为工作空间映射的一部分通过 IndividualObjectSynchronizationStatus 服务使用，并返回绿色表示 VCI 状态为成功。
 VCI 状态未知（例如 n，在 UI 中显示“?”）时将出现 EngineeringTargetInvocationException 异常。
@@ -24777,9 +24777,9 @@ if (individualObjectSynchronizationStatus != null)
 
 ### 5.14.18 导入具有非活动语言分支的 Simatic ML
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal [连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal [连接到 TIA Portal](#528-连接到-tia-portal)”
 • 项目已打开
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 使用具有 TIA 项目中未激活的语言分支的 Simatic ML 文件触发 VCI 导入时，可使用 VCI 导入设置选项自动激活项目中未激活的项目语言（未激活的语言分支）。
 还可通过 TiaPortalSettingsFolder 类访问 TIA Portal 用户界面设置。可通过 TiaPortal 类别上的 Settings 属性访问 TiaPortalSettingsFolder 类别。
 VCI 设置将通过 TiaPortalSettingsFolder 类提供。TiaPortalSettingsFolder 实例的名称将为VCI。
@@ -24799,9 +24799,9 @@ inactiveCultureSetting.Value = SimaticMlImportOptions.DoNotActivateInactiveCultu
 ### 5.15.1 创建项目服务器连接
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 简介
 可使用 Create() 在 TIA Portal 设置中创建新的项目服务器连接条目。 Create() 会返回ProjectServer，并接受以下参数：
 <table><tr><td>参数</td><td>数据类型</td><td>描述</td></tr><tr><td>aliasName</td><td>string</td><td>指定用于创建项目服务器连接的别名</td></tr><tr><td>protocol</td><td>Protocol</td><td>指定用于创建项目服务器连接的协议类型</td></tr><tr><td>hostname</td><td>string</td><td>指定用于创建项目服务器连接的主机名称</td></tr><tr><td>port</td><td>int</td><td>指定用于创建项目服务器连接的端口号</td></tr></table>
@@ -24817,12 +24817,12 @@ ProjectServer projectServer = tiaPortal.ProjectServers.Create(aliasName, protoco
 
 ```
 
-[打开项目](#打开项目)
+[打开项目](#531-打开项目)
 
 ### 5.15.2 编辑项目服务器连接
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal [连接到 TIA Portal](#连接到-TIA-Portal)”
-• 已打开一个项目请[打开项目](#打开项目)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal [连接到 TIA Portal](#528-连接到-tia-portal)”
+• 已打开一个项目请[打开项目](#531-打开项目)”
 可使用 TIA Portal Openness 中的 SetProtocol()、SetHostName() 和 SetPort() 在 TIA Portal 设置中编辑已有的项目服务器连接。例如，可使用此 API 编辑协议、主机名称和端口参数。
 说明
 如果需要修改别名，则必须删除项目服务器连接条目，且需要创建新连接。
@@ -24845,9 +24845,9 @@ projectServer.SetPort(17000);
 ### 5.15.3 删除项目服务器连接
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 简介
 可使用 DeleteConnection() 将项目服务器连接条目从 TIA Portal 设置中删除。
 程序代码
@@ -24862,14 +24862,14 @@ projectServer.DeleteConnection();
 
 ```
 
-[打开项目](#打开项目)
+[打开项目](#531-打开项目)
 
 ### 5.15.4 从 TIA Portal 设置获取项目服务器连接
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal [连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal [连接到 TIA Portal](#528-连接到-tia-portal)”
 • 项目已打开
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 可使用 TIA Portal Openness 从 TIA Portal 设置访问与项目服务器的连接。Openness API 将与项目服务器的连接定位为 TiaPortal 的直接导航器。与项目服务器的连接使用 TIA Portal 的“ProjectServers”组合进行聚合。
 每个 ProjectServer 实例都表示项目服务器连接组态。借助从“ProjectServers”组合检索的ProjectServer 实例，可轻松使用 TIA 项目服务器。
 可使用此导航器调用涉及多用户服务器交互而不打开本地会话的任何功能，并且ProjectServers 始终可用。
@@ -24894,9 +24894,9 @@ int portNumber = projectServer.Port;
 
 ### 5.15.5 向服务器添加项目
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
 • 项目已经打开。
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 
 ## 5.15 多用户功能支持
 
@@ -24919,9 +24919,9 @@ projectServer.AddProjectToServer(projectFileInfo);
 
 ### 5.15.6 获取服务器项目
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 可使用 GetServerProjects() 获取项目服务器的可用服务器项目信息列表。GetServerProjects() 会返回 IEnumerable<ServerProjectInfo>.
 可使用此信息执行如下操作：
 • 检索特定服务器项目的本地会话信息列表
@@ -24975,8 +24975,8 @@ namespace GettingProjectServer
 
 ### 5.15.7 获取可用本地会话
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
-• 已通过 TIA Portal Openness 应用程序打开一个项目。请[打开项目](#打开项目)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
+• 已通过 TIA Portal Openness 应用程序打开一个项目。请[打开项目](#531-打开项目)”
 可使用 GetLocalSessions() 获取由当前用户创建的当前计算机中给定服务器项目的可用会话信息列表。
 可通过此信息执行更多操作，例如打开或删除本地会话。
 GetLocalSessions() 会返回 IEnumerable<ServerProjectInfo>，并包含 serverProjectInfo 参数，其数据类型为 ServerProjectInfo。
@@ -24998,9 +24998,9 @@ projectServer.GetLocalSessions(serverProjectInfo[0]);
 ### 5.15.8 创建本地会话
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
 • 项目正在打开
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 应用
 可使用 CreateLocalSession() 为给定服务器项目创建本地会话，并返回 LocalSessionInfo 对象。
 CreateLocalSession() 接受以下参数，以使用 TIA Portal Openness 创建本地会话：
@@ -25028,9 +25028,9 @@ SessionCreationMode.Exclusive);
 
 ### 5.15.9 保存本地会话
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal [连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal [连接到 TIA Portal](#528-连接到-tia-portal)”
 • 项目已打开
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 可使用 Save() 保存给定的会话。Save() 会返回空类型，仅当会话为工程组态或独占会话类型时，才会保存会话。否则，如果会话为服务器项目，则将抛出 MultiuserException。
 
 ```text
@@ -25056,9 +25056,9 @@ localSession.Save();
 
 ### 5.15.10 从服务器删除本地会话
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal [连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal [连接到 TIA Portal](#528-连接到-tia-portal)”
 • 项目已打开
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 简介
 可使用 DeleteLocalSessionOnServer() 删除给定的本地会话。DeleteLocalSessionOnServer()仅会从多用户服务器删除会话，而不会删除本地磁盘中的会话文件。如果指定的会话是独占会话，则服务器项目锁将自动删除。
 DeleteLocalSessionOnServer() 接受以下参数，以删除本地会话：
@@ -25086,9 +25086,9 @@ projectServer.DeleteLocalSessionFromServer(serverProjectInfo, localSessionInfo);
 
 ### 5.15.11 打开本地/独占会话
 
-• TIA Portal Openness 已连接到 TIA Portal 请[连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 已连接到 TIA Portal 请[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 可使用 Open() 为给定服务器项目打开多用户本地会话或独占本地会话。Open() 会返回工程组态会话或独占会话类型的 LocalSession 对象，并具有 localSessionPath 参数，其数据类型为 FileInfo。
 如果会话作为独占会话打开，则服务器项目将自动锁定。
 
@@ -25130,13 +25130,13 @@ tiaPortal.LocalSessions.Open(localSessionInfo.ProjectFileInfo);
 
 ```
 
-[打开项目](#打开项目)
+[打开项目](#531-打开项目)
 
 ### 5.15.12 打开服务器项目
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 可使用 OpenServerProject() 为给定本地会话打开服务器项目。OpenServerProject() 会返回服务器项目类型的 LocalSession 对象，并包含 localSessionPath 参数，其数据类型为FileInfo。
 
 ```text
@@ -25161,9 +25161,9 @@ tiaPortal.LocalSessions.OpenServerProject(localSessionInfo.ProjectFileInfo);
 
 ### 5.15.13 检查标记的对象
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 如果给定的 EngineeringObject 可标记，则可使用 TIA Portal Openness 提供信息。TIA PortalOpenness 还提供与标记相关的信息，例如
 • 对象由当前用户标记
 • 对象由其他用户标记
@@ -25208,16 +25208,16 @@ if (markStateInfo.IsMarkable)
 
 ```
 
-[连接到 TIA Portal](#连接到-TIA-Portal)
+[连接到 TIA Portal](#528-连接到-tia-portal)
 打开项目 (页 140)
 5.15 多用户功能支持
 
 ### 5.15.14 关闭本地会话
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
 • 项目已打开
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 简介
 可使用 Close() 关闭服务器项目、多用户会话或独占会话。Close() 将返回空类型，并将丢弃所有待处理的更改。
 修改以下程序代码以关闭服务器项目：
@@ -25276,8 +25276,8 @@ multiuserLocalSession.Close();
 
 ### 5.15.15 提交服务器项目更改
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
-• 项目已打开[打开项目](#打开项目)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
+• 项目已打开[打开项目](#531-打开项目)”
 简介
 可使用 CloseAndCommit() 保存对服务器项目和独占会话做出的更改。CloseAndCommit()会返回 integer 类型，并具有 string 类型的 Comment 参数。
 修改以下程序以保存服务器项目更改：
@@ -25323,9 +25323,9 @@ int revisionCreated = exclusiveSession.CloseAndCommit(comment: "Comment");
 ### 5.15.16 获取锁定状态提供程序
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
 • 项目已打开
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 简介
 可使用 GetLockStateProvider() 获取服务器项目锁定和锁定所有者的相关信息。GetLockStateProvider() 会返回 LockStateProvider，并包含 serverProjectInfo 参数，其数据类型为 ServerProjectInfo。
 程序代码
@@ -25346,9 +25346,9 @@ projectServer.GetLockStateProvider(serverProjectInfo[0]);
 
 要求
 • TIA Portal Openness 应用程序已连接到 TIA Portal。
-[连接到 TIA Portal](#连接到-TIA-Portal)”
+[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 项目已经打开。
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 简介
 可使用 IsProjectLocked() 检查服务器项目是否被锁定。IsProjectLocked() 会返回 bool 值，并与服务器通信获取其项目的实际时间值。
 
@@ -25369,9 +25369,9 @@ bool isServerProjectLocked = lockStateProvider.IsProjectLocked();
 
 要求
 • TIA Portal Openness 应用程序已连接到 TIA Portal。
-[连接到 TIA Portal](#连接到-TIA-Portal)”
+[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 项目已经打开。
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 简介
 可使用 GetLockOwner() 获取服务器项目锁定所有者的相关信息。如果项目未锁定，GetLockOwner() 将返回 string，并返回空字符串。
 
@@ -25392,8 +25392,8 @@ string lockOwner= lockStateProvider.GetLockOwner();
 
 ### 5.15.19 检查会话是否是最新的
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
-• 项目已经打开。[打开项目](#打开项目)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
+• 项目已经打开。[打开项目](#531-打开项目)”
 可使用 IsUptoDate() 检查多用户会话是否是最新的。IsUptoDate() 会返回布尔值。
 
 ```cs
@@ -25419,8 +25419,8 @@ bool isUptoDate = multiuserLocalSession.IsUptoDate();
 
 ### 5.15.20 从本地会话获取标记
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal [连接到 TIA Portal](#连接到-TIA-Portal)”
-• 已通过 TIA Portal Openness 应用程序打开一个项目。[打开项目](#打开项目)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal [连接到 TIA Portal](#528-连接到-tia-portal)”
+• 已通过 TIA Portal Openness 应用程序打开一个项目。[打开项目](#531-打开项目)”
 可使用 TIA Portal Openness 检索本地会话中的所有标记（冲突、非冲突）。
 可使用 TIA Portal Openness 从多用户服务器检索在线/实时信息。
 可使用 TIA Portal Openness 访问以下方法：
@@ -25459,9 +25459,9 @@ MarkingComposition conflictedMarkings = markings.ConflictedMarkings;
 
 要求
 • TIA Portal Openness 应用程序已连接到 TIA Portal。
-[连接到 TIA Portal](#连接到-TIA-Portal)”
+[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 简介
 可使用 TIA Portal Openness 应用程序保护 TIA Portal 项目。API 将保护项目并创建默认管理员。
 特定条件下，TIA Portal 将无法保护项目：
@@ -25498,8 +25498,8 @@ private static void Main(string[] args)
 #### 5.16.1.2 工程组态功能权限
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
-• 已打开一个项目请[打开项目](#打开项目)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
+• 已打开一个项目请[打开项目](#531-打开项目)”
 
 ## 5.16 用于访问 CPU 用户管理数据的功能
 
@@ -25547,8 +25547,8 @@ engineeringFunctionRights.Find("engineeringFunctionRightIdentifier");
 
 ### 5.16.1.3 设备功能权限
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
-• 已打开一个项目请[打开项目](#打开项目)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
+• 已打开一个项目请[打开项目](#531-打开项目)”
 TIA Portal 中的设备功能权限分为两种类型：
 • 系统设备功能权限
 • 自定义设备功能权限
@@ -25600,14 +25600,14 @@ customDeviceFunctionRight = customDeviceFunctionRightComposition.Find("identifie
 
 ```
 
-[连接到 TIA Portal](#连接到-TIA-Portal)打开项目 (页 140)
+[连接到 TIA Portal](#528-连接到-tia-portal)打开项目 (页 140)
 
 #### 5.16.1.4 系统角色
 
 • TIA Portal Openness 应用程序已连接到 TIA Portal。
-[连接到 TIA Portal](#连接到-TIA-Portal)”
+[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 使用 TIA Portal Openness 时，可通过自定义角色和设备功能权限执行以下任务：
 • 获取项目中的所有系统角色
 • 查找项目中的特定系统角色
@@ -25645,8 +25645,8 @@ var engineeringFunctionRights = systemRole.AssignedEngineeringRights;
 #### 5.16.1.5 自定义角色
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
-• 已打开一个项目请[打开项目](#打开项目)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
+• 已打开一个项目请[打开项目](#531-打开项目)”
 自定义角色是用户创建的角色，是在项目生命周期中动态创建的。使用 TIA Portal Openness时，可通过自定义角色执行以下任务：
 • 获取项目中的所有自定义角色
 • 在项目中创建自定义角色
@@ -25716,8 +25716,8 @@ customRole.UnAssignDeviceFunctionRight(umacDevice, systemDeviceFunctionRight); /
 
 #### 5.16.1.6 项目用户
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
-• 已打开一个项目请[打开项目](#打开项目)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
+• 已打开一个项目请[打开项目](#531-打开项目)”
 项目用户是在本地为项目创建的用户。如果项目受到保护，会默认创建项目用户，并为其分配 ES 管理角色。
 使用 TIA Portal Openness 时，可使用项目用户执行以下任务：
 • 获取项目中的所有项目用户
@@ -25806,8 +25806,8 @@ projectUser.Delete();
 
 #### 5.16.2.1 执行身份验证以连接到 UMC 服务器
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
-• 项目已打开[打开项目](#打开项目)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
+• 项目已打开[打开项目](#531-打开项目)”
 可使用 UmcServerConfigurator 的 UmcServer 特性获取 UMC 服务器列表。会在 UMC 服务器上调用身份验证事件，以连接到服务器。
 UmcServerConfigurator服务可用于受保护和不受保护的项目模式。对于以用户身份登录的UMC 管理员，从 UMC 服务器导入 UMC 用户或组时不会触发身份验证事件。
 仅当登录用户不是在 UMC 服务器上具有 UMC 查看权限的 UMC 用户时，才会触发身份验证事件。例如，在 UMC 服务器上没有 UMC 视图权限的项目用户、 UMC 用户。
@@ -25850,8 +25850,8 @@ Console.WriteLine("Password is set");
 
 #### 5.16.2.2 从 UMC 服务器检索 UMC 用户组
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
-• 项目已经打开。[打开项目](#打开项目)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
+• 项目已经打开。[打开项目](#531-打开项目)”
 可使用 TIA Portal Openness 从 UMC 服务器获取 UMC 用户组。GetUserGroupByName ( ) 方法可在 UMC 服务器级从已连接的 UMC 服务器获取 UMC 用户组。
 触发 GetUserGroupByName ( ) 方法后，事件回调会触发 UMC 服务器身份验证。只有具有“UMC 视图”权限的 UMC 用户才能从 UMC 服务器检索 UMC 用户组。
 
@@ -25868,9 +25868,9 @@ Siemens.Engineering.Umac.UmcUserGroupInfo umcUserGroupsFromUmcServer = umcServer
 
 #### 5.16.2.3 从 UMC 服务器检索 UMC 用户
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
 • 项目已打开
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 可使用 TIA Portal Openness 从 UMC 服务器获取 UMC 用户组。可在 UMC 服务器级使用GetUserByName( ) 通过 UMC 用户名从 UMC 服务器获取相应的 UMC 用户。
 触发 GetUserByName( ) 方法后，事件回调会触发 UMC 服务器身份验证。只有具有 UMC 查看权限的 UMC 用户才能从 UMC 服务器获取 UMC 用户。
 
@@ -25893,9 +25893,9 @@ umcServer chloride ByName(umcUserName);
 
 要求
 • TIA Portal Openness 应用程序已连接到 TIA Portal。
-[连接到 TIA Portal](#连接到-TIA-Portal)”
+[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 项目已打开
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 可使用 TIA Portal Openness 将 UMC 用户组从 UMC 服务器添加到 TIA Portal 项目。
 
 ```text
@@ -25917,9 +25917,9 @@ UmcUserGroup umcUserGroup = umcUserGroupComposition.Create(umcUserGroupInfo);
 
 #### 5.16.2.5 获取 TIA Portal 中的所有 UMC 组
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 可使用 TIA Portal Openness 获取所有添加到 TIA Portal 项目的 UMC 用户组。
 如果不存在 UMC 用户组，则 TIA Portal Openness 应用程序将返回空集合。
 
@@ -25931,15 +25931,15 @@ UmcUserGroupComposition umcUserGroupComposition = umacConfigurator.UmcUserGroups
 ```
 
 5.16 用于访问 CPU 用户管理数据的功能
-[连接到 TIA Portal](#连接到-TIA-Portal)
+[连接到 TIA Portal](#528-连接到-tia-portal)
 打开项目 (页 140)
 
 #### 5.16.2.6 将 UMC 用户添加到 TIA Portal
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 简介
 从 UMC 服务器获取 UMC 用户后，便可使用 TIA Portal Openness 将 UMC 用户添加到 TIAPortal 项目。
 程序代码
@@ -25960,15 +25960,15 @@ UmcUser umcUser = umcUserComposition.Create(umcUserInfo);
 
 ```
 
-[打开项目](#打开项目)
+[打开项目](#531-打开项目)
 
 #### 5.16.2.7 获取 TIA Portal 项目中的所有 UMC 用户
 
 要求
 • TIA Portal Openness 应用程序已连接到 TIA Portal。
-请[连接到 TIA Portal](#连接到-TIA-Portal)”
+请[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 应用
 可使用 TIA Portal Openness 获取 TIA Portal 中的所有 UMC 用户。
 如果不存在 UMC 用户，则 TIA Portal Openness 应用程序将返回空集合。
@@ -25981,16 +25981,16 @@ UmcUserComposition umcUserComposition = umacConfigurator.UmcUsers;
 
 ```
 
-[连接到 TIA Portal](#连接到-TIA-Portal)
+[连接到 TIA Portal](#528-连接到-tia-portal)
 打开项目 (页 140)
 
 #### 5.16.2.8 查找 TIA Portal 中添加的 UMC 用户
 
 要求
 • TIA Portal Openness 应用程序已连接到 TIA Portal。
-请[连接到 TIA Portal](#连接到-TIA-Portal)”
+请[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 应用
 可使用 TIA Portal Openness 查找 TIA Portal 项目中的相应 UMC 用户。
 程序代码
@@ -26003,14 +26003,14 @@ UmcUser umcUser = umcUsersList.Find(UmcUserName);
 
 ```
 
-[连接到 TIA Portal](#连接到-TIA-Portal)
+[连接到 TIA Portal](#528-连接到-tia-portal)
 打开项目 (页 140)
 
 #### 5.16.2.9 查找 TIA Portal 项目中添加的 UMC 用户组
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#连接到-TIA-Portal)”
-• 已打开一个项目请[打开项目](#打开项目)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#528-连接到-tia-portal)”
+• 已打开一个项目请[打开项目](#531-打开项目)”
 应用
 可使用 TIA Portal Openness 查找 TIA Portal 项目中的相应 UMC 用户组。
 程序代码
@@ -26029,8 +26029,8 @@ UmcUserGroup umcUserGroup = umcUserGroupList.Find(UmcUserGroupName);
 
 #### 5.16.2.10 为 UMC 用户分配角色
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
-• 已打开一个项目请[打开项目](#打开项目)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
+• 已打开一个项目请[打开项目](#531-打开项目)”
 可使用 TIA Portal Openness 为添加到 TIA Portal 项目的 UMC 用户分配相应的角色。
 
 ```text
@@ -26054,9 +26054,9 @@ CustomRole customRole = umacConfigurator.CustomRoles.Create("CustomRole");
 #### 5.16.2.11 获取为 UMC 用户和 UMC 用户组分配的角色列表。
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 应用
 可使用 TIA Portal Openness 获取为 UMC 用户和 UMC 用户组分配的角色列表。
 
@@ -26081,9 +26081,9 @@ RoleAssociation assignedRolesInUmcUser = umcUser.Roles;
 #### 5.16.2.12 为 UMC 用户组分配角色
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 可使用 TIA Portal Openness 为添加到 TIA Portal 项目的 UMC 用户组分配相应的角色。
 
 ```cs
@@ -26106,8 +26106,8 @@ umcUserGroup.Roles.Add(customRole);
 
 #### 5.16.2.13 将角色从 UMC 用户和 UMC 用户组中移除
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#连接到-TIA-Portal)”
-• 已打开一个项目请[打开项目](#打开项目)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#528-连接到-tia-portal)”
+• 已打开一个项目请[打开项目](#531-打开项目)”
 可使用 TIA Portal 应用程序为添加到 TIA Portal 项目的 UMC 用户和 UMC 用户组取消分配相应的角色。
 修改以下程序代码以移除添加到 TIA Portal 项目的 UMC 用户的角色。
 
@@ -26162,8 +26162,8 @@ umcUserGroupToDeactivate.Deactivate();
 
 #### 5.16.2.15 检查 UMC 用户和 UMC 用户组的状态
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
-• 已打开一个项目请[打开项目](#打开项目)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
+• 已打开一个项目请[打开项目](#531-打开项目)”
 可使用 TIA Portal Openness 获取 UMC 用户和 UMC 用户组的激活状态。
 
 ```javascript
@@ -26179,13 +26179,13 @@ var isGroupActive = umcUserGroupToDeactivate.IsActive;
 ```
 
 5.16 用于访问 CPU 用户管理数据的功能
-[打开项目](#打开项目)
+[打开项目](#531-打开项目)
 
 #### 5.16.2.16 删除 UMC 用户和 UMC 用户组
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#连接到-TIA-Portal)”
-• 已打开一个项目请[打开项目](#打开项目)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#528-连接到-tia-portal)”
+• 已打开一个项目请[打开项目](#531-打开项目)”
 应用
 可使用 TIA Portal Openness 将 UMC 用户和 UMC 用户组从 TIA Portal 项目中删除。
 程序代码
@@ -26207,8 +26207,8 @@ umcUserGroupToDelete.Delete();
 #### 5.16.2.17 同步 UMC 用户
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
-• 已通过 TIA Portal Openness 应用程序打开一个项目。请[打开项目](#打开项目)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
+• 已通过 TIA Portal Openness 应用程序打开一个项目。请[打开项目](#531-打开项目)”
 可在 TIA Portal Openness 中使用 Synchronize() 来同步 UMC 数据。如果项目中存在的 UMC用户和 UMC 用户组在域项目中主题，则 Synchronize() 会检索项目中的 UMC 用户和 UMC 用户组。
 
 ```text
@@ -26224,8 +26224,8 @@ m_UmcServerConfigurator.Synchronize();
 
 #### 5.16.2.18 检查 UMC 数据一致性
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
-• 已通过 TIA Portal Openness 应用程序打开一个项目。请[打开项目](#打开项目)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
+• 已通过 TIA Portal Openness 应用程序打开一个项目。请[打开项目](#531-打开项目)”
 可在 TIA Portal Openness 中使用 CheckConsistency() 来检查 UMC 数据一致性。如果项目中的 UMC 数据与组态的服务器匹配，则 CheckConsistency() 会返回 true。
 
 ```cs
@@ -26244,9 +26244,9 @@ m_UmcServerConfigurator.CheckConsistency();
 #### 5.16.2.19 设置运行系统会话超时
 
 要求
-• TIA Portal Openness 已连接到 TIA Portal 请[连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 已连接到 TIA Portal 请[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 可使用 TIA Portal Openness 在 UMAC 编辑器中启用或禁用用户的运行系统超时。
 <table><tr><td>方法名称</td><td>说明</td></tr><tr><td>ActivateRuntimeSessionTimeout()</td><td>在 UMAC 编辑器中激活用户的运行系统会话超时</td></tr><tr><td>DeactivateRuntimeSessionTimeout()</td><td>在 UMAC 编辑器中禁用用户的运行系统会话超时会话</td></tr></table>
 <table><tr><td>属性名称</td><td>数据类型</td><td>说明</td></tr><tr><td>IsRuntimeSessionTimeoutActive</td><td>Boolean</td><td>获取运行系统会话超时属性的当前激活状态。如果IsRuntimeSessionTimeoutActive 激活,则会返回 true。否则,其将返回 false 以禁用。</td></tr></table>
@@ -26272,9 +26272,9 @@ private void SettingRuntimeSession()
 
 #### 5.16.2.20 设置 UMAC 的密码策略
 
-• TIA Portal Openness 已连接到 TIA Portal 请[连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 已连接到 TIA Portal 请[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 可在 TIA Portal Openness 中使用 passwordPolicyConfigurator() 为运行系统和工程组态密码设置来设置密码策略
 <table><tr><td>属性名称</td><td>数据类型</td><td>说明</td><td>访问权限</td></tr><tr><td>IncludesLowerCaseAndUpperCaseCharacters</td><td>Boolean</td><td>设置或者获取includesLowerCaseAndUpperCaseCharacters的值</td><td>读/写</td></tr><tr><td>MinimumNumericCharact erLength</td><td>Short</td><td>设置或者获取密码的minimumNumericCharacterLength值</td><td>读/写</td></tr><tr><td>MinimumLength</td><td>Short</td><td>设置或者获取密码的minimumLength值</td><td>读/写</td></tr><tr><td>MinimumSpecialCharact erLength</td><td>Short</td><td>设置或者获取密码的minimumSpecialCharacterLength值</td><td>读/写</td></tr><tr><td>EnablePasswordAging</td><td>Short</td><td>设置或者获取 enablePasswordAging的值</td><td>读/写</td></tr><tr><td>MinimumUserPasswords BlockedForReuse</td><td>Short</td><td>设置或者获取minimumUserPasswordBlockedForReuse的值</td><td>读/写</td></tr><tr><td>PasswordValidityPrewarningTime</td><td>Short</td><td>设置或者获取passwordValidityPrewarningTime的值,单位为天(超出范围)</td><td>读/写</td></tr><tr><td>PasswordValidity</td><td>Short</td><td>设置或者获取 passwordValidity的值,单位为天(超出范围)</td><td>读/写</td></tr></table>
 程序代码
@@ -26407,9 +26407,9 @@ Console.Writeline(exception.Message);
 
 #### 5.16.2.21 在受保护的项目中使用匿名用户访问
 
-• TIA Portal Openness 已连接到 TIA Portal 请[连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 已连接到 TIA Portal 请[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 匿名用户无需输入密码即可登录受保护项目。默认情况下，当 TIA Portal 项目受到保护时，匿名用户将被创建为禁用状态。受保护的项目中只能创建一个匿名用户。
 可使用 TIA Portal Openness 来管理匿名用户的以下功能：
 • 激活匿名用户
@@ -26442,8 +26442,8 @@ private void ManagingAnonymousUser()
 #### 5.16.2.22 完整示例代码
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
-• 已打开一个项目请[打开项目](#打开项目)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
+• 已打开一个项目请[打开项目](#531-打开项目)”
 5.16 用于访问 CPU 用户管理数据的功能
 以下 TIA Portal Openness 脚本描述了用于 UMAC 全局用户和 UMC 服务器 Openness API 的完整工作流程。
 
@@ -26585,18 +26585,18 @@ private static SecureString GetSecureString(string password)
 
 ### 5.17.1 组态 OPC UA 服务器安全通信协议
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#连接到-TIA-Portal)”
-• 已打开一个项目请[打开项目](#打开项目)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#528-连接到-tia-portal)”
+• 已打开一个项目请[打开项目](#531-打开项目)”
 可使用 TIA Portal Openness 应用程序为 OPC UA 服务器组态安全策略“Basic256Sha256”。需要将安全策略 Basic256Sha256 添加至运行时设置中。RDP 需要在 xml 组态文件中编译属性。
 默认设置为已启用、签名和签名及加密。
 在 XML 文件 <Project>\OPC\uaserver\OPCUaServerWinCCPro.xml 中，需要根据 ES 设备组态设置安全策略。
 ![](images/06001474c654f5580006ca48790b1e429202dc31ce3e7c92ead4a44b7bae7111.jpg)
-[连接到 TIA Portal](#连接到-TIA-Portal)
+[连接到 TIA Portal](#528-连接到-tia-portal)
 
 ### 5.17.2 设置 OPC UA 安全策略
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目。打开项目 (页 140)
 • 已激活 OPC UA 服务器
 可以使用 TIA Portal Openness 应用程序为 OPC UA 设置安全策略。可将安全策略实现为标记枚举类型的动态属性：OpcUaSecurityPolicies。仅当已激活 OPC UA 服务器时，安全策略在TIA Portal Openness 中才可用。
@@ -26621,13 +26621,13 @@ OpcUaSecurityPolicies.OpcUaSecurityPolicies256SHASE);
 
 ```
 
-[打开项目](#打开项目)
+[打开项目](#531-打开项目)
 
 ### 5.17.3 访问 OPC UA 引用命名空间
 
-• 应用程序已使用 TIA Portal Openness 连接到 TIA Portal[连接到 TIA Portal](#连接到-TIA-Portal)”
+• 应用程序已使用 TIA Portal Openness 连接到 TIA Portal[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 可使用 TIA Portal Openness 访问引用命名空间和服务器接口（Simatic 接口）子类型。有关OPC UA SIMATIC 接口的更多信息，参见“访问 OPC UA 服务器 (SIMATIC) 接口 (页 1085)”TIA Portal Openness 接口支持引用命名空间的以下功能：
 • 创建引用命名空间
 • 导入现有的引用命名空间
@@ -26714,8 +26714,8 @@ referenceNamespace.Delete();
 
 ### 5.17.4 访问 OPC UA 服务器 (SIMATIC) 接口
 
-• 应用程序已使用 TIA Portal Openness 连接到 TIA Portal[连接到 TIA Portal](#连接到-TIA-Portal)”
-• 已打开一个项目请[打开项目](#打开项目)”
+• 应用程序已使用 TIA Portal Openness 连接到 TIA Portal[连接到 TIA Portal](#528-连接到-tia-portal)”
+• 已打开一个项目请[打开项目](#531-打开项目)”
 可使用 TIA Portal Openness 访问 SIMATIC 接口子类型。
 TIA Portal Openness 接口支持 SIMATIC 接口的以下功能：
 • 创建 SIMATIC 接口
@@ -26778,9 +26778,9 @@ Openness：用于工程组态工作流自动化的 API系统手册, 11/2023
 
 ### 5.17.5 访问 OPC UA 服务器接口
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal 请[连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal 请[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 可创建服务器接口对象并导入为 PLC 定义 OPC UA 服务器接口的 XML 文件。
 可以使用 TIA Portal Openness API 访问下列使用 OpcUaProvider 服务的功能：
 • 添加 OPC UA 服务器接口对象
@@ -27161,7 +27161,7 @@ screenRule.Condition = "StrComp(Block.Name, \" BlockName\)");
 
 ```
 
-要分配画面规则属性，必须在规则编辑器中找到该规则。有关查找画面规则的更多信息，请[查找画面规则组和画面规则](#查找画面规则组和画面规则)”部分。
+要分配画面规则属性，必须在规则编辑器中找到该规则。有关查找画面规则的更多信息，请[查找画面规则组和画面规则](#5185-查找画面规则组和画面规则)”部分。
 
 ```cs
 
@@ -29769,7 +29769,7 @@ foreach (Device device in project.Devices)
 
 ```
 
-[创建一个 NX 模块](#创建一个-NX-模块)
+[创建一个 NX 模块](#52054-创建一个-nx-模块)
 创建一个 NCU (页 1197)
 
 ### 5.20.4 对象模型
@@ -30077,7 +30077,7 @@ foreach (Device device in project.Devices)
 
 ```
 
-[创建一个 NCU](#创建一个-NCU)
+[创建一个 NCU](#52053-创建一个-ncu)
 创建一个 NX 模块 (页 1231)
 
 ### 5.21.4 对象模型
@@ -31211,7 +31211,7 @@ Commissioning 类可用于驱动调试。它可用于 DriveFunctionInterface
 或 OnlineDriveFunctionInterface。如果用户将函数用于 SINAMICS S 系列驱动，则会返回一个返回值“0”。
 下表列出了该类的方法：
 <table><tr><td>名称</td><td>参数</td><td>返回值</td><td>描述</td></tr><tr><td>SetSimoGearMlfb</td><td>stringsimoGearMlfb</td><td>BOOL</td><td>设置驱动的 SIMOGEAR 订货号。</td></tr></table>
-[设置用于 G115D 驱动的 SIMOGEAR 订货号](#设置用于-G115D-驱动的-SIMOGEAR-订货号)
+[设置用于 G115D 驱动的 SIMOGEAR 订货号](#523522-设置用于-g115d-驱动的-simogear-订货号)
 
 #### 5.23.4.5 ConfigurationEntry
 
@@ -31257,7 +31257,7 @@ Siemens.Engineering.dll 中
 public sealed class DriveObject
 下表列出了该类的属性：
 <table><tr><td>名称</td><td>数据类型</td><td>说明</td></tr><tr><td>Parameters</td><td>DriveParameter Composition(页 1262)</td><td>返回该驱动对象的可用参数列表。</td></tr><tr><td>Telegrams</td><td>TelegramComposition(页 1276)</td><td>返回该驱动对象的可用报文列表。该列表可通过 TelegramComposition 类进行更改。</td></tr></table>
-[确定驱动对象](#确定驱动对象)
+[确定驱动对象](#52355-确定驱动对象)
 
 #### 5.23.4.9 DriveObjectActivation
 
@@ -31312,7 +31312,7 @@ public sealed class DriveParameter
 <table><tr><td>名称</td><td>数据类型</td><td>说明</td></tr><tr><td>ArrayIndex</td><td>Int32</td><td>返回某个数组参数的下标。值范围:0-7FFF下标为-1表示该参数不含数组示例p108[4].15par.ArrayIndex产生4</td></tr><tr><td>ArrayLength</td><td>Int32</td><td>返回数组元素的个数。下标为0表示该参数不含数组</td></tr><tr><td>Bits</td><td>DriveParameterComposition(页1262)</td><td>为一个参数位返回一个DriveParameter对象。通过该方法可以从位参数中读取位参数的值或名称。示例DriveParameter param133 =cu.Parameters.Find(133, 0);DriveParameter param133Bit1 =param133.Bits[1];String paramName = param133Bit1.Name;</td></tr><tr><td>EnumValueList</td><td>IDictionary</td><td>返回枚举型参数的可能值列表。示例&lt;1, [1] Quick commissioning&gt;如果该参数不是Enum参数,则返回null。</td></tr><tr><td>MaxValue</td><td>Object</td><td>返回当前所选单元的最大值。</td></tr><tr><td>MinValue</td><td>Object</td><td>返回当前所选单元的最小值。</td></tr><tr><td>Name</td><td>string</td><td>返回该参数的名称。示例&quot;p108[0].2&quot;</td></tr><tr><td>ParameterText</td><td>string</td><td>返回该参数短描述文本信息。</td></tr><tr><td>Number</td><td>Int32</td><td>返回该参数的编号。示例p108[0].2返回值为108</td></tr></table>
 5.23 Startdrive 函数
 <table><tr><td>名称</td><td>数据类型</td><td>说明</td></tr><tr><td>Unit</td><td>string</td><td>返回文本形式的参数单元。</td></tr><tr><td>Value</td><td>Object</td><td>返回该参数的离线/在线值,或将某个值写入该参数中。如果发生写错误,则触发EngineeringTargetInvocationException。示例P2080Bit6.Value = 0;P2080Bit6.Value =cu.Parameters.Find(&quot;r19&quot;);BICO源BICO源的参数为只读模式。BICO信号汇点可能的值为0、1或DriveParameter对象。当BICO信号汇点连接至不同参数时,返回DriveParameter对象。另见示例读写BICO参数(页1285)。</td></tr></table>
-[读写参数](#读写参数)
+[读写参数](#523516-读写参数)
 
 #### 5.23.4.14 DriveParameterComposition
 
@@ -31344,7 +31344,7 @@ Siemens.Engineering.MC.Drives.Enums
 <table><tr><td>名称</td><td>参数</td><td>返回值</td><td>描述</td><td>异常</td></tr><tr><td>SetMotorType</td><td>MotorType type, ushort driveDataSet</td><td>BOOL</td><td>设置控制单元的电机类型(仅用于G120)。</td><td>仅适用于G120驱动。</td></tr><tr><td>GetCurrentMotorConfiguration对于S120:GetCurrentMotorConfiguration(ushort motorDataset)</td><td>ushort driveDataSet</td><td>MotorConfiguration</td><td>取决于驱动的数据组数量,确定当前所在的配置区域。</td><td>-</td></tr><tr><td>ProjectMotorConfiguration</td><td>MotorConfiguration motConfig, ushort driveDataSet</td><td>BOOL</td><td>取决于驱动的数据组数量,进行驱动设备的电机配置。</td><td>-</td></tr><tr><td>SetEncoder</td><td>EncoderType type, EncoderInterface interfaceType, AbsoluteIncrementalFlag absIncFlag, RotaryLinearFlag rotLinFlag, ushort encoderNumber</td><td>BOOL</td><td>设置控制单元的编码器(仅用于G120)。</td><td>仅适用于G120驱动。</td></tr><tr><td>GetCurrentEncoderConfiguration</td><td>ushort encoderNumber</td><td>EncoderConfiguration</td><td>取决于编码器的数据组数量,确定当前所在的配置区域。</td><td>-</td></tr><tr><td>ProjectEncoderConfiguration</td><td>EncoderConfiguration encConfig, ushort encoderNumber</td><td>BOOL</td><td>取决于编码器的数据组数量,进行驱动设备的电机配置。</td><td>-</td></tr></table>
 下表列出了该类的属性：
 <table><tr><td>名称</td><td>数据类型</td><td>访问</td><td>描述</td></tr><tr><td>Parent</td><td>IEngineeringObject</td><td>只读</td><td>该对象的父型工程组态对象元素。</td></tr></table>
-[通过报文对象将工艺对象与硬件模块连接](#通过报文对象将工艺对象与硬件模块连接)
+[通过报文对象将工艺对象与硬件模块连接](#523524-通过报文对象将工艺对象与硬件模块连接)
 
 #### 5.23.4.16 EncoderConfiguration
 
@@ -31404,7 +31404,7 @@ OnlineDriveObject 类用于在线访问驱动对象。驱动参数可通过驱�
 public sealed class OnlineDriveObject
 下表列出了该类的属性：
 <table><tr><td>名称</td><td>数据类型</td><td>说明</td></tr><tr><td>Parameters</td><td>DriveParameter Composition(页 1262)</td><td>返回该在线驱动对象的可用参数列表。null(“离线”模式时)离线模式下,当调用方法或对参数进行写访问时会触发一个异常。</td></tr></table>
-[确定驱动对象](#确定驱动对象)
+[确定驱动对象](#52355-确定驱动对象)
 读写参数 (页 1314)
 在线读写参数 (页 1316)
 
@@ -33315,7 +33315,7 @@ x.Name == tecExtensionName);
 
 ```
 
-[TechnologyExtension](#TechnologyExtension)
+[TechnologyExtension](#523422-technologyextension)
 
 #### 5.23.5.24 通过报文对象将工艺对象与硬件模块连接
 
@@ -33594,9 +33594,9 @@ The flag SafetyParameterReset is used to reset the safety parameters
 ### 5.24.1 访问 PLC 和 X142 通道属性
 
 要求
-• Openness 应用程序连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
+• Openness 应用程序连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目。
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 可使用 TIA Portal Openness 访问：
 • PLC 的参数
 • 每个通道的 X142 板载 I/O 的参数
@@ -33655,9 +33655,9 @@ channel.SetAttribute("OperatingMode", OperatingMode.TimerDQ);
 ### 5.24.2 访问 PROFIdrive Integrated 属性
 
 • Openness 应用程序连接到 TIA Portal。
-[连接到 TIA Portal](#连接到-TIA-Portal)”
+[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目。
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 可使用 TIA Portal Openness 创建 PROFIdrive Integrated 子网，并访问 PROFIdrive Integration的属性。
 特性
 通过 TIA Portal Openness，可访问包含 ischronous 的以下 PROFIdrive Integrated 属性：
@@ -33680,9 +33680,9 @@ profinetX150.ConnectToSubnet(profiDriveSubnet);
 
 要求
 • Openness 应用程序连接到 TIA Portal。
-[连接到 TIA Portal](#连接到-TIA-Portal)”
+[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目。
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 简介
 可使用 TIA Portal Openness 创建 SINAMICS Integrated。
 程序代码
@@ -33698,9 +33698,9 @@ Device S120 = deviceComposition.CreateWithItem(@"OrderNumber:6ES7615-xDS1x-0xxx/
 
 要求
 • Openness 应用程序连接到 TIA Portal。
-[连接到 TIA Portal](#连接到-TIA-Portal)”
+[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目。
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 修改以下程序代码以获取 X142 中央模块的地址：
 
 ```javascript
@@ -33719,9 +33719,9 @@ x142address.SetAttribute("IsochronousMode", true);
 
 要求
 • Openness 应用程序连接到 TIA Portal。
-[连接到 TIA Portal](#连接到-TIA-Portal)”
+[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目。
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 修改以下程序代码以获取 Drive Controller 报文的地址：
 
 ```text
@@ -33877,7 +33877,7 @@ DccChartPartitionComposition 是 DriveControlChart 内的一组分区。
 DccImportResultData 包含导入图时的结果信息。
 下表说明了 DccImportResultData 的特性：
 <table><tr><td>特性名称</td><td>数据类型</td><td>可写</td><td>说明</td></tr><tr><td>RemappedParameterNumbers</td><td>IDictionary</td><td>只读</td><td>导入时,一个要导入的 DCC 参数可能已存在。这种情况下,会分配一个新号给要导入的参数。此 Dictionary 里会包含所有新分配的参数。关键值是之前导出时的参数号,值是新创建的参数。</td></tr></table>
-[DriveControlChartComposition](#DriveControlChartComposition)
+[DriveControlChartComposition](#525415-drivecontrolchartcomposition)
 
 #### 5.25.4.10 DccParameter
 
@@ -33921,7 +33921,7 @@ DriveControlChart 是一幅图或子图。
 下表说明了 DriveControlChart 的方法：
 <table><tr><td>名称</td><td>返回值类型</td><td>参数</td><td>说明</td><td>异常</td></tr><tr><td>Export</td><td>-</td><td>string path</td><td>方法描述:仅导出此图。参数说明:路径:导出文件的完整路径。</td><td>DccExportException(页 1368)</td></tr><tr><td>Find</td><td>Statement</td><td>string name bool deepSearch</td><td>当deepSearch 设为 true,在当前功能图或下级子图中查找子图或功能块。</td><td>-</td></tr><tr><td>Delete</td><td>-</td><td>-</td><td>方法描述:删除此图。</td><td>-</td></tr><tr><td>GetRunSequence</td><td>IList</td><td>-</td><td>返回当前功能图内 Statement 的运行顺序。</td><td>-</td></tr><tr><td>OptimizeRunSequence</td><td>-</td><td>-</td><td>方法描述:优化图运行顺序。CFC 提供了优化机制。</td><td>-</td></tr><tr><td>ShowDccEditor</td><td>-</td><td>-</td><td>在 TIA Portal 中互动模式中打开功能图的 DCC 编辑器。</td><td>DccException,DccChartIsProtected Exception</td></tr></table>
 5.25 DCC 功能
-[DriveControlChart Exceptions](#DriveControlChart-Exceptions)
+[DriveControlChart Exceptions](#52563-drivecontrolchart-exceptions)
 DriveControlChartComposition (页 1351)
 删除图 (页 1363)
 
@@ -33940,8 +33940,8 @@ DriveControlChartComposition 特性
 DriveControlChartComposition 列出了可用的图。
 5.25 DCC 功能
 下表说明了 DriveControlChartComposition 的方法：
-<table><tr><td>名称</td><td>返回值类型</td><td>参数</td><td>说明</td><td>异常</td></tr><tr><td>Create</td><td>DriveControl Chart(页 1349)</td><td>string name</td><td>以指定名称创建一幅新的功能图。</td><td>DccTextTooLongException,DccNameInvalidException,DccNameAlreadyUsedException,DccTooManyChartsException,DccNestingTooDeepException, DccException</td></tr><tr><td>Create</td><td>DriveControl Chart(页 1349)</td><td>-</td><td>以自动产生的名称创建一幅新的功能图。</td><td>DccTooManyChartsException,DccNestingTooDeepException, DccException</td></tr><tr><td>Import</td><td>DccImportResultData(页 1346)</td><td>string path,DccImport Options(页 1345)importOptions</td><td>方法描述:从一个 DCC 导出文件导入图。参数说明:路径:导入文件的完整路径。importOptions:导入时的选项,[DccImportOptions](#DccImportOptions)。</td><td>DccImportException(页 1369)</td></tr><tr><td>Export</td><td>-</td><td>string path</td><td>方法描述:导出所有图至一个 DCC 导出文件。参数说明:路径:导出文件的完整路径。</td><td>DccExportException(页 1369)</td></tr><tr><td>GetChartSequence</td><td>DriveControl Chart(页 1349)</td><td>-</td><td>按照在容器中的运行顺序,读取所有功能图。</td><td>-</td></tr><tr><td>Find</td><td>DriveControl Chart(页 1349)</td><td>string name</td><td>根据图容器内的名称找到一张图</td><td>-</td></tr></table>
-[DriveControlChartComposition 异常](#DriveControlChartComposition-异常)
+<table><tr><td>名称</td><td>返回值类型</td><td>参数</td><td>说明</td><td>异常</td></tr><tr><td>Create</td><td>DriveControl Chart(页 1349)</td><td>string name</td><td>以指定名称创建一幅新的功能图。</td><td>DccTextTooLongException,DccNameInvalidException,DccNameAlreadyUsedException,DccTooManyChartsException,DccNestingTooDeepException, DccException</td></tr><tr><td>Create</td><td>DriveControl Chart(页 1349)</td><td>-</td><td>以自动产生的名称创建一幅新的功能图。</td><td>DccTooManyChartsException,DccNestingTooDeepException, DccException</td></tr><tr><td>Import</td><td>DccImportResultData(页 1346)</td><td>string path,DccImport Options(页 1345)importOptions</td><td>方法描述:从一个 DCC 导出文件导入图。参数说明:路径:导入文件的完整路径。importOptions:导入时的选项,[DccImportOptions](#52547-dccimportoptions)。</td><td>DccImportException(页 1369)</td></tr><tr><td>Export</td><td>-</td><td>string path</td><td>方法描述:导出所有图至一个 DCC 导出文件。参数说明:路径:导出文件的完整路径。</td><td>DccExportException(页 1369)</td></tr><tr><td>GetChartSequence</td><td>DriveControl Chart(页 1349)</td><td>-</td><td>按照在容器中的运行顺序,读取所有功能图。</td><td>-</td></tr><tr><td>Find</td><td>DriveControl Chart(页 1349)</td><td>string name</td><td>根据图容器内的名称找到一张图</td><td>-</td></tr></table>
+[DriveControlChartComposition 异常](#52564-drivecontrolchartcomposition-异常)
 DccImportResultData (页 1346)
 5.25 DCC 功能
 DriveControlChart (页 1349)
@@ -34574,7 +34574,7 @@ catch (DccException exc)
 控制图运行时执行优化顺序功能时会抛出的异常：
 • DccLicenseUnavailableException:
 如果 DCC 许可证不可用会抛出。在这种情况下，优化运行顺序功能不可用。
-[DriveControlChart](#DriveControlChart)
+[DriveControlChart](#525413-drivecontrolchart)
 
 #### 5.25.6.4 DriveControlChartComposition 异常
 
@@ -34595,7 +34595,7 @@ catch (DccException exc)
 • DccImportLibraryIsMissingException:如果一个参考 DCB Extension 库在项目中不存在会抛出。
 • DccImportFileAlreadyInUseException:如果正在导入的文件已在另一个进程中被使用会抛出。
 • DccImportDcbTypeDiferentVersionAlreadyUsedException:如果 DCB 类型与设备中 DCB Extension 库里正在使用的版本不一致会抛出。
-[DriveControlChartComposition](#DriveControlChartComposition)
+[DriveControlChartComposition](#525415-drivecontrolchartcomposition)
 
 #### 5.25.6.5 ImportDcbLibrary Exceptions
 
@@ -34690,7 +34690,7 @@ catch (NonRecoverableException nonRecoverableException)
 仅允许在离线模式下在 F 程序中进行更改。其它情况下会抛出异常。
 如果设置了 F 程序密码，用户需要登录才能在 F 程序中进行更改。否则系统会通过异常提示用户需要提前登录 F 程序。
 TIA Portal Openness 应用程序已连接到 TIA Portal。
-请[连接到 TIA Portal](#连接到-TIA-Portal)”。
+请[连接到 TIA Portal](#528-连接到-tia-portal)”。
 
 #### Openness 服务
 
@@ -34827,7 +34827,7 @@ safetyAdministration.SetSafetyOfflineProgramPassword(newPassword);
 • 提供的密码无效（例如长度为 0 或超过 30）
 • 提供的密码为 null
 • 已设置安全程序密码
-• 如果无法更改安全程序（[SafetyModificationsPossible](#SafetyModificationsPossible)”），或项目受到UMAC 保护，则不允许通过 Openness 修改安全程序密码。
+• 如果无法更改安全程序（[SafetyModificationsPossible](#5272-safetymodificationspossible)”），或项目受到UMAC 保护，则不允许通过 Openness 修改安全程序密码。
 • 用户未处于离线状态
 • 安全许可证不存在
 
@@ -34838,7 +34838,7 @@ safetyAdministration.SetSafetyOfflineProgramPassword(newPassword);
 以下情况下，用户会获取以异常形式提供的反馈。
 • 如果未设置密码，则无法撤销。
 • 提供的密码为 null
-• 如果无法更改安全程序（[SafetyModificationsPossible](#SafetyModificationsPossible)”），或项目受到UMAC 保护，则不允许通过 Openness 修改安全程序密码。
+• 如果无法更改安全程序（[SafetyModificationsPossible](#5272-safetymodificationspossible)”），或项目受到UMAC 保护，则不允许通过 Openness 修改安全程序密码。
 • 用户未处于离线状态
 • 安全许可证不存在
 
@@ -34882,7 +34882,7 @@ if (!safetyAdministration.IsLoggedOnToSafetyOfflineProgram)
 • 未设置安全程序密码
 • 密码为 null
 • 密码错误
-• 如果无法更改安全程序（[SafetyModificationsPossible](#SafetyModificationsPossible)”），或项目受到UMAC 保护，则不允许通过 Openness 修改安全程序密码。
+• 如果无法更改安全程序（[SafetyModificationsPossible](#5272-safetymodificationspossible)”），或项目受到UMAC 保护，则不允许通过 Openness 修改安全程序密码。
 • 用户未处于离线状态
 • 安全许可证不存在
 
@@ -34900,7 +34900,7 @@ if (safetyAdministration.IsLoggedOnToSafetyOfflineProgram)
 LogoffFromSafetyOfflineProgram 操作会将用户从安全程序中注销。因此用户不能继续对安全程序进行更改。
 以下情况下，用户会获取以异常形式提供的反馈。
 • 未设置安全程序密码
-• 如果无法更改安全程序（[SafetyModificationsPossible](#SafetyModificationsPossible)”），或项目受到UMAC 保护，则不允许通过 Openness 修改安全程序密码。
+• 如果无法更改安全程序（[SafetyModificationsPossible](#5272-safetymodificationspossible)”），或项目受到UMAC 保护，则不允许通过 Openness 修改安全程序密码。
 • 用户未处于离线状态
 • 安全许可证不存在
 

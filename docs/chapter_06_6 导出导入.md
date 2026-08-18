@@ -34,7 +34,7 @@
 
 ### 导入开放式引用
 
-也可导入带开放式引用的对象（[导入组态数据](#导入组态数据)”）。
+也可导入带开放式引用的对象（[导入组态数据](#616-导入组态数据)”）。
 如果引用对象包含在目标项目中，开放式引用将再次自动链接到对象类型。要进行导出，这些对象必须位于相同位置并被分配相同的名称。如果引用对象不包含在目标项目中，将无法解析开放式引用。不会创建其它对象来解析这些开放式引用。
 
 ### 导出和导入文件格式
@@ -227,9 +227,9 @@ ID"default"作为被选为缺省语言的语言的文件扩展名。
 #### 6.2.1.2 导出项目的所有图形
 
 • TIA Portal Openness 应用程序已连接到 TIA Portal。
-请[连接到 TIA Portal](#连接到-TIA-Portal)
+请[连接到 TIA Portal](#528-连接到-tia-portal)
 • 已打开一个项目。
-请[打开项目](#打开项目)
+请[打开项目](#531-打开项目)
 可导出所有语种项目的图形集合中的单一图形或所有图形。与所有项目图形条目有关的 XML文件将在导出过程中进行创建，并与导出的图形一起被引用。相关图形和 XML 一起保存到文件系统的相同目录下。
 要允许更改导出的图形（“*.jpg”、“*.bmp”、“*.png”、“*.ico”等），这些图形不应进行写保护。## 程序代码：导出图形
 修改以下程序代码以导出所需图形：
@@ -264,8 +264,8 @@ ExportOptions.WithDefaults);
 
 #### 6.2.1.3 将图形导入到项目
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
-• 已打开一个项目。请[打开项目](#打开项目)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
+• 已打开一个项目。请[打开项目](#531-打开项目)
 XML 文件将和图形的语言版本一起被保存到文件系统的目录下。
 可在 XML 文件中以相对路径形式引用所有图形。
 现在，可将 XML 文件中包含的图形的所有语言版本导入到图形集合中。
@@ -290,9 +290,9 @@ ImportOptions.Override);
 #### 6.2.2.1 项目文本的导入
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目。
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 应用
 在 TIA Portal 中，该项目文本位于项目的“语言和资源 (Language & resources)”节点中。这些文本信息将导出到一个“*.xlsx”文件中，用作翻译示例。导出和导入项目文本的限制与 UI 中的限制相同。这些限制包括：
 • 导出的文本只能导入到其导出时所处的项目中。
@@ -330,9 +330,9 @@ project.ExportProjectTexts(new FileInfo(@"D:\Test\ProjectText.xlsx"), new Cultur
 
 #### 6.2.2.2 项目文本的导入
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目。
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 在 TIA Portal 中，该项目文本位于项目的“语言和资源 (Language & resources)”节点中。可从一个用作翻译示例的“.xlsx”文件中导入项目文本。导出和导入项目文本的限制与 UI 中的限制相同。这些限制包括：
 • 导出的文本只能导入到其导出时所处的项目中。
 • 使用“另存为...”(Save as …) 以新名称保存项目后，无法再导入文本。
@@ -519,9 +519,9 @@ XML 文件中的每个对象都从其类型开始，例如 "Hmi.Screen.Button" �
 ##### 导出周期
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
 • 已打开一个项目。
-请[打开项目](#打开项目)
+请[打开项目](#531-打开项目)
 TIA Portal Openness API 接口支持将已知 HMI 设备的所有周期导出到 XML 文件中。如果生成相应的导出文件，则表明导出已完成。
 修改以下程序代码以将 HMI 设备的周期导出至 XML 文件：
 
@@ -542,8 +542,8 @@ ExportOptions.WithDefaults);
 
 ##### 导入周期
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
-• 已打开一个项目。请[打开项目](#打开项目)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
+• 已打开一个项目。请[打开项目](#531-打开项目)
 使用 ImportOptions.None 时，可以根据组合数 (Composition count) 确定实际已导入的周期数。您具有这些导入周期的访问权限。
 无法在用户界面中编辑具有属性的标准周期。如果在导入文件中指定应更改这些属性，则导入时会导致 NonRecoverableException 并关闭 TIA Portal。
 修改以下程序代码以将 XML 文件的一个或多个周期导入 HMI 设备：
@@ -569,8 +569,8 @@ private static void ImportCyclesToHMITarget(HmiTarget hmitarget)
 
 #### 6.3.2.1 导出 HMI 变量表
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
-• 已打开一个项目。请[打开项目](#打开项目)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
+• 已打开一个项目。请[打开项目](#531-打开项目)
 为每个 HMI 变量表导出一个 XMI 文件。API 支持此导出过程。变量表的导出同样适用于子文件夹。
 6.3 导入/导出 HMI 设备的数据
 
@@ -668,9 +668,9 @@ private static void ExportTablesInSystemFolder(TagSystemFolder folderToExport)
 #### 6.3.2.2 导入 HMI 变量表
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
 • 已打开一个项目。
-请[打开项目](#打开项目)
+请[打开项目](#531-打开项目)
 修改以下程序代码以将 XML 文件的 HMI 变量表导入至用户自定义文件夹或系统文件夹：
 
 ```text
@@ -702,9 +702,9 @@ private static void ImportSingleHMITagTable(HmiTarget hmitarget)
 #### 6.3.2.3 从 HMI 变量表导出单个变量
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
 • 已打开一个项目。
-请[打开项目](#打开项目)
+请[打开项目](#531-打开项目)
 以下对象模型的对象类型可作为 HMI 变量的子级项存在，并在导出过程中被考虑：
 <table><tr><td>MultilingualText</td><td>注释、变量值、显示名称</td></tr><tr><td>TagArrayMemberTag</td><td>HMI 数组元素</td></tr><tr><td>TagStructureMember</td><td>HMI 结构元素</td></tr><tr><td>Event</td><td>已组态事件</td></tr><tr><td>MultiplexEntry</td><td>已组态的变量多路复用条目</td></tr></table>
 修改以下程序代码以将 HMI 变量表中的单个变量导出至 XML 文件：
@@ -729,9 +729,9 @@ private static void ExportSelectedTagFromTagTable(HmiTarget hmitarget)
 
 #### 6.3.2.4 从 HMI 变量表导入单个变量
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
 • 已打开一个项目。
-请[打开项目](#打开项目)
+请[打开项目](#531-打开项目)
 应用
 以下对象模型的对象类型可作为 HMI 变量的子级项存在，并在导入过程中被考虑：
 <table><tr><td>MultilingualText</td><td>注释、变量值、显示名称</td></tr><tr><td>TagArrayMemberTag</td><td>HMI 数组元素</td></tr><tr><td>TagStructureMember</td><td>HMI 结构元素</td></tr><tr><td>Event</td><td>已组态事件</td></tr><tr><td>MultiplexEntry</td><td>已组态的变量多路复用条目</td></tr></table>
@@ -761,9 +761,9 @@ private static void ImportTagIntoTagTable(HmiTarget hmitarget)
 • 程序代码：导出 HMI 变量 (页 1417)
 • 程序代码：导入 HMI 变量 (页 1418)
 • TIA Portal Openness 应用程序已连接到 TIA Portal。
-[连接到 TIA Portal](#连接到-TIA-Portal)”
+[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目。
-请[打开项目](#打开项目)
+请[打开项目](#531-打开项目)
 
 ##### 导出/导入具有集成连接的外部 HMI 变量时的特殊考虑事项
 
@@ -827,9 +827,9 @@ private static void ImportTagIntoTagTable(HmiTarget hmitarget)
 #### 6.3.3.1 导出 VB 脚本
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
 • 已打开一个项目。
-请[打开项目](#打开项目)
+请[打开项目](#531-打开项目)
 应用
 将考虑导出所有子级别用户定义文件夹。将为每一个已导出的 VB 脚本创建一个单独的 XML文件。
 程序代码：导出 VB 脚本
@@ -853,9 +853,9 @@ FileInfo(string.Format(@"C:\OpennessSamples\Export\Scripts\{0}.xml", vbScript.Na
 #### 6.3.3.2 从文件夹导出 VB 脚本
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
 • 已打开一个项目。
-请[打开项目](#打开项目)
+请[打开项目](#531-打开项目)
 应用
 将为每一个已导出的 VB 脚本创建一个单独的 XML 文件。
 
@@ -907,9 +907,9 @@ private static void ExportAllVBScripts(HmiTarget hmitarget)
 #### 6.3.3.3 导入 VB 脚本
 
 • TIA Portal Openness 应用程序已连接到 TIA Portal。
-[连接到 TIA Portal](#连接到-TIA-Portal)”
+[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 项目已经打开。
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 支持批量导入。也可使用具有 Foreach 循环的程序代码 (导出 VB 脚本 (页 1421))。
 
 ```cs
@@ -967,9 +967,9 @@ namespace ImportVBScripts
 #### 6.3.4.1 从 HMI 设备导出文本列表
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
 • 项目已经打开。
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 简介
 导出的文本列表和图形列表包括其所有条目。可以分别导出文本列表和图形列表。
 将导出 HMI 设备的文本列表。将为每一个导出的文本列表创建一个单独的 XML 文件。
@@ -1033,9 +1033,9 @@ namespace ExportTextListsFromHMIDevice
 #### 6.3.4.2 将文本列表导入到 HMI 设备
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
 • 已打开一个项目。
-请[打开项目](#打开项目)
+请[打开项目](#531-打开项目)
 应用
 API 接口支持将文本列表从 XML 文件导入到 HMI 设备。
 程序代码
@@ -1055,13 +1055,13 @@ private static void ImportSingleTextList(HmiTarget hmitarget)
 #### 6.3.4.3 用于文本列表导出/导入的高级 XML 格式
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目。
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 • 标准导出文本列表
-请[从 HMI 设备导出文本列表](#从-HMI-设备导出文本列表)”
+请[从 HMI 设备导出文本列表](#6341-从-hmi-设备导出文本列表)”
 • 标准导入文本列表
-请[将文本列表导入到 HMI 设备](#将文本列表导入到-HMI-设备)”
+请[将文本列表导入到 HMI 设备](#6342-将文本列表导入到-hmi-设备)”
 文本列表也可包含格式化文本。这主要涉及以下格式：
 • 文本格式化
 • 在文本内引用其它对象
@@ -1135,8 +1135,8 @@ private static void ImportSingleTextList(HmiTarget hmitarget)
 
 #### 6.3.5.1 导出图形列表
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
-• 已打开一个项目。请[打开项目](#打开项目)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
+• 已打开一个项目。请[打开项目](#531-打开项目)
 导出的文本列表和图形列表包括其所有条目。可以分别导出文本列表和图形列表。
 为每个图形列表创建一个 XML 文件。图形列表包含中的全局图形对象将被作为 Open Links导出。
 修改以下程序代码以导出 HMI 设备的图形列表：
@@ -1161,9 +1161,9 @@ private static void ExportGraphicLists(HmiTarget hmitarget)
 #### 6.3.5.2 导入图形列表
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
 • 已打开一个项目。
-请[打开项目](#打开项目)
+请[打开项目](#531-打开项目)
 应用
 API 接口支持将图形列表从 XML 文件导入到 HMI 设备。
 导入中包含图形列表的所有引用图形对象。不包含对全局图形的引用。如果目标项目中存在引用的全局图形，则在导入期间将恢复全局图形的引用。
@@ -1187,8 +1187,8 @@ private static void ImportSingleGraphicList(HmiTarget hmitarget)
 #### 6.3.6.1 导出连接
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
-• 已打开一个项目。请[打开项目](#打开项目)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
+• 已打开一个项目。请[打开项目](#531-打开项目)
 API 接口支持将 HMI 设备的所有连接导出到 XML 文件。
 不支持导出集成连接。
 将为每个已导出的连接创建一个单独的 XML 文件。
@@ -1212,8 +1212,8 @@ private static void ExportConnectionsFromHMITarget(HmiTarget hmitarget)
 #### 6.3.6.2 导入连接
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
-• 已打开一个项目。请[打开项目](#打开项目)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
+• 已打开一个项目。请[打开项目](#531-打开项目)
 应用
 API 接口支持将 HMI 设备的所有连接从 XML 文件导入到 HMI 设备。如果要导入多个通信连接，则需为各个通信连接导入相应的 XML 文件。
 说明
@@ -1248,15 +1248,15 @@ private static void ImportConnectionsToHMITarget(HmiTarget hmitarget)
 <table><tr><td>范围</td><td>对象类型</td><td>是否可导出/导入</td></tr><tr><td rowspan="23">元素</td><td>I/O 域</td><td>是</td></tr><tr><td>图形 I/O 域</td><td>是</td></tr><tr><td>可编辑的文本域</td><td>-</td></tr><tr><td>列表框</td><td>-</td></tr><tr><td>组合框</td><td>-</td></tr><tr><td>按钮</td><td>是</td></tr><tr><td>圆形按钮</td><td>-</td></tr><tr><td>指示灯按钮</td><td>是</td></tr><tr><td>开关</td><td>是</td></tr><tr><td>符号 I/O 域</td><td>是</td></tr><tr><td>日期/时间域</td><td>是</td></tr><tr><td>棒图</td><td>是</td></tr><tr><td>符号库</td><td>是</td></tr><tr><td>滑块</td><td>是</td></tr><tr><td>滚动条</td><td>-</td></tr><tr><td>复选框</td><td>-</td></tr><tr><td>选项按钮</td><td>-</td></tr><tr><td>量表</td><td>是</td></tr><tr><td>时钟</td><td>是</td></tr><tr><td>存储空间视图</td><td>-</td></tr><tr><td>功能键(软键)</td><td>是</td></tr><tr><td>组</td><td>是</td></tr><tr><td>面板实例</td><td>是</td></tr></table>
 <table><tr><td>范围</td><td>对象类型</td><td>是否可导出/导入</td></tr><tr><td rowspan="31">控件</td><td>画面窗口</td><td>-</td></tr><tr><td>用户视图</td><td>是</td></tr><tr><td>打印作业/脚本诊断</td><td>-</td></tr><tr><td>摄像机视图</td><td>-</td></tr><tr><td>PDF 视图</td><td>-</td></tr><tr><td>配方视图</td><td>-</td></tr><tr><td>报警视图</td><td>-</td></tr><tr><td>报警指示器</td><td>-</td></tr><tr><td>报警窗口</td><td>-</td></tr><tr><td>f(x)趋势视图</td><td>-</td></tr><tr><td>f(t)趋势视图</td><td>-</td></tr><tr><td>表格视图</td><td>-</td></tr><tr><td>数值表</td><td>-</td></tr><tr><td>HTML 浏览器</td><td>-</td></tr><tr><td>媒体播放器</td><td>-</td></tr><tr><td>通道诊断</td><td>-</td></tr><tr><td>WLAN 接收</td><td>-</td></tr><tr><td>区域名称</td><td>-</td></tr><tr><td>区域信号</td><td>-</td></tr><tr><td>有效范围名称</td><td>-</td></tr><tr><td>有效范围名称 (RFID)</td><td>-</td></tr><tr><td>有效范围信号</td><td>-</td></tr><tr><td>充电状况</td><td>-</td></tr><tr><td>手轮</td><td>-</td></tr><tr><td>帮助指示器</td><td>-</td></tr><tr><td>Sm@rtClient 视图</td><td>-</td></tr><tr><td>状态/强制</td><td>-</td></tr><tr><td>存储空间视图</td><td>-</td></tr><tr><td>NC 子程序显示</td><td>-</td></tr><tr><td>系统诊断视图</td><td>-</td></tr><tr><td>系统诊断窗口</td><td>-</td></tr></table>
 6.3 导入/导出 HMI 设备的数据
-[导入/导出的基本原理](#导入导出的基本原理)
+[导入/导出的基本原理](#611-导入导出的基本原理)
 
 #### 6.3.7.2 导出 HMI 设备的所有画面
 
 要求
 • TIA Portal Openness 应用程序已连接到 TIA Portal。
-[连接到 TIA Portal](#连接到-TIA-Portal)”
+[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 项目已经打开。
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 简介
 导出 HMI 设备的所有用户定义画面文件夹的所有汇聚画面时，需要不同的程序代码。
 6.3 导入/导出 HMI 设备的数据
@@ -1352,8 +1352,8 @@ ExportScreenUserFolder(Path.Combine(screenPath, subfolder.Name), subfolder);
 #### 6.3.7.3 从画面文件夹导出画面
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
-• 已打开一个项目。请[打开项目](#打开项目)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
+• 已打开一个项目。请[打开项目](#531-打开项目)
 导出以下画面数据：
 <table><tr><td>画面</td><td>数据</td></tr><tr><td>属性</td><td>ActiveLayer, BackColor, Height, Width, Name, Number, HelpText</td></tr><tr><td>打开的链接</td><td>Template</td></tr><tr><td>组合</td><td>LayersAnimations导出基于Runtime Advanced的所有已组态的动画。Events导出基于Runtime Advanced的所有已组态的事件。Softkeys导出所有已组态的软键。</td></tr></table>
 为每个图层导出以下数据：
@@ -1386,8 +1386,8 @@ private static void ExportSingleScreenFromScreenFolder(HmiTarget hmitarget)
 
 #### 6.3.7.4 向 HMI 设备导入画面
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
-• 已打开一个项目。请[打开项目](#打开项目)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
+• 已打开一个项目。请[打开项目](#531-打开项目)
 只能将画面导入到特定类型的 HMI 设备。该 HMI 设备与导出画面的设备必须具有相同的设备类型。
 导入以下画面数据：
 <table><tr><td>画面</td><td>数据</td></tr><tr><td>属性</td><td>ActiveLayer, BackColor, Height, Width, Name, Number, HelpText</td></tr><tr><td>打开的链接</td><td>Templates</td></tr><tr><td>组合</td><td>LayersAnimations导入所有可组态画面动画。Events导入所有可组态画面事件。Softkeys导入所有可组态画面软键。</td></tr></table>
@@ -1447,9 +1447,9 @@ private static void ImportSingleScreenToNewFolderOfHMITarget(HmiTarget hmitarget
 #### 6.3.7.5 导出永久性区域
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
 • 已打开一个项目。
-请[打开项目](#打开项目)
+请[打开项目](#531-打开项目)
 导出永久性区域的以下数据：
 <table><tr><td>永久性区域</td><td>数据</td></tr><tr><td>属性</td><td>ActiveLayer, BackColor, Height, Width, Name</td></tr><tr><td>组合</td><td>Layers</td></tr></table>
 为每个图层导出以下数据：
@@ -1472,9 +1472,9 @@ private static void ExportScreenoverview(HmiTarget hmitarget)
 #### 6.3.7.6 导入永久性区域
 
 • TIA Portal Openness 应用程序已连接到 TIA Portal。
-请[连接到 TIA Portal](#连接到-TIA-Portal)
+请[连接到 TIA Portal](#528-连接到-tia-portal)
 • 已打开一个项目。
-请[打开项目](#打开项目)
+请[打开项目](#531-打开项目)
 导入永久性区域的以下数据：
 <table><tr><td>永久性区域</td><td>数据</td></tr><tr><td>属性</td><td>ActiveLayer, BackColor, Height, Width, Name, Visible, Number</td></tr><tr><td>组合</td><td>Layers</td></tr></table>
 为每个图层导入以下数据：
@@ -1497,9 +1497,9 @@ private static void ImportScreenOverview(HmiTarget hmiTarget)
 #### 6.3.7.7 导出 HMI 设备的所有画面模板
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
 • 项目已经打开。
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 简介
 为每个画面模板创建一个 XML 文件。
 由于不支持批量导出，因此需要单独枚举和导出所有画面模板。在此操作过程中，确保所使用的画面模板名符合文件系统的文件命名约定。
@@ -1572,9 +1572,9 @@ ExportScreenTemplates(Path.Combine(templatePath, folder.Name), hmiTarget);
 #### 6.3.7.8 从文件夹导出画面模版
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
 • 项目已经打开。
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 导出以下画面模板数据：
 <table><tr><td>画面模板</td><td>数据</td></tr><tr><td>属性</td><td>ActiveLayer, BackColor, Height, Width, Name</td></tr><tr><td>组合</td><td>LayersAnimations导出所有已组态的动画。不导出 SCADA 动画。Softkeys导出所有已组态的软键。</td></tr></table>
 为每个图层导出以下数据：
@@ -1670,8 +1670,8 @@ foreach (ScreenTemplateUserFolder subfolder in folder.Folders)
 #### 6.3.7.9 导入画面模板
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
-• 项目已经打开。[打开项目](#打开项目)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
+• 项目已经打开。[打开项目](#531-打开项目)”
 导入以下画面模板数据：
 <table><tr><td>画面模板</td><td>数据</td></tr><tr><td>属性</td><td>ActiveLayer, BackColor, Height, Width, Name, SetTabOrderInFront</td></tr><tr><td>组合</td><td>LayersAnimations导入所有可组态画面动画。Softkeys导入所有可组态画面软键。</td></tr></table>
 为每个图层导入以下数据：
@@ -1717,9 +1717,9 @@ folder.ScreenTemplates.Import(new FileInfo(@"D:\Samples\ImportScreenTemplate.xml
 
 #### 6.3.7.10 导出弹出画面
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
 • 项目已经打开。
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 简介
 导出以下弹出画面数据：
 <table><tr><td>画面模板</td><td>数据</td></tr><tr><td>属性</td><td>ActiveLayer, BackColor, GridColor, Height, Name, ScrollbarBackgroundColor, ScrollbarForegroundColor, Width</td></tr><tr><td>组合</td><td>LayersEvents导出所有已组态的事件。</td></tr></table>
@@ -1779,9 +1779,9 @@ namespace ExportingAPopupImage
 #### 6.3.7.11 导入弹出画面
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
 • 已打开一个项目。
-请[打开项目](#打开项目)
+请[打开项目](#531-打开项目)
 导入以下弹出画面数据：
 <table><tr><td>画面模板</td><td>数据</td></tr><tr><td>属性</td><td>ActiveLayer, BackColor, GridColor, Height, Name, ScrollbarBackgroundColor, ScrollbarForegroundColor, Width</td></tr><tr><td>组合</td><td>LayersEvents导出所有已组态的事件。</td></tr></table>
 要进行导入，必须存在以下属性：
@@ -1816,9 +1816,9 @@ private static void ImportPopupScreenToHMITarget(HmiTarget hmitarget)
 #### 6.3.7.12 导出滑入画面
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目。
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 6.3 导入/导出 HMI 设备的数据
 应用
 导出滑入画面中的以下数据和值：
@@ -1849,8 +1849,8 @@ private static void ExportSingleSlideinScreen(HmiTarget hmitarget)
 #### 6.3.7.13 导入滑入画面
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
-• 已打开一个项目。请[打开项目](#打开项目)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
+• 已打开一个项目。请[打开项目](#531-打开项目)
 应用
 导入滑入画面的以下数据和值：
 <table><tr><td>画面模板</td><td>数据</td></tr><tr><td>属性</td><td>Activate = falseActiveLayer = 0AuthorizationBackColor = (182; 182; 182)Dimension = 427属性“Dimension”指定滑入画面的宽度或高度,具体取决于这两个属性中的哪个属性可针对特定滑入类型进行修改。GridColor = (0; 0; 0)LineColor1 = (223; 223; 223)LineColor2 = (32; 32; 32)OperateableAreaColor = (128; 128; 128)SlideinType = Top, Bottom, Left, RightVisibility = FadeOut</td></tr><tr><td>组合</td><td>Layers</td></tr></table>
@@ -1879,8 +1879,8 @@ private static void ImportSlideinScreenToHMITarget(HmiTarget hmitarget)
 
 #### 6.3.7.14 导出带有面板实例的画面
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
-• 已打开一个项目。请[打开项目](#打开项目)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
+• 已打开一个项目。请[打开项目](#531-打开项目)
 导出画面中的以下面板实例数据：
 <table><tr><td>画面</td><td>数据</td></tr><tr><td>属性</td><td>Left, Top, Width, Height, ObjectName, Resizing, TabIndex, FaceplateTypeName</td></tr><tr><td>接口属性</td><td>针对可导出的画面项导出面板实例的所有已组态接口属性。</td></tr><tr><td>组合</td><td>• 动画导出所有移动动画。变量动画与接口属性有关。• 事件导出所有已组态的事件。</td></tr></table>
 遵循面板实例的所导出属性的以下规范：
@@ -1917,9 +1917,9 @@ private static void ExportSingleScreenWithFaceplateInstance(HmiTarget hmitarget)
 
 #### 6.3.7.15 导入带有面板实例的画面
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
 • 已打开一个项目。
-请[打开项目](#打开项目)
+请[打开项目](#531-打开项目)
 应用
 导入画面中的以下面板实例数据：
 <table><tr><td>画面</td><td>数据</td></tr><tr><td>属性</td><td>Left, Top, Width, Height, ObjectName, Resizing, TabIndex, FaceplateTypeName</td></tr><tr><td>接口属性</td><td>针对可导入的画面项导入面板实例的所有已组态接口属性。</td></tr><tr><td>组合</td><td>• 动画导入所有移动动画。变量动画与接口属性有关。• 事件导出所有已组态的事件。</td></tr></table>
@@ -2072,9 +2072,9 @@ API 用户负责保证通过代码处理密码时的安全措施。
 
 要求
 • TIA Portal Openness 应用程序已连接到 TIA Portal。
-请[连接到 TIA Portal](#连接到-TIA-Portal)”
+请[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目。
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 6.4 导入/导出 PLC 设备的数据
 • PLC 未在线。
 • 要导出的 CFC 图表不受密码保护。
@@ -2109,9 +2109,9 @@ TIA Portal 项目视图：导出和导入 CFC 图表 (页 1472)
 
 #### 6.4.1.4 仅导出所选 CFC 图表
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目。
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 • PLC 未在线。
 • 要导出的 CFC 图表不受密码保护。
 在导出过程中会忽略组态了密码的 CFC 图表。
@@ -2140,13 +2140,13 @@ chartProvider.SelectiveExport(@"D:\Users\username1\Documents\Automation\Openness
 
 ```
 
-[CFC 图表的导出/导入](#CFC-图表的导出导入)
+[CFC 图表的导出/导入](#6411-cfc-图表的导出导入)
 TIA Portal 项目视图：导出和导入 CFC 图表 (页 1472)
 
 #### 6.4.1.5 导入 CFC 图表
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#连接到-TIA-Portal)”
-• 已打开一个项目。请[打开项目](#打开项目)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#528-连接到-tia-portal)”
+• 已打开一个项目。请[打开项目](#531-打开项目)”
 • PLC 未在线。
 在 TIA Portal Openness API 中，可使用功能“Import”从 XML 文件导入 CFC 图表。通过完整的 XML 导出或通过特定 CFC 图表的选择性 XML 导出，可创建 XML 文件。
 <table><tr><td>参数</td><td>数据类型</td><td>描述</td></tr><tr><td>xmlFilePath</td><td>String</td><td>导入文件的文件夹路径和名称</td></tr><tr><td>modelVersion</td><td>String</td><td>要使用的 S7TIA 交换模型版本</td></tr><tr><td>filter</td><td>Int64</td><td>自动化接口的过滤选项在当前的 CFC 版本中,参数在导出和导入时不被评估,没有功能。</td></tr><tr><td>unattended</td><td>Boolean</td><td>开启或关闭静默模式</td></tr><tr><td>deleteAtTarget</td><td>Boolean</td><td>是否删除 TIA 项目中未包含在原始导出文件中的对象</td></tr></table>
@@ -2191,11 +2191,11 @@ TIA Portal 项目视图：导出和导入 CFC 图表 (页 1472)
 
 ```text
 
-- TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)”
+- TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)”
 
 ```
 
-• 已打开一个项目。请[打开项目](#打开项目)”
+• 已打开一个项目。请[打开项目](#531-打开项目)”
 • PLC 未在线。
 为保护 CFC 图表或层级 CFC 图表以防止意外编辑，可使用密码保护该图表。
 • 要组态密码，请使用函数“AddChartProtection”。
@@ -2236,8 +2236,8 @@ CFC 图表的导出/导入 (页 1470)
 #### 6.4.1.7 从 CFC 图表读取密码
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#连接到-TIA-Portal)”
-• 已打开一个项目。请[打开项目](#打开项目)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#528-连接到-tia-portal)”
+• 已打开一个项目。请[打开项目](#531-打开项目)”
 • PLC 未在线。
 要从 CFC 图表读取密码，请使用函数“GetChartProtection”。
 可通过“ChangeChartProtection (页 1481)”和“RemoveChartProtection (页 1483)”函数修改或删除该密码。
@@ -2276,8 +2276,8 @@ string passwordHash = chartProvider.GetChartProtection("CFC_1");
 
 #### 6.4.1.8 更改 CFC 图表的密码
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#连接到-TIA-Portal)”
-• 已打开一个项目。请[打开项目](#打开项目)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#528-连接到-tia-portal)”
+• 已打开一个项目。请[打开项目](#531-打开项目)”
 • PLC 未在线。
 要更改用于保护 CFC 图表或层级 CFC 图表以防被意外编辑的密码，请使用函数“ChangeChartProtection”。
 可通过“GetChartProtection (页 1480)”和“RemoveChartProtection (页 1483)”函数读取或删除密码。
@@ -2314,11 +2314,11 @@ CFC 图表的导出/导入 (页 1470)
 
 ```text
 
-- TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)”
+- TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)”
 
 ```
 
-• 已打开一个项目。请[打开项目](#打开项目)”
+• 已打开一个项目。请[打开项目](#531-打开项目)”
 • PLC 未在线。
 如果需要删除已组态的 CFC 图表密码，请使用函数“RemoveChartProtection”。
 然后可以再次打开和编辑 CFC 图表，而无需输入密码。
@@ -2767,9 +2767,9 @@ V* 指已安装的 TIA Portal 版本。
 #### 6.4.2.3 利用快照导出数据块
 
 • TIA Portal Openness 应用程序已连接到 TIA Portal。
-[连接到 TIA Portal](#连接到-TIA-Portal)”
+[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目。
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 可使用 TIA Portal Openness 将具有快照值的数据块以 XML 格式导出，从而可比较不同快照时间的值。根据比较结果，可手动调整
 单个起始值（在 TIA Portal 用户界面中）并保存这些值以便将来进行恢复。
 架构“SW.Interface.Snapshot.xsd”可处理所导出 XML 文件。快照服务“InterfaceSnapshot”在命名空间“Siemens.Engineering.SW.Blocks”中提供。
@@ -2838,7 +2838,7 @@ ExportOptions.WithReadOnly);
 要求
 • TIA Portal Openness 应用程序已连接到 TIA Portal。 参见“连接到 TIA Portal (页 90)”
 • 项目已经打开。
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 • PLC 未在线。
 简介
 生成的 XML 文件与没有专有技术保护的块导出文件相似。通过 PlcBlockProtectionProvider，可以使用 Openness API 提供密码，以解锁受专有知识保护的块，然后再导出 KHP 块并完善其代码。可导入块，然后再次使用 API 对块进行密码保护。
@@ -3098,9 +3098,9 @@ SCL 块允许省略参数名称。该参数表示为 NamelessParameter 变量。
 #### 6.4.2.8 导出/导入 SCL 中的多语言注释
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 
 ##### 应用程序
 
@@ -3136,9 +3136,9 @@ TIA Portal Openness 中可支持通过以下方式导入和导出 SCL 编辑器�
 #### 6.4.2.10 导出系统块
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
 • 项目已经打开。
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 • 项目包含系统块。
 • 系统块不是 F 块
 • PLC 未在线。
@@ -3207,9 +3207,9 @@ GRAPH 块的导出 XML 中包含 GRAPH 的已翻译步骤名称和转移名称�
 
 #### 6.4.2.12 导入块
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
 • 项目已经打开。
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 • PLC 未在线。
 TIA Portal Openness API 支持从 XML 文件导入采用“LAD”、“FBD”、“GRAPH”、“SCL”或“STL”编程语言的块。支持以下块类型：
 • 函数块 (FB)
@@ -3259,8 +3259,8 @@ private static void ImportSystemBlocks(PlcSoftware plcSoftware)
 
 #### 6.4.2.13 导出块
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
-• 项目已经打开。[打开项目](#打开项目)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
+• 项目已经打开。[打开项目](#531-打开项目)”
 • PLC 未在线。
 API 接口支持将一致的块和用户数据类型导出到 XML 文件。
 XML 文件接收块的名称。支持以下块类型：
@@ -3278,7 +3278,7 @@ XML 文件接收块的名称。支持以下块类型：
 
 ##### 适用于所有块的属性
 
-通过选中的ExportOptions，将导出所有块中的以下属性（请[导出组态数据](#导出组态数据)）。始终导出以粗体显示的属性。
+通过选中的ExportOptions，将导出所有块中的以下属性（请[导出组态数据](#615-导出组态数据)）。始终导出以粗体显示的属性。
 更多信息，请参见 TIA Portal 信息系统的“块属性的概述”部分。
 <table><tr><td>属性</td><td>类型</td><td>默认值</td><td>只读</td></tr><tr><td>AutoNumber</td><td>Bool</td><td>true</td><td>false</td></tr><tr><td>CodeModifiedDate</td><td>DateTime</td><td>-</td><td>true</td></tr><tr><td>CompileDate</td><td>DateTime</td><td>-</td><td>true</td></tr><tr><td>CreationDate</td><td>DateTime</td><td>-</td><td>true</td></tr><tr><td>HeaderAuthor</td><td>String</td><td>""</td><td>false</td></tr><tr><td>HeaderFamily</td><td>String</td><td>""</td><td>false</td></tr><tr><td>HeaderName</td><td>String</td><td>""</td><td>false</td></tr><tr><td>HeaderVersion</td><td>String</td><td>"0.1"</td><td>false</td></tr><tr><td>Interface</td><td>String</td><td>空接口</td><td>false</td></tr><tr><td>InterfaceModifiedDate</td><td>DateTime</td><td>-</td><td>true</td></tr><tr><td>IsConsistent</td><td>Bool</td><td>-</td><td>true</td></tr><tr><td>IsKnowHowProtected $^{1}$ </td><td>Bool</td><td>false</td><td>true</td></tr><tr><td>IsWriteProtected</td><td>Bool</td><td>false</td><td>true</td></tr><tr><td>MemoryLayout</td><td>enum MemoryLayout</td><td>-</td><td>false</td></tr><tr><td>ModifiedDate</td><td>DateTime</td><td>-</td><td>true</td></tr><tr><td>Name</td><td>String</td><td>-</td><td>false</td></tr><tr><td>Number</td><td>Int32</td><td>下一个可用编号</td><td>false</td></tr><tr><td>ParameterModified</td><td>DateTime</td><td>-</td><td>true</td></tr><tr><td>PLCSimAdvancedSupport</td><td>Bool</td><td>false</td><td>true</td></tr><tr><td>ProgrammingLanguage</td><td>enum ProgrammingLanguage</td><td>-</td><td>false</td></tr><tr><td>StructureModified</td><td>DateTime</td><td>-</td><td>true</td></tr></table>
 <sup>1</sup> IsKnowHowProtected 属性也适用于 UDT。
@@ -3399,9 +3399,9 @@ private static void ExportRegularBlock(PlcSoftware plcSoftware)
 
 #### 6.4.2.14 引用缺失时导入块/UDT
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 • PLC 未处于在线状态
 即使缺少相关对象，也可以使用 TIA Portal Openness 导入块和 UDT。可以通过相应的 Import方式的新过载来使用新模式。新过载具有一个附加参数，用于接受新标记的枚举SWImportOption 的值。
 Openness 接口支持在以下条件中使用新导入模式：
@@ -3434,8 +3434,8 @@ private static void Main(string[] args)
 #### 6.4.2.15 为结构更改对象导入块/UDT
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#连接到-TIA-Portal)”
-• 已打开一个项目请[打开项目](#打开项目)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#528-连接到-tia-portal)”
+• 已打开一个项目请[打开项目](#531-打开项目)”
 • PLC 未处于在线状态
 通过 Openness API，即使由于相关对象的结构更改而使实例数据丢失，也可导入块和 UDT。
 Openness 接口支持在以下条件中使用新导入模式：
@@ -3465,9 +3465,9 @@ PlcTypeComposition.Import(file, ImportOptions.None, SWImportOptions.IgnoreStruct
 #### 6.4.2.16 导出/导入块和类型的单元特定发布属性
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
 • 项目已打开
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 简介
 只有位于单元下的块、plc 类型和变量表存在“Access”属性。块、类型和变量表的 XML 文件在导出为单元环境时包含 Access 属性，
 并在导入时获取其 Unpublished 默认值。导出的相同块、类型和变量表的 XML 在非单元环境下不包含 Access 属性，
@@ -3613,9 +3613,9 @@ plcUnit2.BlockGroup.Blocks.Import(new FileInfo("somepath"), ImportOptions.None, 
 
 #### 6.4.2.17 创建背景数据块
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal [连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal [连接到 TIA Portal](#528-连接到-tia-portal)”
 • 项目正在打开
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 可使用 TIA Portal Openness 为 SCL、LAD、FBD、STL、Graph 和 CEM 等编程语言创建背景数据块。
 
 ##### 程序代码：为 SCL、LAD、FBD、STL、Graph 和 CEM 块创建背景数据块
@@ -3641,8 +3641,8 @@ plc.BlockGroup.Blocks.CreateInstanceDB("RelayDB", true, 6, "Relay_CEM_Block");
 #### 6.4.2.18 在不导出的情况下访问数据块值参数
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal [连接到 TIA Portal](#连接到-TIA-Portal)”
-• 已通过 TIA Portal Openness 应用程序打开一个项目请[打开项目](#打开项目)
+• TIA Portal Openness 应用程序已连接到 TIA Portal [连接到 TIA Portal](#528-连接到-tia-portal)”
+• 已通过 TIA Portal Openness 应用程序打开一个项目请[打开项目](#531-打开项目)
 简介
 可使用 TIA Portal Openness 在任何 DB 中读取和写入以下成员属性值。
 <table><tr><td>特性名称</td><td>数据类型</td><td>模型化/动态</td><td>访问</td></tr><tr><td>Name</td><td>String</td><td>模型化</td><td>读</td></tr><tr><td>StartValue</td><td>String</td><td>动态</td><td>读/写</td></tr><tr><td>AssignedPro DiagFB</td><td>String</td><td>动态</td><td>读</td></tr><tr><td>ExternalAccessible</td><td>bool</td><td>动态</td><td>读/写</td></tr><tr><td>ExternalVisible</td><td>bool</td><td>动态</td><td>读/写</td></tr></table>
@@ -3734,9 +3734,9 @@ myDatablock.Interface.Members[0].SetAttribute("StartValue", " 'myTest'");
 #### 6.4.2.19 导出/导入 Plc 报警文本列表
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal [连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal [连接到 TIA Portal](#528-连接到-tia-portal)”
 • 项目已打开
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 简介
 可使用 TIA Portal Openness 导出和导入 Plc 报警文本列表。导出/导入的格式为 XLSX。
 
@@ -3886,9 +3886,9 @@ TextListXlsxResult 包含导出或导入结果的相关信息。其中包含的�
 
 #### 6.4.2.20 将文档信息导出到 SimaticML 文件
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal [连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal [连接到 TIA Portal](#528-连接到-tia-portal)”
 • 项目已打开
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 可以使用 TIA Portal 将 PlcTag、PlcTagTable 和 PlcUserConstant 导出到带有用户特定文档信息的 SimaticML 文件。从 TIA Portal 导出到 Simatic ML 文件以及从 SimaticML 文件导入到TIA Portal 的文档信息不相关。
 对于新的导出，可在导出 Openness 数据类型 PlcTag、PlcTagTable 和 PlcUserConstant 时忽略完整的文档信息，也可以组态 SimaticML 文件中应提供的文档信息。
 
@@ -3923,9 +3923,9 @@ DocumentInfoOptions.All);
 #### 6.4.2.21 报警实例文本导出/导入
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目。
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 可使用 TIA Portal Openness 导出和导入报警实例文本，这类似于从 PLC 监控和报警编辑器导出和导入类型报警文本，还类似于从 CFC 报警编辑器导出/导入实例报警文本。通过 TIAPortal Openness 导出和导入报警实例文本功能旨在用于翻译目的。该功能在导入过程中不会创建任何类型的报警实例，也不会创建任何报警类别。例如，如果目标项目中存在 exce文件的报警类别（以名称标识），则导入时会设置为实例报警，但不会创建不存在的类别。
 <table><tr><td></td><td>A</td><td>B</td><td>C</td><td>D</td><td>E</td><td></td></tr><tr><td>1</td><td>Location</td><td>Alarm name</td><td>Alarm class</td><td>&quot;Alarm text&quot; - English (United States) / [en-US] / Event text</td><td>FieldInfo / &quot;Alarm text&quot; / Event text</td><td>&quot;Info text&quot; - Eng</td></tr><tr><td>2</td><td>Datenbaustein_1</td><td>Static_1</td><td>### Inherited from Type ###</td><td>alarm text 1</td><td></td><td>English Info Inst</td></tr><tr><td>3</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>4</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>5</td><td></td><td></td><td></td><td></td><td></td><td></td></tr></table>
 Inherited from type### 是特殊的内容，指示系统使用该类型的文本或报警类别。报警类别字段引用目标项目中现有的报警类别名称。重要的规则如下：对于特定报警文本，所有语言字段或没有语言字段应包含 ###Inherited from type###。如果有一些混合内容字段，则根本不会导入该报警的文本并会发出警告。
@@ -3998,9 +3998,9 @@ result = alarmTextsProvider.ImportInstanceTextsFromXlsx(fileInfo, cultureInfo);
 #### 6.4.2.22 报警类别导出/导入
 
 • TIA Portal Openness 应用程序已连接到 TIA Portal。
-[连接到 TIA Portal](#连接到-TIA-Portal)”
+[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目。
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 可使用 TIA Portal Openness 导出/导入报警类别。导出/导入的格式为 .DAT。
 新引入的 AlarmClassDataProvider 类型的工程组态对象模型定义
 6.4 导入/导出 PLC 设备的数据
@@ -4071,9 +4071,9 @@ AlarmClassExportImportResult 项目将包含导出或导入结果的相关信息
 #### 6.4.2.23 导出/导入 ProDiag-FB 的全局监控
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal[打开项目](#打开项目)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal[打开项目](#531-打开项目)”
 • 已打开一个项目
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 可使用 TIA Portal Openness 支持导出/导入 ProDiag 块的全局监控。此功能由服务提供商机制提供支持，plc 和软件单元下的块使用同一服务提供商执行导出和导入操作。
 执行导出/导入时，应告知用户正确的结果状态或正确的用户异常。
 6.4 导入/导出 PLC 设备的数据
@@ -4119,9 +4119,9 @@ supervisionProvider.ImportSupervisionSettingsFromXlsx(fileInfo, ImportOptions.Ov
 #### 6.4.2.24 通过全局概览编辑器导出/导入 ProDiag 监控
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
 • 打开项目
-[打开项目](#打开项目)
+[打开项目](#531-打开项目)
 简介
 可使用 TIA Portal Openness 支持导出和导入 Plc 或单元下提供的全局监控。此功能由服务提供商机制提供支持，plc 和软件单元主要使用同一服务提供商执行导出和导入操作。执行导出导入时，应告知用户正确的结果或异常。
 可使用以下方法导出和导入全局监控：
@@ -4165,8 +4165,8 @@ supervisionProvider.ImportSupervisionsSettingsFromXlsx(fileInfo, ImportOptions.O
 
 #### 6.4.2.25 导出/导入 ProDiag 监控的设置
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#连接到-TIA-Portal)”
-• 已打开一个项目。请[打开项目](#打开项目)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#528-连接到-tia-portal)”
+• 已打开一个项目。请[打开项目](#531-打开项目)”
 可使用 TIA Portal Openness 支持导出/导入监控设置。
 SupervisionSettingsExportImportResult 下提供以下属性：
 <table><tr><td>属性名称</td><td>数据类型</td><td>访问权限</td></tr><tr><td>State</td><td>SupervisionSettingExportImportResultState</td><td>读取</td></tr><tr><td>ErrorCount</td><td>Int32</td><td>读取</td></tr></table>
@@ -4229,8 +4229,8 @@ importMessageList[0].Message;
 #### 6.4.2.26 导出/导入监控表和强制表
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
-• 已通过 TIA Portal Openness 应用程序打开一个项目。[打开项目](#打开项目)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
+• 已通过 TIA Portal Openness 应用程序打开一个项目。[打开项目](#531-打开项目)”
 简介
 可使用 TIA Portal Openness 将监控表和强制表从 TIA Portal 导出到 SIMATIC ML，然后从SIMATIC ML 导入监控表和强制表。
 监控表中的导出选项应通过以下定义进行设置（None、 WithDefaults、WithReadOnly、WithDefaultsAndReadOnly）。监控表仅具有一个发布特性，即，名称。发布此名称以供读取。
@@ -4291,9 +4291,9 @@ ForceTables 可采用类似方式导入，但只允许包含一个 ForceTable。
 #### 6.4.2.27 导出用户数据类型
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
 • 项目已经打开。
-请[打开项目](#打开项目)
+请[打开项目](#531-打开项目)
 • PLC 未处于在线状态。
 修改以下程序代码以将用户数据类型导出至 XML 文件：
 
@@ -4362,8 +4362,8 @@ private static void ImportUserDataType(PlcSoftware plcSoftware)
 
 #### 6.4.2.29 以 OPC UA XML 格式导出数据
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
-• 项目已经打开。请[打开项目](#打开项目)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
+• 项目已经打开。请[打开项目](#531-打开项目)
 • PLC 未处于在线状态。
 可以使用 TIA Portal Openness 以 OPC UA XML 文件的形式导出 PLC 数据。对于操作的输入参数，您需要一个绝对目录路径，用于保存 xml 文件。
 修改以下程序代码，以 OPC UA XML 文件的形式导出 PLC 数据：
@@ -4383,9 +4383,9 @@ opcUaExportProvider.Export(plc, new FileInfo(string.Format(@"D:\OPC UA export fi
 
 #### 6.4.2.30 UDT 和 DB 导出/导入
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal 请[连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal 请[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 可在创建全局数据块的同时使用 TIA Portal Openness 为 UDT 中的布尔型成员定义监控条件并为全局数据中的 UDT 实例分配 prodiagFB。应能够分别通过 TIA Portal Openness 导出和导入提供和获取该监控信息。
 6.4 导入/导出 PLC 设备的数据
 已导出/导入 UDT 的 XML 结构
@@ -4540,9 +4540,9 @@ Datatype="&quot;Udt_With_Supervision&quot;"><AttributeList><BooleanAttribute Nam
 
 ##### 典型示例
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 可使用 TIA Portal Openness 导出和导入 UDT 实例的数组 DB 和实例 DB，以便可正确导出关于已分配 proDiagFB 的信息。
 同样，导入期间还应为 Openness 用户支持相同属性，以便能够为 UDT 的数组 DB 和实例 DB分配可用的 proDiagFB。
 6.4 导入/导出 PLC 设备的数据
@@ -4562,7 +4562,7 @@ Openness：用于工程组态工作流自动化的 API系统手册, 11/2023
 使用以下 XML 结构导出分配了 ProdiagFB“Default\_SupervisionFB”的 UDT 的实例 DB：
 <SW.Blocks.InstanceDB ID="0"> <AttributeList> <AssignedProDiagFB>Default\_SupervisionDB</AssignedProDiagFB> <InstanceOfName>User\_data\_type\_4</InstanceOfName> <InstanceOfType>UDT</InstanceOfType> <Interface> <Sections> <Section Name="Static"> <Member Name="Element\_1" Datatype="Bool" /> </Section> </Sections> </Interface> <MemoryLayout>Optimized</MemoryLayout> <Name>Data\_block\_9</Name> <Number>19</Number> <ProgrammingLanguage>DB</ProgrammingLanguage> </AttributeList> <ObjectList> <MultilingualText ID="1" CompositionName="Comment"> <ObjectList> <MultilingualTextItem ID="2" CompositionName="Items"> <AttributeList> <Culture>en-US</Culture> <Text /> </AttributeList> </MultilingualTextItem> </ObjectList> </MultilingualText> <MultilingualText ID="3" CompositionName="Title"> <ObjectList> <MultilingualTextItem ID="4" CompositionName="Items"> <AttributeList> <Culture>en-US</Culture> <Text /> </AttributeList> </MultilingualTextItem> </ObjectList> </MultilingualText> </ObjectList> </SW.Blocks.InstanceDB> </Document>
 <table><tr><td>说明</td></tr><tr><td>如果尝试为实例 DB 设置 assignedProDiagFB,则应抛出相应的“属性不受支持”异常。</td></tr></table>
-[打开项目](#打开项目)
+[打开项目](#531-打开项目)
 
 ### 6.4.3 工艺对象
 
@@ -4695,15 +4695,15 @@ TIA Portal 项目中工艺对象数据块的数量
 
 ```
 
-更多关于 Interface 元素以及 SimaticML 元素属性的信息，请[块接口部分的 XML 结构](#块接口部分的-XML-结构)。
+更多关于 Interface 元素以及 SimaticML 元素属性的信息，请[块接口部分的 XML 结构](#6421-块接口部分的-xml-结构)。
 
 #### 6.4.3.3 导出工艺对象
 
 要求
 • TIA Portal Openness 应用程序已连接到 TIA Portal。
-请[连接到 TIA Portal](#连接到-TIA-Portal)”
+请[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目。
-请[打开项目](#打开项目)
+请[打开项目](#531-打开项目)
 • 项目包含将要导出的 TO。
 • PLC 未在线。
 TIA Portal Openness API 支持将表 工艺对象和版本概述 (页 1603) 中列出的所有工艺对象导出到 XML 文件中。仅可导出一致的工艺对象。硬件配置或变量表不会随工艺对象一起导出，必须单独导出。使用 IsConsistent 属性检查工艺对象的一致性。成功编译各个工艺对象后，该标记会置位。如果生成相应的导出文件，则表明导出已完成。
@@ -4771,8 +4771,8 @@ private static void ExportOutputCam(FileInfo path, ExportOptions options, Techno
 #### 6.4.3.4 导入工艺对象
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#连接到-TIA-Portal)”
-• 已打开一个项目。请[打开项目](#打开项目)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#528-连接到-tia-portal)”
+• 已打开一个项目。请[打开项目](#531-打开项目)
 • PLC 未在线。
 TIA Portal Openness API 支持从 XML 文件导入工艺对象。
 如果导入数据包含的参数不是针对各自的 TO 类型定义的，则会抛出EngineeringTargetInvocationException。
@@ -4785,7 +4785,7 @@ TIA Portal Openness API 支持从 XML 文件导入工艺对象。
 程序代码
 IList<SW.TechnologicalObjects.TechnologicalInstanceDB>
 Import(FileInfo path, ImportOptions options);
-修改以下程序代码以导入 XML 文件的一个或多个工艺对象。有关 ImportOptions 的详细信息，请[导入组态数据](#导入组态数据)。
+修改以下程序代码以导入 XML 文件的一个或多个工艺对象。有关 ImportOptions 的详细信息，请[导入组态数据](#616-导入组态数据)。
 // Import technology objects
 private static void Import(FileInfo path, ImportOptions options, PlcSoftware plcSoftware)
 {
@@ -5087,9 +5087,9 @@ API 接口支持导出和导入工艺对象。有关所有可用的参数列表�
 #### 6.4.4.1 导出 PLC 变量表
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
 • 项目已经打开。
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 为每个 PLC 变量表导出一个 XML 文件。
 TIA Portal Openness API 支持从系统组及其子组中导出所有 PLC 变量表。
 修改以下程序代码以从系统组及其子组中导出所有 PLC 变量表：
@@ -5131,8 +5131,8 @@ private static void ExportAllTagTables(PlcSoftware plcSoftware)
 #### 6.4.4.2 导入 PLC 变量表
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
-• 已打开一个项目。请[打开项目](#打开项目)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
+• 已打开一个项目。请[打开项目](#531-打开项目)
 6.4 导入/导出 PLC 设备的数据
 修改以下程序代码以将 PLC 变量表或带有 PLC 变量表的文件夹结构从 XML 文件导入至系统组或用户自定义组：
 
@@ -5154,8 +5154,8 @@ private static void ImportTagTable(PlcSoftware plcSoftware)
 
 #### 6.4.4.3 导出来自 PLC 变量表的单个变量或常量
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
-• 项目已经打开。[打开项目](#打开项目)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
+• 项目已经打开。[打开项目](#531-打开项目)”
 API 接口支持将 PLC 变量表中的单个变量或常量导出到 XML 文件。请确保所使用的变量表名符合文件系统的文件命名约定。
 可使用导出设置 ExportOptions.None 进行导出。被设置为描述的值时，将不会导出以下内容：
 • 变量：ExternalAccessible（默认值为真）
@@ -5198,14 +5198,14 @@ private static void ExportTag(PlcSoftware plcSoftware, string tagName)
 
 ```
 
-[导出组态数据](#导出组态数据)
+[导出组态数据](#615-导出组态数据)
 关于 TIA Portal Openness 性能的说明 (页 140)
 6.4 导入/导出 PLC 设备的数据
 
 #### 6.4.4.4 将单个变量或常数导入 PLC 变量表
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
-• 已打开一个项目。请[打开项目](#打开项目)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
+• 已打开一个项目。请[打开项目](#531-打开项目)
 可以在单个导入调用中导入各个变量或常量。
 说明
 常量只能以用户常量进行导入。
@@ -5577,9 +5577,9 @@ Rack.
 
 ### 6.5.6 通过 AML 导出/导入基本单元信息
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 项目已经打开。
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 • PLC 处于离线状态
 在 TIA Portal 中，用户可以导出和导入基本单元信息，以便与 EPLAN 等其他工具交换信息。
 在 TIA Portal 项目中导出和导入期间，支持两种类型的基本单元：
@@ -5685,9 +5685,9 @@ OrderNumber:xxxx 193-6[B|U|T]x6x-xxxx
 
 ### 6.5.7 通过扩展机架连接导出/导入 AML
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal 请[连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal 请[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 在 TIA Portal 中，可将设备及包含扩展机架连接的多个机架导出到一个 AML 文件，然后将其重新导入，以便获取在 TIA Portal 项目中创建的相同设备组态。
 示例：带有多个机架的设备配备了扩展机架连接系统  
 ![](images/6a90d3e325827385d4136c95048685bcfa6cfdf0800d7821bcaa01e90bab5f35.jpg)
@@ -5801,12 +5801,12 @@ Openness：用于工程组态工作流自动化的 API系统手册, 11/2023
 
 ### 6.5.8 导出/导入具有 GSD/GSDML 自定义属性的 AML 文件
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal 请[连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal 请[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 自定义属性通常允许交换某些设备或模块特有，但基于 AutomationML 的规范未涵盖的数据。在 TIA Portal 中，所有类型的模块（例如 GSD、GSDML、非 GSD/GSDML 模块）都支持自定义属性。仅可
 通过自定义属性交换模块的附加数据，而不能交换端口、接口、节点等处的附加数据。自定义属性在 AR APC 中定义为未排序的名称值对列表。
-有关非 GSD/GSDML 自定义属性的信息，请[导出/导入具有非 GSD/GSDML 自定义属性的 AML 文件](#导出导入具有非-GSDGSDML-自定义属性的-AML-文件)”
+有关非 GSD/GSDML 自定义属性的信息，请[导出/导入具有非 GSD/GSDML 自定义属性的 AML 文件](#导出导入具有非-prm-数据自定义属性的-aml-文件)”
 此处给出了 AML 结构：
 
 ```xml
@@ -6046,9 +6046,9 @@ CAx 导入应忽略相应的警告正在作为适用 AR APC 版本建议的一�
 
 ### 6.5.9 导出/导入具有非 GSD/GSDML 自定义属性的 AML 文件
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal 请[连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal 请[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 可使用 TIA Portal V18 通过 CAx 导出和导入交换具有 Openness 读写访问权限的硬件（子）模块和通道的所有非 GSD/GSDML 属性。在 AML 文件中，这些属性应表示为自定义属性。
 
 #### 导出/导入具有模块自定义属性的 AML 文件
@@ -6668,9 +6668,9 @@ Name="6ES7515_2AM00_0AB0_V1_8.Interfaces.X1.IoSystem.UseIoSystemNameAsDeviceName
 
 ### 6.5.10 导出/导入带有可插拔端口组态的 AML 文件
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal [连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal [连接到 TIA Portal](#528-连接到-tia-portal)”
 • 项目已打开
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 在 TIA Portal 中，设备可具有内置和可插拔端口组态。虽然内置端口可在 AML 文件中表示而无需更改，但可插拔端口需要转换，因为 EPLAN 等外部工具不支持直接在网络接口下组态交换可插拔端口。
 因此，AR APC 1.4.0 引入了一种转换方法，将 AML 文件中的原始可插拔端口分为两部分（可插拔设备项和内置通信端口）。然后使用新的外部接口类型和内部链路来连接上述部分。
 在此转换之后，自定义属性将在可插拔设备项下保持可访问性。
@@ -6820,9 +6820,9 @@ DeviceItem" />
 ### 6.5.11 导出/导入具有 IO 链路的 AML 文件
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal [连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal [连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 可使用 TIA Portal 导入和导出包含 IO 链路主站组态以及通过 S7-PCT（端口组态工具）组态的IO 链路设备的 AML 文件。
 下面是带有一个 IO 链路主站的简单组态示例：
 ![](images/f37c6934087ea26ae6ab4f8d382b8b6578ea73b93cb329e0ce8b92b71c0b6841.jpg)
@@ -6929,13 +6929,13 @@ Openness：用于工程组态工作流自动化的 API系统手册, 11/2023
 黑名单
 以下模块不应支持导出/导入 IO 链路主站组态。
 <table><tr><td></td><td>IO 链路主站</td><td>固件版本</td></tr><tr><td rowspan="2">ET 200S</td><td>6ES7-138-4GA50-0AB0</td><td></td></tr><tr><td>3RK1-005-0LB00-0AA0</td><td>1.0</td></tr><tr><td rowspan="3">ET 200SP</td><td>6ES7-137-6BD00-0BA0</td><td>2.1</td></tr><tr><td>6ES7-137-6BD00-0BA0</td><td>2.0</td></tr><tr><td>6ES7-137-6BD00-0BA0</td><td>1.0</td></tr><tr><td>ET 200AL</td><td>6ES7-147-5JD00-0BA0</td><td>1.0</td></tr><tr><td>ET 200pro</td><td>6ES7-147-4JD00-0AB0</td><td>1.0</td></tr><tr><td rowspan="2">ET 200eco PN</td><td>6ES7-148-6JA00-0AB0</td><td>7.0</td></tr><tr><td>6ES7-148-6JA00-0AB0</td><td>6.1</td></tr><tr><td rowspan="2">S7-1200</td><td>6ES7-278-4BD32-0XB0</td><td>2.1</td></tr><tr><td>6ES7-278-4BD32-0XB0</td><td>2.0</td></tr><tr><td rowspan="4">SIPLUS S7-1200</td><td>6AG1-278-4BD32-2XB0</td><td>2.1</td></tr><tr><td>6AG1-278-4BD32-2XB0</td><td>2.0</td></tr><tr><td>6AG1-278-4BD32-4XB0</td><td>2.1</td></tr><tr><td>6AG1-278-4BD32-4XB0</td><td>2.0</td></tr><tr><td rowspan="2">SIPLUS ET 200SP</td><td>6AG1-137-6BD00-2BA0</td><td>2.1</td></tr><tr><td>6AG2-137-6BD00-1BA0</td><td>2.1</td></tr></table>
-[打开项目](#打开项目)
+[打开项目](#531-打开项目)
 
 ### 6.5.12 扩展机架的连接处理
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal 请[连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal 请[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 可使用 TIA Portal Openness 获取、添加和移除扩展机架连接，以便可在 CAx 导出/导入期间利用 TIA Portal Openness 实现扩展机架连接支持。
 
 ```typescript
@@ -6953,8 +6953,8 @@ var imConnectionOwner = imConnection.OwnedBy;
 
 ### 6.5.13 导出/导入具有复杂变量组态的 AML 文件
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal 请[连接到 TIA Portal](#连接到-TIA-Portal)”
-• 已通过 TIA Portal Openness 应用程序打开一个项目请[打开项目](#打开项目)II
+• TIA Portal Openness 应用程序已连接到 TIA Portal 请[连接到 TIA Portal](#528-连接到-tia-portal)”
+• 已通过 TIA Portal Openness 应用程序打开一个项目请[打开项目](#531-打开项目)II
 可使用 TIA Portal 导入包含具有用户自定义数据类型的复杂变量的 AML 文件。复杂变量在TIA Portal 上创建，这些变量存在于 AML 文件中提到的变量表中，但不会创建用户自定义的数据类型。需要手动创建所需 UDT。
 复杂的逻辑地址根据复杂变量的子变量计算得出。从复杂变量的所有子变量列表中，将选择具有最低最小地址的变量，并将该变量的地址分配给父级复杂变量。如果任何子变量存在无效地址，则父级复杂变量的地址将不被计算并设置为空。
 成功导入后，将能够查看在 TIA Portal 上创建的所有具有有效逻辑地址的有效复杂变量。导出时没有任何变化，仅导出变量。
@@ -7069,8 +7069,8 @@ PLC programming</td><td colspan="10">Project152 ▶ PLC_2 [CPU 1511-1 PN] ▶ PL
 
 ### 6.5.14 导出 CAx 数据
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
-• 已打开一个项目。[打开项目](#打开项目)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
+• 已打开一个项目。[打开项目](#531-打开项目)”
 在 TIA Portal 中，可将设备和网络编辑器中的配置导出到 AML 文件中。此功能基于 TIA PortalOpenness，用于从项目或设备层级导出硬件数据。
 可使用 TIA Portal Openness 中的导出功能导出 CAx 数据：可通过 CaxProvider 访问导出功能。要获取 CaxProvider 服务，对 Project 对象处调用 GetService 方法。
 使用 TIA Portal V17 用户接口时，应可在多用户环境中执行 CAx 导出和导入操作。如果服务器项目与本地会话一同打开，则将对服务器项目进行导出和导入操作。要导出和导入本地会话，需要关闭服务器项目。
@@ -7256,9 +7256,9 @@ PrintCaxDetailResult(Siemens.Engineering.Cax.TransferResultMessageComposition me
 ### 6.5.15 导入 CAx 数据
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
 • 项目已经打开。
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 在 TIA Portal 中，您可以在设备和网络编辑器中从 AML 文件导入配置。此功能使您能够从项目或设备级别导入硬件数据。
 可通过导入功能导入 CAx 数据。通过CaxProvider服务访问导入函数。要获取 CaxProvider服务，对 Project 对象处调用 GetService 方法。
 使用 TIA Portal V19 时，新增的导入 API 提供结构化 TransferResult 作为返回值，并且不会生成日志文件。用户可处理传输结果，并以自定义格式存储结果。
@@ -7341,9 +7341,9 @@ int nestingDepth = 0)
 ### 6.5.16 子模块的导出/导入
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 • PLC 处于离线状态
 在导出和导入期间在 AML 文件中保留子模块通用层级，即可实现 TIA Portal 与其他工程组态工具（如 EPLAN 等 CAD 工具）之间的子模块数据的双向交换。例如，子模块（如总线适配器）在 TIA Portal 中所具有的内部层级不同于在其它应用程序（例如，EPLAN 等 CAD 工具）中的内部层级。
 
@@ -7663,7 +7663,7 @@ RefBaseClassPath="AutomationProjectConfigurationInterfaceClassLib/CommunicationP
 由于子模块被裁剪，因此可能发生 TIA Portal 和 CAD 工具（如 EPALN）中子模块组态层级不同的情况。在这种情况下，TIA Portal 支持导入已裁剪和未裁剪的 AML 文件。
 • TIA Portal 始终导出未裁剪的 AML 文件。
 • TIA Portal 始终导入已裁剪和未裁剪的 AML 文件
-[连接到 TIA Portal](#连接到-TIA-Portal)
+[连接到 TIA Portal](#528-连接到-tia-portal)
 打开项目 (页 140)
 
 ### 6.5.17 在 UMAC 环境中导出/导入 AML 文件
@@ -7699,9 +7699,9 @@ CAx 导入操作受限。如果用户具有上述访问权限，则导入应成�
 ### 6.5.19 导入 CAx 数据（无逻辑地址）
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 在 TIA Portal 中，可使用 CAx 导入来组态通道和变量之间的连接，而无需 I/O 模块的起始地址和/或 AML 文件中指定的变量的逻辑地址。
 以下 AML 文件示例描述了无起始地址和逻辑地址属性的情况下生成的 XML 文件。
 
@@ -7883,16 +7883,16 @@ Openness：用于工程组态工作流自动化的 API系统手册, 11/2023
 
 #### 因 TIA Openness 不可用而导致的异常
 
-CAx 实现基于 TIA Openness Public API's。仅当用户在安装 TIA Portal 期间已安装 Openness选项包时，Openness Public API's 才可用。因此，在执行任何 CAx 相关功能之前，需要检查Openness 是否可用。（请[TIA Portal Openness 的安装](#TIA-Portal-Openness-的安装)”）
+CAx 实现基于 TIA Openness Public API's。仅当用户在安装 TIA Portal 期间已安装 Openness选项包时，Openness Public API's 才可用。因此，在执行任何 CAx 相关功能之前，需要检查Openness 是否可用。（请[TIA Portal Openness 的安装](#412-tia-portal-openness-的安装)”）
 每当用户触发来自 TIA Portal UI 的 CAx 导出或 CAx 导入操作时，都会执行检查以查看系统中TIA Openness 的可用性。如果未安装 TIA Openness，系统将为用户显示一个 TIA Portal 消息对话框，即如下错误消息对话框。
 ![](images/ed1d985b5618d77082921c83a516569d2fde073ef9f994d4699526e6379eaab2.jpg)
 
 ### 6.5.21 设备和模块的往返行程交换
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
 • 项目已经打开。
-请[打开项目](#打开项目)
+请[打开项目](#531-打开项目)
 • PLC 处于离线状态。
 可在 TIA Portal 和其它工程组态工具（例如，电气设计工具 EPLAN 或 TIA Selection Tool）之间交换组态数据。要识别导入的设备和导出的设备，请使用全局唯一标识符 AML GUID。
 在数据双向交换过程中，设备和非内置设备项（CPU 或模块）等物理设备的 AML GUID 保持不变，但变量、通道之类的虚拟设备除外。
@@ -7936,9 +7936,9 @@ CAx 实现基于 TIA Openness Public API's。仅当用户在安装 TIA Portal �
 
 ### 6.5.22 导出/导入拓扑结构
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目。
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 • PLC 处于离线状态。
 在 TIA Portal 中，可将设备及其拓扑结构信息一同导出到一个 AML 文件。导入到一个空的TIA Portal 项目中时，所导入的设备项将保留其拓扑结构信息。
 <InteralLink> 元素用于指示设备项目间端口互连的详细信息。该信息位于所连接设备的共同父设备下，且变量名称唯一。
@@ -7975,9 +7975,9 @@ RefPartnerSideB="75f31daf-575f-48a2-ab35-8f07a376eb1b:CommunicationPortInterface
 ### 6.5.23 通过库参考导入设备
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 可使用库参考将 AML 文件中的设备（站）/设备项（模块、子模块）导入到 TIA Portal 中。
 
 #### 以下 AML 结构描述了导入到 TIA Portal 项目的操作过程中应使用的 XML 文件。
@@ -8094,9 +8094,9 @@ RefPartnerSideB="75f31daf-575f-48a2-ab35-8f07a376eb1b:CommunicationPortInterface
 
 要求
 • TIA Portal Openness 应用程序已连接到 TIA Portal。
-[连接到 TIA Portal](#连接到-TIA-Portal)”
+[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目。
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 • PLC 处于离线状态。
 Device对象是一个容器对象，用于进行集中式或分布式组态。该对象为DeviceItem对象的父对象，在 AML 文件结构中位于 TIA Portal 项目实例层级内部元素的顶部。
 CAx 数据导出支持以下由 AML 类型标识符指定的设备类型：
@@ -8225,8 +8225,8 @@ AML 类型标识符 (页 1643)
 ### 6.5.25 设备对象的导入
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
-• 已打开一个项目。[打开项目](#打开项目)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
+• 已打开一个项目。[打开项目](#531-打开项目)”
 • PLC 处于离线状态。
 Device对象是一个容器对象，用于进行集中式或分布式组态。该对象为DeviceItem对象的父对象，在 AML 文件结构中位于 TIA Portal 项目实例层级内部元素的顶部。
 CAx 数据导入支持以下由 AML 类型标识符指定的设备类型：
@@ -8330,9 +8330,9 @@ AML 类型标识符 (页 1643)
 
 ### 6.5.26 导出/导入带有设定地址的设备
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目。
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 • PLC 处于离线状态。
 在 TIA Portal 中，可将 IO 设备项的地址对象导出到 AML 文件中。导入到一个空的 TIA Portal项目中时，所导入的设备项将保留相应 IO 设备项中的地址对象。
 AML 文件中的 Address 属性包含有必须项的设置 RefSemantic，用于指定 OrderedListType 的值。
@@ -8426,9 +8426,9 @@ Pruned AML (页 1635)
 
 ### 6.5.27 导出/导入带有通道的设备
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目。
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 • PLC 处于离线状态。
 在 TIA Portal 中，可将 IO 设备项的通道对象导出到 AML 文件中。导入到一个空的 TIA Portal项目中时，所导入的设备项将保留相应 IO 设备项中的通道对象。
 节点和子网内元素中的 <ExternalInterface> 元素，用于指示节点和子网已连接。
@@ -8468,9 +8468,9 @@ Pruned AML (页 1635)
 
 ### 6.5.28 设备项对象的导出
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
+• TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#528-连接到-tia-portal)
 • 项目已经打开。
-请[打开项目](#打开项目)
+请[打开项目](#531-打开项目)
 • PLC 处于离线状态。
 设备项对象导出仅适用于 PLC 设备。
 DeviceItem 对象为 Device 对象的嵌套子项。DeviceItem 类型的对象可以是一个机架或插入的模块。
@@ -8494,16 +8494,16 @@ CAx 数据导出支持以下由 AML 类型标识符指定的设备项类型：
 <InternalElement ID="7624ed42-3db7-4ba5-8726-e719d7b09969" Name="S7-400 station 1"> <Attribute Name="TypeIdentifier" AttributeDataType="xs:string"> <Value>System:Device.S7400</Value> </Attribute> <Attribute Name="Comment" AttributeDataType="xs:string"> <Value>S7400 station</Value> </Attribute> <InternalElement ID="1ff247e6-6b94-42a2-bcd5-d673fc6e9ba5" Name="UR1 0"> <Attribute Name="TypeName" AttributeDataType="xs:string"> <Value>UR1</Value> </Attribute> <Attribute Name="PositionNumber" AttributeDataType="xs:int"> <Value>0</Value> </Attribute> <Attribute Name="BuiltIn" AttributeDataType="xs:boolean"> <Value>False</Value> </Attribute> <Attribute Name="TypeIdentifier" AttributeDataType="xs:string"> <Value>OrderNumber:6ES7 400-1TA01-0AA0</Value> </Attribute> <Attribute Name="Comment" AttributeDataType="xs:string"> <Value>S7 400 rack</Value> </Attribute> <InternalElement ID="202421bf-a4b9-4399-a563-9f154f0eabab" Name="PLC 1"> <Attribute Name="TypeName" AttributeDataType="xs:string"> <Value>CPU 412-2 PN</Value> </Attribute> <Attribute Name="DeviceItemType" AttributeDataType="xs:string"> <Value>CPU</Value> </Attribute> <Attribute Name="PositionNumber" AttributeDataType="xs:int"> <Value>2</Value> </Attribute> <Attribute Name="BuiltIn" AttributeDataType="xs:boolean"> <Value>False</Value> </Attribute> <Attribute Name="TypeIdentifier" AttributeDataType="xs:string"> <Value>0rderNumber:6ES7 412-2EK06-0AB0</Value> </Attribute> <Attribute Name="Comment" AttributeDataType="xs:string"> <Value>S7 400 plc</Value> </Attribute> <Attribute Name="FirmwareVersion" AttributeDataType="xs:string"> <Value>V6.0</Value> </Attribute> <Attribute Name="ProductDesignation IEC" AttributeDataType="xs:string"> <Value>Additional Information</Value> </Attribute> <Attribute Name="InstallationDate" AttributeDataType="xs:dateTime"> <Value>2018-11-26T05:09:02.803Z</Value> </Attribute> <Attribute Name="PlantDesignation IEC" AttributeDataType="xs:string"> <Value>PD</Value> </Attribute> <Attribute Name="LocationIdentifier IEC" AttributeDataType="xs:string"> <Value>LI</Value> </Attribute> <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/DeviceItem" /> </InternalElement> <SupportedRoleClass RefRoleClassPath="AutomationProjectConfiqurationRoleClassLib/DeviceItem" /> </InternalElement> <SupportedRoleClass RefRoleClassPath="AutomationProjectConfiqurationRoleClassLib/Device" /> </InternalElement> <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/AutomationProject" /> </InternalElement>
 Openness：用于工程组态工作流自动化的 API系统手册, 11/2023
 6.5 导入/导出硬件数据
-[基于 GSD/GSDML 的设备和设备项的导出/导入](#基于-GSDGSDML-的设备和设备项的导出导入)
+[基于 GSD/GSDML 的设备和设备项的导出/导入](#6530-基于-gsdgsdml-的设备和设备项的导出导入)
 用于导入/导出的 CAx 数据的结构 (页 1639)
 AML 类型标识符 (页 1643)
 
 ### 6.5.29 设备项对象的导入
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目。
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 • PLC 处于离线状态。
 设备项对象导入仅适用于 PLC 设备。
 DeviceItem 对象为 Device 对象的嵌套子项。DeviceItem 类型的对象可以是一个机架或插入的模块。
@@ -8585,13 +8585,13 @@ CAx 数据导入支持以下由 AML 类型标识符指定的设备项类型：
 
 下图显示了 TIA Portal 用户界面中的已导入组态：
 ![](images/bd5847b92f37a438a9445c279cb832bddd3e103aab687f3599054c0a18bd1d8c.jpg)  
-[用于导入/导出的 CAx 数据的结构](#用于导入导出的-CAx-数据的结构)AML 类型标识符 (页 1643)
+[用于导入/导出的 CAx 数据的结构](#654-用于导入导出的-cax-数据的结构)AML 类型标识符 (页 1643)
 
 ### 6.5.30 基于 GSD/GSDML 的设备和设备项的导出/导入
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 项目已经打开。
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 • PLC 处于离线状态。
 基于 GSD/GSDML 的设备和设备项的 CAx 导入/导出类似于标准设备的导入/导出。
 对于基于 GSD/GSDML 的设备和设备项，可导出的属性不同。如，GSD/GSDML 中包含属性Label。
@@ -8772,15 +8772,15 @@ CAx 导出与通用机架处理无关。CAx 始终导出非通用机架类型标
 
 ```
 
-[AML 类型标识符](#AML-类型标识符)
+[AML 类型标识符](#655-aml-类型标识符)
 连接到 TIA Portal (页 90)
 打开项目 (页 140)
 
 ### 6.5.31 通过虚拟接口导入/到处设备组态
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 项目已经打开。
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 • PLC 处于离线状态。
 在 TIA Portal 中，端口将用于内部设备通信且位于接口下。但是，有些设备的端口直接位于设备项下而非接口下。此设置不符合 AML 标准，AML 标准下端口始终位于接口下。
 当端口直接位于非接口设备项下时，CAx 将使用假想接口（即虚拟接口）导出和导入设备组态。
@@ -8861,9 +8861,9 @@ CAx 支持导入虚拟接口。在此情况下，预期在 TIA Portal 合适父�
 ### 6.5.32 导出/导入子网
 
 • TIA Portal Openness 应用程序已连接到 TIA Portal。
-请[连接到 TIA Portal](#连接到-TIA-Portal)”
+请[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 项目已经打开。
-[打开项目](#打开项目)”
+[打开项目](#531-打开项目)”
 • PLC 处于离线状态。
 子网对物理网络进行了说明，特别对连接至同一 PROFIBUS、PROFINET、MPI 或 ASI 网络类型的设备进行了说明。
 网络和设备项之间的连接被模型化为对网络对象的引用。不存在从网络对象至所连接设备项的引用。网络参数存储在网络对象中。连接至网络的已知设备项的网络接口相关参数存储在该设备项的网络节点对象中。通常使用“通道”、“端口”和“接口”控制通信。
@@ -9090,8 +9090,8 @@ IpProtocolSelection 等扩展属性，则应使用附加角色导出 Profinet/�
 
 ### 6.5.33 IO 系统的导出/导入
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#连接到-TIA-Portal)”
-• 已打开一个项目。请[打开项目](#打开项目)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#528-连接到-tia-portal)”
+• 已打开一个项目。请[打开项目](#531-打开项目)”
 • PLC 处于离线状态。
 IO 系统在 AML 结构中表示为 <InternalElement>。
 作为主机或 IO 控制器的 IO 系统添加到接口设备项的 <CommunicationInterface> 元素下。
@@ -9157,15 +9157,15 @@ IO 系统的连接伙伴表示为 <InternalLink> 元素。<InternalLink> 变量�
 
 下表显示了用于 CAx 导入和导出文件的相关对象属性：
 <table><tr><td>属性</td><td>处理</td><td>注释</td></tr><tr><td>Name</td><td>必须项</td><td>IO系统名称。如果导入空字符串,则使用默认名称创建IO系统。</td></tr><tr><td>Number</td><td>可选项</td><td>如果未指定导入,则应用默认值。</td></tr></table>
-[连接到 TIA Portal](#连接到-TIA-Portal)
+[连接到 TIA Portal](#528-连接到-tia-portal)
 打开项目 (页 140)
 
 ### 6.5.34 导出/导入多语言注释
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 项目已经打开。
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 • PLC 处于离线状态。
 CAx 数据交换可导出和导入以下硬件对象的注释和多语言注释：
 • 设备 (Device)
@@ -9211,9 +9211,9 @@ CAx 数据交换可导出和导入以下硬件对象的注释和多语言注释�
 
 ### 6.5.35 导出/导入具有扩展机架连接的 ET200 SP/ET200 AL 设备
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal 请[连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal 请[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 将打开项目
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 可将具有扩展机架连接的多机架设备导出到一个 AML 文件，然后将其导入，以便获取在 TIAPortal 项目中重新创建的具有扩展机架连接的同一设备。
 在 TIA Portal 中，多个机架之间的扩展机架连接系统直接在 DeviceItem 对象（ET-Con\_1、ET-Con\_2 和 ET-Connection Receiver）下建立模块。但是，依照 AR APC 建议，这些连接系统将被模块化为 CommunicationPort 下的端口到端口连接。
 因此，为了符合建议要求，具有空 CommunicationPort 对象的空 CommunicationInterface将被添加到相应 DeviceItem 对象下。
@@ -9556,9 +9556,9 @@ RefPartnerSideB="b220aab7-ed61-481e-a9e5-5588b510c46c:CommunicationPortInterface
 ### 6.5.36 导出/导入 PLC 变量
 
 • TIA Portal Openness 应用程序已连接到 TIA Portal。
-请[连接到 TIA Portal](#连接到-TIA-Portal)”
+请[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目。
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 • PLC 处于离线状态。
 导出和导入的符号及变量被分配给设备项。CAx 导入/导出涉及面向硬件的符号和变量。符号和变量仅基于控制器目标设备项（例如，CPU）进行导出，而不基于其可能引用的其它设备项（例如，I/O 模块）进行导出。与设备类似，变量通常被分组到变量表和层级文件夹结构中。
 
@@ -9640,8 +9640,8 @@ TIA Portal V16 支持导出和导入 AR APC V1.1.0 的 AML 文件中的 IoType �
 
 ### 6.5.37 导出/导入 RH/PLC
 
-• TIA Portal Openness 已连接到 TIA Portal 请[连接到 TIA Portal](#连接到-TIA-Portal)”
-• 已打开一个项目请[打开项目](#打开项目)”
+• TIA Portal Openness 已连接到 TIA Portal 请[连接到 TIA Portal](#528-连接到-tia-portal)”
+• 已打开一个项目请[打开项目](#531-打开项目)”
 • PLC 处于离线状态
 应用
 可使用 TIA Portal 导出和导入具有相同 IP 地址组态的 R/H PLC 中的 AML 文件 AR APC V1.1。
@@ -9692,14 +9692,14 @@ TIA Portal 的 AML 文件中只有一个属性适用于 R/H PLC（如果在 TIA 
 
 ```
 
-[连接到 TIA Portal](#连接到-TIA-Portal)打开项目 (页 140)
+[连接到 TIA Portal](#528-连接到-tia-portal)打开项目 (页 140)
 
 ### 6.5.38 导出/导入带有自定义变量和 deviceitem 的 AML
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 • PLC 处于离线状态
 应用
 可使用 TIA Portal 导出和导入带有“Customized”变量子属性和 deviceitem 的 AR APC V1.1 AML文件。
@@ -9766,14 +9766,14 @@ xsi:noNamespaceSchemaLocation="CAEX_ClassModel_V2.15.xsd">
 Openness：用于工程组态工作流自动化的 API系统手册, 11/2023
 6.5 导入/导出硬件数据
 </CAEXFile>
-[连接到 TIA Portal](#连接到-TIA-Portal)
+[连接到 TIA Portal](#528-连接到-tia-portal)
 打开项目 (页 140)
 
 ### 6.5.39 导入/导出故障安全 PLC
 
 要求
 • TIA Portal Openness 应用程序已连接到 TIA Portal连接到 TIA Portal (页 90)
-• 已打开一个项目请[打开项目](#打开项目)”
+• 已打开一个项目请[打开项目](#531-打开项目)”
 • PLC 处于离线状态
 应用
 可使用 TIA Portal 将故障安全 PLC 的故障安全属性导出和导入到 AR APC V1.1 AML 文件。
@@ -9995,14 +9995,14 @@ Failsafe\_FDestinationAddress 等扩展属性，则设备项应以附加角色�
 
 ```
 
-[连接到 TIA Portal](#连接到-TIA-Portal)
+[连接到 TIA Portal](#528-连接到-tia-portal)
 打开项目 (页 140)
 
 ### 6.5.40 导入/导出故障安全 IO
 
 要求
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#连接到-TIA-Portal)”
-• 已打开一个项目请[打开项目](#打开项目)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#528-连接到-tia-portal)”
+• 已打开一个项目请[打开项目](#531-打开项目)”
 • PLC 处于离线状态
 应用
 可使用 TIA Portal 将故障安全 IO 的故障安全属性导出和导入到 AR APC V1.1 AML 文件。
@@ -10020,9 +10020,9 @@ Failsafe\_FDestinationAddress 等扩展属性，则设备项应以附加角色�
 
 ### 6.5.41 导入/导出供应商特定属性
 
-• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#连接到-TIA-Portal)”
+• TIA Portal Openness 应用程序已连接到 TIA Portal。 请[连接到 TIA Portal](#528-连接到-tia-portal)”
 • 已打开一个项目
-请[打开项目](#打开项目)”
+请[打开项目](#531-打开项目)”
 在 TIA Portal 中，您可以导出具有“Manufacturer”属性的设备和设备项的 AML 文件，以便可在双向交换情况下传递供应商特定信息。
 Openness 不支持属性“Manufacturer”。它将在导出/导入期间通过“转换插件”使用。支持包含 1.0 版 AR 驱动建议文档的 AML 文件。
 AML 文件应该在 TIA Portal V16 中通过 AR APC V1.1 生成（导出）。
