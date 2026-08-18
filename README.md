@@ -63,7 +63,7 @@ foreach (var device in project.ConnectedDevices)
 
 ---
 
-## Sphinx 文档构建
+## 构建文档
 
 ### 安装依赖
 
@@ -77,7 +77,7 @@ venv\Scripts\activate          # Windows
 pip install -r requirements.txt
 ```
 
-### 构建文档
+### 构建命令
 
 ```bash
 # 构建 HTML 文档
@@ -103,24 +103,44 @@ make watch
 make serve
 ```
 
-### Read the Docs 部署
+---
 
-本项目已配置 [Read the Docs](https://readthedocs.org/) 自动构建：
+## 部署到 Read the Docs
 
-1. 推送代码到 GitHub master 分支
-2. Read the Docs 自动检测到 `.readthedocs.yaml` 配置
-3. 自动构建 HTML、PDF 和 EPUB 格式
-4. 构建完成后发布到 `https://tia-portal-openness-docs.readthedocs.io/`
+本项目已配置 [Read the Docs](https://readthedocs.org/) 自动构建和部署。
 
-配置文件说明：
+### 配置说明
+
+项目根目录的 `.readthedocs.yaml` 文件控制构建行为：
 
 | 配置项 | 值 | 说明 |
 |--------|-----|------|
 | `version` | 2 | RTD 配置格式版本 |
-| `os` | ubuntu-22.04 | 构建操作系统 |
-| `python` | 3.11 | Python 版本 |
-| `configuration` | conf.py | Sphinx 配置文件路径 |
-| `formats` | pdf, htmlzip | 输出格式 |
+| `build.os` | ubuntu-22.04 | 构建操作系统 |
+| `build.tools.python` | 3.11 | Python 版本 |
+| `sphinx.configuration` | conf.py | Sphinx 配置文件路径 |
+| `formats` | pdf, htmlzip | 输出格式（HTML/PDF/EPUB） |
+| `python.install` | requirements.txt | Python 依赖安装方式 |
+
+### 自动部署流程
+
+1. 推送代码到 GitHub master 分支
+2. Read the Docs 自动检测到 `.readthedocs.yaml` 配置
+3. 自动安装依赖并构建文档
+4. 构建完成后发布到 `https://tia-portal-openness-docs.readthedocs.io/`
+
+### 手动构建所有格式
+
+```bash
+# 构建 HTML
+make html
+
+# 构建 PDF（需要 LaTeX 环境）
+make pdf
+
+# 构建 ePub
+make epub
+```
 
 ---
 
