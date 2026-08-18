@@ -30,46 +30,46 @@ certificate.Export(fileInfo, Siemens.Engineering.Security.CertificateExportForma
 
 ### 在 API V18 中已弃用
 
-\- 类：Siemens.Engineering.AddIn.VersionControl.InitialPreExportInfo已弃用并由 Siemens.Engineering.AddIn.VersionControl.PreExportInfo 替代
-\- 类：Siemens.Engineering.AddIn.VersionControl.InitialPostExportInfo已弃用并由 Siemens.Engineering.AddIn.VersionControl.PostExportInfo 替代
-\- 类：Siemens.Engineering.AddIn.VersionControl.SyncPreExportInfo已弃用并由 Siemens.Engineering.AddIn.VersionControl.PreExportInfo 替代
-\- 类：Siemens.Engineering.AddIn.VersionControl.SyncPostExportInfo已弃用并由 Siemens.Engineering.AddIn.VersionControl.PostExportInfo 替代
-\- 类：Siemens.Engineering.AddIn.VersionControl.VcInitialExportAddInContext 已弃用并由 Siemens.Engineering.AddIn.VersionControl.ExportContext 替代
-\- 类：Siemens.Engineering.AddIn.VersionControl.VciSyncExportAddInContext 已弃用并由 Siemens.Engineering.AddIn.VersionControl.ExportContext 替代
-\- 类：Siemens.Engineering.AddIn.VersionControl.VciRepositoryAddIn
+- 类：Siemens.Engineering.AddIn.VersionControl.InitialPreExportInfo已弃用并由 Siemens.Engineering.AddIn.VersionControl.PreExportInfo 替代
+- 类：Siemens.Engineering.AddIn.VersionControl.InitialPostExportInfo已弃用并由 Siemens.Engineering.AddIn.VersionControl.PostExportInfo 替代
+- 类：Siemens.Engineering.AddIn.VersionControl.SyncPreExportInfo已弃用并由 Siemens.Engineering.AddIn.VersionControl.PreExportInfo 替代
+- 类：Siemens.Engineering.AddIn.VersionControl.SyncPostExportInfo已弃用并由 Siemens.Engineering.AddIn.VersionControl.PostExportInfo 替代
+- 类：Siemens.Engineering.AddIn.VersionControl.VcInitialExportAddInContext 已弃用并由 Siemens.Engineering.AddIn.VersionControl.ExportContext 替代
+- 类：Siemens.Engineering.AddIn.VersionControl.VciSyncExportAddInContext 已弃用并由 Siemens.Engineering.AddIn.VersionControl.ExportContext 替代
+- 类：Siemens.Engineering.AddIn.VersionControl.VciRepositoryAddIn
 已弃用并由 Siemens.Engineering.AddIn.VersionControl.VciWorkspaceRepositoryAddIn
 替代
-\- 类：Siemens.Engineering.AddIn.VersionControl.VciRepositoryAddInProvider 已弃用并由 Siemens.Engineering.AddIn.VersionControl.VciWorkspaceRepositoryAddInProvider 替代
-\- 类：Siemens.Engineering.AddIn.VersionControl.VciInitialExportSupport已弃用并由 Siemens.Engineering.AddIn.VersionControl.ExportWorkflowSupport 替代
-\- 类：Siemens.Engineering.AddIn.VersionControl.VciSyncExportSupport
+- 类：Siemens.Engineering.AddIn.VersionControl.VciRepositoryAddInProvider 已弃用并由 Siemens.Engineering.AddIn.VersionControl.VciWorkspaceRepositoryAddInProvider 替代
+- 类：Siemens.Engineering.AddIn.VersionControl.VciInitialExportSupport已弃用并由 Siemens.Engineering.AddIn.VersionControl.ExportWorkflowSupport 替代
+- 类：Siemens.Engineering.AddIn.VersionControl.VciSyncExportSupport
 已弃用并由 Siemens.Engineering.AddIn.VersionControl.ExportWorkflowSupport 替代 - 类：Siemens.Engineering.AddIn.VersionControl.VciWorkflowAddInSupport已弃用并由
 Siemens.Engineering.AddIn.VersionControl.VciWorkspaceRepositoryWorkflowAddIn 替代
-\- 类：Siemens.Engineering.HmiUnified.RuntimeSettings.HmiRuntimeSetting
+- 类：Siemens.Engineering.HmiUnified.RuntimeSettings.HmiRuntimeSetting
 <table><tr><td>已弃用属性</td><td>重新定位</td></tr><tr><td>OperateAsOpcServer { get; set;}</td><td>移至类Siemens.Engineering.HmiUnified.RuntimeSettings.HmiOp cUaServerRuntimeSettings</td></tr></table>
-\- 类：Siemens.Engineering.HmiUnified.UI.Parts.HmiTrendPartBase
+- 类：Siemens.Engineering.HmiUnified.UI.Parts.HmiTrendPartBase
 <table><tr><td>已弃用属性</td><td>重新定位</td></tr><tr><td>TrendMode { get; set;}</td><td>从基础类移至派生类Siemens.Engineering.HmiUnified.UI.Parts.HmiTrendPart and Siemens.Engineering.HmiUnified.UI.Parts.HmiFunctionTrendPart</td></tr></table>
-\- 类：Siemens.Engineering.SiVArc.ScreenRule
+- 类：Siemens.Engineering.SiVArc.ScreenRule
 <table><tr><td>已弃用属性</td><td>已弃用</td></tr><tr><td>ScreenLibraryItem { get; set;}</td><td>已弃用且未替代。</td></tr></table>
 
 ### 在 API V19 中已弃用
 
-\- 类：Siemens.Engineering.HW.MulticastableTransferArea
+- 类：Siemens.Engineering.HW.MulticastableTransferArea
 <table><tr><td>已弃用属性</td><td>替换为</td></tr><tr><td>Siemens.Engineering.HW.AddressAddress { get; }</td><td>Siemens.Engineering.HW.AddressCompositionAddresses { get; }</td></tr></table>
-\- 类：Siemens.Engineering.Security.Certificate
+- 类：Siemens.Engineering.Security.Certificate
 <table><tr><td>已弃用方法</td><td>替换为</td></tr><tr><td>System粗糙化Export(System.IO.FileInfo filePath,Siemens.Engineering.Security.CertificateExportFormat exportFormat)</td><td>System粗糙化Export(System.IO.FileInfo filePath)</td></tr></table>
-\- 枚举：Siemens.Engineering.Security.CertificateExportFormat已弃用且未替代
-\- 枚举：Siemens.Engineering.HW.WebserverUserPermissions2已弃用且未替代
-\- 枚举：Siemens.Engineering.HW.MaximumBufferedReceivedFrames已弃用且未替代
-\- 枚举：Siemens.Engineering.HW.PortType
+- 枚举：Siemens.Engineering.Security.CertificateExportFormat已弃用且未替代
+- 枚举：Siemens.Engineering.HW.WebserverUserPermissions2已弃用且未替代
+- 枚举：Siemens.Engineering.HW.MaximumBufferedReceivedFrames已弃用且未替代
+- 枚举：Siemens.Engineering.HW.PortType
 已弃用并由 Siemens.Engineering.HW.PortConfiguration 替代
-\- 异常类：Siemens.Engineering.SimaticMLVersionNotSupportedException已弃用且未替代
+- 异常类：Siemens.Engineering.SimaticMLVersionNotSupportedException已弃用且未替代
 
 ### 动态 API 部分
 
 已针对 TIA Portal 版本宣布弃用的功能，并将在下一个 TIA Portal 版本中移除。旧 API 和下一个产品版本中的新 API 都会受到影响。
 对于动态 API 部分，由于技术原因无法生成编译器警告。请参见该区域中已弃用功能的系统手册。
 动态 API 部分示例:
-```txt
+```text
 private static ulong GetPortValue(Siemens.Engineering.HW.DeviceItem item)
 {
     const string attributeName = "PortType";
@@ -92,9 +92,9 @@ private static ulong GetPortValue(Siemens.Engineering.HW.DeviceItem item)
 ### TIA Portal Openness 应用程序中的安全措施
 
 建议：
-\- 使用 admin 权限将 TIA Portal Openness 应用程序安装到程序文件夹中。
-\- 避免从用户区域动态加载程序部件（如，程序集或 DLL 文件）。
-\- 使用用户权限运行 TIA Portal Openness 应用程序。
+- 使用 admin 权限将 TIA Portal Openness 应用程序安装到程序文件夹中。
+- 避免从用户区域动态加载程序部件（如，程序集或 DLL 文件）。
+- 使用用户权限运行 TIA Portal Openness 应用程序。
 
 ### 硬件参数
 
@@ -139,17 +139,17 @@ TIA Portal Test Suite 的 Openness 支持在 Test Suite V19 的相应在线帮�
 禁用和启用样式并再次导出画面项后，将为画面项导出与样式项相同的属性值。如果未选中UseDesignColorSchema，则所选样式项的属性值将保存到相应画面项的数据库中。
 这个问题可以通过以下步骤来解决：
 1. 将画面项与样式项关联:
-\- 数据库包含激活样式前的属性值。
-\- 用户界面直接从样式项获取属性。
+- 数据库包含激活样式前的属性值。
+- 用户界面直接从样式项获取属性。
 2. 导出与样式项关联的画面项:
-\- XML 文件包含激活样式前数据库中的属性值。
+- XML 文件包含激活样式前数据库中的属性值。
 3. 禁用 UseDesignColorSchema:
-\- 样式项的属性值将写入数据库中画面项的属性中。
+- 样式项的属性值将写入数据库中画面项的属性中。
 4. 启用 UseDesignColorSchema:
-\- 数据库中画面项的属性值不会更改，仍为步骤3中的值。
-\- 用户界面直接从样式项获取属性。
+- 数据库中画面项的属性值不会更改，仍为步骤3中的值。
+- 用户界面直接从样式项获取属性。
 5. 导出与样式项关联的画面项:
-\- XML 文件包含步骤 3 中设置的数据库中的属性值，这些值与样式项中的值相同。
+- XML 文件包含步骤 3 中设置的数据库中的属性值，这些值与样式项中的值相同。
 
 ### 通过 AML 导入 ASi 从站
 
@@ -184,8 +184,8 @@ OB 块的写访问的优先级属性名称已更改为 PriorityQueue。
 ### 有关特定功能的信息
 
 有关以下 Openness 功能的更多信息，请参见西门子工业在线支持中的常见问题解答条目：
-\- 归档/检索项目
-\- 导出/导入监控表
+- 归档/检索项目
+- 导出/导入监控表
 
 ### 参见
 
@@ -315,14 +315,14 @@ SP1\Siemens.Engineering.dll"
 
 ### 兼容性和长期稳定性
 
-\- Siemens.Engineering.dll 汇编程序
+- Siemens.Engineering.dll 汇编程序
 由于 V16、V17 和 V18 的 Siemens.Engineering.dll 汇编程序包含在供货范围内，因此基于 V16、V17 和 V18 的应用程序无需修改即可在 V19 中运行。要利用 V19 的功能，必须集成 V19 的 dll 并重新编译应用程序。
 Siemens.Engineering.dll 汇编程序位于安装目录中的“PublicAPI\[version]”下。例如，可以在“C:\Program Files\Siemens\Automation\Portal
 V\*\PublicAPI\V19\Siemens.Engineering.dll"中找到 V19 dll 文件。
 V15.1 Siemens.Engineering.dll 不再作为 TIA Portal Openness V19 的一部分提供。
-\- 导出 Simatic ML 文件
+- 导出 Simatic ML 文件
 V16、V17 和 V18 的 Siemens.Engineering.dll 汇编程序将创建 TIA Portal 版本 V19 的 Simatic ML 文件。
-\- 导入 Simatic ML 文件
+- 导入 Simatic ML 文件
 每个 Siemens.Engineering.dll 汇编程序都可以导入对应版本和任何早期版本所支持版本的 Simatic ML 文件。例如，可通过 Siemens.Engineering.dll 汇编程序 V19 导入 V18 的 Simatic ML 文件。
 V\* 指已安装的 TIA Portal Openness API 版本。
 有关对象模型更改的更多信息，[TIA Portal Openness 对象模型](#TIA-Portal-Openness-对象模型)”。

@@ -24,13 +24,13 @@
 #### 访问列表中的对象
 
 可使用以下方法访问列表中的对象:
-\- 通过索引进行寻址。列表中从0开始计数。
-\- 使用 Find 类函数。
+- 通过索引进行寻址。列表中从0开始计数。
+- 使用 Find 类函数。
 该类函数通过对象的名称进行寻址。可以将该类函数用于构成或列表。Find类函数未进行递归循环。
 示例：
 ScreenComposition screens = folder.Screens;
 Screen screen = screens.Find("myScreen");
-\- 使用符号名称。
+- 使用符号名称。
 
 #### TIA Portal 和 TIA Portal Openness 对象模型之间的关系
 
@@ -85,8 +85,8 @@ DeviceItem 会扩展 HardwareObject 并具有 Container 链接。每个插入的
 示例：设备包含一个或多个机架。一个机架包含多个模块。模块包含子模块。
 这与 TIA Portal 的网络视图和设备视图中的表示相似。设备项的“PositionNumber”属性在容器的项区域内唯一。
 设备项对象间的父子关系是对象模型中的一种纯粹的逻辑关系。如果没有父对象，子对象将无法存在。
-\- 如果将子模块做为模块的一部分（子项）进行建模，则无法在没有模块的情况下删除子模块。
-\- 可添加和删除的模块或子模块是设备对象的子模块
+- 如果将子模块做为模块的一部分（子项）进行建模，则无法在没有模块的情况下删除子模块。
+- 可添加和删除的模块或子模块是设备对象的子模块
 
 #### PLC 设备的层级关系
 
@@ -157,15 +157,15 @@ TIA Portal Openness 针对定义的任务提供了多个函数供选择，这些
 ### 5.2.2 已安装 TIA Portal Openness 版本的相关信息
 
 要求
-\- TIA Portal Openness 和 TIA Portal 已安装
+- TIA Portal Openness 和 TIA Portal 已安装
 自 TIA Portal Openness V14 起，每个已安装的版本均配有包含版本相关信息的注册表项。因而可以为已安装的各个 TIA Portal Openness 版本自动生成 app.config 文件。
 注册表项可位于以下路径下:
-```winregistry
+```text
 HKEY_LOCAL_MACHINE\Software\Siemens\Automation\Openness\xx.x\PublicAPI
 ```
 该路径中的版本号始终表示当前已安装的 TIA Portal 版本号。如果存在多个并排安装的情况，则注册表中包含多组 TIA Portal Openness 的条目。
 每个 TIA Portal Openness 版本均有一个注册表项。版本名称与所述程序集中的名称相同，例如，TIA Portal Openness 的注册表项如下：
-```winregistry
+```text
 [HKEY_LOCAL_MACHINE\SOFTWARE\Siemens\Automation\Openness\xx.x\PublicAPI\xx.x.x."PublicKeyToken"="d29ec89bac048f84"
 "Siemens.Engineering"="C:\Program Files\Siemens\Automation\PortalVxx\PublicAPI\Vxx\Siemens.Engineering.dll"
 "Siemens.Engineering.Hmi"="C:\Program Files\Siemens\Automation\PortalVxx\PublicAPI\Vxx\Siemens.Engineering.Hmi.dll"
@@ -173,7 +173,7 @@ HKEY_LOCAL_MACHINE\Software\Siemens\Automation\Openness\xx.x\PublicAPI
 "AssemblyVersion"="xx.x.x.x"
 ```
 如果要生成 app.config 文件 (页 90)，可从注册表项中获取 Siemens.Engineering.dll、Siemens.Engineering.Hmi.dll 和公钥标记的路径。
-```txt
+```text
 project = tiaPortal.Projects.OpenWithUpgrade(projectInfo);
 Project ProjectComposition.OpenWithUpgrade(FileInfo path)
 Open Action with project update is necessary
@@ -246,7 +246,7 @@ private static void DeleteScreenFromFolder(HmiTarget hmiTarget)
 • WinCC 项目以及所含组中至少存在一个画面的 HMI 设备。
 • 实例化 HMI 设备的函数。
 ```
-```txt
+```text
 说明
 指定目录路径时，请使用绝对目录路径，例如“C:/path/file.txt”。
 仅通过 XML 文件进行导入和导出操作时支持相对目录路径，例如“file.txt”或“C:/path01/.../path02/file.txt”。
@@ -391,10 +391,10 @@ Console.WriteLine();
 
 在开发环境中，创建对 "C:\Program Files\Siemens\Automation\PortalV..\PublicAPI\V.." 目录中所有“dll 文件”的引用。
 下面以“Siemens.Engineering.dll”文件为例介绍此过程。
-```txt
+```text
 "Siemens.Engineering.dll" 文件位于目录 "C:\Program Files\Siemens\Automation\PortalV..\PublicAPI\V.." 中。在开发环境中，创建对 ""Siemens.Engineering.dll""文件的引用。
 ```
-```txt
+```text
 说明
 确保为引用属性中的“CopyLocal”参数分配值“False”。
 ```
@@ -414,7 +414,7 @@ using (TiaPortal tiaPortal = new TiaPortal())
     // Add your code here
 }
 ```
-```txt
+```text
 ProjectComposition projects = tiaPortal.Projects;
 Console.WriteLine("Opening Project...");
 //please adapt the path and the extension apx to the installed version of TIA Portal
@@ -433,7 +433,7 @@ catch (Exception)
 }
 Console.WriteLine(String.Format("Project {0} is open", project.Path.FullName));
 ```
-```txt
+```text
 概述
 TIA Portal Openness 需要执行以下编程步骤以通过 TIA Portal Openness API 进行访问:
 1. 使 TIA Portal 在开发环境中为已知
@@ -490,9 +490,9 @@ TIA Portal 中的字符串仅支持特定字符。通过 TIA Portal Openness 应
 说明
 如果使用 TIA Portal Openness 操作 TIA Portal 界面，则无法使用 HMI 编辑器。可以手动或使用 TIA Portal Openness API 打开 “设备和网络” 编辑器或编程编辑器。
 使用 TIA Portal Openness 应用程序启动 TIA Portal 时可选择以下方式:
-\- 使用应用程序组态文件（在大多数情况下都建议使用该文件）。
-\- 使用“AssemblyResolve”类函数（使用副本部署时建议采用）。
-\- 将 Siemens.Engineering.dll 复制到 TIA Portal Openness 应用目录中。
+- 使用应用程序组态文件（在大多数情况下都建议使用该文件）。
+- 使用“AssemblyResolve”类函数（使用副本部署时建议采用）。
+- 将 Siemens.Engineering.dll 复制到 TIA Portal Openness 应用目录中。
 建议通过 app.config 文件加载 Siemens.Engineering.dll。如果使用该类函数，则会涉及强名称，对 engineering.dll 的恶意修改会导致加载错误。如果使用 AssemblyResolve 类函数，则不会检测到上述情况。
 
 #### 使用应用程序组态文件启动 TIA Portal
@@ -619,16 +619,16 @@ foreach (TiaPortalProcess tiaPortalProcess in TiaPortal.GetProcesses())
 ```
 不需要 TIA Portal 实例来枚举所有正在运行的 TIA Portal 过程，因为 GetProcesses 是 TiaPortal 类的静态方法。
 如果已知 TIA Portal 的实例的进程 ID，则可使用此进程 ID 访问该对象。TIA Portal 需要一定时间完成启动，才能将 TIA Portal Openness 应用程序连接到 TIA Portal。
-```txt
+```text
 Process process = ...;
 Thread.Sleep(TimeNeededToStartUp); // The process may not be ready to service requests immediately.
 TiaPortalProcess tiaPortalProcess = TiaPortal.GetProcess(process.Id);
 ```
 用户所连接的过程 id 必须处于运行状态，并且应已送达至可响应过程信息请求的位置。
 连接到 TIA Portal 的运行实例时，将出现 TIA Portal Openness 防火墙的连接提示。连接提示提供下列选项：
-\- 允许连接一次
-\- 不允许连接
-\- 始终允许来自此应用程序的连接
+- 允许连接一次
+- 不允许连接
+- 始终允许来自此应用程序的连接
 更多信息，请[TIA Portal Openness 防火墙](#TIA-Portal-Openness-防火墙)”。
 如果注册表提示被拒绝三次，则系统会发生 EngineeringSecurityException 类型的异常。
 连接到进程后，可使用以下属性获取有关 TIA Portal 实例的信息：
@@ -811,23 +811,23 @@ TIA Portal 通知具有以下属性:
 ### 5.2.11 由程序控制系统事件对话框的确认
 
 要求
-\- TIA Portal Openness 应用程序已连接到 TIA Portal。[连接到 TIA Portal](#连接到-TIA-Portal)”
-\- 项目已经打开。
+- TIA Portal Openness 应用程序已连接到 TIA Portal。[连接到 TIA Portal](#连接到-TIA-Portal)”
+- 项目已经打开。
 [打开项目](#打开项目)”
-\- 事件处理程序已注册。
+- 事件处理程序已注册。
 请[连接到 TIA Portal](#连接到-TIA-Portal)
 运行带用户界面的 TIA Portal 时，对某些程序操作会显示系统事件对话框。可基于这些系统事件决定继续执行的方式。
 通过 TIA Portal Openness 应用程序访问 TIA Portal 时，这些系统事件必须通过相应的".NET" 事件加以确认。
 Choices 列表中包含所允许的确认方式:
-\- Abort
-\- Cancel
-\- Ignore
+- Abort
+- Cancel
+- Ignore
 • No
-\- NoToAll
-\- None
+- NoToAll
+- None
 • OK
-\- Retry
-\- Yes
+- Retry
+- Yes
 -YesToAll
 ConfirmationEventArgs.Result 的值必须为上述条目之一。否则，会发生异常。
 5.2 常规函数
@@ -884,7 +884,7 @@ private void TiaPortalConfirmation(object sender, ConfirmationEventArgs e)
 using (TiaPortal tiaPortal = new TiaPortal())
 ```
 Openness: 用于工程组态工作流自动化的 API 系统手册, 11/2023
-```txt
+```text
 {
 tiaPortal.Notification += Notification;
 try
@@ -904,8 +904,8 @@ tiaPortal.Notification -= Notification;
 如果启动了不带用户界面的 TIA Portal 实例且如果您的应用程序是唯一与 TIA Portal 相连的 TIA Portal Openness 客户端，可使用 TIA Portal Openness 应用程序关闭该 TIA Portal 实例。否则，需要断开 TIA Portal Openness 应用程序与 TIA Portal 实例的连接。
 请使用 IDisposable.Dispose() 方法断开或关闭激活的 TIA Portal 实例。
 可通过如下方式使用 IDisposable.Dispose() 方法:
-\- 通过正在使用的语句。
-\- 采用 try-finally 块环绕对象描述并调用该 finally 块中的 IDisposable.Dispose() 方法。关闭激活的 TIA Portal 实例后，将不能再访问 TIA Portal。
+- 通过正在使用的语句。
+- 采用 try-finally 块环绕对象描述并调用该 finally 块中的 IDisposable.Dispose() 方法。关闭激活的 TIA Portal 实例后，将不能再访问 TIA Portal。
 如果组态工程师在 TIA Portal Openness 应用程序访问 TIA Portal 实例过程中关闭该实例，则在下次进行 API 访问时会在 TIA Portal Openness 应用程序中发生“NonRecoverableException”类的异常。可订阅处理事件以便在关闭 TIA Portal 时收到相关调用。
 修改以下程序代码以断开或关闭至 TIA Portal 的连接:
 ```dart
@@ -1002,14 +1002,14 @@ public void OnAttaching(object sender, AttachingEventArgs e)
 
 ### 5.2.14 独占访问
 
-\- TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
-\- 项目已经打开。
+- TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
+- 项目已经打开。
 请[打开项目](#打开项目)
 "TIA Portal"类会提供方法"ExclusiveAccess(String text)"来建立附加 TIA Portal 过程的独占访问。即使不强制使用独占访问，也强烈建议使用。
 在“using”语句中使用“ExclusiveAccess”可确保正确对其进行处理，即使发生异常或应用程序关闭，亦能如此。
 如果在开放式独占访问范围内试图创建另一个独占访问，则会产生可恢复的异常。
 修改以下示例即可对实例进行“ExclusiveAccess”:
-```txt
+```text
 ...
 [assembly: AssemblyTitle("MyApplication")]
 // This will be used for the exclusive access dialog when present....
@@ -1020,12 +1020,12 @@ using (ExclusiveAccess exclusiveAccess = tiaPortal.ExclusiveAccess("My Activity"
 }
 ```
 针对给定 TIA Portal 过程获得“ExclusiveAccess”实例后，会显示一个对话框。该对话框会显示实例化期间提供的消息。此外，还会显示客户端应用程序的以下信息：
-\- 清单数据的程序集标题（如果可用）；否则会显示过程名称
-\- 过程 ID
-\- SID（客户端应用程序 TiaPortal 实例的 Openness 会话 ID）
+- 清单数据的程序集标题（如果可用）；否则会显示过程名称
+- 过程 ID
+- SID（客户端应用程序 TiaPortal 实例的 Openness 会话 ID）
 对于某个已知的 TIA Portal Openness 客户端应用程序，可能存在多个活动的会话，这是因为可能存在多个与同一个 TIA Portal 过程相关联的 TiaPortal 实例。
 客户端应用程序还会通过使用新值设置“文本”(Text)属性的方式更新独占访问对话框的所显示内容。修改以下程序代码以调用该行为：
-```txt
+```text
 exclusiveAccess = ...;
 ...
 exclusiveAccess.Text = "My Activity Phase 1";
@@ -1036,7 +1036,7 @@ exclusiveAccess.Text = String.Empty; // or null;
 ...
 ```
 可以请求通过选择“取消”(Cancel)按钮来取消独占访问。修改以下程序代码以调用该行为：
-```txt
+```text
 exclusiveAccess = ...;
 ...
 if (exclusiveAccess.IsCancellationRequested)
@@ -1063,7 +1063,7 @@ Openness 用户可在运行期间确定对象及其属性，还能够调用动�
 
 允许在对象模型中向上导航的接口。
 特性:
-\- IEngineeringObject Parent - 实例的父对象。
+- IEngineeringObject Parent - 实例的父对象。
 
 #### IEngineeringCompositionOrObject
 
@@ -1075,18 +1075,18 @@ Openness 用户可在运行期间确定对象及其属性，还能够调用动�
 
 #### 方法：
 
-\- IList<EngineeringCreationInfo> GetCreationInfos(string compositionName) - 获取对象可用的构成信息列表。
-\- IEngineeringObject Create(string compositionName, Type type, IEnumerable<KeyValuePair<string, object>> parameters) - 创建指示类型的 IEngineeringObject，并将其初始化为参数中指示的 compositionName 的值
-\- object GetAttribute(string name) - 获取使用给定名称的属性。
-\- IList<EngineeringAttributeInfo> GetAttributeInfos() - 返回一系列描述该对象不同属性的 EngineeringAttributeInfo 对象。
-\- IList<object> GetAttributes(lEnumerable<string>names) - 获取给定名称的属性列表
-\- IEngineeringCompositionObject GetComposition(string name) - 获取使用给定名称的 IEngineeringCompositionObject。
-\- IList<EngineeringInvocationInfo> GetInvocationInfos() - 返回一系列描述该对象不同动作的 EngineeringInvocationInfo 对象。
-\- object Invoke(string name, IEnumerable<KeyValuePair<Type, object>> parameters) - 使用指定参数调用由当前实例表示的方法。
-\- void SetAttribute(string name, object value) - 将使用给定名称的属性设置为给定值
-\- void SetAttributes(lEnumerable<KeyValuePair<string, object>> attributes) - 将使用给定名称的属性设置为属性中指示的给定值。
-\- EngineeringObjectHandle GetHandle() - 获取对象的唯一句柄。
-\- void SetAttributes(IEnumerable<KeyValuePair<string, object>> attributes,
+- IList<EngineeringCreationInfo> GetCreationInfos(string compositionName) - 获取对象可用的构成信息列表。
+- IEngineeringObject Create(string compositionName, Type type, IEnumerable<KeyValuePair<string, object>> parameters) - 创建指示类型的 IEngineeringObject，并将其初始化为参数中指示的 compositionName 的值
+- object GetAttribute(string name) - 获取使用给定名称的属性。
+- IList<EngineeringAttributeInfo> GetAttributeInfos() - 返回一系列描述该对象不同属性的 EngineeringAttributeInfo 对象。
+- IList<object> GetAttributes(lEnumerable<string>names) - 获取给定名称的属性列表
+- IEngineeringCompositionObject GetComposition(string name) - 获取使用给定名称的 IEngineeringCompositionObject。
+- IList<EngineeringInvocationInfo> GetInvocationInfos() - 返回一系列描述该对象不同动作的 EngineeringInvocationInfo 对象。
+- object Invoke(string name, IEnumerable<KeyValuePair<Type, object>> parameters) - 使用指定参数调用由当前实例表示的方法。
+- void SetAttribute(string name, object value) - 将使用给定名称的属性设置为给定值
+- void SetAttributes(lEnumerable<KeyValuePair<string, object>> attributes) - 将使用给定名称的属性设置为属性中指示的给定值。
+- EngineeringObjectHandle GetHandle() - 获取对象的唯一句柄。
+- void SetAttributes(IEnumerable<KeyValuePair<string, object>> attributes,
 AttributeDelegate errorHandler) - 将使用给定名称的属性设置为属性密钥值对中指示的给定值。如果发生任何错误（例如，属性名称/值无效），将触发回调调用，以便用户可以决定是忽略并继续为下一个属性设置值还是中止为剩余属性设置值。
 在 TIA Portal Openness V18 中，新方法 void
 SetAttributes(IEnumerable<KeyValuePair<string, object>> attributes, AttributeDelegate errorHandler) 被添加到 IEngineeringObject。
@@ -1114,7 +1114,7 @@ AttributeDelegate errorHandler) 受以下工程组态对象支持:
 
 #### 程序代码：SetAttributes(lEnumerable<KeyValuePair<string, object>>) 方法
 
-```txt
+```text
 ...
 ...
 List<KeyValuePair<string, object>> attributeKeyValuePair = new List<KeyValuePair<string, object>>( )
@@ -1156,16 +1156,16 @@ break;
 #### IEngineeringRoot
 
 此接口通过 TiaPortal 对象实现，并指示用户位于层级结构中的顶部对象。IEngineeringRoot 由 IEngineeringObject、IEngineeringCompositionObject 和 IEngineeringInstance 派生而来。
-\- IEngineeringObject GetObject(EngineeringObjectHandle objectHandle) - 从句柄中获取对象
+- IEngineeringObject GetObject(EngineeringObjectHandle objectHandle) - 从句柄中获取对象
 
 #### IEngineeringComposition
 
 此接口通过 Openness 用户可用的大多数对象实现。IEngineeringObject 接口由 IEngineeringCompositionObject 和 IEngineeringInstance 派生而来。除了 “使用组合 (页 123)” 中介绍的特性和方法外，还支持以下方法。
 方法：
-\- IEngineeringObject Create(Type type, IEnumerable<KeyValuePair<string, object>> parameters) - 创建指示类型的 IEngineeringObject，并将其初始化为参数中指示的值。
-\- IList<EngineeringCreationInfo> GetCreationInfos() - 获取一系列描述该对象不同CreateInfo 的 EngineeringCreateInfo 对象。
-\- IList<EngineeringInvocationInfo> GetInvocationInfos() - 返回一系列描述该对象不同动作的 EngineeringInvocationInfo 对象。
-\- object Invoke(string name, IEnumerable<KeyValuePair<Type, object>> parameters) - 使用指定参数调用由当前实例表示的方法。
+- IEngineeringObject Create(Type type, IEnumerable<KeyValuePair<string, object>> parameters) - 创建指示类型的 IEngineeringObject，并将其初始化为参数中指示的值。
+- IList<EngineeringCreationInfo> GetCreationInfos() - 获取一系列描述该对象不同CreateInfo 的 EngineeringCreateInfo 对象。
+- IList<EngineeringInvocationInfo> GetInvocationInfos() - 返回一系列描述该对象不同动作的 EngineeringInvocationInfo 对象。
+- object Invoke(string name, IEnumerable<KeyValuePair<Type, object>> parameters) - 使用指定参数调用由当前实例表示的方法。
 
 #### IEngineeringObjectAssociation
 
@@ -1175,8 +1175,8 @@ break;
 
 此接口通过可提供服务的工程组态对象实现。
 方法：
-\- T GetService<T>() where T : class, IEngineeringService - 获取类型为 T 的实例。
-\- IList<EngineeringServiceInfo> GetServiceInfos() - 返回一系列描述该对象不同服务的 EngineeringServiceInfo 对象。
+- T GetService<T>() where T : class, IEngineeringService - 获取类型为 T 的实例。
+- IList<EngineeringServiceInfo> GetServiceInfos() - 返回一系列描述该对象不同服务的 EngineeringServiceInfo 对象。
 
 #### IEngineeringService
 
@@ -1197,17 +1197,17 @@ break;
 TIA Portal Openness 支持通过索引和“foreach”循环访问关联。不支持通过 string name 进行直接访问。
 属性
 以下属性可用：
-\- int Count
-\- bool IsReadOnly
-\- IEngineeringObject Parent
-\- retType this [ int index ] { get; }
+- int Count
+- bool IsReadOnly
+- IEngineeringObject Parent
+- retType this [ int index ] { get; }
 方法
 TIA Portal Openness 支持以下方法:
-\- int IndexOf (type): 返回关联中已传送实例的索引。
-\- bool Contains (type): 确定已传送实例是否包含在关联中。
-\- IEnumerator GetEnumerator <retType>()：在"foreach"循环中使用以访问对象。
-\- void Add (type) $^{1}$ ：将已传送的实例添加至关联。
-\- void Remove (type) $^{1}$ ：将已传送的实例从关联中移除。
+- int IndexOf (type): 返回关联中已传送实例的索引。
+- bool Contains (type): 确定已传送实例是否包含在关联中。
+- IEnumerator GetEnumerator <retType>()：在"foreach"循环中使用以访问对象。
+- void Add (type) $^{1}$ ：将已传送的实例添加至关联。
+- void Remove (type) $^{1}$ ：将已传送的实例从关联中移除。
 1: 并非所有关联均支持。
 
 ### 5.2.17 使用组合
@@ -1220,23 +1220,23 @@ TIA Portal Openness 支持以下方法:
 #### 属性
 
 以下属性可用：
-\- int Count
-\- bool IsReadOnly
-\- IEngineeringObject Parent
-\- retType this [int index] {get;}：对组合对象的索引访问。
+- int Count
+- bool IsReadOnly
+- IEngineeringObject Parent
+- retType this [int index] {get;}：对组合对象的索引访问。
 此类型访问仅应采取针对性方式，因为每个索引访问操作都超出了过程限制。
 
 #### 方法
 
 TIA Portal Openness 支持以下方法:
-\- retType Create (id, ...)：创建新的实例并将此实例添加到组合中。该方法的签名取决于创建实例的方式。并非所有组合都支持此方法。
-\- type Find (id, ...)：使用已传送的 ID 扫描实例的组合。
+- retType Create (id, ...)：创建新的实例并将此实例添加到组合中。该方法的签名取决于创建实例的方式。并非所有组合都支持此方法。
+- type Find (id, ...)：使用已传送的 ID 扫描实例的组合。
 该搜索不是递归的。该方法的签名取决于搜索实例的方式。并非所有组合都支持此方法。
-\- IEnumerator GetEnumerator<retType>(): 在"foreach"循环中使用以访问对象。
-\- Delete (type) $^{1}$ : 删除由当前对象参考指定的实例。
-\- int IndexOf (type): 返回组合中已传送实例的索引。
-\- bool Contains (type): 确定已传送实例是否包含在组合中。
-\- void Import(string path, ImportOptions importOptions) $^{1}$ ：用于每一个包含可导入类型的组合。
+- IEnumerator GetEnumerator<retType>(): 在"foreach"循环中使用以访问对象。
+- Delete (type) $^{1}$ : 删除由当前对象参考指定的实例。
+- int IndexOf (type): 返回组合中已传送实例的索引。
+- bool Contains (type): 确定已传送实例是否包含在组合中。
+- void Import(string path, ImportOptions importOptions) $^{1}$ ：用于每一个包含可导入类型的组合。
 每个导入签名都包含一个 “ImportOptions (页 1397)” 类型的组态参数（“None”、“Overwrite”），用户可以通过该参数控制导入行为。
 1: 并非所有组合均支持。
 
@@ -1244,10 +1244,10 @@ TIA Portal Openness 支持以下方法:
 
 应用
 作为 TIA Portal Openness API 的用户，可以检查对象是否与程序代码相同：
-\- 检查两个对象参考是否与运算符“==”相同。
-\- 使用 System.Object.Equals() 方法可检查这两个对象是否真的与 TIA Portal 相同。
+- 检查两个对象参考是否与运算符“==”相同。
+- 使用 System.Object.Equals() 方法可检查这两个对象是否真的与 TIA Portal 相同。
 修改以下程序代码以检查对象参考类型:
-```txt
+```text
 ...
 //Composition
 DeviceComposition sameCompA = project.Devices;
@@ -1282,8 +1282,8 @@ if (!sameCompA.Equals(notSameComp))
 #### 属性的组操作和标准读取操作
 
 TIA Portal Openness 支持通过以下类函数访问属性，这些类函数在对象级别均可用：
-\- 读访问的组操作
-\- 标准读取操作
+- 读访问的组操作
+- 标准读取操作
 
 #### 组操作的程序代码
 
@@ -1311,7 +1311,7 @@ private static void DynamicTest(Project project)
 
 #### 读访问的组操作
 
-```txt
+```text
 该类函数适用于任何对象：
 public abstract IList<object> GetAttributes(IEnumerable<string>names);
 ```
@@ -1319,9 +1319,9 @@ public abstract IList<object> GetAttributes(IEnumerable<string>names);
 #### 标准读取操作
 
 可执行以下操作：
-\- 检索可用属性的名称：
+- 检索可用属性的名称：
 在 IEngineeringObject 中，调用类函数 GetAttributeInfos() (页 134)。
-```txt
+```text
 - 读取属性的通用类函数
 public abstract object GetAttribute(string name);
 ```
@@ -1329,8 +1329,8 @@ public abstract object GetAttribute(string name);
 
 ### 5.2.20 事务处理
 
-\- TIA Portal Openness 应用程序已连接到 TIA Portal。[连接到 TIA Portal](#连接到-TIA-Portal)”
-\- 项目已经打开。
+- TIA Portal Openness 应用程序已连接到 TIA Portal。[连接到 TIA Portal](#连接到-TIA-Portal)”
+- 项目已经打开。
 [打开项目](#打开项目)”
 
 #### 操作
@@ -1339,7 +1339,7 @@ public abstract object GetAttribute(string name);
 "Transaction(lTransactionSupport persistence, string undoDescription)"。调用该方法时会对“事务”类型的新可处置对象进行实例化。用户必须提供事务内容的相关说明（文本属性不能为 null 或空）。如果尚未处理该实例，在相关的 TIA Portal 过程中所有客户端应用程序操作均会组成单一撤消单元。
 5.2 常规函数
 修改以下程序代码获取“Transaction”实例：
-```txt
+```text
 ExclusiveAccess exclusiveAccess = ...;
 Project project = ...;
 using (Transaction transaction = exclusiveAccess.Transaction(project, "My Operation"))
@@ -1352,14 +1352,14 @@ using (Transaction transaction = exclusiveAccess.Transaction(project, "My Operat
 #### 一致提交或回滚
 
 使用客户端应用程序中的“Transaction”有助于确保以可预测的方式提交或回滚系列修改。客户端应用程序必须决定是否提交对默认设置的修改。为此，应用程序必须要求在通过调用“Transaction.CommitOnDispose()”方法处理事务时，提交活动事务范围内的修改。如果从未在代码流中调用该方法，则在处理活动事务范围内的修改时，会自动回滚此类修改。
-```txt
+```text
 打开的事务中发生 Siemens.Engineering.TargetInvocationException 之后，如果对 Transaction.CommitOnDispose() 进行任何调用，会抛出可恢复的异常。
 ```
 如果在发出请求后出现异常，活动事务范围内的所有修改仍会在处理期间进行回滚。
 可通过两个特性确定给定事务的提交状态:
 <table><tr><td>特性</td><td>数据类型</td><td>描述</td></tr><tr><td>Transaction.CanCommit</td><td>布尔值</td><td>指示之前对 Transaction.CommitOnDispose() 的调用是否会被采纳,或者后续对 Transaction.CommitOnDispose() 的调用是否会抛出可恢复的异常</td></tr><tr><td>Transacation.CommitRequested</td><td>布尔值</td><td>指示用户是否在给定事务中调用了 Transaction.CommitOnDispose()</td></tr></table>
 修改以下程序代码以在包含两个“Create”修改的连接 TIA Portal 中创建一个撤消单元：
-```txt
+```text
 ExclusiveAccess exclusiveAccess = ...;
 Project project = ...;
 // Create a single undo unit with name "My Operation" in attached TIA Portal
@@ -1371,7 +1371,7 @@ transaction.CommitOnDispose();
 }
 ```
 修改以下程序代码以创建无撤销单元：
-```txt
+```text
 ExclusiveAccess exclusiveAccess = ...;
 Project project = ...;
 using (Transaction transaction = exclusiveAccess.Transaction(project, "My Operation"))
@@ -1381,7 +1381,7 @@ using (Transaction transaction = exclusiveAccess.Transaction(project, "My Operat
 }
 ```
 修改以下程序代码，以在连接的 TIA Portal 中创建无撤销单元。这是由于第二次尝试创建文件夹 “我的文件夹 1”(My Folder 1) 时引发的异常而导致，尽管在引发异常之前已经发出了提交处置的请求：
-```txt
+```text
 ExclusiveAccess exclusiveAccess = ...;
 Project project = ...;
 using (Transaction transaction = exclusiveAccess.Transaction(project, "My Operation"))
@@ -1393,7 +1393,7 @@ using (Transaction transaction = exclusiveAccess.Transaction(project, "My Operat
 }
 ```
 修改以下程序代码，以在连接的 TIA Portal 中创建无撤销单元。这是由于第二次尝试创建文件夹 “我的文件夹 1”(My Folder 1) 时引发的异常而导致，尽管 try/catch 块围绕导致引发异常的调用：
-```txt
+```text
 ExclusiveAccess exclusiveAccess = ...;
 Project project = ...;
 using (Transaction transaction = exclusiveAccess.Transaction(project, "My Operation"))
@@ -1412,7 +1412,7 @@ using (Transaction transaction = exclusiveAccess.Transaction(project, "My Operat
 }
 ```
 修改以下程序代码，以在连接的 TIA Portal 中创建撤销单元。这是因为在代码流中提前引发 Siemens.Engineering.TargetInvocationException 后调用 Transaction.CommitOnDispose() 而导致，尽管 try/catch 块围绕导致引发异常的调用：
-```txt
+```text
 ExclusiveAccess exclusiveAccess = ...;
 Project project = ...;
 using (Transaction transaction = exclusiveAccess.Transaction(project, "My Operation"))
@@ -1454,31 +1454,31 @@ catch (Exception ex)
 #### 撤消行为
 
 TIA Portal Openness 客户端应用程序执行的操作可能导致在连接的 TIA Portal 过程中出现撤消单元。将在位置条目下组合其中的各个撤消条目。该位置条目会组合客户端应用程序中的以下信息：
-\- 清单数据的程序集标题（如果可用）；不可用的话则为过程名称
-\- 过程 ID
-\- SID（客户端应用程序 TiaPortal 实例的 Openness 会话 ID）
-\- 表明客户端过程仍在运行的指示（可选）
+- 清单数据的程序集标题（如果可用）；不可用的话则为过程名称
+- 过程 ID
+- SID（客户端应用程序 TiaPortal 实例的 Openness 会话 ID）
+- 表明客户端过程仍在运行的指示（可选）
 这些条目将属于以下两种类型之一：
 1. 对于因使用 “事务” 而被集合到一个撤消事务中的操作，实例化 “事务” 时客户端应用程序提供了相应的说明。
-\- 正在运行的客户端应用程序的撤消条目：
-```txt
+- 正在运行的客户端应用程序的撤消条目：
+```text
 MySuperApplication, PID: 4704, SID: 4, running
 My Operation
 ```
-\- 已停止运行的客户端应用程序的撤消条目：
-```txt
+- 已停止运行的客户端应用程序的撤消条目：
+```text
 MySuperApplication, PID: 4704, SID: 4
 My Operation
 ```
 2. 对于单独执行的操作，其各个撤消条目介绍了相应的命令元数据中所定义的操作。
-\- 正在运行的客户端应用程序的撤消条目：
-```txt
+- 正在运行的客户端应用程序的撤消条目：
+```text
 MySuperApplication, PID: 11224, SID: 3, running
 Create Folder "My Folder 2"
 Create Folder "My Folder 1"
 ```
-\- 已停止运行的客户端应用程序的撤消条目：
-```csv
+- 已停止运行的客户端应用程序的撤消条目：
+```text
 MySuperApplication, PID: 11224, SID: 3
 Create Folder "My Folder 2"
 Create Folder "My Folder 1"
@@ -1610,7 +1610,7 @@ Enum AccessMode
 AccessMode 为标志枚举，其值可组合成以下程序代码的形式：
 EngineeringAttributeAccessMode value = EngineeringAttributeAccessMode.Read | EngineeringAttributeAccessMode.Write;
 修改以下程序代码以查找 IEngineeringObject 的全部属性和更改这些属性的访问模式。
-```txt
+```text
 ...
 IEngineeringObject engineeringObject = ...;
 IList<EngineeringAttributeInfo> attributeInfos = engineeringObject.GetAttributeInfos();
@@ -1633,7 +1633,7 @@ foreach (EngineeringAttributeInfo attributeInfo in attributeInfos)
 
 #### 修改以下关于如何将 Create 和 GetCreationInfos 搭配使用的程序代码。
 
-```txt
+```text
 ...
 Project project = tiaPortal.Projects.Open(projectPath);
 IEngineeringComposition deviceGroupComposition = project.DeviceGroups;
@@ -1664,8 +1664,8 @@ API 的这一扩展功能不会影响 XML 导出/导入。
 
 #### 图例
 
-\- X: 属性相关，写入到 xml，可使用 API 访问
-\- -：属性不可访问，属性不存在
+- X: 属性相关，写入到 xml，可使用 API 访问
+- -：属性不可访问，属性不存在
 <table><tr><td rowspan="2">属性</td><td rowspan="2">数据类型</td><td colspan="3">通过API提供的可用性</td></tr><tr><td>CodeBlock</td><td>DB</td><td>UDT</td></tr><tr><td>AutoNumber</td><td>Boolean</td><td>X (xml); RW (API)</td><td>X (xml); RW (API)</td><td>-</td></tr><tr><td>CodeModifiedDate</td><td>DateTime</td><td>X (xml); R (API)</td><td>X (xml); R (API)</td><td>-</td></tr><tr><td>CompileDate</td><td>DateTime</td><td>X (xml); R (API)</td><td>X (xml); R (API)</td><td>-</td></tr><tr><td>CreationDate</td><td>DateTime</td><td>X (xml); R (API)</td><td>X (xml); R (API)</td><td>X (xml); R (API)</td></tr><tr><td>HeaderAuthor</td><td>字符串</td><td>X (xml); R (API)</td><td>X (xml); R (API)</td><td>-</td></tr><tr><td>HeaderFamily</td><td>字符串</td><td>X (xml); R (API)</td><td>X (xml); R (API)</td><td>-</td></tr><tr><td>HeaderName</td><td>字符串</td><td>X (xml); R (API)</td><td>X (xml); R (API)</td><td>-</td></tr><tr><td>HeaderVersion</td><td>System.Version</td><td>X (xml); R (API)</td><td>X (xml); R (API)</td><td>-</td></tr><tr><td>InstanceOfName</td><td>字符串</td><td>-</td><td>X (xml); R (API)</td><td>-</td></tr><tr><td>Interface</td><td>字符串</td><td>X (xml); - (API)</td><td>X (xml); - (API)</td><td>X (xml); - (API)</td></tr><tr><td>InterfaceModifiedDate</td><td>DateTime</td><td>X (xml); R (API)</td><td>X (xml); R (API)</td><td>X (xml); R (API)</td></tr><tr><td>IsConsistent</td><td>Boolean</td><td>X (xml); R (API)</td><td>X (xml); R (API)</td><td>X (xml); R (API)</td></tr><tr><td>IsKnowHowProtected</td><td>Boolean</td><td>X (xml); R (API)</td><td>X (xml); R (API)</td><td>X (xml); R (API)</td></tr><tr><td>MemoryLayout(目前用于优化)</td><td>MemoryLayout</td><td>X (xml); R (API)</td><td>X (xml); R (API)</td><td>-</td></tr><tr><td>ModifiedDate</td><td>DateTime</td><td>X (xml); R (API)</td><td>X (xml); R (API)</td><td>X (xml); R (API)</td></tr><tr><td>Name</td><td>字符串</td><td>X (xml); RW (API)</td><td>X (xml); RW (API)</td><td>X (xml); RW (API)</td></tr><tr><td>Number</td><td>Int32</td><td>X (xml); RW (API)</td><td>X (xml); RW (API)</td><td>-</td></tr><tr><td>ParameterModified</td><td>DateTime</td><td>X (xml); R (API)</td><td>X (xml); R (API)</td><td>-</td></tr><tr><td>ProgrammingLanguage</td><td>ProgrammingLanguage</td><td>X (xml); R (API)</td><td>X (xml); R (API)</td><td>-</td></tr><tr><td>SecondaryType</td><td>字符串</td><td>X (xml); R (API)</td><td>-</td><td>-</td></tr><tr><td>StructureModified</td><td>DateTime</td><td>X (xml); R (API)</td><td>X (xml); R (API)</td><td>-</td></tr></table>
 
 ### 5.2.24 关于 TIA Portal Openness 性能的说明
@@ -1686,21 +1686,21 @@ API 的这一扩展功能不会影响 XML 导出/导入。
 
 ### 5.3.1 打开项目
 
-\- TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
-\- 要打开的项目不可在任何其它 TIA Portal 实例中打开。
+- TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
+- 要打开的项目不可在任何其它 TIA Portal 实例中打开。
 
 #### 撤消项目升级
 
 如果在将项目连接到 TIA Portal Openness 之后撤消将项目升级到 V14SP1 的过程，则会发生冲突。
 使用Projects.Open方法打开项目。在Projects.Open方法中，输入到所需项目的路径。
 Projects.Open 方法只能访问由当前版本 TIA Portal 创建的项目或已升级到当前版本的项目。如果使用 Projects.Open 方法访问先前版本的项目，将返回异常。使用 OpenWithUpgrade 方法打开通过早期版本的 TIA Portal 创建的项目。
-```txt
+```text
 说明  
 不能访问只读项目  
 TIA Portal Openness 只能访问具有读写权限的项目。
 ```
 修改以下程序代码以打开项目：
-```txt
+```text
 Project project = tiaPortal.Projects.Open(new FileInfo(@"D:\Project_1\Project_1.apXX"));
 if (project != null)
 {
@@ -1718,7 +1718,7 @@ project.Close();
 #### 打开受 UMAC 保护的项目
 
 还可打开受 UMAC 保护的项目。如果 Open 函数过载，则需要一个 UmacDelegate 类型的附加参数。此附加参数允许调用者指定要在 UMAC 身份验证期间使用的处理程序。新的 UmacDelegate 通过含有一个 UmacCredentials 类型参数的方法来实现。UmacCredentials 具有两个属性（字符串类型的 'Name'，和 UmacUserType 类型的 'Type'）以及一个含有单个 SecureString 类型参数的 SetPassword 方法。UmacUserType.Project 用于指示项目的 UMAC 范围，而 UmacUserType.Global 用于指示应用程序的 UMAC 范围（即，由 UMAC 服务器控制）。
-```txt
+```text
 ...
 Siemens.Engineering.Project project = tiaPortal.Projects.Open(new FileInfo(@"D:\Project_3\Project_2.apXX"), MyUmacDelegate);
 if (project != null)
@@ -1748,12 +1748,12 @@ umacCredentials.SetPassword(password);
 对于 TIA Portal Openness V17 之前的版本，可通过 Open Project API 中的 Umac 委托传递用户名和密码，以打开受保护的项目。
 对于 TIA Portal Openness V17，UMAC 引入了新的验证机制，用户通过它打开受保护的项目。以下新验证机制为桌面单点登录 (SSO) 和匿名用户。
 TIA Potal Openness V17 支持以下验证机制。Opennes 的实现与 TIA Portal 中的设置无关。
-\- 桌面单点登录 (SSO)
-\- 匿名用户
-\- 交互式登录
-\- 凭证（自TIA Portal V15.1起存在）
+- 桌面单点登录 (SSO)
+- 匿名用户
+- 交互式登录
+- 凭证（自TIA Portal V15.1起存在）
 为了兼顾其它验证方式，Openness 在 TIA Portal 对象中引入了新的事件名称 “验证”。更改作为 V17 工程组态的组成部分引入。用户在 Openness 脚本中注册 “验证” 事件后，将在调用打开的项目时执行该事件。只能在 “打开的受保护项目” 中执行 “验证” 事件。
-```txt
+```text
 var tiaPortal = new TiaPortal();
 tiaPortal.Authentication += OnAuthentication;
 private static void OnAuthentication(object sender, AuthenticationEventArgs e)
@@ -1763,10 +1763,10 @@ e.AuthenticationTypeProvider = AuthenticationTypeProvider Credentials;
 ```
 使用 AuthenticationEventArgs 事件参数时可以使用其它的验证方法。使用 AuthenticationTypeProvider 时，提供验证模式。通过上述示例，已设置凭证模式。
 以下是 AuthenticationTypeProvider 的值。
-\- AuthenticationTypeProvider.DesktopSso：通过单点登录用户打开项目，不要求输入密码
-\- AuthenticationTypeProvider.Anonymous：通过匿名用户打开项目，不要求输入密码
-\- AuthenticationTypeProvider.Interactive：通过交互式登录打开项目，在用户界面中输入用户名和密码
-\- AuthenticationTypeProvider Credentials: 使用提供的用户名和密码打开项目。
+- AuthenticationTypeProvider.DesktopSso：通过单点登录用户打开项目，不要求输入密码
+- AuthenticationTypeProvider.Anonymous：通过匿名用户打开项目，不要求输入密码
+- AuthenticationTypeProvider.Interactive：通过交互式登录打开项目，在用户界面中输入用户名和密码
+- AuthenticationTypeProvider Credentials: 使用提供的用户名和密码打开项目。
 该事件适用于在多用户环境中打开项目。以上验证方法适用于在本地会话或服务器视图中打开受保护项目的情况。
 如果出现异常，例如单点登录会话或用户名/密码无效的场景，将由EngineeringTargetInvocationException进行处理。
 
@@ -1774,7 +1774,7 @@ e.AuthenticationTypeProvider = AuthenticationTypeProvider Credentials;
 
 可在 TIA Portal 的实例中同时打开一个一级项目和多个二级项目。可决定将项目作为一级项目打开还是作为次级项目打开。若将项目作为一级项目打开，在 Openness 应用程序连接 TIA Portal 后，该项目将在项目导航中显示；若将项目作为次级项目打开，则此项目不会反映在用户界面上。次级项目始终以只读形式打开。将项目作为次级项目打开时，具有受 UMAC 保护项目的读写权限的用户将具有只读权限。要打开次级项目，不必先打开一级项目。
 任何已打开的项目均可使用 TiaPortal 实例中的 ProjectComposition 枚举。构成中的项目顺序由项目打开的顺序决定。如果某个项目已关闭，则将重新计算所有项目的索引。
-```txt
+```text
 TiaPortal tiaPortal = ...;
 Project project1 = tiaPortal.Projects.Open(new
 FileInfo(@"D:\Project_1\Project_1.apXX"), null, ProjectOpenMode.Primary);
@@ -1807,22 +1807,22 @@ if (project != null)
 #### 受 UMAC 保护的项目的程序代码
 
 用户也可以打开由旧版本 TIA Portal 创建的受 UMAC 保护的项目。如果 OpenWithUpgrade 函数过载，则需要一个 UmacDelegate 类型的附加参数。次级项目还支持 OpenWithUpgrade。
-```txt
+```text
 ...
 Siemens.Engineering.Project project = tiaPortal.Projects.OpenWithUpgrade(new FileInfo(@"D:\Project_1\Project.apXX"), MyUmacDelegate);
 ```
 
 ### 5.3.2 创建一个项目
 
-\- TIA Portal Openness 应用程序已连接到 TIA Portal。[连接到 TIA Portal](#连接到-TIA-Portal)”
+- TIA Portal Openness 应用程序已连接到 TIA Portal。[连接到 TIA Portal](#连接到-TIA-Portal)”
 可采用以下几种方式通过 TIA Portal Openness API 创建项目
-\- 在 ProjectComposition 中，调用“创建”(Create)类函数。
-\- 在 IEngineeringComposition 中，调用“创建”(Create)类函数。
+- 在 ProjectComposition 中，调用“创建”(Create)类函数。
+- 在 IEngineeringComposition 中，调用“创建”(Create)类函数。
 
 #### ProjectComposition.Create
 
 修改以下程序代码:
-```txt
+```text
 TiaPortal tiaPortal = ...;
 ProjectComposition projectComposition = tiaPortal.Projects;
 DirectoryInfo targetDirectory = new DirectoryInfo(@"D:\TiaProjects");
@@ -1830,9 +1830,9 @@ DirectoryInfo targetDirectory = new DirectoryInfo(@"D:\TiaProjects");
 Project project = projectComposition.Create(targetDirectory, "MyProject");
 ```
 在本示例中，
-\- 将创建一个“D:\TiaProjects\MyProject”文件夹。
-\- 将创建一个“D:\TiaProjects\MyProject\MyProject.aPXX”项目文件。
-```txt
+- 将创建一个“D:\TiaProjects\MyProject”文件夹。
+- 将创建一个“D:\TiaProjects\MyProject\MyProject.aPXX”项目文件。
+```text
 说明  
 有关参数 targetDirectory  
 参数 targetDirectory 也可用于指示一个 UNC (Universal Naming Convention) 路径，因此可在网络共享驱动中创建项目。
@@ -1841,7 +1841,7 @@ Project project = projectComposition.Create(targetDirectory, "MyProject");
 #### IEngineeringComposition.Create
 
 修改以下程序代码:
-```txt
+```text
 TiaPortal tiaPortal = ...;
 ProjectComposition projectComposition = tiaPortal.Projects;
 // allows the user to give optional create parameters like author, comment in addition to mandatory create parameters (targetdirectory, projectname)
@@ -1853,8 +1853,8 @@ IEnumerable<KeyValuePair<string, object>> createParameters = new [] {
 // Create a project with both mandatory and optional parameters ((IEngineeringComposition)projectComposition).Create(typeof (Project), createParameters);
 ```
 根据本示例:
-\- 将创建一个“D:\TiaProjects\MyProject”文件夹。
-\- 将创建一个“D:\TiaProjects\MyProject\MyProject.aPXX”项目文件。其中，项目属性 Author 为“Bob”，Comment 为“This project was created with openness”。
+- 将创建一个“D:\TiaProjects\MyProject”文件夹。
+- 将创建一个“D:\TiaProjects\MyProject\MyProject.aPXX”项目文件。其中，项目属性 Author 为“Bob”，Comment 为“This project was created with openness”。
 
 #### 使用可选项目属性创建项目的参数
 
@@ -1862,12 +1862,12 @@ IEnumerable<KeyValuePair<string, object>> createParameters = new [] {
 
 ### 5.3.3 TIA Portal 的常规访问设置
 
-\- TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
-\- 已打开一个项目。
+- TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
+- 已打开一个项目。
 请[打开项目](#打开项目)
 可通过 TIA Portal Openness 访问 TIA Portal 的常规设置:
-\- 当前用户界面语言
-\- “在项目中搜索”(Search in project) 选项创建在项目内搜索所需的搜索索引。
+- 当前用户界面语言
+- “在项目中搜索”(Search in project) 选项创建在项目内搜索所需的搜索索引。
 下表显示了 TIA Portal 设置的 “常规”(General) 部分中可访问设置的详细信息。TiaPortalSettingsFolder 实例的名称将为 “常规”。
 <table><tr><td>设置名称</td><td>数据类型</td><td>可写入</td><td>说明</td></tr><tr><td>&quot;SearchInProject&quot;</td><td>System.Boolean</td><td>r/w</td><td>启用或禁用创建在项目内搜索所需的搜索索引。</td></tr><tr><td>&quot;UserInterfaceLanguage&quot;</td><td>System.CultureInfo</td><td>r/w</td><td>指示 TIA Portal 的活动用户界面语言或活动用户界面语言的规范。</td></tr></table>
 通过 TiaPortalSettingsFolder 类别提供对这些设置的访问。可通过 TiaPortal 类别上的 Settings 属性访问 TiaPortalSettingsFolder 类别。
@@ -1907,10 +1907,10 @@ private static void SetUILanguage(Project project)
 
 ### 5.3.4 归档与检索项目
 
-\- TIA Portal Openness 应用程序已连接到 TIA Portal 请[连接到 TIA Portal](#连接到-TIA-Portal)”
-\- 已打开一个项目
+- TIA Portal Openness 应用程序已连接到 TIA Portal 请[连接到 TIA Portal](#连接到-TIA-Portal)”
+- 已打开一个项目
 请[打开项目](#打开项目)”
-\- 已保存一个项目。
+- 已保存一个项目。
 请[保存项目](#保存项目)”
 可在进行进一步更改之前使用 TIA Portal Openness 归档已打开且已保存的项目状态，之后可检索归档的项目。
 
@@ -1962,7 +1962,7 @@ public Siemens.Engineering.Project Retrieve(System.IO.FileInfo sourcePath, Syste
 public Siemens.Engineering.Project Retrieve(System.IO.FileInfo sourcePath, System.IO.DirectoryInfo targetDirectory, Siemens.Engineering.UmacDelegate umacDelegate)
 检索还支持可指定为“Primary”或“Secondary”的 ProjectOpenMode，使用以下 API 定义
 public Siemens.Engineering.Project Retrieve(System.IO.FileInfo sourcePath, System.IO.DirectoryInfo targetDirectory, Siemens.Engineering.UmacDelegate umacDelegate, Siemens.Engineering.ProjectOpenMode projectOpenMode)
-```txt
+```text
 说明
 如果项目不受保护，则 umacDelegate 可作为 null 进行传送
 如果归档项目采用之前的 TIA Portal 版本，则必须调用 RetrieveWithUpgrade API，使用以下 API 定义
@@ -1992,53 +1992,53 @@ public void RetrieveProject()
 
 ### 5.3.5 访问只读 TIA Portal 项目
 
-\- TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)”
-\- 已打开一个项目
+- TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)”
+- 已打开一个项目
 请[打开项目](#打开项目)”
 处理只读 TIA Portal 项目时，使用 TIA Portal Openness 可执行选择操作。可以访问只读项目，但无法使用具有读写访问权限的用户所拥有的全套功能。例如，具有只读凭证的用户可以使用 Openness 打开受 UMAC 保护的项目，如打开项目 (页 140) 中所述。该功能不包括参考项目。
 访问只读项目时所提供的 Openness 功能列表可分类出两组功能 - 固有和启用的非修改性操作：
 
 #### 固有功能
 
-\- GetAttribute(s) 或为任意可访问对象的任意属性使用获取程序
-\- 在任意可访问对象上 GetComposition
-\- 在任意可访问对象上 GetService
-\- 在任意可访问对象上执行 Find 操作
-\- 在任意可访问对象上导航
-\- 确定可访问对象的存在并访问这些对象的构成和关联。
-\- 在任意可访问对象上采用 System.Object 方法
+- GetAttribute(s) 或为任意可访问对象的任意属性使用获取程序
+- 在任意可访问对象上 GetComposition
+- 在任意可访问对象上 GetService
+- 在任意可访问对象上执行 Find 操作
+- 在任意可访问对象上导航
+- 确定可访问对象的存在并访问这些对象的构成和关联。
+- 在任意可访问对象上采用 System.Object 方法
 
 #### 启用的非修改性操作
 
-\- Project.Close (...)
-\- PlcBlock.ShowInEditor ()
-\- CaxProvider.Export (Device,...)
-\- CaxProvider.Export (Project,...)
+- Project.Close (...)
+- PlcBlock.ShowInEditor ()
+- CaxProvider.Export (Device,...)
+- CaxProvider.Export (Project,...)
 打开项目 (页 140)
 
 ### 5.3.6 访问语言
 
-\- TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
-\- 项目已经打开。
+- TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
+- 项目已经打开。
 请[打开项目](#打开项目)”
 在 TIA Portal 中，可在 “项目语言”(Project languages) 编辑器中设置和管理项目语言。
 TIA Portal Openness 支持对项目语言进行以下访问：
-\- 通过支持的语言进行迭代。
-\- 由 System.Globalization.CultureInfo 通过支持的语言集合进行搜索。
-\- 访问各个语言。每个语言对象将包含一个 System.Globalization.CultureInfo.类型的只读属性 Culture。
-\- 访问活动语言的集合。
-\- 由 System.Globalization.CultureInfo 通过活动的语言集合进行搜索。
-\- 向活动的语言集合添加语言。
-\- 从活动的语言集合删除语言。
-\- 设置编辑语言。
-\- 设置参考语言。
+- 通过支持的语言进行迭代。
+- 由 System.Globalization.CultureInfo 通过支持的语言集合进行搜索。
+- 访问各个语言。每个语言对象将包含一个 System.Globalization.CultureInfo.类型的只读属性 Culture。
+- 访问活动语言的集合。
+- 由 System.Globalization.CultureInfo 通过活动的语言集合进行搜索。
+- 向活动的语言集合添加语言。
+- 从活动的语言集合删除语言。
+- 设置编辑语言。
+- 设置参考语言。
 功能由 LanguageSettings 对象提供。下图显示了 TIA Portal Openness 提供的模型：
 ![](images/470d79ae1fefe6c30a8aad695c956773dcd6874eb4585aac455a5df85497468b.jpg)
 
 #### 程序代码：设置语言
 
 修改以下程序代码以设置语言：如果通过 TIA Portal Openness 设置非活动语言，则会将该语言将添加到活动语言集合。
-```txt
+```text
 public void SettingLanguages()
 {
     Project project = ...;
@@ -2069,18 +2069,18 @@ public void DeactivatingLanguages()
 
 ### 5.3.7 确定对象结构和属性
 
-\- TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)”
-\- 已通过 TIA Portal Openness 应用程序打开一个项目。
+- TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)”
+- 已通过 TIA Portal Openness 应用程序打开一个项目。
 请[打开项目](#打开项目)”
 可使用 IEngineeringObject 接口通过对象层级确定浏览结构。结果将以列表形式返回：
-\- 子对象
-\- 子组合
-\- 全部属性
+- 子对象
+- 子组合
+- 全部属性
 
 #### 签名
 
 使用 GetAttributeInfos 方式确定属性。
-```txt
+```text
 IList<EngineeringAttributeInfo>
 IEngineeringObject.GetAttributeInfos();
 ```
@@ -2088,7 +2088,7 @@ IEngineeringObject.GetAttributeInfos();
 #### 程序代码：确定对象或组合
 
 使用以下程序代码可显示所有组合名称:
-```txt
+```text
 public static void DisplayCompositionInfos(IEngineeringObject obj)
 {
 IList<EngineeringCompositionInfo> compositionInfos = obj.GetCompositionInfos();
@@ -2138,8 +2138,8 @@ public static void DisplayAttributeInfos(IEngineeringObject obj)
 ### 5.3.8 访问软件目标
 
 要求
-\- TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)”
-\- 项目已经打开。
+- TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)”
+- 项目已经打开。
 请[打开项目](#打开项目)”
 修改以下程序代码以使软件目标可用:
 ```cs
@@ -2153,7 +2153,7 @@ public void AccessSoftwareTarget()
 }
 ```
 修改以下程序代码以访问软件属性:
-```txt
+```text
 SoftwareContainer softwareContainer =
 ((IEngineeringServiceProvider)deviceItem).GetService<SoftwareContainer>();
 if (softwareContainer != null)
@@ -2165,12 +2165,12 @@ if (softwareContainer != null)
 
 ### 5.3.9 访问和枚举多语言文本
 
-\- TIA Portal Openness 应用程序已连接到 TIA Portal。[连接到 TIA Portal](#连接到-TIA-Portal)”
-\- 项目已经打开。
+- TIA Portal Openness 应用程序已连接到 TIA Portal。[连接到 TIA Portal](#连接到-TIA-Portal)”
+- 项目已经打开。
 [打开项目](#打开项目)”
 TIA Portal 中的多语言文本示例包括：Project.Comment、PlcTag.Comment 等。在 TIA Portal Openness 中，多语言文本由 MultilingualText 对象表示。MultilingualText 对象由 MultilingualTextItemComposition 组成。
 MultilingualTextItemComposition 支持以下 Find 方法:
-```txt
+```text
 - Find(<language: Siemens.Engineering.Language>):MultilingualTextItem
 ```
 每个 MultilingualTextItem 具有以下属性:
@@ -2208,14 +2208,14 @@ if (multilingualText != null)
 
 ### 5.3.10 更新项目特性
 
-\- TIA Portal Openness 应用程序已连接到 TIA Portal。[连接到 TIA Portal](#连接到-TIA-Portal)”
-\- 已打开一个项目
+- TIA Portal Openness 应用程序已连接到 TIA Portal。[连接到 TIA Portal](#连接到-TIA-Portal)”
+- 已打开一个项目
 请[打开项目](#打开项目)”
 可使用 TIA Portal Openness 更新项目的 “仿真支持” 特性，以创建 plc 程序。仿真支持特性的设置可用于虚拟 SINUMERIK 控制器和使用 PLCSIM Advanced 仿真的 SIMATIC PLC。
 Openness 支持使用以下特性访问 TIA Portal 项目的 “仿真支持” 特性。可在 "Siemens.Engineering.Project" 对象上找到 API。
 <table><tr><td>属性名称</td><td>数据类型</td><td>访问</td><td>描述</td></tr><tr><td>IsSimulationDuringBlockCompilationEnabled</td><td>System.Boolean</td><td>读/写</td><td>用于指示是否为项目启用了块编译期间的仿真支持</td></tr><tr><td>IsVirtualPlcDuringBlockCompilationEnabled</td><td>System.Boolean</td><td>读/写</td><td>用于指示是否为项目启用了块编译期间的虚拟 plc 支持</td></tr></table>
 修改和使用以下程序代码以访问属性值：
-```txt
+```text
 Project project = ...;
 // Read the attribute value
 var attributeValue = project.IsSimulationDuringBlockCompilationEnabled;
@@ -2230,8 +2230,8 @@ project.IsVirtualPlcDuringBlockCompilationEnabled = true;
 ### 5.3.11 读取项目相关的属性
 
 要求
-\- TIA Portal Openness 应用程序已连接到 TIA Portal。[连接到 TIA Portal](#连接到-TIA-Portal)”
-\- 项目已经打开。
+- TIA Portal Openness 应用程序已连接到 TIA Portal。[连接到 TIA Portal](#连接到-TIA-Portal)”
+- 项目已经打开。
 [打开项目](#打开项目)”
 应用
 使用该功能，可从 TIA Portal Openness API 中获取项目相关的属性。提供的信息包含项目属性、项目历史以及项目所使用的产品。
@@ -2239,7 +2239,7 @@ project.IsVirtualPlcDuringBlockCompilationEnabled = true;
 项目属性提供了以下信息:
 <table><tr><td>属性名称</td><td>数据类型</td><td>可写入</td><td>描述</td></tr><tr><td>Author</td><td>System.String</td><td>r/o</td><td>项目的作者</td></tr><tr><td>Comment</td><td>Siemens.Engineering.MultilingualText</td><td>r/o</td><td>项目的注释信息</td></tr><tr><td>Copyright</td><td>System.String</td><td>r/o</td><td>项目的版权声明</td></tr><tr><td>CreationTime</td><td>System.DateTime</td><td>r/o</td><td>项目的创建时间</td></tr><tr><td>Family</td><td>System.String</td><td>r/o</td><td>项目的所属系列</td></tr><tr><td>IsModified</td><td>System.Boolean</td><td>r/o</td><td>如果项目已修改,则返回“true”。</td></tr><tr><td>LanguageSettings</td><td>Siemens.Engineering.LanguageSettings</td><td>r/o</td><td>项目的处理语言</td></tr><tr><td>LastModified</td><td>System.DateTime</td><td>r/o</td><td>项目上一次的修改时间</td></tr><tr><td>LastModifiedBy</td><td>System.String</td><td>r/o</td><td>上一次的修改人员</td></tr><tr><td>Name</td><td>System.String</td><td>r/o</td><td>项目的名称</td></tr><tr><td>Path</td><td>System.IO.FileInfo</td><td>r/o</td><td>项目的绝对路径</td></tr><tr><td>Size</td><td>System.Int64</td><td>r/o</td><td>项目的大小(KB)</td></tr><tr><td>Version</td><td>System.String</td><td>r/o</td><td>项目的版本</td></tr></table>
 修改以下程序代码以访问项目相关的属性:
-```txt
+```text
 Project project = ...;
 string author = project.Author;
 string name = project.Name;
@@ -2274,7 +2274,7 @@ string text = textItem.Text;
 项目历史即为 HistoryEntry 对象的组合，其中包含以下信息：
 <table><tr><td>属性名称</td><td>数据类型</td><td>可写入</td><td>描述</td></tr><tr><td>文本</td><td>System.String</td><td>r/o</td><td>事件描述</td></tr><tr><td>DateTime</td><td>System.DateTime</td><td>r/o</td><td>发生事件的时间</td></tr></table>
 修改以下程序代码以通过 HistoryEntries 进行枚举和访问相应的属性:
-```txt
+```text
 Project project = ...;
 HistoryEntryComposition historyEntryComposition = project.HistoryEntries;
 foreach (HistoryEntry historyEntry in historyEntryComposition)
@@ -2290,7 +2290,7 @@ HistoryEntry 的文本属性包含以 UI 语言进行表示的字符串。如果
 对象 UsedProduct 包括以下信息:
 <table><tr><td>属性名称</td><td>数据类型</td><td>可写入</td><td>描述</td></tr><tr><td>名称</td><td>System.String</td><td>r/o</td><td>所用的产品名称</td></tr><tr><td>版本</td><td>System.String</td><td>r/o</td><td>产品版本</td></tr></table>
 修改以下程序代码以通过 UsedProduct 进行枚举和访问相应的属性。
-```txt
+```text
 Project project = ...;
 UsedProductComposition usedProductComposition = project.UsedProducts;
 foreach (UsedProduct usedProduct in usedProductComposition)
@@ -2302,8 +2302,8 @@ foreach (UsedProduct usedProduct in usedProductComposition)
 
 ### 5.3.12 删除项目图形
 
-\- TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)”
-\- 项目已经打开。
+- TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)”
+- 项目已经打开。
 请[打开项目](#打开项目)”
 修改以下程序代码以删除项目图形:
 ```cs
@@ -2318,23 +2318,23 @@ graphic.Delete();
 
 ### 5.3.13 编译项目
 
-\- TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
-\- 项目已经打开。
+- TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
+- 项目已经打开。
 请[打开项目](#打开项目)”
-\- 所有设备都处于“离线”状态。
+- 所有设备都处于“离线”状态。
 API 接口支持设备和程序块的编译。编译结果作为对象返回。将根据对象类型提供 HW、SW 或 HW/SW 编译。支持以下对象类型：
-\- Device - HW & SW
-\- Device，配有故障安全 CPU-SW（配有已关闭的 F 激活属性）
-\- DeviceItem - HW
-\- CodeBlock - SW
-\- DataBlock - SW
-\- HmiTarget - SW
-\- PlcSoftware - SW
-\- PlcType - SW
-\- PlcBlockSystemGroup - SW
-\- PlcBlockUserGroup - SW
-\- PlcTypeSystemGroup - SW
-\- PlcTypeUserGroup - SW
+- Device - HW & SW
+- Device，配有故障安全 CPU-SW（配有已关闭的 F 激活属性）
+- DeviceItem - HW
+- CodeBlock - SW
+- DataBlock - SW
+- HmiTarget - SW
+- PlcSoftware - SW
+- PlcType - SW
+- PlcBlockSystemGroup - SW
+- PlcBlockUserGroup - SW
+- PlcTypeSystemGroup - SW
+- PlcTypeUserGroup - SW
 
 #### 时间戳格式
 
@@ -2408,29 +2408,29 @@ indent = "")
 #### 功能权限特性的更改
 
 Openness 功能权限的下述特性适用于在 TIA Portal V17 环境中运行的所有版本的 Siemens.Engineering.dll（V15、V15.1、V16 和 V17）。
-\- 如果同时具有 “通过 Openness API 修改项目” 功能权限和项目读写权限，则说明已分配 Openness API 的完全访问权限，也就是说，可以使用 Openness API 执行任何操作。
-\- 如果没有 “通过 Openness API 修改项目” 功能权限和项目写权限/项目读权限，则仅可在 Openness API 中执行只读操作。举例来说，只读操作包括导出、导航到设备等。在此场景下，如果要执行导入等数据操作（在 TIA portal 中更改项目数据），则根据分配给您的功能权限接收到异常。
-\- 如果有用户界面相关的 Openness API 示例 (ShowInEditor)，用户界面相关的功能权限不取决于“通过 Openness API 修改项目”，而取决于应通过相应 GUI 功能权限处理的 GUI 功能权限。以下 API 是第 1 点和第 2 点发生的异常。Openness API 将跳过“通过 Openness API 修改项目”功能权限并允许使用 API，而不考虑是否设置了“通过 Openness API 修改项目”功能权限。
-\- project.ShowHwEditor(View.Network)
-\- project.ShowHwEditor(View.Topology)
+- 如果同时具有 “通过 Openness API 修改项目” 功能权限和项目读写权限，则说明已分配 Openness API 的完全访问权限，也就是说，可以使用 Openness API 执行任何操作。
+- 如果没有 “通过 Openness API 修改项目” 功能权限和项目写权限/项目读权限，则仅可在 Openness API 中执行只读操作。举例来说，只读操作包括导出、导航到设备等。在此场景下，如果要执行导入等数据操作（在 TIA portal 中更改项目数据），则根据分配给您的功能权限接收到异常。
+- 如果有用户界面相关的 Openness API 示例 (ShowInEditor)，用户界面相关的功能权限不取决于“通过 Openness API 修改项目”，而取决于应通过相应 GUI 功能权限处理的 GUI 功能权限。以下 API 是第 1 点和第 2 点发生的异常。Openness API 将跳过“通过 Openness API 修改项目”功能权限并允许使用 API，而不考虑是否设置了“通过 Openness API 修改项目”功能权限。
+- project.ShowHwEditor(View.Network)
+- project.ShowHwEditor(View.Topology)
 – device.ShowInEditor(View.Device)
-\- plcBlock.ShowInEditor()
-\- plcType.ShowInEditor()
-\- plcTagTable.ShowInEditor()
-\- plcForceTable.ShowInEditor()
-\- plcWatchTable.ShowInEditor()
+- plcBlock.ShowInEditor()
+- plcType.ShowInEditor()
+- plcTagTable.ShowInEditor()
+- plcForceTable.ShowInEditor()
+- plcWatchTable.ShowInEditor()
 
 ### 5.3.15 保存项目
 
-\- TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)”
-\- 项目已经打开。
+- TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)”
+- 项目已经打开。
 请[打开项目](#打开项目)”
 应用
 要保存项目
-\- 使用 Save() 方法保存项目
-\- 使用 SaveAs() 方法将项目以不同名称保存或保存在不同的目录中
+- 使用 Save() 方法保存项目
+- 使用 SaveAs() 方法将项目以不同名称保存或保存在不同的目录中
 修改以下程序代码，打开并保存项目：
-```txt
+```text
 public static void SaveProject(TiaPortal tiaPortal)
 {
     Project project = ...;
@@ -2453,7 +2453,7 @@ public static void SaveProject(TiaPortal tiaPortal)
 }
 修改以下程序代码，将项目以不同名称保存或保存在不同的位置：
 ```
-```txt
+```text
 ...
 TiaPortal portal = new TiaPortal(TiaPortalMode.WithUserInterface);
 FileInfo fileInfoExistingProject = new FileInfo(@"D:\SampleProjects\SampleProject.apXX");
@@ -2467,12 +2467,12 @@ sampleProject.SaveAs(dirInfoSaveAsProject);
 ### 5.3.16 关闭项目
 
 要求
-\- TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)”
-\- 已通过 TIA Portal Openness 应用程序打开一个项目。
+- TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)”
+- 已通过 TIA Portal Openness 应用程序打开一个项目。
 请[打开项目](#打开项目)”
 程序代码
 修改以下程序代码以关闭项目：
-```txt
+```text
 public static void CloseProject(Project project)
 {
     project.Close();
@@ -2482,8 +2482,8 @@ public static void CloseProject(Project project)
 ### 5.3.17 导出/导入系统诊断设置
 
 要求
-\- TIA Portal Openness 应用程序已连接到 TIA Portal [连接到 TIA Portal](#连接到-TIA-Portal)”
-\- 项目已打开
+- TIA Portal Openness 应用程序已连接到 TIA Portal [连接到 TIA Portal](#连接到-TIA-Portal)”
+- 项目已打开
 [打开项目](#打开项目)”
 简介
 可使用 TIA Portal Openness 应用程序为 TIA Portal 项目导出和导入系统诊断设置。导出和导入采用 .dat 文件的格式。
@@ -2515,8 +2515,8 @@ Siemens.Engineering.HW.Systemdiagnostics.Settings.SystemdiagnosticsSettingsExpor
 ### 5.4.1 连接到 Teamcenter Gateway
 
 要求
-\- TIA Portal 应用程序已连接到 TIA Portal Openness 请[连接到 TIA Portal](#连接到-TIA-Portal)”
-\- 已打开一个项目
+- TIA Portal 应用程序已连接到 TIA Portal Openness 请[连接到 TIA Portal](#连接到-TIA-Portal)”
+- 已打开一个项目
 请[打开项目](#打开项目)”
 应用
 可使用 TIA Portal Openness 通过 TcGateway 与 Teamcenter 建立连接。
@@ -2549,8 +2549,8 @@ public void function1()
 
 ### 5.4.2 断开与 Teamcenter Gateway 的连接
 
-\- TIA Portal 应用程序已连接到 TIA Portal Openness 请[连接到 TIA Portal](#连接到-TIA-Portal)”
-\- 已打开一个项目
+- TIA Portal 应用程序已连接到 TIA Portal Openness 请[连接到 TIA Portal](#连接到-TIA-Portal)”
+- 已打开一个项目
 请[打开项目](#打开项目)”
 可使用 TIA Portal Openness 通过 TcGateway 断开 Teamcenter 服务器与 TIA Portal 之间的连接。
 
@@ -2582,8 +2582,8 @@ public void function2()
 ### 5.4.3 连接到 ConnectSSO
 
 要求
-\- TIA Portal 应用程序已连接到 TIA Portal Openness 请[连接到 TIA Portal](#连接到-TIA-Portal)”
-\- 已打开一个项目
+- TIA Portal 应用程序已连接到 TIA Portal Openness 请[连接到 TIA Portal](#连接到-TIA-Portal)”
+- 已打开一个项目
 请[打开项目](#打开项目)”
 如果活动 SSO 会话可用，则可使用 TIA Portal Openness 通过以下所需参数调用 ConnectSSO()。
 <table><tr><td>参数</td><td>数据类型</td><td>必选项</td><td>描述</td></tr><tr><td>hostURL</td><td>System.String</td><td>√</td><td>指定具有端口号的完全限定 Teamcenter 服务器主机。</td></tr><tr><td>instance</td><td>System.String</td><td>√</td><td>指定 Teamcenter 服务器实例</td></tr><tr><td>loginURL</td><td>System.String</td><td>√</td><td>指定组态为 Teamcenter 安全服务一部分的登录服务的 URL。</td></tr><tr><td>applicationID</td><td>System.String</td><td>√</td><td>指定通过识别服务在 Teamcenter 应用程序注册表中组态的应用程序 ID</td></tr></table>
@@ -2612,8 +2612,8 @@ public void function3()
 
 ### 5.4.4 在 Teamcenter 中保存项目/全局库
 
-\- TIA Portal 应用程序已连接到 TIA Portal Openness 请[连接到 TIA Portal](#连接到-TIA-Portal)”
-\- 已打开一个项目
+- TIA Portal 应用程序已连接到 TIA Portal Openness 请[连接到 TIA Portal](#连接到-TIA-Portal)”
+- 已打开一个项目
 请[打开项目](#打开项目)”
 可使用 TIA Portal Openness 通过 TcGatewayWorkflowProvider 服务保存项目/全局库。该服务将在项目/全局库组合中提供。
 参数
@@ -2660,8 +2660,8 @@ public void function4()
 ### 5.4.5 使用代理对象保存项目/全局库
 
 要求
-\- TIA Portal 应用程序已连接到 TIA Portal Openness 请[连接到 TIA Portal](#连接到-TIA-Portal)”
-\- 已打开一个项目
+- TIA Portal 应用程序已连接到 TIA Portal Openness 请[连接到 TIA Portal](#连接到-TIA-Portal)”
+- 已打开一个项目
 请[打开项目](#打开项目)”
 应用
 可使用 TIA Portal Openness 执行项目/全局库的归档，并将归档对象与代理对象（例如 Plc、程序块、UDT、其它支持的类型）一起保存到 Teamcenter 数据集。
@@ -2712,9 +2712,9 @@ public void function5()
 ### 5.4.6 使用新条目保存项目/全局库
 
 要求
-\- 连接到 TIA Portal
+- 连接到 TIA Portal
 请[连接到 TIA Portal](#连接到-TIA-Portal)”
-\- 已打开一个项目
+- 已打开一个项目
 请[打开项目](#打开项目)”
 参数
 <table><tr><td>参数名称</td><td>数据类型</td><td>必须项</td><td>描述</td></tr><tr><td>tcGatewayConnectionInfo</td><td>Siemens.Engineering.TeamcenterGateway.TcGatewayConnectionInfo</td><td>√</td><td>连接到 Teamcenter Gateway 后,返回 tcGatewayConnectionInfo。已传递的 tcGatewayConnectionInfo 必须与活动连接的 tcGatewayConnectionInfo 匹配。</td></tr><tr><td>itemId</td><td>System.String</td><td>√</td><td>指定项目需要保存到的条目 ID。</td></tr><tr><td>revisionId</td><td>System.String</td><td>√</td><td>指定项目需要保存到的修订版 ID。</td></tr><tr><td>localCacheOption</td><td>Siemens.Engineering.TeamcenterGateway.LocalCacheOption(Enum)</td><td>√</td><td>如果项目的本地缓存或数据集版本与服务器项目版本不匹配,指定覆盖本地缓存项目内容</td></tr></table>
@@ -2757,8 +2757,8 @@ catch (TcGatewayException)
 
 ### 5.4.7 在 Teamcenter 中访问自定义属性
 
-\- TIA Portal Openness 已连接到 TIA Portal 请[连接到 TIA Portal](#连接到-TIA-Portal)”
-\- 已打开一个项目
+- TIA Portal Openness 已连接到 TIA Portal 请[连接到 TIA Portal](#连接到-TIA-Portal)”
+- 已打开一个项目
 请[打开项目](#打开项目)”
 应用
 可使用TIA Portal Openness在Teamcenter Gateway中获取和设置自定义属性值。
@@ -2833,8 +2833,8 @@ catch (TcGatewayException)
 
 ### 5.4.8 将项目作为新条目保存到 Teamcenter
 
-\- TIA Portal Openness 已连接到 TIA Portal 请参见“Hotspot-Text 连接到 TIA Portal (页 90)”
-\- 已打开一个项目
+- TIA Portal Openness 已连接到 TIA Portal 请参见“Hotspot-Text 连接到 TIA Portal (页 90)”
+- 已打开一个项目
 请[打开项目](#打开项目)”
 可以使用 TIA Portal Openness 在 Teamcenter 中将 TIA Portal 项目另存为新条目。成功创建条目/修订版后，API 返回包含 ItemId、RevisionId、ItemType、ItemName 的 itemInfo 对象。
 参数
@@ -2934,8 +2934,8 @@ catch (TcGatewayException)
 ### 5.4.9 使用代理对象将项目另存为新条目
 
 要求
-\- TIA Portal Openness 已连接到 TIA Portal 请[连接到 TIA Portal](#连接到-TIA-Portal)”
-\- 已打开一个项目
+- TIA Portal Openness 已连接到 TIA Portal 请[连接到 TIA Portal](#连接到-TIA-Portal)”
+- 已打开一个项目
 请[打开项目](#打开项目)”
 简介
 可使用 TIA Portal Openness 将 TIA Portal 项目和全局库与代理对象一起保存到 Team Center。成功创建新条目后，API 返回 ItemId、RevisionId、ItemType、ItemName 等 itemInfo 对象详细信息。
@@ -3438,7 +3438,7 @@ foreach (GlobalLibraryInfo info in availableLibraries)
 • Siemens.Engineering.Hmi.Tag.HmiUdtLibraryType
 • Siemens.Engineering.SW.Blocks.CodeBlockLibraryType
 • Siemens.Engineering.SW.Types.PlcTypeLibraryType
-```txt
+```text
 TiaPortal tiaPortal = ...;
 Project project = tia.Projects.First();
 ProjectLibrary library = project.ProjectLibrary;
@@ -3485,7 +3485,7 @@ LanguageSettings languageSettings = globalLibrary.LanguageSettings;
 #### 程序代码：访问语言设置
 
 修改以下程序代码以访问全局库的语言设置：
-```txt
+```text
 FileInfo m_GlobalLibrarypath = new FileInfo("bla");
 TiaPortal portal = new TiaPortal(TiaPortalMode.WithUserInterface);
 var globalLibrary = portal.GlobalLibraries.Open(m_GlobalLibrarypath, OpenMode.ReadOnly);
@@ -3532,7 +3532,7 @@ UserGlobalLibrary userLib = tia.GlobalLibraries.Open(fileInfo, OpenMode.ReadWrit
 #### 程序代码：使用 GlobalLibraryInfo 打开库
 
 修改以下程序代码：
-```txt
+```text
 TiaPortal tia = ...
 IList<GlobalLibraryInfo> libraryInfos = tia.GlobalLibraries.GetGlobalLibraryInfos();
 GlobalLibraryInfo libInfo = ...; // check for the info you need from the list, e.g.
@@ -3542,7 +3542,7 @@ libraryOpenedWithInfo = tia.GlobalLibraries.Open(libInfo);
 ```
 程序代码：升级库
 修改以下程序代码：
-```txt
+```text
 TiaPortal tia = ...
 FileInfo fileInfo = .... // library from previous TIA Portal version
 ```
@@ -3642,7 +3642,7 @@ CreateFrom() 是重载 API 方法，会接受以下参数并返回 LibraryType �
 #### 程序代码：使用 LibraryTypeComposition 创建类型
 
 修改以下程序代码，以基于源类型创建新类型的最低目标设备版本：
-```txt
+```text
 private static void createTypeFromVersionObject(project Project)
 {
     //...
@@ -3679,7 +3679,7 @@ private static void createTypeFromVersionObject(project Project)
 TIA Portal 中所有打开（不论是通过 API 打开还是通过用户界面打开）的全局库均可枚举。如果早期版本的 TIA Portal 的全局库以写访问的方式打开，则无法对其进行枚举。
 程序代码
 修改以下程序代码以枚举打开的全局库：
-```txt
+```text
 TiaPortal tia = ...
 foreach (GlobalLibrary globLib in tia.GlobalLibraries)
 {
@@ -3703,14 +3703,14 @@ foreach (GlobalLibrary globLib in tia.GlobalLibraries)
 • PublicAPI：任何已发布功能均需要
 • DenyIfTransaction：SaveAs 因无法被撤消而不应出现在事务内。
 修改以下程序代码以保存用户全局库：
-```txt
+```text
 UserGlobalLibrary userLib = ...
 // save changes and close library
 userLib.Save();
 userLib.Close();
 ```
 修改以下程序代码以将用户全局库保存到不同位置：
-```txt
+```text
 TiaPortal portal = new TiaPortal(TiaPortalMode.WithUserInterface);
 GlobalLibraryComposition globalLibraryComposition = portal.GlobalLibraries;
 //please adapt the path and the extension alx to the installed version of TIA Portal
@@ -3775,7 +3775,7 @@ userGlobalLibrary.Archive(new DirectoryInfo(archivePath), archiveFileName, Libra
 ```elixir
 public Siemens.Engineering.Library.UserGlobalLibrary Retrieve(System.IO.FileInfo sourcePath, System.IO.DirectoryInfo targetDirectory, Siemens.Engineering.OpenMode openMode)
 ```
-```txt
+```text
 说明
 无法使用“LibraryArchivationMode.None”或“LibraryArchivationMode.DiscardRestorableData”枚举值检索归档库。
 ```
@@ -3789,7 +3789,7 @@ OpenMode 枚举共有两个值：
 <table><tr><td>OpenMode</td><td>描述</td></tr><tr><td>ReadMode</td><td>库的读访问。可以从库读取数据。</td></tr><tr><td>ReadWrite</td><td>库的写访问。可以向库写入数据。</td></tr></table>
 程序代码：检索库
 修改以下程序代码以检索库：
-```txt
+```text
 //Please adapt the path and the extension zalx to the installed version of TIA Portal
 var archivePath = @"E:\Archive\Sample1.zalx";
 var retrievedLibraryDirectory = @"E:\RetrievedLibraries";
@@ -3841,14 +3841,14 @@ public static void AccessTypeSystemFolder(ILibrary library)
 }
 ```
 修改以下程序代码以访问库中主副本的系统文件夹：
-```txt
+```text
 public static void AccessMasterCopySystemFolder(ILibrary library)
 {
     MasterCopySystemFolder libMasterCopySystemFolder = library.MasterCopyFolder;
 }
 ```
 程序代码：通过 Find() 方法访问用户自定义文件夹：
-```txt
+```text
 ...
 LibraryTypeUserFolderComposition userFolderComposition = ...
 LibraryTypeUserFolder userFolder = userFolderComposition.Find("Name of user folder");
@@ -3968,7 +3968,7 @@ masterCopyUserFolder.SetAttributes(new[] {new KeyValuePair<string,object>("Name"
 • Siemens.Engineering.SW.Types.PlcTypeLibraryType
 • Siemens.Engineering.SW.Types.PlcTypeLibraryTypeVersion
 以下代码为库类型子类别使用方法示例
-```txt
+```text
 ProjectLibrary library = project.ProjectLibrary;
 VBScriptLibraryType vbScriptType = ...;
 VBScriptLibraryType libraryTypeAsVbScript = libraryType as VBScriptLibraryType;
@@ -3985,7 +3985,7 @@ public static void EnumerateTypesInTypesSystemFolder(LibraryTypeSystemFolder lib
 }
 ```
 修改以下程序代码以枚举库的用户自定义文件夹中的所有类型：
-```txt
+```text
 public static void EnumerateTypesInTypesUserFolder (LibraryTypeUserFolder libraryTypeUserGroup)
 {
     foreach (LibraryType libraryType in libraryTypeUserGroup.Types)
@@ -4082,7 +4082,7 @@ public static void InspectPropertiesOfVersion(LibraryTypeVersion libTypeVersion)
 • 画面
 • VB 脚本
 此时，将在全局库和项目库中创建一个类型版本的实例。当在全局库中创建类型版本实例时，类型版本会首先与项目库同步。
-```txt
+```text
 如果无法在目标中创建实例，则会出现可恢复异常。可能的原因如下：
 • 库类型版本正在使用中
 • 库类型版本的实例已存在于目标设备中
@@ -4111,18 +4111,18 @@ PlcType newType = types.CreateFrom(plcTypeVersion);
 #### 确定类型版本的用途
 
 类型版本分为以下用途：
-```txt
+```text
 - 类型版本使用库中的其它类型版本。
 示例：在程序块中使用一个用户数据类型。程序块必须具有该用户数据类型的访问权限。这意味着程序块取决于用户数据类型。
 当通过 GetDependencies() 方式访问 CodeBlockLibraryVersion 的相关性 (Dependents) 属性时，将返回 LibraryTypeVersions 列表。
 ```
-```txt
+```text
 - 此类型正在被库中的另一类型版本使用。
 示例：在程序块中使用一个用户数据类型。程序块必须具有该用户数据类型的访问权限。该用户数据类型具有相关联的程序块。程序块取决于用户数据类型。
 当通过 GetDependents() 方式访问 PlcTypeLibraryTypeVersion 的相关性 (Dependents) 属性时，将返回 LibraryTypeVersions 列表。
 ```
 这两种属性均会返回一个列表，其中包含LibraryTypeVersion类型的对象。如果未进行任何使用，则将返回一个空列表。
-```txt
+```text
 说明如果对“InWork”状态的类型版本使用这些属性，则将出现异常。
 ```
 修改以下程序代码：
@@ -4135,7 +4135,7 @@ public static void GetDependenciesAndDependentsOfAVersion(LibraryTypeVersion lib
 }
 ```
 修改以下程序代码以确定类型版本所属的类型：
-```txt
+```text
 public static void GetParentTypeOfVersion(LibraryTypeVersion libTypeVersion)
 {
     LibraryType parentType = libTypeVersion.TypeObject;
@@ -4160,14 +4160,14 @@ public static void FindVersionInLibrary(ILibrary library, Guid versionGUID)
 
 ### 5.6.15 访问位于库中的块
 
-```txt
+```text
 - TIA Portal Openness 应用程序已连接到 TIA Portal [连接到 TIA Portal](#连接到-TIA-Portal)”
 ```
 • 已打开一个项目请[打开项目](#打开项目)”
 可使用 TIA Portal Openness 从库对象中获取版本信息，无需将对象实例化并进行编译。
 将在 LibraryTypeVersion 工程组态对象上提供新的导出动作，以导出版本内容。
 此动作将在给定的 exportFileInfo 处创建已导出 xml 文件。
-```txt
+```text
 void Export(' ' 'FileInfo'' exportFileInfo, ' ' 'ExportOptions'' exportOptions)
 ```
 在以下情况下将发生异常：
@@ -4216,14 +4216,14 @@ version.Export(new FileInfo(@"D:\ExportCodeBlock.xml"), ExportOptions.WithReadOn
 可通过 TIA Portal Openness API 接口访问类型版本的实例。
 使用 FindInstances(IInstanceSearchScope searchScope) 方法找到某一类型版本的所有实例。
 您可使用searchScope 参数指定要搜索的项目区域。以下类实现IInstanceSearchScope 接口，并可用于进行实例搜索：
-```txt
+```text
 - PlcSoftware
 ```
-```txt
+```text
 - HmiTarget
 ```
 此方法会返回一个列表，其中包含LibraryTypeInstanceInfo类型的对象。如果未使用任何实例，则将返回一个空列表。
-```txt
+```text
 说明  
 HMI用户数据类型和面板的实例通常链接到关联的类型版本。  
 所有其它对象的实例（例如程序块或画面）可链接到某个类型版本。
@@ -4232,7 +4232,7 @@ HMI用户数据类型和面板的实例通常链接到关联的类型版本。
 #### 枚举一个类型版本的多个实例
 
 修改以下程序代码：
-```txt
+```text
 //Enumerate the instances of a type version in the project
 LibraryTypeVersion version = ...;
 PlcSoftware plcSoftware = ...;
@@ -4252,7 +4252,7 @@ IEnumerable<IEngineeringObject> instances = instanceInfos.Select(instanceInfo =>
 • 块 FB
 • 块 FC
 • PLC 用户数据类型
-```txt
+```text
 - 画面
 - VB 脚本
 如果某个实例对象未连接至版本对象，则将不会提供“LibraryTypeInstanceInfo”服务。
@@ -4292,7 +4292,7 @@ public static void EnumerateMasterCopiesInSystemFolder (MasterCopySystemFolder m
 }
 ```
 修改以下程序代码以通过查找方法访问单个模板副本：
-```txt
+```text
 MasterCopySystemFolder systemFolder = projectLibrary.MasterCopyFolder;
 MasterCopyComposition mastercopies = systemFolder.MasterCopies;
 MasterCopy masterCopy = mastercopies.Find("Copy of ...");
@@ -4320,7 +4320,7 @@ private static void EnumerateMasterCopies(MasterCopyComposition masterCopies)
 ... MasterCopyUserFolderComposition userFolderComposition = ... MasterCopyUserFolder userFolder = userFolderComposition.Find("Name of user folder");
 ```
 修改以下程序代码以重命名模板副本：
-```txt
+```text
 //Setting the name attribute
 var masterCopy = projectLibrary.MasterCopyFolder.MasterCopies.Find("SampleMasterCopyName");
 masterCopy.Name = "NewMasterCopyName";
@@ -4640,7 +4640,7 @@ Cleanup() 基于指定的 CleanupLibraryMode 标志执行功能。
 根据两个 CleanupLibraryMode 的指定特性清理版本：
 <table><tr><td>CleanupLibraryMode</td><td>描述</td></tr><tr><td>CleanupLibraryMode.AllowTypeDeletion</td><td>允许删除要清理的类型的所有版本。如果类型的所有版本均已清理,也将清理该类型。</td></tr><tr><td>CleanupLibraryMode PreserveHighestVersion</td><td>保留类型的最高版本</td></tr></table>
 修改以下程序代码以对类型和文件夹的子集调用清理操作：
-```txt
+```text
 ...
 ILibrary myLibrary = ...;
 CleanupLibraryMode cleanupLibraryMode = ...;
@@ -4651,7 +4651,7 @@ myLibrary.Cleanup(new[] {typeA, singleFolderContainingTypes}, cleanupLibraryMode
 ...
 ```
 修改以下程序代码以对库中的所有类型调用清理操作：
-```txt
+```text
 ...
 ILibrary myLibrary = ...;
 CleanupLibraryMode cleanupLibraryMode = ...;
@@ -4670,7 +4670,7 @@ HarmonizeProject() 可用于项目和全局库。此功能类似于 TIA Portal �
 统一根据选择的 HarmonizeProjectOptions 进行处理：
 <table><tr><td>HarmonizeProjectOptions</td><td>描述</td></tr><tr><td>HarmonizePaths</td><td>统一指定类型或指定文件夹下类型的路径。项目中的实例会重命名为库的类型名称。</td></tr><tr><td>HarmonizeProjectOptions.HarmonizeNames</td><td>统一指定类型或指定文件夹下类型的名称。库类型的文件夹结构会应用于项目实例。</td></tr><tr><td>HarmonizeProjectOptions.HarmonizeNames | HarmonizeProjectOptions.HarmonizePaths</td><td>统一所选类型或所选文件夹下类型的名称和路径。</td></tr><tr><td>HarmonizeProjectOptions.None</td><td>将不使用此项,使用时会引发异常</td></tr></table>
 修改以下程序代码以对类型和文件夹的子集执行统一名称操作：
-```txt
+```text
 ...
 ILibrary myLibrary = ...;
 HarmonizeProjectOptions harmonizeProjectOptions = ...;
@@ -4682,7 +4682,7 @@ myLibrary.HarmonizeProject(new[] {typeA, singleFolderContainingTypes}, new[] {ha
 ...
 ```
 修改以下程序代码以对类型和文件夹的子集执行统一路径操作：
-```txt
+```text
 ...
 ILibrary myLibrary = ...;
 HarmonizeProjectOptions harmonizeProjectOptions = ...;
@@ -4694,7 +4694,7 @@ myLibrary.HarmonizeProject(new[] {typeA, singleFolderContainingTypes}, new[] {ha
 ...
 ```
 修改以下程序代码以对类型和文件夹的子集执行统一名称和路径操作：
-```txt
+```text
 ...
 ILibrary myLibrary = ...;
 HarmonizeProjectOptions harmonizeProjectOptions = ...;
@@ -4771,7 +4771,7 @@ structureConflictResolutionMode,ForceUpdateMode forceUpdateMode);
 UpdateLibrary API 是 Siemens.Engineering.Library.Types.LibraryType 接口的组成部分，将接受类型的“单选”。
 修改程序代码，以对单一类型执行从项目库到全局库的更新 libraryUpdateLibrary（删除未使用的版本、更新现有目标库结构并强制更新目标版本作为默认版本，无需考虑版本号）：
 修改以下程序代码，以对单一类型执行从项目库到全局库的 UpdateLibrary（不删除未使用的版本、保留现有目标库结构且不执行强制更新）：
-```txt
+```text
 ...
 ILibrary globalLibrary = ...;
 LibraryTypeUserFolder singleFolderContainingTypes =
@@ -4808,7 +4808,7 @@ structureConflictResolutionMode);
 
 UpdateLibrary API 是 Siemens.Engineering.Library.ILibrary 接口的组成部分，将接受对类型和类型文件夹的“多选”。
 修改以下程序代码，以对单一类型执行从项目库到全局库的 UpdateLibrary：
-```txt
+```text
 ...ILibrary myProjectLibrary = Project.ProjectLibrary;
 LibraryTypeUserFolder singleFolderContainingTypes =
 myProjectLibrary.TypeFolder.Folders.Find("folder1");
@@ -4822,7 +4822,7 @@ myProjectLibrary.UpdateLibrary(new[] { typeA }, globalLibrary, forceUpdateMode,
 deleteUnusedVersionsMode, structureConflictResolutionMode);
 ```
 修改以下程序代码，以对多种类型执行从项目库到全局库的 UpdateLibrary：
-```txt
+```text
 ...
 ILibrary myProjectLibrary = Project.ProjectLibrary;
 LibraryTypeUserFolder singleFolderContainingTypes =
@@ -4854,7 +4854,7 @@ forceUpdateMode, deleteUnusedVersionsMode, structureConflictResolutionMode);
 ...
 ```
 修改以下程序代码，以对“类型”系统文件夹执行从项目库到全局库的 UpdateLibrary：
-```txt
+```text
 ...
 ILibrary myProjectLibrary = Project.ProjectLibrary;
 LibraryTypeSystemFolder typeFolder = myProjectLibrary.TypeFolder;
@@ -4869,7 +4869,7 @@ globalLibrary, forceUpdateMode, deleteUnusedVersionsMode, structureConflictResol
 
 #### 修改以下程序代码，以对单一类型执行从全局库到项目库的 UpdateLibrary：
 
-```txt
+```text
 ...
 ILibrary globalLibrary = ...;
 LibraryTypeUserFolder singleFolderContainingTypes =
@@ -4908,7 +4908,7 @@ globalLibrarySource.UpdateLibrary(new[] { typeA }, globalLibraryTarget, forceUpd
 
 #### StructureConflictResolutionMode 是 CancelIfStructureConflicts
 
-```txt
+```text
 var myProjectLibrary = Project.ProjectLibrary;
 LibraryTypeSystemFolder typeFolder =
 myProjectLibrary.TypeFolder.Folders.Find("folder1"); // from myProjectLibrary
@@ -5057,7 +5057,7 @@ public static void DeleteSingleTypeOrTypeUserFolder(ILibrary library)
     f1.Delete();
 }
 ```
-```txt
+```text
 public static void DeleteVersion(ILibrary library)
 {
     LibraryType singleType = library.TypeFolder.Types.Find("type1");
@@ -5085,7 +5085,7 @@ public static void DeleteMasterCopies(ILibrary library)
 • 已通过 TIA Portal Openness 应用程序打开一个项目。请[打开项目](#打开项目)”
 可使用 TIA Portal Openness 将任何已发布的版本设为该类型项目库和用户全局库的默认版本。
 默认版本被视为类型的首选版本。
-```txt
+```text
 ILibrary myLibrary = ....;
 LibraryType typeA = ...;// from myLibrary
 LibraryTypeVersion versionA = ...;//from typeA
@@ -5170,7 +5170,7 @@ if(userTypeFolderConsistencyStatus == ConsistencyStatus.DefaultVersionInConsiste
 }
 ```
 修改以下程序代码以从项目库中读取“Individual Type”的状态属性：
-```txt
+```text
 ...
 ILibrary myProjectLibrary = Project.ProjectLibrary;
 LibraryTypeUserFolder userFolder = myProjectLibrary.TypeFolder.Folders.Find("folder1");
@@ -5181,7 +5181,7 @@ if(blockTypeConsistencyStatus == ConsistencyStatus.DefaultVersionInConsistent)
     //Do something.
 }
 ```
-```txt
+```text
 说明该属性也可以相似的方法在全局库中使用。
 ```
 如果选定的任何类型或文件夹为空或不属于源库的组成部分，则将抛出ArgumentNullException 异常。
@@ -5224,7 +5224,7 @@ PLC 报警文本列表中支持以下特性：
 #### PlcAlarmUserTextlist
 
 <table><tr><td>特性名称</td><td>数据类型</td><td>描述</td><td>访问</td></tr><tr><td>ListRange</td><td>PlcAlarmTextlistList Range</td><td>获取 PLC 报警文本列表的范围类型</td><td>读/写</td></tr><tr><td>Name</td><td>String</td><td>获取 PLC 报警文本列表的名称</td><td>读/写</td></tr></table>
-```txt
+```text
 TiaPortal tia = TiaPortal.GetProcesses().Select(x => x.Attach()).First();
 Project project = tia.Projects.First();
 Device device = project.Devices.First();
@@ -5316,7 +5316,7 @@ private PlcSoftware GetPlcSoftware(Device device)
 #### 程序代码：HMI 目标
 
 修改以下程序代码以确定某一设备项是否可用作 HMI 目标：
-```txt
+```text
 //Checks whether a device is of type hmitarget
 private HmiTarget GetHmiTarget(Device device)
 {
@@ -5356,7 +5356,7 @@ private HmiTarget GetHmiTarget(Device device)
 5.7 访问设备<sub>、</sub> 网络和连接的功能
 程序代码：获取或设置地址对象的属性
 修改以下程序代码以访问地址对象的等时模式：
-```txt
+```text
 Address address= ...;
 // read attribute
 bool attributeValue = (bool)address.GetAttribute("IsochronousMode");
@@ -5364,7 +5364,7 @@ bool attributeValue = (bool)address.GetAttribute("IsochronousMode");
 address.SetAttribute("IsochronousMode", true);
 ```
 修改以下程序代码以访问地址对象的 ProcessImage 属性：
-```txt
+```text
 Address address= ...;
 // read attribute
 int attributeValue = (int)address.GetAttribute("ProcessImage");
@@ -5372,7 +5372,7 @@ int attributeValue = (int)address.GetAttribute("ProcessImage");
 address.SetAttribute("ProcessImage", 7);
 ```
 修改以下程序代码以访问地址对象的 InterruptObNumber 属性：
-```txt
+```text
 Address address= ...;
 // read attribute
 long attributeValue = (long)address.GetAttribute("InterruptObNumber");
@@ -5381,7 +5381,7 @@ address.SetAttribute("InterruptObNumber", 42L);
 //default value = 40
 修改以下程序代码以访问地址对象的 StartAddress 属性:
 ```
-```txt
+```text
 Address address= ...;
 // read attribute
 int attributeValue = (int)data Attribute("StartAddress");
@@ -5392,7 +5392,7 @@ address.StartAddress = IntValueStartAddress;
 #### 程序代码：为 OB 指定当前过程映像。
 
 修改以下程序代码以便为 OB 指定当前过程映像。
-```txt
+```text
 OB obX =...
 Address address= ...;
 // assign PIP 5 to obX
@@ -5423,7 +5423,7 @@ try
 #### 程序代码：通道的属性
 
 修改以下程序代码以访问通道的属性：
-```txt
+```text
 DeviceItem aiModule = ...
 ChannelComposition channels = aiModule.Channels;
 foreach (Channel channel in channels)
@@ -5433,7 +5433,7 @@ foreach (Channel channel in channels)
 ```
 程序代码：标识属性
 修改以下程序代码以获取每个通道的标识属性：
-```txt
+```text
 Channel channel = ...
 int channelNumber = channel.Number;
 ChannelType type = channel.Type;
@@ -5477,7 +5477,7 @@ DeviceItem aiModule = ... Channel channel = aiModule.Channels.Find(ChannelType.A
 #### 程序代码：创建未连接至接口的子网
 
 修改以下程序代码以创建子网：
-```txt
+```text
 Project project = ...;
 SubnetComposition subnets = project.Subnets;
 ```
@@ -5500,7 +5500,7 @@ Subnet newSubnet = subnets.Create("System:Subnet.Ethernet", "NewSubnet");
 #### 程序代码：访问某一项目的所有子网
 
 修改以下程序代码以访问某一项目的所有子网（内部子网除外）：
-```txt
+```text
 Project project = ...
 foreach (Subnet net in project.Subnets)
 {
@@ -5509,7 +5509,7 @@ foreach (Subnet net in project.Subnets)
 ```
 程序代码：访问特定子网
 修改以下程序代码以通过名称访问特定子网：
-```txt
+```text
 Project project = ...
 Subnet net = project.Subnets.Find("PROFIBUS_1");
 {
@@ -5520,7 +5520,7 @@ Subnet net = project.Subnets.Find("PROFIBUS_1");
 #### 子网的属性
 
 子网具有以下属性：
-```txt
+```text
 Subnet net = ...;
 string name = net.Name;
 NetType type = net.NetType;
@@ -5546,7 +5546,7 @@ NetType type = net.NetType;
 #### 程序代码：获取子网所有者角色
 
 修改以下程序代码以获取子网所有者角色：
-```txt
+```text
 SubnetOwner subnetOwner =
 ((IEngineeringServiceProvider)deviceItem).GetService<SubnetOwner>();
 if (subnetOwner != null)
@@ -5579,7 +5579,7 @@ TypeIdentifierType 可能具有的值为：
 <table><tr><td>子网类型</td><td>系统标识符</td></tr><tr><td>PROFIBUS</td><td>Subnet.Profibus</td></tr><tr><td>MPI</td><td>Subnet.Mpi</td></tr><tr><td>Industrial Ethernet</td><td>Subnet.Ethernet</td></tr><tr><td>ASI</td><td>Subnet.Asi</td></tr><tr><td>Ptp</td><td>Subnet.Ptp</td></tr><tr><td>ProfibusIntegrated</td><td>Subnet.ProfibusIntegrated</td></tr></table>
 <table><tr><td>子网类型</td><td>系统标识符</td></tr><tr><td>PcInternal</td><td>Subnet.PcInternal</td></tr><tr><td>ProfidriveIntegrated</td><td>Subnet.ProfidriveIntegrated</td></tr></table>
 修改以下程序代码以获取用户可管理并可单独创建的 GSD 对象的类型标识符：
-```txt
+```text
 Subnet subnet = ...;
 string typeIdentifier = subnet.TypeIdentifier;
 ```
@@ -5654,7 +5654,7 @@ bool isDefaultSubnet = ((IEngineeringObject) subnet).GetAttribute("DefaultSubnet
 • 项目已经打开。
 [打开项目](#打开项目)”
 修改以下程序代码以删除项目中的全局子网：
-```txt
+```text
 Project project = ...;
 SubnetComposition subnets = project.Subnets;
 subnets.First();
@@ -5671,7 +5671,7 @@ subnetToDelete.Delete();
 枚举子网上的所有参与者。
 程序代码
 修改以下程序代码以枚举子网的 DP 主站系统：
-```txt
+```text
 Subnet subnet = ...;
 foreach (Node node in subnet.Nodes)
 {
@@ -5702,7 +5702,7 @@ foreach (IoSystem ioSystem in subnet.IoSystems)
 角色接口聚合节点访问与接口地址和子网分配相关的属性。
 节点名称可在 TIA Portal 的接口属性中查看。聚合在接口的节点，每个节点均具有一个唯一的标示符 NodeId，只能通过 TIA Portal Openness 查看其值。
 修改以下程序代码以访问某一接口的所有节点：
-```txt
+```text
 NetworkInterface itf = ...
 foreach (Node node in itf.Nodes)
 {
@@ -5763,7 +5763,7 @@ Openness: 用于工程组态工作流自动化的 API
 #### 程序代码：节点的属性
 
 修改以下程序代码以获取或设置节点的属性：
-```txt
+```text
 Node node = ...;
 string nameValue = node.Name;
 NetType nodeType = (NetType)node.NodeType;
@@ -5773,7 +5773,7 @@ node.NodeType = NetType.Mpi;
 #### 程序代码：动态属性
 
 修改以下程序代码以获取或设置动态节点属性：
-```txt
+```text
 Node node = ...;
 var attributeNames = new[]
 {
@@ -5810,7 +5810,7 @@ node.ConnectToSubnet(subnet);
 • 已打开一个项目。
 请[打开项目](#打开项目)
 修改以下程序代码以断开节点（设备、接口）与网络的连接：
-```txt
+```text
 Node node = ...;
 node.DisconnectFromSubnet();
 ```
@@ -5869,7 +5869,7 @@ foreach (IIoController ioController in itf.IoControllers)
 #### IntroductionProgram 代码：io 系统的子网
 
 修改以下程序代码以导航至分配有该 io 系统的子网：
-```txt
+```text
 Subnet subnet = ioSystem.Subnet;
 ```
 
@@ -5885,7 +5885,7 @@ Subnet subnet = ioSystem.Subnet;
 • IoConnector 未连接到 io 系统。
 • IoConnector 接口与所需 IoController 的接口连接到相同的子网。
 修改以下程序代码：
-```txt
+```text
 NetworkInterface itf = ...;
 IoSystem ioSystem = null;
 foreach (IoController ioController in itf.IoControllers)
@@ -5919,7 +5919,7 @@ foreach (IoController ioController in itf.IoControllers)
 }
 ```
 修改以下程序代码以获取 IoConnector 的 io 系统：
-```txt
+```text
 NetInterface itf = ...
 foreach (IoConnector ioConnector in itf.IoConnectors)
 {
@@ -5937,7 +5937,7 @@ foreach (IoConnector ioConnector in itf.IoConnectors)
 当前仅可配置一个 IoController。IoController 不提供任何建模属性或操作。
 程序代码
 修改以下程序代码以获取 IO 控制器：
-```txt
+```text
 NetworkInterface itf = ...
 foreach (IoController ioController in itf.IoControllers)
 {
@@ -5961,7 +5961,7 @@ IoConnector 提供以下属性和动作：
 
 <table><tr><td>链接</td><td>类型</td><td>访问权限</td></tr><tr><td>ConnectedToloSystem</td><td>Siemens.Engineering.HW.Io System</td><td>只读</td></tr></table>
 修改以下程序代码以获取 IO 连接器：
-```txt
+```text
 NetworkInterface itf = ...
 foreach (IoConnector ioConnector in itf.IoConnectors)
 {
@@ -5996,14 +5996,14 @@ DP 主站系统提供了某些可供读取和/或写入的属性。这些属性�
 <table><tr><td>属性</td><td>数据类型</td><td>可写</td><td>访问</td><td>描述</td></tr><tr><td>Name</td><td>string</td><td>读/写</td><td>特性</td><td>-</td></tr><tr><td>Number</td><td>int</td><td>读/写</td><td>特性</td><td>特性 Number 接受无法通过 UI 设置的值。这种情况下,编译将失败。</td></tr></table>
 程序代码：获得属性
 修改以下程序代码以获取属性：
-```txt
+```text
 IoSystem dpMastersystem = ...;
 string name = dpMastersystem.Name;
 int number = dpMastersystem.Number;
 ```
 程序代码：设置属性
 修改以下程序代码以设置属性：
-```txt
+```text
 IoSystem dpMastersystem = ...;
 dpMastersystem.Name = "myDpMastersystem"
 dpMastersystem.Number=42;
@@ -6045,14 +6045,14 @@ string name = ioSystem.Name;
 修改以下程序代码以设置属性：
 IoSystem ioSystem = ...;
 ioSystem.Name = "IOSystem\_1";
-```txt
+```text
 5.8 网络功能
 ```
 
 #### 程序代码：获取动态访问的属性
 
 修改以下程序代码以获取动态属性的值：
-```txt
+```text
 IoSystem ioSystem = ...;
 var attributeNames = new[]
 {
@@ -6066,7 +6066,7 @@ foreach (var attributeName in attributeNames)
 ```
 程序代码：设置动态访问的属性
 修改以下程序代码以设置动态属性的值：
-```txt
+```text
 IoSystem ioSystem = ...;
 ((IEngineeringObject)ioSystem).SetAttribute("MultipleUseIoSystem", true);
 ```
@@ -6112,7 +6112,7 @@ ioSystem.Delete();
 • io 控制器的接口连接到子网。
 • io 控制器无 io 系统。
 修改以下程序代码以创建 dp 主站系统：
-```txt
+```text
 //...
 NetworkInterface interface12 = ...;
 IoSystem dpMasterSystem = ...;
@@ -6143,7 +6143,7 @@ NetworkPort 提供链接 ConnectedPorts，该链接用于对端口进行枚举�
 #### 程序代码：获取端口互连
 
 修改以下程序代码以获取端口设备项的端口互连信息：
-```txt
+```text
 NetworkPort port = ...;
 foreach (NetworkPort partnerPort in port.ConnectedPorts)
 {
@@ -6168,7 +6168,7 @@ port1.ConnectToPort(port3);
 
 #### 程序代码：删除端口互连
 
-```txt
+```text
 修改以下程序代码:
 ```
 ```javascript
@@ -6214,7 +6214,7 @@ TIA Portal Openness 支持端口互连的以下属性。如果 UI 中提供属�
 若要访问此附加功能，即 NetworkPort 功能，必须使用设备项的特定服务。
 程序代码：访问端口
 修改以下程序代码以访问通道的属性：
-```txt
+```text
 NetworkPort port = ((IEngineeringServiceProvider)deviceItem).GetService<NetworkPort>();
 if (port != null)
 {
@@ -6256,7 +6256,7 @@ foreach (IoSystem ioSystem in subnet.IoSystems)
 • 枚举 dp 主站系统的 IO 连接器
 • 枚举 profinet io 系统的 IO 连接器
 修改以下程序代码以枚举 DP 主站系统已分配的 IO 连接器：
-```txt
+```text
 IoSystem ioSystem = ...;
 foreach (IoConnector ioConnector in ioSystem-connectedIoDevices)
 {
@@ -6376,7 +6376,7 @@ transferAreaExample.Delete();
 #### 程序代码：使用 S71500/ET200MP 站的示例
 
 修改以下程序代码，用 PLC 代表 S71500/ET200MP 站：
-```txt
+```text
 //plc represents an S71500/ET200MP station
 //Getting headmodule of the station
 DeviceItem plcHeadModule = plc.DeviceItems[1];
@@ -6386,7 +6386,7 @@ DeviceItem module = plc.DeviceItems[2];
 
 #### 修改以下程序代码，在 PLC 头模块上设置等时同步模式：
 
-```txt
+```text
 //Turn on isochronous mode
 plcHeadModule.SetAttribute("IsochronousMode", true);
 //Set source of sendclock to "Use send clock of PROFINET interface [X1]"
@@ -6431,7 +6431,7 @@ address.SetAttribute("ProcessImage", 3);
 
 创建传送区
 要为 CP 1604 创建一个“CD”类型的传输区，请修改以下程序代码：
-```txt
+```text
 NetworkInterface cpItf = CP 1604Interface ToketService<NetworkInterface>();
 //Create Transfer Areas
 TransferAreaComposition transferAreas = cpItf.TransferAreas;
@@ -6446,7 +6446,7 @@ TransferArea transferAreaInput = transferAreas.Create("Input CD", TransferAreaTy
 #### 设置传输区属性
 
 要设置传输区属性，请修改以下程序代码：
-```txt
+```text
 transferAreaTm.LocalToPartnerLength = 8;
 transferAreaTm.Direction = TransferAreaDirection.LocalToPartner;
 string name = transferAreaTm.Name
@@ -6467,7 +6467,7 @@ Int32 updateTime = transferAreaTm.GetAttribute("TransferUpdateTime");
 #### 通过传输区域进行迭代
 
 要迭代传输区，请修改以下程序代码：
-```txt
+```text
 TransferAreaComposition transferAreas = cpItf.TransferAreas;
 foreach (TransferArea transferArea in transferAreas)
 {
@@ -6483,7 +6483,7 @@ transferArea.Delete();
 #### 创建 IO 路由
 
 要创建 IO 路由，请修改以下程序代码：
-```txt
+```text
 //Create TransferAreaMappingRule
 TransferAreaMappingRuleComposition routingTable = transferArea.TransferAreaMappingRules; //
 //Create a new IO route
@@ -6535,7 +6535,7 @@ TransferArea transferAreaInput = transferAreas.Create("Input", TransferAreaType.
 Openness：用于工程组态工作流自动化的 API
 <table><tr><td>属性</td><td colspan="2">描述</td></tr><tr><td rowspan="21">Type</td><td colspan="2">指定要创建的传输区的类型。支持以下类型:</td></tr><tr><td>TransferAreaType.None</td><td>默认值</td></tr><tr><td>TransferAreaType.IN</td><td>传输区输入</td></tr><tr><td>TransferAreaType.OUT</td><td>传输区输出</td></tr><tr><td>TransferAreaType.MSI</td><td>传输区共享输入(MSI)</td></tr><tr><td>TransferAreaType.MSO</td><td>传输区共享输出(MSO)</td></tr><tr><td>TransferAreaType.MSO_LOCAL</td><td>传输区本地共享输出(MSO_LOCAL)</td></tr><tr><td>TransferAreaType.RECORD_WRITE_STO</td><td>记录数据写入的传输区最多可缓冲8个数据记录</td></tr><tr><td>TransferAreaType.RECORD_WRITE_PUB</td><td>记录数据写入的传输区覆盖以前的数据记录</td></tr><tr><td>TransferAreaType.RECORD_READ_STO</td><td>记录数据读取的传输区读取缓冲区中最旧的数据记录</td></tr><tr><td>TransferAreaType.RECORD_READ_PUB</td><td>记录数据读取的传输区读取最后写入的数据记录</td></tr><tr><td>TransferAreaType.MSI_MSO</td><td>传输区共享输入(MSI)/传输区共享输出(MSO)</td></tr><tr><td>TransferAreaType.IN_OUT</td><td>传输区输入/传输区输出</td></tr><tr><td>TransferAreaType.LOCAL_RECORD_STO</td><td>用于本地数据记录耦合的传输区,最多可缓冲8个数据记录</td></tr><tr><td>TransferAreaType.LOCAL_RECORD_PUB</td><td>用于本地数据记录耦合的传输区,覆盖以前的数据记录</td></tr><tr><td>TransferAreaType.SUB_MSI</td><td>共享输入(MSI)的传输区副本</td></tr><tr><td>TransferAreaType.SUB_MSO</td><td>共享输出(MSO)的传输区副本</td></tr><tr><td>TransferAreaType.SUB_LOCAL_RECORD_STO_READ</td><td>记录数据读取的传输区,用于读取缓冲区中最旧的数据记录</td></tr><tr><td>TransferAreaType.SUB_LOCAL_RECORD_PUB_READ</td><td>记录数据读取的传输区,用于读取最近写入的数据记录</td></tr><tr><td>TransferAreaType.PROFISAFE_IN12_OUT6</td><td>包含12字节输入和6字节输出的传输区</td></tr><tr><td>TransferAreaType.PROFISAFE_IN6_OUT12</td><td>包含6字节输入和12字节输出的传输区</td></tr></table>
 要设置传输区属性，请使用如下程序代码：
-```txt
+```text
 // Change input length
 CouplerTransf.LocalToPartnerLength = 5;
 // Change output length
@@ -6544,7 +6544,7 @@ CouplerTransf.PartnerToLocalLength = 5;
 CouplerTransf.Name = "Testname";
 ```
 必须设置或查询某些属性，所有这些属性都可以使用常规调用 TransferArea.GetAttribute()或 SetAttribute() 来设置或查询。使用以下程序代码，例如：
-```txt
+```text
 // Set Comment of Transferarea
 string myIndividualComment = "MyIndividualComment";
 CouplerTransf.SetAttribute("Comment", myIndividualComment);
@@ -6553,12 +6553,12 @@ Int32 positionNumber = (Int32)CouplerTransf.GetAttribute("PositionNumber");
 ```
 可以为传输区域设置以下属性：
 <table><tr><td>属性</td><td colspan="2">描述</td></tr><tr><td>Name (string)</td><td colspan="2">指定传输区的名称</td></tr><tr><td rowspan="4">Direction</td><td colspan="2">指定传输区中数据的传输方向。可以选择以下方向:</td></tr><tr><td>TransferAreaDirection.LocalTo- Partner</td><td>传输区中的数据由 IO 设备传输至高级 IO 控制器。</td></tr><tr><td>TransferAreaDirection.partnerTo- Local</td><td>传输区中的数据由高级 IO 控制器传输至 IO 设备。</td></tr><tr><td>TransferAreaDirection.bidirectional</td><td>传输区中的数据可在高级 IO 控制器和 IO 设备之间进行双向传输。“LocalToPartnerLength”属性确定由 IO 设备传输至高级 IO 控制器的数据长度。“PartnerToLocal- Length”属性确定由高级 IO 控制器传输至 IO 设备的数据量。</td></tr><tr><td>Comment (string)</td><td colspan="2">传输区注释的文本框</td></tr><tr><td>LocalToPartnerLength</td><td colspan="2">指定传输区的输入数据长度</td></tr><tr><td>PartnerToLocalLength</td><td colspan="2">指定传输区的输出数据长度</td></tr><tr><td>PositionNumber</td><td colspan="2">指定传输区的插槽号如果没有位置编号,则无法创建子模块。</td></tr></table>
-```txt
+```text
 如果其中一个属性不可用，则将遇到异常。
 ```
 5.8 网络功能
 <table><tr><td>属性</td><td>描述</td></tr><tr><td>ExtendedPositionNumber</td><td>指定传输区的子插槽号只有包含多个子模块(如 MSI)的 TransferAreas 才需要 ExtendedPositionNumber</td></tr><tr><td>Type</td><td>指定传输区的类型</td></tr><tr><td>SharedDeviceAccessConfigured</td><td>控制对 PLC 的访问</td></tr><tr><td>UpdateAlarm</td><td>启用传输区的更新警报</td></tr><tr><td>RecordIndex</td><td>设置写入数据记录时将使用的数据记录编号</td></tr></table>
-```txt
+```text
 删除传输区
 要删除传输区，请使用以下程序代码：
 TransferArea TransferAreaInput = transferAreas.Create("Input", TransferAreaType.IN);
@@ -6590,14 +6590,14 @@ TransferArea transferAreaFind = transferAreas.Find(5);
 <table><tr><td>特性名称</td><td>数据类型</td><td>EomAtomValue</td><td>EomAtom 描述</td></tr><tr><td>SharedDeviceAccessConfigured</td><td>Boolean</td><td></td><td></td></tr><tr><td>Name</td><td>String</td><td></td><td></td></tr><tr><td>PositionNumber</td><td>Int32</td><td></td><td></td></tr><tr><td>VirtualType</td><td>UInt64</td><td>1</td><td>MsoLocal</td></tr><tr><td>AddSubModules</td><td>Int64</td><td></td><td></td></tr></table>
 虚拟子模块中支持以下特性：
 <table><tr><td>特性</td><td>数据类型</td><td>EomAtom 值</td><td>EomAtom 描述</td></tr><tr><td>SharedDeviceAccessConfigured</td><td>Boolean</td><td></td><td></td></tr><tr><td>Comment</td><td>String</td><td></td><td></td></tr><tr><td>PositionNumber</td><td>Int32</td><td></td><td></td></tr><tr><td>Name</td><td>String</td><td></td><td></td></tr><tr><td>ActivateDataStatus</td><td>Boolean</td><td></td><td></td></tr><tr><td>InputAddressLength</td><td>Int64</td><td></td><td></td></tr><tr><td>OutputAddressLength</td><td>Int64</td><td></td><td></td></tr><tr><td rowspan="2">VirtualSubType</td><td rowspan="2">UInt64</td><td>1</td><td>MsoLocal</td></tr><tr><td>2</td><td>MsoSub</td></tr></table>
-```txt
+```text
 说明无法删除前两个子模块。
 ```
 
 #### 程序代码：创建和删除虚拟模块
 
 修改以下程序代码以添加新模块：
-```txt
+```text
 string Type = "OrderNumber:6ES7 155-6AU30-0CN0/V4.2";
 Device ET200SP = newProject.Devices.CreateWithItem(Type, "ET200SP", "ET200SP");
 DeviceItem Rack = ET200SP.DeviceItems.First();
@@ -6607,7 +6607,7 @@ int PositionNumber = 100;
 DeviceItem VIM = Rack.PlugNew(TypeIdentifier, Name, PositionNumber);
 ```
 修改以下程序代码以删除模块：
-```txt
+```text
 DeviceItem Rack = ET200SP.DeviceItems.First();
 string TypeIdentifier = "OrderNumber:ET200SP.Virtual.Module";
 string Name = "VirtualIO_1";
@@ -6647,7 +6647,7 @@ MrpDomainOwner mrpDomainOwner = subnet.GetService<MrpDomainOwner>();
 MrpDomainComposition mrpDomainComposition = mrpDomainOwner.MrpDomains;
 ```
 修改以下程序代码以创建名为 newMrpDomain 的新域：
-```txt
+```text
 int countOfMrpDomains = mrpDomainComposition.Count;
 MrpDomain someMrpDomain = mrpDomainComposition.ElementAt(3);
 MrpDomain firstMrpDomain = mrpDomainComposition.First();
@@ -6656,7 +6656,7 @@ MrpDomain byName = mrpDomainComposition.Find("DomainName");
 MrpDomain newMrpDomain = mrpDomainOwner.MrpDomains.Create("newMrpDomain");
 ```
 修改以下程序代码，以读取/写入 MRP 域对象的属性值：
-```txt
+```text
 NetworkInterface toBeAdded = ...;
 newMrpDomain.SetAttribute("IsDefault", true);
 newMrpDomain.SetAttribute("ManagerOutsideOfProjectActive", false);
@@ -6679,7 +6679,7 @@ SyncDomainOwner syncDomainOwner = subnet.GetService<SyncDomainOwner>();
 SyncDomainComposition syncDomainComposition = syncDomainOwner.SyncDomains;
 ```
 修改以下程序代码以创建具有特定名称的新 SyncDomain：
-```txt
+```text
 int countOfSyncDomains = syncDomainComposition.Count;
 SyncDomain someSyncDomain = syncDomainComposition.ElementAt(3);
 SyncDomain firstSyncDomain = syncDomainComposition.First();
@@ -6690,7 +6690,7 @@ SyncDomain newSyncDomain = syncDomainOwner.SyncDomains.Create("newSyncDomain");
 
 #### 修改以下程序代码以读取/写入 Sync 域的属性值：
 
-```txt
+```text
 NetworkInterface toBeAdded = ...;
 string convertedName = newSyncDomain.ConvertedName;
 newSyncDomain.SetAttribute("IsDefault", true);
@@ -6854,7 +6854,7 @@ bool isGsdValue = device.IsGsd;
 #### 程序代码：动态访问的强制属性
 
 修改以下程序代码以通过动态访问获取属性项：
-```txt
+```text
 Device device = ...;
 var attributeNames = new[]
 {
@@ -6922,7 +6922,7 @@ string typeIdentifier = hardwareObject.TypeIdentifier;
 • 使用一个“应用程序键”(Application Key) 只能设置一个应用程序 ID。
 • 使用同一个“应用程序键”(Application Key) 设置不同的应用程序值时，将保留最后设置的应用程序值
 修改以下程序代码来设置设备的应用程序 ID 和设备项对象：
-```txt
+```text
 Device device = ...;
 // Ask for Service CustomIdentityProvider on the device/device item
 var customIdentityProviderService = device.GetService<CustomIdentityProvider>();
@@ -6938,7 +6938,7 @@ customIdentityProviderService.Set("Application_Key", "Application_Value");
 如果设备或设备项已设置了应用程序 ID，则可以使用 TIA Portal Openness 获取设备的应用程序 ID 以及 TIA Portal 项目的设备项。
 应用程序 ID 将以“应用程序键”(Application Key) 和“应用程序值”(Application Value) 对的形式存储，并作为 TIA Portal 的一部分。可使用 TIA Portal Openness 获取应用程序 ID 值，方法是提供“应用程序键”(Application Key)。
 修改以下程序代码以获取对象的应用程序 ID 值，该值事先已使用“应用程序键”(ApplicationKey) 进行设置：
-```txt
+```text
 Device device = ...;
 // Ask for Service CustomIdentityProvider on the device/device item
 var customIdentityProviderService = device.GetService<CustomIdentityProvider>();
@@ -6950,7 +6950,7 @@ var applicationValue = customIdentityProviderService.Get("Application_Key");
 
 ### 5.9.5 移除设备的 App ID 和设备项
 
-```txt
+```text
 - TIA Portal Openness 应用程序已连接到 TIA Portal。[连接到 TIA Portal](#连接到-TIA-Portal)”
 ```
 • 项目已打开[打开项目](#打开项目)”
@@ -6977,11 +6977,11 @@ catch(CustomIdentityNotFoundException ex)
 • TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
 • 项目已经打开。[打开项目](#打开项目)”
 可以通过两种方法创建设备，即在项目中或在设备组中：
-```txt
+```text
 - 通过设备项类型标识符（如 TIA 硬件目录
 Device CreateWithItem(DeviceItemTypeId, DeviceItemTypeName, DeviceName) 中）创建设备对象：
 ```
-```txt
+```text
 - 仅创建设备
 Device Create(DeviceTypeId, DeviceName)
 ```
@@ -6999,7 +6999,7 @@ Device gsdDevice = devices.CreateWithItem("GSD:SIEM8139.GSD/M/4 ", "GSD Module",
 ```
 程序代码：仅创建设备
 修改以下代码以仅创建设备对象：
-```txt
+```text
 DeviceComposition devices = ...;
 Device deviceOnly = devices.Create("System:Device.S7300", "S7300Device");
 Device gsdDeviceOnly = devices.Create("GSD:SIEM8139.GSD/D", "GSD Device");
@@ -7038,7 +7038,7 @@ private static void EnumerateDevicesInProject(Project project)
 }
 ```
 修改以下程序代码以访问单个设备。
-```txt
+```text
 private static void AccessSingleDeviceByName(Project project)
 {
     DeviceComposition deviceComposition = project.Devices;
@@ -7079,14 +7079,14 @@ private static void EnumerateDeviceObjects(DeviceComposition deviceComposition)
 #### 程序代码：查找特定设备
 
 要按名称查找特定设备，则需修改以下程序代码：
-```txt
+```text
 //Find a specific device by name
 Project project = ...
 Device plc1 = project.Devices.First(d => d.Name == "Mydevice");
 ... // Work with the device
 ```
 修改以下程序代码以通过“查找”方法查找特定设备：
-```txt
+```text
 //Find a specific device via "Find" method
 Project project = ...
 Device plc1 = project.Devices.Find("MyDevice");
@@ -7108,7 +7108,7 @@ foreach (Device device in project.Devices)
 #### 程序代码：枚举位于某一文件夹中的所有设备
 
 修改以下程序代码：
-```txt
+```text
 //Enumerate all devices located in a folder
 Project project = ...
 DeviceUserGroup sortingGroup = project.DeviceGroups.Find ("Sorting");
@@ -7119,7 +7119,7 @@ Device plc1 = sortingGroup.Devices.First(d => d.Name == "MyStationName");
 程序代码：枚举未分组设备系统组的设备
 为构建项目，已将分散设备置于 UngroupedDevices 组中。要访问该组中的设备，首先需要导航至该组，然后再导航至相应的设备。
 修改以下程序代码：
-```txt
+```text
 //Enumerate devices of the ungrouped device system group
 Project project = ...
 DeviceSystemGroup group = project.UngroupedDevicesGroup;
@@ -7155,7 +7155,7 @@ foreach (var attributeName in attributeNames) {
 #### 程序代码：属性
 
 修改以下程序代码以获取以下属性：
-```txt
+```text
 Device device = ...;
 string nameValue = device.Name;
 bool isGsdValue = device.IsGsd;
@@ -7176,7 +7176,7 @@ foreach (var attributeName in attributeNames) {
 #### 程序代码：GSD 设备特性
 
 如果设备是为 GSD 设备，则该设备可提供附加功能。要获取 GsdDevice 功能，请使用GetService 方法。
-```txt
+```text
 GsdDevice gsdDevice = ((IEngineeringServiceProvider)deviceItem).GetService<GsdDevice>();
 if (gsdDevice != null) {
     ... // work with the GSD device
@@ -7355,7 +7355,7 @@ DeviceItem deviceItem = ...;
 • TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
 • 已打开一个项目。
 请[打开项目](#打开项目)
-```txt
+```text
 HardwareObject 的 PlugNew(string typeIdentifier, string name, int positionNumber) 操作用于
 ```
 • 创建新的设备项并将其插入现有硬件对象中
@@ -7399,7 +7399,7 @@ var result = extensions.Find("ModuleInformationProvider") as ModuleInformationPr
 FindContinerTypes 方法返回给定模块的容器类型。使用 typeIdentifier 参数指定模块。结果列表包含所请求类型的所有容器类型的TypeIdentifier。通常包括“设备”和“机架”，各容器会从设备开始按照它们在项目中的层次结构顺序列出。
 <table><tr><td>参数的名称</td><td>类型</td><td>说明</td></tr><tr><td>typeIdentifier</td><td>string</td><td>设备项的类型标识符。</td></tr></table>
 <table><tr><td>注意</td></tr><tr><td>此函数仅适用于网络视图中可见的模块。此函数仅适用于模块,而不适用于子模块。</td></tr></table>
-```txt
+```text
 string typeIdentifier = ...;
 string[] containerTypes = moduleInformationProvider.FindContainerTypes(typeIdentifier);
 ```
@@ -7412,7 +7412,7 @@ FindModuleTypes 方法使用设备项的局部类型标识符，返回硬件对�
 • GSD：至少两个部分。示例 GSD:SI05816A.GSD/M
 • 系统：至少一个部分。示例 System:Rack.ET200SP
 <table><tr><td>参数的名称</td><td>类型</td><td>说明</td></tr><tr><td>partialTypeIdentifier</td><td>string</td><td>设备项的局部类型标识符</td></tr></table>
-```txt
+```text
 string partialTypeIdentifier = ...;
 string[] moduleTypes = moduleInformationProvider.FindModuleTypes(partialTypeIdentifier);
 ```
@@ -7422,7 +7422,7 @@ PlugLocation 类别具有以下属性：
 <table><tr><td>属性名称</td><td>类型</td><td>说明</td></tr><tr><td>PositionNumber</td><td>int</td><td>自由插槽的位置编号</td></tr><tr><td>Label</td><td>string</td><td>自由插槽的标签</td></tr></table>
 • 如果某个位置编号没有对应的“label”，则使用位置编号的字符串表示。
 • 仅为自由插槽提供 PlugLocation 对象。
-```txt
+```text
 HardwareObject hardwareObject = ...;
 IList<PlugLocation> result = hardwareObject.GetPlugLocations();
 foreach (PlugLocation item in result)
@@ -7449,7 +7449,7 @@ CanPlugMove(DeviceItem deviceItem, int positionNumber) 操作可用于确定是�
 • 设备在线
 程序代码
 修改以下程序代码：
-```txt
+```text
 HardwareObject hwObject = ...;
 DeviceItem deviceItemToMove = ...;
 int positionNumber = ...;
@@ -7475,7 +7475,7 @@ if (hwObject.CanPlugMove(deviceItemToMove, positionNumber)
 使用 CanPlugCopy(DeviceItem deviceItem, int positionNumber) 操作确定是否可以进行复制。当无法执行复制操作时，CanPlugCopy 将返回“假”。但是，如果方法返回“真”，该操作仍然可能会因意外原因而失败。
 <table><tr><td>参数的名称</td><td>类型</td><td>说明</td></tr><tr><td>deviceItem</td><td>DeviceItem</td><td>要复制的设备项</td></tr><tr><td>positionNumber</td><td>int</td><td>设备项副本的位置编号</td></tr></table>
 修改以下程序代码：
-```txt
+```text
 HardwareObject hwObject = ...;
 DeviceItem deviceItemToCopy = ...;
 int positionNumber = ...;
@@ -7514,7 +7514,7 @@ frontPanelDisplay.SetUserDefinedLogo(new FileInfo(@"C:\Pictures\CompanyLogo.jpg"
 • TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
 • 项目已经打开。[打开项目](#打开项目)”
 修改以下程序代码以删除设备项：
-```txt
+```text
 Project project = ...;
 var device = project.UngroupedDevicesGroup.Devices.Find("......");
 var deviceItem = deviceItem.DeviceItems.First();
@@ -7537,7 +7537,7 @@ deviceItem.Delete();
 #### 程序代码：枚举设备的设备项
 
 修改以下程序代码以枚举硬件对象的设备项：
-```txt
+```text
 private static void EnumerateDeviceItems(HardwareObject hardwareObject)
 {
     foreach (DeviceItem deviceItem in hardwareObject.Items)
@@ -7582,7 +7582,7 @@ private static void EnumerateDeviceItemsWithAssociation(Device device)
 要求
 • TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
 • 项目已经打开。[打开项目](#打开项目)”
-```txt
+```text
 public static DeviceItem AccessDeviceItemFromDevice(Device device)
 {
     DeviceItem deviceItem = device.DeviceItems[0];
@@ -7659,7 +7659,7 @@ DeviceItem deviceItem = ...;
 
 #### 程序代码：获取头模块的 prm 数据
 
-```txt
+```text
 DeviceItem deviceItem = ...;
 GsdDeviceItem gsdDeviceItem =
 ((IEngineeringServiceProvider)deviceItem).GetService<GsdDeviceItem>();
@@ -7677,7 +7677,7 @@ byte[] prmDataPartial = gsdDeviceItem.GetPrmData(dsNumber, byteOffset, lengthInB
 #### 程序代码：设置头模块的 prm 数据
 
 修改以下程序代码以获取 prm 数据：
-```txt
+```text
 DeviceItem deviceItem = ...;
 GsdDeviceItem gsdDeviceItem =
 ((IEngineeringServiceProvider)deviceItem).GetService<GsdDeviceItem>();
@@ -7796,13 +7796,13 @@ long sendClock = 2000000;
 pnInterface.SetAttribute("PnSendClock", sendClock);
 ```
 修改以下程序代码以访问 OB 的 Ti/To 值：
-```txt
+```text
 IoSystem ioSystem = ...;
 bool titoAutoCalculation = (bool)ioSystem.GetAttribute("IsochronousTiToAutoCalculation");
 ioSystem.SetAttribute("IsochronousTiToAutoCalculation", true);
 ```
 修改以下程序代码以访问 I/O 设备接口的等时设置：
-```txt
+```text
 DeviceItem pnInterface = ...;
 bool isochronousMode = (bool)pnInterface.GetAttribute("IsochronousMode");
 pnInterface.SetAttribute("IsochronousMode", true);
@@ -7842,7 +7842,7 @@ private void GetSubnetDeviceItem()
 Synchronication role 属性在 TIA Portal UI 的 PROFINET 接口中可用。EnumSyncRole 具有以下值。
 <table><tr><td>枚举值</td><td>数值</td></tr><tr><td>SyncRole.NotSynchronized</td><td>0</td></tr><tr><td>SyncRole.SyncMaster</td><td>1</td></tr><tr><td>SyncRole.SyncSlave</td><td>2</td></tr><tr><td>SyncRole.RedundantSyncMaster</td><td>4</td></tr></table>
 程序代码：设置 IoController 的属性
-```txt
+```text
 IoController ioController= ...;
 SyncRole syncRole = (SyncRole)((IEngineeringObject)ioController).GetAttribute("SyncRole");
 ((IEngineeringObject)ioController).SetAttribute("SyncRole", SyncRole.SyncMaster);
@@ -7906,7 +7906,7 @@ connector.SetAttribute("PnUpdateTimeAutoCalculation", true);
 #### 程序代码：获取地址控制器
 
 修改以下程序代码以获取地址控制器角色：
-```txt
+```text
 AddressController addressController = ((IEngineeringServiceProvider)deviceItem).GetService<AddressController>();
     if (addressController != null)
     {
@@ -7919,7 +7919,7 @@ AddressController addressController = ((IEngineeringServiceProvider)deviceItem).
 地址控制器具有如下属性：
 • RegisteredAddresses
 修改以下程序代码以获取地址控制器的属性：
-```txt
+```text
 AddressController addressController = ...;
 foreach (Address registeredAddress in addressController.RegisteredAddresses)
 {
@@ -7935,7 +7935,7 @@ foreach (Address registeredAddress in addressController.RegisteredAddresses)
 通过设备项的组合链接Addresses 获取地址对象。属性 Addresses 将返回可枚举的 AddressComposition 类型集合。
 程序代码：获取设备项的地址
 要获取设备项的地址，请修改以下程序代码：
-```txt
+```text
 AddressComposition addresses = deviceItem.Addresses;
 foreach (Address address in addresses)
 {
@@ -7946,7 +7946,7 @@ foreach (Address address in addresses)
 #### 程序代码：获取 IO 控制器地址
 
 要获取 io 控制器的地址，请修改以下程序代码：
-```txt
+```text
 AddressComposition addresses = ioController.Addresses;
 foreach(Address address in addresses)
 {
@@ -7959,7 +7959,7 @@ foreach(Address address in addresses)
 <table><tr><td>值</td><td>说明</td></tr><tr><td>AddressContext.None</td><td>地址上下文不适用</td></tr><tr><td>AddressContext.Device</td><td>设备地址内容</td></tr><tr><td>AddressContext.Head</td><td>一个前段地址内容</td></tr></table>
 程序代码：读取属性
 修改以下程序代码以获取以下属性：
-```txt
+```text
 AddressControllerAssociation addressControllers = address.AddressControllers;
 Int32 startAddress = address.StartAddress;
 AddressIoType addressType = address.IoType;
@@ -7973,7 +7973,7 @@ address.StartAddress = intValueStartAddress;
 ```
 程序代码：动态访问的属性
 修改以下程序代码以获取以下属性：
-```txt
+```text
 Address address= ...;
 object attributeValue = ((IEngineeringObject)address).GetAttribute("Context");
 ```
@@ -7993,7 +7993,7 @@ object attributeValue = ((IEngineeringObject)address).GetAttribute("Context");
 #### 程序代码：获取硬件标识符
 
 若要使HwIdentifier 可用，可修改以下程序代码：
-```txt
+```text
 var hwObject = ...;
 foreach(HwIdentifier hardwareIdentifier in hwObject.HwIdentifiers)
 {
@@ -8051,7 +8051,7 @@ HwIdentifierAssociation controllers = hwIdentifierController.RegisteredHwIdentif
 #### 程序代码：获取设备项的通道
 
 修改以下程序代码以获取设备项的通道：
-```txt
+```text
 ChannelComposition channels = deviceItem.Channels
 foreach(Channel channel in channels)
 {
@@ -8062,7 +8062,7 @@ foreach(Channel channel in channels)
 #### 程序代码：通道的强制属性
 
 修改以下程序代码以获取设备项的通道：
-```txt
+```text
 Channel channel = ...;
 int channelNumber = channel.Number;
 ChannelType type = channel.Type;
@@ -8072,7 +8072,7 @@ ChannelIoType ioType = channel.IoType;
 #### 程序代码：通过动态访问获取属性值
 
 修改以下程序代码以获取动态属性的值：
-```txt
+```text
 Channel channel = ...;
 Int32 channelAddress = (Int32)((IEngineeringObject)channel).GetAttribute("ChannelAddress");
 UInt32 channelWidth = (UInt32)((IEngineeringObject)channel).GetAttribute("ChannelWidth");
@@ -8081,7 +8081,7 @@ UInt32 channelWidth = (UInt32)((IEngineeringObject)channel).GetAttribute("Channe
 #### 程序代码：设置动态属性的值
 
 修改以下程序代码以设置可写入动态属性的值：
-```txt
+```text
 Channel channel = ...;
 ((IEngineeringObject)channel).SetAttribute("AnAttribute", 1234);
 ```
@@ -8186,7 +8186,7 @@ DownloadProvider downloadProviderSwCpu = swCpu TokService<DownloadProvider>();
 }
 ```
 修改以下程序代码组态网络参数：
-```txt
+```text
 ConnectionConfiguration connConfig = downloadProviderStationManager.Configuration;
 ConfigurationMode configurationMode = connConfig.Modes.Find("PN/IE");
 ConfigurationPcInterface pcInterface = configurationMode.PcInterfaces.Find("ASIX AX88179 USB 3.0 to Gigabit Ethernet Adapter", 1);
@@ -8197,7 +8197,7 @@ if (isConfigured)
 ```
 必须注意的是，如果目标系统在下载 PC-Station Plus 组态之后重启，Openness 中的默认特性是等待。这意味着 Openness 代码流会停止，直至第一阶段下载成功（且目标系统重启）、超时或失败。
 如果不希望等待重启，可使用名为 WaitOnReboot 的后期下载选项
-```txt
+```text
 //Post Download Configuration Delegate
 DownloadConfigurationDelegate postDownloadForPcStation = downloadConfiguration =>
 {
@@ -8218,7 +8218,7 @@ if (waitOnReboot != null)
 
 ### 必须单独地继续下载 SW-CPU，但务必要确保之前已执行 PC-Station 下载。
 
-```txt
+```text
 DownloadResult downloadResult = null;
 try
 {
@@ -8248,7 +8248,7 @@ catch (EngineeringTargetInvocationException e)
 ```
 与 HW-CPU 中相同，SW-CPU 目前不支持下载 F-Activated PLC。
 下载方法还会触发编译。还可以使用以下代码片段单独编译设备项：
-```txt
+```text
 ICompilable compileServiceSwCpu = swCpu.GetService<ICompilable>();
 ICompilable compileServiceStationManager = stationManager TokService<ICompilable>();
 CompilerResult compileResultStationManager = compileServiceStationManager Compile();
@@ -8263,13 +8263,13 @@ if (compileCheck != true)
 #### 5.11.1.3 下载到 PLC 设备
 
 • TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
-```txt
+```text
 - 已通过 TIA Portal Openness 应用程序打开一个项目。
 [打开项目](#打开项目)”
 ```
 可使用 TIA Portal Openness 的 DownloadProvider（从 DeviceItem 访问）将软件和硬件组件下载到 PLC 设备中。如果 DeviceItem 表示可下载的目标，则调用 GetService 时将返回DownloadProvider 的实例，否则服务将返回 null。
 程序代码：从设备项中检索 DownloadProvider 服务
-```txt
+```text
 DeviceItem deviceItem = ...;
 DownloadProvider downloadProvider = deviceItem.GetService<DownloadProvider>();
 if (downloadProvider != null)
@@ -8289,7 +8289,7 @@ DownloadOptions loadOption = DownloadOptions.Hardware | DownloadOptions.Software
 DownloadResult result = downloadProvider.Download(targetConfiguration, preDownloadDelegate, postDownloadDelegate, loadOption);
 ```
 可使用可选参数下载到运行 PLC 的 IP 地址与离线组态的 IP 地址不同的 IP 地址。
-```txt
+```text
 ...
 ConfigurationAddress onlineAddress = ...
 DownloadResult result = downloadProvider.Download(targetConfiguration, onlineAddress, preDownloadDelegate, postDownloadDelegate, loadOption);
@@ -8319,7 +8319,7 @@ IConfiguration targetConfiguration = pcInterface.TargetInterfaces[0];
 ##### ConfigurationAddress
 
 如果预设的 IP 地址不同于已下载的在线 IP 地址，则需要使用其它参数。这是为了标识正确的在线 PLC。
-```txt
+```text
 ...
 DownloadProvider downloadProvider = ...
 ConnectionConfiguration configuration = downloadProvider.Configuration;
@@ -8369,7 +8369,7 @@ API 用户负责保证通过代码处理密码时的安全措施。
 • ModuleWriteAccessPassword
 • BlockBindingPassword
 • PlcMasterSecretPassword
-```txt
+```text
 bool isSecureCommunication = moduleReadAccessPassword.IsSecureCommunication;
 if (isSecureCommunication == true)
 {
@@ -8535,12 +8535,12 @@ DownloadProvider downloadProvider = deviceItem.GetService<DownloadProvider>();
 downloadProvider.Download(new DirectoryInfo(@"c:\tmp\card1"),
 DownloadConfigurationDelegate);
 ```
-```txt
+```text
 说明
 必须指定 Windows 文件系统上的本地 Windows 文件夹和委托方法。
 ```
 修改以下程序代码以访问 R/H 系统的 RHDownloadProvider：
-```txt
+```text
 Device device = ...;
 RHDownloadProvider rhDownloadProvider = device.GetService<RHDownloadProvider>();
 rhDownloadProvider.Download(new DirectoryInfo(@"c:\tmp\card1"),
@@ -8649,7 +8649,7 @@ internal bool DownloadDevice(DeviceItem deviceItem)
 
 ##### 可使用以下代码示例在 PreDownloadDelegate 中进行 PlcMasterSecretPassword 处理：
 
-```txt
+```text
 private static void PreConfigureDownload(DownloadConfiguration downloadConfiguration)
 {... .... .... ...
 // Set the PLC Master Secret password configured in the offline project's PLC,
@@ -8737,7 +8737,7 @@ public SecureString StringToSecureString(string value)
 ##### 复位 PLC 主密码功能
 
 如果忘记主密钥，复位操作将移除主密码组态，证书将被丢弃。
-```txt
+```text
 plcMasterSecretConfigurator.Protect(StringToSecureString("TiaPassword123"));
 plcMasterSecretConfigurator.Reset();
 ```
@@ -8756,20 +8756,20 @@ SetPlcMasterSecret() 支持以下参数：
 ##### 程序代码：设置和复位 PlcMasterSecret
 
 修改以下程序代码以通过 OnlineProvider 服务设置和复位 PlcMasterSecret：
-```txt
+```text
 DeviceItem deviceItem = ...;
 SecureString password = ...;
 OnlineProvider onlineProvider = deviceItem.GetService<OnlineProvider>();
 ```
 修改以下程序代码以设置 PlcMasterSecret：
-```txt
+```text
 DeviceItem deviceItem = ...;
 SecureString password = ...;
 OnlineProvider onlineProvider = deviceItem.GetService<OnlineProvider>();
 onlineProvider.SetPlcMasterSecret(password);
 ```
 修改以下程序代码以复位 PlcMasterSecret：
-```txt
+```text
 DeviceItem deviceItem = ...;
 OnlineProvider onlineProvider = deviceItem.GetService<OnlineProvider>();
 onlineProvider.ResetPlcMasterSecret();
@@ -8814,7 +8814,7 @@ public void ConfigurePostDownload(DownloadConfiguration downloadConfiguration)
 • 已打开一个项目。请[打开项目](#打开项目)
 某些 API 方法需要在执行期间与用户定义的应用程序代码进行交互。Delegates 用于在用户定义的应用程序代码中处理这些回调操作。您需要使用兼容签名来执行方法，并将其作为delegate 参数传递给操作。为了继续执行，TIA Portal 调用已执行的方法。
 使用和执行 delegate 的用户应用程序代码的示例：
-```txt
+```text
 [STAThread]
 static void Main()
 {
@@ -8849,7 +8849,7 @@ STAThread 属性将确保在执行的主线程中调用 delegates。
 
 ##### 修改以下读保护 PLC 的程序代码
 
-```txt
+```text
 public void ConfigurePreDownload(DownloadConfiguration downloadConfiguration)
 {
     ModuleReadAccessPassword moduleReadAccessPassword = downloadConfiguration
@@ -8908,7 +8908,7 @@ public void ConfigurePreDownload(DownloadConfiguration downloadConfiguration)
 
 ##### 程序代码：从项目中检索 StationUploadProvider 服务
 
-```txt
+```text
 Project myProject = ...;
 StationUploadProvider uploadProviderForProject =
 myProject TokService<StationUploadProvider>();
@@ -8930,7 +8930,7 @@ UploadOptions 是可选的，因为 StationUpload 可上传软件、硬件和文
 ConnectionConfiguration 中创建。
 Configuration 包含受支持 Modes 的列表。用户需选择其中一个 Modes 用于上传。所选的ConfigurationMode 包含所有支持所选 Mode 的本地 PcInterfaces 的列表，必须选择其中一个接口。可在所选 ConfigurationPcInterface 的 Address 集中创建所需地址。
 修改以下代码，以创建地址对象：
-```txt
+```text
 ...
 StationUploadProvider uploadProvider = null;
 ...
@@ -8948,7 +8948,7 @@ ConfigurationAddress uploadAddress = pcInterface.Addresses.Create("192.68.0.1");
 必须设置以下参数：
 • ConfigurationAddress：要执行上传的设备的地址
 • UploadConfigurationDelegate：处理上传限制的回调
-```txt
+```text
 ...
 StationUploadProvider uploadProvider = null;
 Device uploadedObject = null;
@@ -8977,7 +8977,7 @@ uploadConfiguration)。预上传组态时将调用委托。每次组态需要用
 <table><tr><td>组态</td><td>数据类型</td><td>描述和操作</td></tr><tr><td rowspan="2">UploadPasswordConfiguration</td><td>ModuleReadAccessPassword</td><td>Set password viaSetPassword(password:SecureString) 方法。输入密码,获得模块的读访问权限。</td></tr><tr><td>PasswordReadAccess</td><td>Set password viaSetPassword(password:SecureString) 方法。输入密码以进行典型 PLC 的 SW 上传,获得模块的读访问权限。</td></tr><tr><td>UploadSelectionConfiguration</td><td>UploadMissingProducts</td><td>SetCurrentSelection:UploadMissingProductsSelections 可用枚举值为:TryUpload (Consistent upload)NoAction (No action)设置上传选项。</td></tr></table>
 不需要支持故障安全密码。对于通过上传 F-PLC 的读访问，无需密码。
 所有组态均有属性：IsSecureCommunication。如果已与 PLC 建立“安全通信”（TLS 握手）连接，该属性提供“TRUE”。其它所有情况下，该属性均提供“FALSE”。有关IsSecureCommunication 的更多信息，[支持安全 S7 通信 TLS](#支持安全-S7-通信-TLS)”
-```txt
+```text
 bool isSecureCommunication = moduleReadAccessPassword.IsSecureCommunication;
 if (isSecureCommunication == true)
 {
@@ -8991,7 +8991,7 @@ EngineeringTargetInvocationException 并中止上传。
 
 ##### PreUploadDelegate 实现示例：
 
-```txt
+```text
 private static void PreConfigureUpload(UploadConfiguration UploadConfiguration)
 oduleReadAccessPassword moduleReadAccessPassword = UploadConfiguration as
 oduleReadAccessPassword;
@@ -9167,7 +9167,7 @@ globalLibrary)
 }
 ```
 修改以下程序代码以比较 PLC 的软件与主副本：
-```txt
+```text
 private static void ComparePlcToMasterCopy(Project project, PlcSoftware plcSoftware)
 {
     if (project != null && plcSoftware != null)
@@ -9198,7 +9198,7 @@ private static void ComparePlcToOnlinePlc(PlcSoftware plcSoftware)
 简介
 可使用 UpdateProgram() 将指令升级到 PLC 的最新版本。可通过 PlcSoftware 实例访问UpdateProgram().
 程序代码
-```txt
+```text
 private void UpdateProgramPLC()
 {
     PlcSoftware plcSoftware = ...;
@@ -9307,7 +9307,7 @@ CertificateManagementConfiguration 支持以下属性：
 方法
 CertificateSupportedService() 表示证书管理组态支持的服务。其接受以下属性：
 <table><tr><td>特性名称</td><td>数据类型</td><td>描述</td><td>访问</td><td>说明</td></tr><tr><td>ServiceType</td><td>CertificateSupportedServiceName</td><td>表示证书管理组态支持的服务名称。CertificateSupportedServiceName接受以下枚举项及其枚举值:Webserver - 100OpcUaServer - 200</td><td>读</td><td></td></tr><tr><td>Id</td><td>ushort</td><td>表示证书管理组态支持的服务 id。</td><td>读</td><td></td></tr><tr><td>ServiceGroupName</td><td>string</td><td>表示证书管理组态的受支持服务的组名</td><td>读/写</td><td>服务值设为大于64字符时,会出现EngineeringTargetInvocationException。</td></tr></table>
-```txt
+```text
 //...
 // for getting the service
 CertificateManagementConfiguration certificateConfigurationService =
@@ -9346,7 +9346,7 @@ private void DownloadConfigurationDelegate(DownloadConfiguration downloadConfigu
 • TIA Portal Openness 应用程序已连接到 TIA Portal请[连接到 TIA Portal](#连接到-TIA-Portal)
 • 已打开一个项目
 请[打开项目](#打开项目)”
-```txt
+```text
 可以使用 TIA Portal Openness API 通过设备 DeviceItem CPU 处的硬件 PlcAccessLevelProvider 来访问 “访问等级” 设置。
 ```
 此功能提供用于设置/重设密码的动作，并提供用于设置/读取访问等级设置的已建模属性。
@@ -9372,7 +9372,7 @@ private void DownloadConfigurationDelegate(DownloadConfiguration downloadConfigu
 <table><tr><td>TIA UI 名称</td><td>枚举条目</td><td>值</td><td>备注</td></tr><tr><td>-</td><td>None</td><td>0</td><td>用于枚举值初始化。该值不得由 Openness 用户设置。</td></tr><tr><td>完全访问权限(无保护)</td><td>FullAccess</td><td>1</td><td></td></tr><tr><td>读取访问</td><td>ReadAccess</td><td>2</td><td></td></tr><tr><td>HMI 访问</td><td>HMIAccess</td><td>3</td><td></td></tr><tr><td>无访问权</td><td>NoAccess</td><td>4</td><td></td></tr><tr><td>完全访问含故障安全(无保护)</td><td>FullAccessIncludingFailsafe</td><td>5</td><td>仅可用于故障安全 PLC</td></tr></table>
 可在 PLC 上使用名为 PlcProtectionAccessLevel 的 PlcProtectionAccessLevel 枚举类型的 EOM属性（已建模属性）设置/获取访问等级。
 可以为无访问权限的 PlcProtectionAccessLevel 使用以下代码示例：
-```txt
+```text
 DeviceItem S71500PLC = ...;
 PlcAccessLevelProvider myPlcAccessLevelProvider =
 S71500PLC TokService<PlcAccessLevelProvider>();
@@ -9395,7 +9395,7 @@ myPlcAccessLevelProvider.ResetPassword(PlcProtectionAccessLevel.ReadAccess);
 • 已通过 TIA Portal Openness 应用程序打开一个项目请[打开项目](#打开项目)
 可使用 Openness API 访问 PLC 站的软件校验和。
 要进行访问，请获取 PlcSoftware 的实例并加载 PlcChecksumProvider 的服务实例。
-```txt
+```text
 PlcSoftware plc = ...;
 //get PlcSoftware instance
 PlcChecksumProvider checksumProvider =
@@ -9418,7 +9418,7 @@ CAx 交换支持的 PC 站非常有限。仅支持版本为 V1.0 的 PC 站以�
 ##### 程序代码：接口分配
 
 修改并使用以下程序代码以实现接口分配：
-```txt
+```text
 DeviceItem swCpu = ...;
 DeviceItem myInterface = ...;
 PcInterfaceAssignment provider = myInterface.GetService<PcInterfaceAssignment>();
@@ -9487,7 +9487,7 @@ TIA Portal Openness 分为以下状态：
 • 不可访问
 • 受保护
 修改以下程序代码以确定某个 PLC 的状态：
-```txt
+```text
 public static OnlineState GetOnlineState(DeviceItem deviceItem)
 {
     OnlineProvider onlineProvider = deviceItem.GetService<OnlineProvider>();
@@ -9605,7 +9605,7 @@ public static void AccessSubnetAndGatewayOfPCInterface(ConfigurationPcInterface 
 
 ##### 修改以下程序代码以设置插槽参数：
 
-```txt
+```text
 public static void SetConnectionWithSlot(OnlineProvider onlineProvider)
 {
     ConnectionConfiguration configuration = onlineProvider.Configuration;
@@ -9666,7 +9666,7 @@ public static void SetConnectionWithSubnetAddress(OnlineProvider onlineProvider,
 
 ##### 程序代码：从 TIA Portal 检索 FingerprintDataProvider
 
-```txt
+```text
 TiaPortal tia = new TiaPortal(TiaPortalMode.WithUserInterface);
 FingerprintDataProvider fingerprintDataProvider =
 tia.GetService<FingerprintDataProvider>();
@@ -9686,7 +9686,7 @@ FingerprintDataProvider 支持以下属性：
 
 用户应该为 GetFingerprintData 提供 ConfigurationAddress 对象。对于必须提取fingerprintData 的设备，地址对象将用于为其建立一个连接。ConfigurationAddress 对象必须在 FingerprintDataProvider 的 ConnectionConfiguration 中创建。有关IsSecureCommunication 的信息，请[支持安全 S7 通信 TLS](#支持安全-S7-通信-TLS)”
 例如，用户可以使用以下代码创建地址对象：
-```txt
+```text
 ...
 ConnectionConfiguration configuration = fingerprintDataProvider.Configuration;
 ConfigurationMode configurationMode = configuration.Modes.Find("PN/IE");
@@ -9703,7 +9703,7 @@ ConfigurationAddress fingerprintAddress = pcInterface.Addresss.Create("192.68.0.
 
 用户可以通过调用 GetFingerprintData 操作来检索站的 FingerprintData。支持以下参数：
 <table><tr><td>参数</td><td>描述</td></tr><tr><td>ConfigurationAddress</td><td>设备的地址</td></tr><tr><td>OnlineConfigurationDelegate</td><td>处理限制的回调</td></tr></table>
-```txt
+```text
 ...
 OnlineConfigurationDelegate preConfigurationDelegate = PreConfigureFingerprint;
 FingerprintDataResult result =
@@ -9868,7 +9868,7 @@ internal FingerprintDataPairs LoadFingerprintDataItems(string filename)
 FingerprintDataPairs dataPair = null;
 using(FileStream fs = new FileStream(filename, FileMode.Open))
 ```
-```txt
+```text
 {
     BinaryFormatter formatter = new BinaryFormatter();
     try
@@ -9891,13 +9891,13 @@ using(FileStream fs = new FileStream(filename, FileMode.Open))
 ##### 比较特征码
 
 要进行比较，可以使用 FingerprintDataResult
-```txt
+```text
 ...
 // See chapter "FingerprintDataResult"
 FingerprintDataResult fingerprintDataResult = dataProvider.GetFingerprintData(address, preConfigurationDelegate);
 ```
 要保存特征码，可以使用帮助程序类别：
-```txt
+```text
 string pathDat = "FingerprintDataOverview.dat";
 // Create a fingerprint comparator and fill the dataitems with the result of "GetFingerprintData".
 FingerprintDataCompare fingerprintDataSet = new FingerprintDataCompare();
@@ -9906,7 +9906,7 @@ fingerprintDataSet.FingerprintDataPairSet.Add(item.FingerprintDataIdentifier, it
 fingerprintDataSet.SaveFingerprintDataItems(fingerprintDataSet.FingerprintDataPairSet, pathDat);
 ```
 借助已保存的 FingerprintDataItems 和当前 FingerprintDataResult，可实现特征码比较
-```txt
+```text
 ...
 string pathDat = "FingerprintDataOverview.dat";
 FingerprintDataCompare fingerprintDataSet = new FingerprintDataCompare();
@@ -10068,13 +10068,13 @@ private void PrintReferences(ReferenceObjectComposition referenceObjects)
 ##### 程序代码：从设备访问 RHOnlineProvider 服务
 
 修改以下代码以访问 RHOnlineProvider：
-```txt
+```text
 Device device = project.Devices.Find("S7-1500R/H-System_1");
 RHOnlineProvider rhOnlineProvider = device.GetService<RHOnlineProvider>();
 ```
 可使用 ConnectionConfiguration 对象设置设备连接。可通过 RHOnlineProvider 的Configuration属性进行访问。关于如何设置连接的更多信息，请[访问在线连接的参数](#访问在线连接的参数)
 修改以下程序代码，以设置连接模式并按名称访问 PC 接口。有关 IsSecureCommunication的信息，请[支持安全 S7 通信 TLS](#支持安全-S7-通信-TLS)”
-```txt
+```text
 ConnectionConfiguration connectionConfiguration = rhOnlineProvider.Configuration;
 ConfigurationMode mode = connectionConfiguration.Modes.Find("PN/IE");
 ConfigurationPcInterface pcInterface = mode.PcInterfaces.Find("Broadcom NetXtreme Gigabit Ethernet", 1);
@@ -10082,7 +10082,7 @@ ConfigurationTargetInterface targetConfiguration = pcInterface.TargetInterfaces.
 bool success = connectionConfiguration.ApplyConfiguration(targetConfiguration);
 ```
 R/H 系统包含两个 PLC，并提供单个连接组态。
-```txt
+```text
 程序代码：设置在线 R/H 系统
 可将主 PLC 或备用 PLC 设置为在线。用户同时尝试为两个目标同步设置在线时，将导致系统面临 EngineeringTargetInvocationException。
 修改以下程序代码，将主 PLC 设置为在线：
@@ -10150,7 +10150,7 @@ foreach (DeviceItem deviceItem in rhDevice.DeviceItems)
 
 可以通过设备提供的 RHDownloadProvider service 下载到 R/H 系统。
 修改以下程序代码以检索 RHDownloadProvider：
-```txt
+```text
 ...
 Device device = project.Devices.Find("S7-1500R/H-System_1");
 RHDownloadProvider rhDownloadProvider = device.GetService<RHDownloadProvider>();
@@ -10190,7 +10190,7 @@ DownloadConfigurationDelegate、DownloadOptions 和 DownloadResult 的更多详�
 
 ##### 下载调用示例
 
-```txt
+```text
 static void Main(string[] args)
 {
 ...
@@ -10312,7 +10312,7 @@ public static void SetOnlineConnection(DeviceItem deviceItem)
 
 ##### 还可以建立或断开到项目中所有可用 PLC 的在线连接。
 
-```txt
+```text
 public static void SetOnlineConnectionForAllPLCs(Project project)
 {
     foreach (Device device in project.Devices)
@@ -10356,7 +10356,7 @@ var assign得太German = firstRow.GetAttribute("DisplayLanguage");
 
 #### 5.11.2.14 为 Web 服务器和 PLC 显示分配监视表和强制表
 
-```txt
+```text
 - TIA Portal Openness 应用程序已连接到 TIA Portal 请[连接到 TIA Portal](#连接到-TIA-Portal)”
 ```
 • 已打开一个项目请[打开项目](#打开项目)”
@@ -10379,13 +10379,13 @@ var assign得太German = firstRow.GetAttribute("DisplayLanguage");
 ##### 程序代码：分配和取消分配监视表
 
 修改以下程序代码，以在 Web 服务器中搜索监视表：
-```txt
+```text
 WatchAndForceTableAccessManager mngr =
 deviceItem.GetService<WatchAndForceTableAccessManager>();
 WatchTableAccessRuleComposition watchTableCmp = mngr.WatchTableAccesseRules;
 WatchTableAccessRule accessRule1 = watchTableCmp.Find(watchTable1);
 ```
-```txt
+```text
 说明如果该监视表未关联到Web服务器中的任何WatchTableAccessRule，则会返回Null
 ```
 修改以下程序代码，为 Web 服务器创建具有读取访问权限的新监视表：
@@ -10402,14 +10402,14 @@ WatchTableAccessRule whatchtable= watchTableCmp.Find(watchTable1); whatchtable.D
 以下情况下将出错：
 • 如果 Web 服务器未激活 (WebserverActivate == FALSE)，会发生EngineeringTargetInvocationException，且错误详细信息会指出只有在已启用 Web 服务器的情况下才能添加 WatchTableAccessRule。
 • 如果监视表的 WatchtableAccessRule 已存在，则会发生 ConfigOpenessUserException，且错误详细信息会指出监视表已存在。
-```txt
+```text
 - 如果用户尝试添加具有 WatchAndForceTableAccess.None 的监视表，则会发生 ConfigOpenessUserException，且错误详细信息会指出 WatchAndForceTableAccess.None 不允许作为访问等级。
 ```
 
 ##### 程序代码：为 Web 服务器分配监视表
 
 修改以下程序代码，以在 Web 服务器中搜索强制表：
-```txt
+```text
 WatchAndForceTableAccessManager mngr =
 deviceItem.GetService<WatchAndForceTableAccessManager>();
 ForceTableAccessRuleComposition forceTableCmp = mngr.ForceTableAccessRules;
@@ -10435,7 +10435,7 @@ ForceTableAccessRuleComposition forceTableCmp = mngr.ForceTableAccessRules; forc
 • 导出和导入证书
 • 分配和取消分配证书
 • 获取证书 ID
-```txt
+```text
 5.11 PLC 设备的数据访问函数
 ```
 
@@ -10519,7 +10519,7 @@ if (importedCertificate2.HasPrivateKey)
 • OpcUaServer
 • OpcUaClient
 • OpcUaClientServer
-```txt
+```text
 // Create template
 ```
 ```javascript
@@ -10620,7 +10620,7 @@ var service = plc.GetService<SysLogConfigurationManager>();
 service.EnableSystemLogging = true;
 ```
 修改以下程序代码以获取或设置系统记录组态的传输协议：
-```txt
+```text
 var service = plc chloride<SysLogConfigurationManager>();
 service.EnableSystemLogging = true;
 service.TransportProtocol = SysLogTransportProtocolType.TLSServerAndClientAuthentication;
@@ -10632,7 +10632,7 @@ service.EnableSystemLogging = true;
 service.SysLogServerConfiguration.Create("www.test.com", 100);
 ```
 修改以下程序代码以启用或禁用在运行时接受证书设置：
-```txt
+```text
 var service = plc.GetService<SysLogConfigurationManager>();
 service.TransportProtocol = SysLogTransportProtocolType.TLSOnlyServerAuthentication;
 plc.SetAttribute("SysLogAutoAcceptClient", true);
@@ -10659,7 +10659,7 @@ plc.SetAttribute("SysLogClientCertificateId", (uint)1);
 请[打开项目](#打开项目)”
 可使用 TIA Portal Openness 设置参数实现在线连接。
 这些在线连接是在可通过 OnlineProvider 服务的组态导航器访问的ConnectionConfiguration对象上建立的。该服务存在于代表 PLC 的设备项上。
-```txt
+```text
 DeviceItem deviceItem = ...;
 OnlineProvider onlineProvider = deviceItem.GetService<OnlineProvider>();
 ConnectionConfiguration configuration = onlineProvider.Configuration;
@@ -10716,7 +10716,7 @@ result = configuration.ApplyConfiguration(gatewayAddress);
 ```
 建立连接后，可将 PLC 设为在线状态。每次ApplyConfiguration调用都是独立的，任何后续调用都将覆盖之前应用的设置。设置仅对当前会话有效，这一点与 UI 中的行为相似。如果已在 UI 中组态设置，则不需要进行ApplyConfiguration调用，在线连接将使用已提供的设置。如果设备已处于在线状态，调用 ApplyConfiguration 将抛出异常。
 可使用 ConnectionConfiguration 目标上提供的 IsConfigured 属性确定 PLC 是否已组态。
-```txt
+```text
 bool isConfigured = configuration.IsConfigured;
 ```
 始终将组态只有一种可行组态的 PLC，因此，无需调用 ApplyConfiguration，IsConfigured 属性也将返回 True。
@@ -10745,7 +10745,7 @@ configuration.EnableLegacyCommunication = true;
 ##### 订阅 Tl 通知事件
 
 要订阅 Tl 通知事件，需要在 OnlineLegitimation 上注册事件处理程序：
-```txt
+```text
 private OnlineConfigurationDelegate m_OnlineConfigurationDelegate = null;
 ...
 ConnectionConfiguration OnlineConfiguration = ...
@@ -10756,7 +10756,7 @@ OnlineConfiguration.OnlineLegitimation += m_OnlineConfigurationDelegate;
 ##### 取消订阅 Tl 通知事件
 
 要取消订阅 Tl 通知事件 (OnlineLegitimation)，需要注册事件处理程序：
-```txt
+```text
 ConnectionConfiguration OnlineConfiguration = ...
 m_OnlineConfigurationDelegate = OnlineCallBackMethod;
 OnlineConfiguration.OnlineLegitimation -= m_OnlineConfigurationDelegate;
@@ -10831,7 +10831,7 @@ ConnectionConfiguration onlineConfiguration = downloadProvider.Configuration;
 ##### 程序代码：订阅在线合法性的事件
 
 要订阅在线合法性的事件通知，需要在 OnlineLegitimation 上注册事件处理程序：
-```txt
+```text
 ConnectionConfiguration onlineConfiguration = ...;
 OnlineConfigurationDelegate onlineConfigurationDelegate = OnlineCallBackMethod;
 onlineConfiguration.OnlineLegitimation += onlineConfigurationDelegate;
@@ -10859,7 +10859,7 @@ private void OnlineCallBackMethod(OnlineConfiguration onlineConfiguration)
 OnlineAuthenticationConfiguration 具有以下属性和方法：
 <table><tr><td>OnlineAuthenticationConfiguration</td><td>描述</td></tr><tr><td>bool IsSecureCommunication{ get; }</td><td>在与 PLC 进行“安全通信”(TLS 握手)连接的情况下,该属性提供“true”。在所有其它情况下,属性都提供“false”。更多相关信息,请[下载到 PLC 设备](#下载到-PLC-设备)”</td></tr><tr><td>IList&lt;AuthenticationType&gt;GetSupportedAuthenticationTypes()</td><td>从 PLC 中通过 GetSupportedAuthenticationTypes() 获取所有支持的 AuthenticationType。</td></tr><tr><td>OnlineCredentialsOnlineCredentials { get; }</td><td>组态凭据详细信息的属性。</td></tr></table>
 在OnlineAuthenticationConfiguration对象中，可使用 IsSecureCommunication 选项验证连接是否使用安全 Tls。这类似于通过 DownloadConfiguration 上传或下载的组态。
-```txt
+```text
 OnlineAuthenticationConfiguration onlineAuthenticationConfiguration = onlineConfiguration as OnlineAuthenticationConfiguration;
 if (onlineAuthenticationConfiguration != null)
 {
@@ -10870,7 +10870,7 @@ if (onlineAuthenticationConfiguration != null)
     }
 }
 ```
-```txt
+```text
 OnlineAuthenticationConfiguration onlineAuthenticationConfiguration = onlineConfiguration as OnlineAuthenticationConfiguration;
 if (onlineAuthenticationConfiguration != null)
 {
@@ -10895,7 +10895,7 @@ if (onlineAuthenticationConfiguration != null)
 AuthenticationType 表示可选择的身份验证类型。
 要获取身份验证类型，可在 CurrentUserType 属性中获取 UserType 的 UserType 值。
 <table><tr><td>AuthenticationType</td><td>属性</td><td>描述</td></tr><tr><td>UserTypeCurrentUserType{ get; }</td><td>提供 UserType,受 PLC 支持</td><td>此值可在 OnlineCredentials 中使用:UserTypePLC 支持的合法性的可能 UserType 条目包括:None - 无需合法性AnonymousUser - 作为匿名用户的合法性GlobalUser - 作为全局用户的合法性ProjectUser - 作为项目用户的合法性SingleSignOnUser - 单点登录用户PasswordOnly - 仅限采用 PLC 保护访问级别密码的传统合法性</td></tr></table>
-```txt
+```text
 ...
 IList<AuthenticationType> supportedTypes =
 onlineAuthenticationConfiguration.GetSupportedAuthenticationTypes();
@@ -10980,7 +10980,7 @@ var configuration = provider.GetAttribute("PlcAccessControlConfiguration");
 
 ##### 程序代码：SetAttribute()
 
-```txt
+```text
 // Example to use 'SetAttribute'
 PlcAccessControlConfigurationProvider provider =
 plc chloride
@@ -11011,7 +11011,7 @@ displayProtection.SetPassword(someSecuredString); //Sets the string someSecuredS
 • TIA Portal Openness 应用程序已连接到 TIA Portal 请[连接到 TIA Portal](#连接到-TIA-Portal)”
 • 已打开一个项目请[打开项目](#打开项目)”
 可使用 TIA Portal Openness 访问 Web 服务器以及 PLC 的 OPC UA 子模块。可以为 Web 服务器和 PLC 的 OPC UA 子模块添加最大数量的用户。用户具有用户名和密码。
-```txt
+```text
 WebServerUserManagement
 {
 Navigators WebServerUsers
@@ -11028,7 +11028,7 @@ WebServerUserComposition
 如果未激活 Web 服务器，添加、删除和设置操作时将发生
 EngineeringTargetInvocationException，但仍可执行读操作。
 WebServerUserManagement 服务仅可用于受支持设备的 PLC 实例。对于其它不受支持的设备，该服务将为 null。
-```txt
+```text
 WebServerUserComposition
 {
     WebServerUser Find(string username);
@@ -11070,7 +11070,7 @@ user1.SetPassword(someSecureString);
 仅当 OPC UA 服务器已激活、且已启用用户名和密码身份验证时，才能在 OPC UA 服务器上执行添加用户、删除用户以及设置密码等操作。
 如果不满足这些条件，操作将发生 EngineeringTargetInvocationException，且错误详细信息会指出需要启用身份验证。
 OpcUaUserManagement 服务将可用于 PLC 的 OPC UA 子模块上。该服务将可用于为设备项提供 OPC UA 子模块的所有受支持设备。在其它情况下，服务将返回 null。
-```txt
+```text
 OpcUaUserManagement
 {
 Navigators OpcUaUsers
@@ -11080,7 +11080,7 @@ OpcUaUserComposition
 }
 ```
 该服务提供一个名为 OpcUaUsers 的导航程序，可通过该导航程序获取OpcUaUserComposition。组成管理 OpcUaUser 实例：
-```txt
+```text
 OpcUaUserComposition
 {
     OpcUaUser Find(string username);
@@ -11122,7 +11122,7 @@ OpcUaUserComposition opcUaUserComposition = opcUaUserManagement.OpcUaUsers; OpcU
 • 已在项目中确定 PLC。
 程序代码
 修改以下程序代码以查询“程序块”(Program blocks) 组：
-```txt
+```text
 private static void GetBlockGroupOfPLC(PlcSoftware plcsoftware)
 //Retrieves the system group of a block
 {
@@ -11191,7 +11191,7 @@ private static void EnumerateSystemBlockGroups(PlcSystemBlockGroup systemBlockGr
 ##### 程序代码：访问特定子组
 
 修改以下程序代码以访问特定子组：
-```txt
+```text
 private static void AccessSbGroup(PlcSystemBlockGroup systemBlockGroup)
 {
     PlcSystemBlockGroup group1 = systemBlockGroup.Groups.Find("User group XYZ");
@@ -11295,7 +11295,7 @@ TIA Portal Openness API 支持针对程序和数据块以及用户数据类型�
 • 块名称
 • 块作者
 • 块系列
-```txt
+```text
 - 块标题
 - 块版本
 更多详细信息，请[TIA Portal Openness 对象模型的块和类型](#TIA-Portal-Openness-对象模型的块和类型)。
@@ -11361,7 +11361,7 @@ void Unprotect(SecureString password)
 • 尝试取消保护一个已受到保护的块：将出现 EngineeringTargetInvocationException，并显示消息“不能取消对未受保护的对象的保护”(You can't unprotect an object withoutprotection)。
 • 尝试取消保护时使用的密码错误：将出现 EngineeringTargetInvocationException，并显示消息“使用的密码被拒绝”(The used password was refused)。
 • 尝试使用空字符串作为密码进行保护：将出现 EngineeringTargetInvocationException，并显示消息“密码未指定”(Password was not specified)。
-```txt
+```text
 PlcBlock block = ...;
 PlcBlockProtectionProvider protectionProvider =
 block.GetService<PlcBlockProtectionProvider>();
@@ -11431,7 +11431,7 @@ private static void DeleteBlocks(PlcSoftware plcsoftware)
 • TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
 • 已打开一个项目。请[打开项目](#打开项目)
 修改以下程序代码以创建块组：
-```txt
+```text
 private static void CreateBlockGroup(PlcSoftware plcsoftware)
 //Creates a block group
 {
@@ -11617,7 +11617,7 @@ gdbMembers.Find("ArrayOfStructMember.ArrayOfStructMember[0].UdtInstanceMember");
 object proDiagFB = member.GetAttribute("AssignedProDiagFB");
 ```
 修改以下程序代码以获取 tagTable 中的 prodiagFB：
-```txt
+```text
 // UDT Instance in TagTable
 PlcTagTable tagTable = plc.TagTableGroup.TagTables.Find("Tag table_1");
 PlcTag tag = tagTable.Tags.Find("Tag_1");
@@ -11704,13 +11704,13 @@ private static void ExportProDiagBlock(PlcBlock plcBlock)
 可以向 PLC 添加外部文件。此外部文件存储在文件系统的指定路径下。
 支持以下格式：
 • STL • SCL • DB • UDT
-```txt
+```text
 说明
 不支持访问“外部源文件”(External source files) 文件夹中的组。
 如果指定的文件扩展名不是 *.AWL、*.SCL、*.DB* 或 *.UDT，则会发生异常。
 ```
 修改以下程序代码以在“外部源文件”(External source files) 文件夹中创建块的外部文件。
-```txt
+```text
 private static void CreateBlockFromFile(PlcSoftware plcSoftware)
 // Creates a block from a AWL, SCL, DB or UDT file
 {
@@ -11726,7 +11726,7 @@ private static void CreateBlockFromFile(PlcSoftware plcSoftware)
 • PLC 未在线。
 TIA Portal Openness API 接口支持生成 STL 或 SCL 块、数据块和 PLC 类型（用户数据类型）的 UTF-8 格式源文件。要生成块的源文件，调用 PlcExternalSourceSystemGroup 实例上的 GenerateSource 方法。
 生成的源文件的大小取决于此函数的生成选项：
-```txt
+```text
 - GenerateOptions.None
 仅生成提供的块的源文件。
 ```
@@ -11740,7 +11740,7 @@ TIA Portal Openness API 接口支持生成 STL 或 SCL 块、数据块和 PLC �
 • 对于 STL 块，文件扩展名不是“\*.awl”
 • 对于 SCL 块，文件扩展名不是“\*.scl”
 修改以下程序代码，根据块和类型生成源文件：
-```txt
+```text
 PlcExternal质量安全Group.GenerateSource(IEnumerable<IGenerateSource> plcBlocks, FileInfo sourceFile, GenerateOptions generateOptions);
 // ...
 // examples
@@ -11774,7 +11774,7 @@ systemGroup.GenerateSource(types, fileInfo, GenerateOptions.WithDependencies);
 如果在调用期间发生错误，则会发生 Exception。在 TIA Portal Openness V18 之前，每个错误消息的前 256 个字符将包含在 Exception 的通知中。对于 TIA Portal Openness V18，将返回消息的前 4096 个字符。
 执行 GenerateBlocksFromSource 方法前，会将项目复位到处理状态。
 修改以下程序代码以在“外部源文件”(External source files) 组的所有外部文件中生成块。
-```txt
+```text
 // Creates a block from an external source file
 PlcSoftware plcSoftware = ...;
 foreach (PlcExternalSource plcExternalSource in
@@ -11904,7 +11904,7 @@ PlcSystemTypeGroupComposition 可用于访问 PLC 系统类型组，而 PlcSyste
 • 已通过 TIA Portal Openness 应用程序打开一个项目：请[打开项目](#打开项目)
 • PLC 未处于在线状态。
 修改以下程序代码以从“外部源文件”(External source files) 组中删除外部文件。
-```txt
+```text
 说明
 不支持访问“外部源文件”(External source files)组中的组。
 ```
@@ -11993,7 +11993,7 @@ GenerateBlocks() 将抛出可恢复异常：
 • 块已存在：如果用户尝试生成名称已存在的块 -“Delete existing blocks before generatingnew blocks”（仅会在使用 WebDBGenerateOptions.None 时发生）
 没有特定函数可删除所有连接到用户自定义页面的块。需要手动删除由生成操作返回的块，或导航到相应 DB（TIA Portal Openness 已提供此功能）。
 修改以下程序代码，以生成用户自定义页面的块：
-```txt
+```text
 DirectoryInfo htmlDirectory = ...;
 FileInfo defaultHTMLPage = ...;
 string applicationName = ...;
@@ -12200,7 +12200,7 @@ S7-1500 Motion Control (页 629)
 
 ##### 修改以下程序代码以获取 PLC 的所有工艺对象：
 
-```txt
+```text
 // Retrieves all technology objects of a PLC
 private static void GetTechnologicalObjectsOfPLC(PlcSoftware plcSoftware)
 {
@@ -12234,7 +12234,7 @@ private static void CreateTechnologicalObject(PlcSoftware plcSoftware)
 }
 ```
 有关工艺对象的可能值和名称组合、类型和版本，请[工艺对象和版本概述](#工艺对象和版本概述)”部分。
-```txt
+```text
 标准库 (页 81)
 S7-1500 Motion Control (页 629)
 ```
@@ -12247,7 +12247,7 @@ S7-1500 Motion Control (页 629)
 • 在项目中确定 PLC。[查询 PLC 和 HMI 目标](#查询-PLC-和-HMI-目标)”
 • 该工艺对象存在。 [查找工艺对象](#查找工艺对象)”
 修改以下程序代码以删除工艺对象：
-```txt
+```text
 // Delete a technology object from DB composition and from PLC
 private static void DeleteTechnologicalObject(TechnologicalInstanceDB technologicalObject)
 {
@@ -12300,7 +12300,7 @@ private static void DeleteTechnologicalObjectGroup(PlcSoftware plcsoftware)
 • Openness 应用程序将连接至 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
 • 项目已打开。
 [打开项目](#打开项目)”
-```txt
+```text
 - 在项目中确定 PLC。
 [查询 PLC 和 HMI 目标](#查询-PLC-和-HMI-目标)”
 ```
@@ -12309,7 +12309,7 @@ private static void DeleteTechnologicalObjectGroup(PlcSoftware plcsoftware)
 ##### 程序代码：编译工艺对象
 
 修改以下程序代码以编译工艺对象：
-```txt
+```text
 // Compile a single technology object
 private static void CompileSingleTechnologicalObject(TechnologicalInstanceDB technologicalObject)
 {
@@ -12454,7 +12454,7 @@ private static void EnumerateParameters(PlcSoftware plcSoftware)
     }
 }
 ```
-```txt
+```text
 标准库 (页 81)
 查找工艺对象 (页 615)
 ```
@@ -12482,7 +12482,7 @@ private static void FindParameterOfTechnologicalObject(PlcSoftware plcSoftware)
 
 ##### 不同工艺对象的参数
 
-```txt
+```text
 S7-1200 Motion Control 的参数 (页 620)
 S7-1500 Motion Control 的参数 (页 629)
 PID 控制的参数 (页 664)
@@ -12500,7 +12500,7 @@ Easy Motion Control 的参数 (页 665)
 [打开项目](#打开项目)”
 • 在项目中确定 PLC。
 [查询 PLC 和 HMI 目标](#查询-PLC-和-HMI-目标)”
-```txt
+```text
 - 该工艺对象存在。
 [创建工艺对象](#创建工艺对象)”
 ```
@@ -12521,7 +12521,7 @@ private static void ReadParameterOfTechnologicalObject(PlcSoftware plcSoftware)
     object value = parameter.Value;
 }
 ```
-```txt
+```text
 标准库 (页 81)
 查找工艺对象 (页 615)
 ```
@@ -12855,7 +12855,7 @@ S7-1500 Motion Control 工艺对象连接到其它设备或工艺对象。有关
 ##### 程序代码：附加参数
 
 修改以下程序代码以访问附加参数：
-```txt
+```text
 //An instance of the technology object is already available in the program before private static void ReadWriteAdditionalParameter(TechnologicalInstanceDB technologyObject)
 {
     //Read additional parameter "_Properties.MotionType"
@@ -13009,7 +13009,7 @@ public void Connect_Channel()
 用于连接通过 StartDrive（版本不低于 V19）组态的驱动装置的程序代码
 必须安装版本不低于 V19 的 Startdrive。
 修改以下程序代码，以通过报文连接来自 StartDrive 的伺服驱动对象：
-```txt
+```text
 public void Connect_To_Startdrive(PlcSoftware plcsoftware)
 {
     var mainTelegram = StartdriveDevice.DeviceItems.First(di => di.PositionNumber == 0)
@@ -13021,7 +13021,7 @@ public void Connect_To_Startdrive(PlcSoftware plcsoftware)
 ```
 用于连接通过版本低于 V19 的 StartDrive 组态的驱动装置的程序代码必须已经安装 Startdrive。
 修改以下程序代码，以连接来自 StartDrive 的伺服驱动装置对象：
-```txt
+```text
 public void Connect_To_Startdrive()
 {
     var mainTelegram = StartdriveDevice.DeviceItems.First(di => di.PositionNumber == 0)
@@ -13306,7 +13306,7 @@ technologyObject.GetService<InterpreterProgramSupport>();
 ##### 用于加载 MCL 程序的程序代码
 
 修改以下程序代码以连接工艺模块：
-```txt
+```text
 //Load source code from source file
 iprProgramSourceCode.LoadSource(sourceFile);
 }
@@ -13379,7 +13379,7 @@ plcTagTable.ShowInEditor();
 • 已打开一个项目。请[打开项目](#打开项目)
 • 从 PLC 设备项中检索 PlcSoftware 实例。请[查询 PLC 和 HMI 目标](#查询-PLC-和-HMI-目标)
 修改以下程序代码以查询 PLC 变量的系统组：
-```txt
+```text
 //Retrieves the plc tag table group from a plc
 private PlcTagTableSystemGroup GetControllerTagfolder(PlcSoftware plcSoftware)
 {
@@ -13648,7 +13648,7 @@ private static void AccessPlcTag(PlcTagTable tagTable)
 ##### 程序代码：创建变量
 
 修改以下程序代码：
-```txt
+```text
 private static void CreateTagInPLCTagtable(PlcSoftware plcsoftware)
 // Create a tag in a tag table with default attributes
 {
@@ -13717,7 +13717,7 @@ private static void CreateUserConstantInPLCTagtable(PlcSoftware plcsoftware)
     PlcUserConstant userConstant = userConstantComposition.Create(constantName);
 }
 ```
-```txt
+```text
 创建用户自定义的 PLC 变量组 (页 669)
 删除用户自定义的 PLC 变量组 (页 669)
 从组中删除 PLC 变量表 (页 673)
@@ -13746,7 +13746,7 @@ private static void DeleteUserConstantFromPLCTagtable(PlcSoftware plcsoftware)
 ##### 程序代码：访问系统常数
 
 修改以下程序代码：
-```txt
+```text
 //Gives individual access to a specific system constant
 private static void AccessSystemConstant(PlcTagTable tagTable)
 {
@@ -13851,7 +13851,7 @@ unit provider 在 PlcSoftware 中通过 GetService 检索，并可从中检索�
 • 重命名单元
 程序代码：创建单元
 修改以下程序代码以创建单元。
-```txt
+```text
 private static void CreateUnit(PlcUnitProvider provider, string plcUnitName)
 {
     PlcUnitComposition unitComposition = provider.UnitGroup.Units;
@@ -13860,7 +13860,7 @@ private static void CreateUnit(PlcUnitProvider provider, string plcUnitName)
 }
 ```
 如果要使用已存在的名称创建单元，则会出错。将抛出 Recoverable Exception 并显示以下消息：名称为“Unit1”的单元已存在。
-```txt
+```text
 PlcUnit unit1 = unitComposition.Create("Unit1");
 ...
 try
@@ -13892,7 +13892,7 @@ private static void CreateUnit(PlcUnitProvider provider, string plcUnitName)
 }
 ```
 如果要使用已存在的名称创建单元，则会出错。将抛出 Recoverable Exception 并显示以下消息：名称为“Unit1”的单元已存在。
-```txt
+```text
 private static void CreateUnit(PlcUnitProvider provider, string plcUnitName)
 {
     PlcUnitComposition unitComposition = provider.UnitGroup.Units;
@@ -13921,7 +13921,7 @@ private static void DeleteUnit(PlcUnitProvider unitProvider, string plcUnitName)
 
 可通过多种方式设置属性。可通过赋值或调用 SetAttribute 以及 SetAttributes 进行调节。Name 特性可通过 GetAttribute 或 GetAttributes 进行验证。为了能使用 SetAttribute 或GetAttribute，对象应转换为 IEngineeringObject。
 修改以下程序代码以重命名单元。
-```txt
+```text
 private void RenameUnit(PlcUnitProvider provider)
 {
     PlcUnitComposition unitComposition = provider.UnitGroup.Units;
@@ -13941,7 +13941,7 @@ private void RenameUnit(PlcUnitProvider provider)
 }
 ```
 如果您提供的名称错误（比如以空格开头或包含无效字符），则会出错。将抛出 RecoverableException 并显示错误消息：“‘名称’属性值在位置 0 处包含无效字符。”
-```txt
+```text
 PlcUnit unit1 = unitComposition.Create("Unit_1");
 try
 {
@@ -13953,7 +13953,7 @@ Console.WriteLine(e.Message);
 }
 ```
 如果要使用已存在的名称重命名单元，则会出错。将抛出可恢复异常并显示错误消息：“‘名称’特性的值无效：‘Unit1’。已存在具有相同名称的软件单元。
-```txt
+```text
 PlcUnit unit1 = unitComposition.Create("Unit1");
 PlcUnit unit2 = unitComposition.Create("Unit_2");
 try
@@ -13977,7 +13977,7 @@ catch (EngineeringTargetInvocationException e)
 • 递归访问 PLC 变量系统组、包含的组以及变量表
 程序代码：访问程序块和块组
 修改以下程序代码以访问当前 PLC 单元下的程序块，方式为检索程序块组合并在其包含的块之间进行迭代：
-```txt
+```text
 private void AccessProgramBlock(PlcUnit m_PlcUnit)
 {
     PlcBlockComposition blockComposition = m_PlcUnit.BlockGroup.Blocks;
@@ -14024,7 +14024,7 @@ private void AccessPlcDatatypeGroup(PlcUnit m_PlcUnit)
     }
 }
 ```
-```txt
+```text
 private void AccessPlcTagTables(PlcUnit m_PlcUnit)
 {
     PlcTagTableComposition tagtableComposition = m_PlcUnit.TagTableGroup.TagTables;
@@ -14072,7 +14072,7 @@ private void AccessPlcTagTableGroups(PlcUnit m_PlcUnit)
 
 可通过多种方式获取相关对象的关系、其关系类型以及名称。
 修改以下程序代码以获取关系构成：
-```txt
+```text
 private void AccessRelationComposition(PlcUnitProvider provider)
 {
     // assuming existing units
@@ -14089,7 +14089,7 @@ PlcUnitRelation unitRelation = m_PlcUnit.Relations[1];
 }
 ```
 修改以下程序代码，通过在关系之间进行迭代获取关系：
-```txt
+```text
 private void AccessUnitRelations(PlcUnitProvider provider)
 {
     // assuming existing units
@@ -14160,7 +14160,7 @@ private static void UpdateUnitProperty(PlcUnit unit1, PlcUnit unit2, string newA
 ##### 错误消息
 
 如果尝试使用错误的值（如以空格开头）或使用的值包含非法字符，则会出错。将抛出Recoverable Exception 并显示以下错误消息：“‘作者’属性值在位置 0 处包含无效字符。
-```txt
+```text
 private static void UpdateUnitProperty(PlcUnitProvider provider, string plcUnitName)
 {
     PlcUnitComposition unitComposition = provider.UnitGroup.Units;
@@ -14179,7 +14179,7 @@ private static void UpdateUnitProperty(PlcUnitProvider provider, string plcUnitN
 ##### 程序代码：更新单元的注释特性
 
 不能直接设置或获取单元的“Comment”特性，因为它是 MultilingualText。可以更新注释项的文本特性。 Comment.Item 包含 TIA 项目的各个语言分支。可通过赋值进行调节。项目语言在 Comment.Item composition 中进行索引，0 标记为第一个默认项目语言。如果设置了多种语言，则可以进行迭代，否则如果语言分支不存在，则会发生EngineeringTargetInvocationException。
-```txt
+```text
 private static void UpdateUnitProperty(PlcUnit unit1)
 {
     //Setting the default first culture comment Item text:
@@ -14189,7 +14189,7 @@ private static void UpdateUnitProperty(PlcUnit unit1)
 }
 ```
 如果尝试使用 SetAttribute, SetAttributes, GetAttribute, GetAttributes.，则将出错。将抛出EngineeringNotSupportedException 并显示以下错误消息：“类型‘Siemens.Engineering.SW.Units.PlcUnit’不支持注释。
-```txt
+```text
 private static void UpdateUnitProperty(PlcUnit unit1)
 {
 try
@@ -14231,7 +14231,7 @@ Access 属性有以下可能值（以枚举形式 UnitAccessType 表示）：
 
 ##### 程序代码：组态 PLC 块的访问属性
 
-```txt
+```text
 private void AccessAttributeOfPLCBlocks(PlcUnit plcUnit, string blockName = "FB_1")
 {
     //Getting attribute value with GetAttribute
@@ -14269,7 +14269,7 @@ private void AccessAttributeOfPLCBlocks(PlcUnit plcUnit, string blockName = "FB_
 
 ##### 程序代码：组态 PLC 类型的访问属性
 
-```txt
+```text
 private void AccessAttributeOfPLCTypes(PlcUnit plcUnit, string typeName = "UDT_1")
 {
     //Getting attribute value with GetAttribute
@@ -14312,7 +14312,7 @@ private void AccessAttributeOfPLCTypes(PlcUnit plcUnit, string typeName = "UDT_1
 ##### 程序代码：添加外部源组
 
 修改以下程序代码以在软件单元下添加外部源：
-```txt
+```text
 private void AddExternalSourceGroup(PlcUnitProvider unitProvider, string plcUnitName = "Unit1")
 {
     PlcUnit newUnit = unitProvider.UnitGroup.Units.Create(plcUnitName);
@@ -14360,7 +14360,7 @@ private void GenerateSourceFromBlocks(PlcUnit newUnit)
 }
 ```
 修改以下程序代码以从软件单元下的 UDT 生成源：
-```txt
+```text
 private void GenerateSourceFromUDTs(PlcUnit newUnit)
 {
     // For UDTs
@@ -14440,7 +14440,7 @@ private void IMasterCopySource CreateUnitAsMasterCopyInGlobalLibrary(PlcUnit m_S
 }
 ```
 修改以下程序代码，将项目库模板副本中的单元重新创建到 PNV 中的软件单元：
-```txt
+```text
 private void RecreateUnitFromProjectLibrary(Project project, PlcSoftware software, string plcUnitName = "Unit_2")
 {
     //...
@@ -14491,7 +14491,7 @@ m_PlcUnit = plcUnitProvider.UnitGroup.Units[0]; //assuming existing units
 }
 ```
 修改以下程序代码，以创建访问其它 PLC 单元中对象的新关系：
-```txt
+```text
 private void CreateRelationForAccessObject(PlcUnit m_PlcUnit, string plcUnitName = "Unit_2")
 {
     // ...
@@ -14521,7 +14521,7 @@ private void CreateRelationForAccessTechnologicalObject(PlcUnit m_PlcUnit, strin
 }
 ```
 修改以下程序代码，以创建访问不存在的相关对象的新关系：
-```txt
+```text
 private void CreateRelationForAccesNonExistingRelatedObject(PlcUnit m_PlcUnit)
 {
     //...
@@ -14530,11 +14530,11 @@ private void CreateRelationForAccesNonExistingRelatedObject(PlcUnit m_PlcUnit)
     //...
 }
 ```
-```txt
+```text
 说明在以上程序代码中，已创建关系，且未抛出异常。
 ```
 修改以下程序代码，通过为不符合 TIA 命名规则的相关对象指定名称的方式创建新关系：
-```txt
+```text
 private void CreateRelationForRelatedObject(PlcUnit m_PlcUnit)
 {
     //...
@@ -14544,7 +14544,7 @@ private void CreateRelationForRelatedObject(PlcUnit m_PlcUnit)
 ```
 在以上程序代码中，由于前面有空格，因此未创建关系，且抛出一个可恢复的异常。
 修改以下程序代码，以创建单元与自身的新关系：
-```txt
+```text
 private void CreateRelationFromUnit(PlcUnit m_PlcUnit)
 {
     //...
@@ -14554,7 +14554,7 @@ private void CreateRelationFromUnit(PlcUnit m_PlcUnit)
 }
 ```
 修改以下程序代码，通过为相关对象名称指定空字符串的方式创建新关系：
-```txt
+```text
 private void CreateRelationForRelatedObject(PlcUnit m_PlcUnit)
 {
     //...
@@ -14583,7 +14583,7 @@ m_TODBRelation = m_PlcUnit.Relations.Create("Axis_TO", UnitRelationType.TODB);
 可通过多种方式删除关系。
 ```
 修改以下程序代码，以删除通过索引程序访问的关系：
-```txt
+```text
 private void DeleteUnitRelationByIndex(PlcUnit m_PlcUnit)
 {
     //...
@@ -14617,7 +14617,7 @@ m_Relation = m_PlcUnit.Relations.Create("Unit_2", UnitRelationType.SoftwareUnit)
 }
 ```
 修改以下程序代码，通过直接为 RelatedObject 属性分配新值的方式更新相关对象的名称：
-```txt
+```text
 private void ModifyingUnitRelation(PlcUnitRelation m_Relation)
 {
     // ...
@@ -14626,7 +14626,7 @@ private void ModifyingUnitRelation(PlcUnitRelation m_Relation)
 }
 ```
 修改以下程序代码，通过 SetAttribute 为 RelatedObject 属性分配新值，以此更新相关对象的名称：
-```txt
+```text
 private void ModifyingUnitRelation(PlcUnitRelation m_Relation)
 {
     //...
@@ -14651,7 +14651,7 @@ private void ModifyingUnitRelation(PlcUnitRelation m_Relation)
 ##### 修改已有关系可能发生的错误情况
 
 修改以下程序代码以更新关系，以访问不存在的相关对象：
-```txt
+```text
 private void ModifyingUnitRelation(PlcUnitRelation m_Relation)
 {
     //...
@@ -14661,7 +14661,7 @@ private void ModifyingUnitRelation(PlcUnitRelation m_Relation)
 }
 ```
 说明在以上程序代码中，已修改关系，且未抛出异常。
-```txt
+```text
 修改以下程序代码，通过为不符合 TIA 命名规则的相关对象指定名称的方式更新关系：
 private void ModifyingUnitRelation(PlcUnitRelation m_Relation)
 {
@@ -14699,7 +14699,7 @@ private void ModifyingUnitRelation(PlcUnitRelation m_Relation)
     //...
 }
 ```
-```txt
+```text
 说明
 在以上错误场景的所有程序代码中，未修改关系，且抛出一个可恢复的异常。
 ```
@@ -15089,7 +15089,7 @@ newTag.Delete();
 var expectedTag = tagTable.Tags.Find("tag_1");
 ```
 修改以下程序代码以导出和导入安全单元块：
-```txt
+```text
 PlcSafetyUnit safetyUnit = plcUnitProvider.UnitGroup.SafetyUnits.Find("SafetyUnit");
 var unitBlock = safetyUnit.BlockGroup.Blocks.Find("Block_2");
 // Export the block
@@ -15284,7 +15284,7 @@ namespace PublishingBlocksUnderSafetyUnit
 请[打开项目](#打开项目)
 程序代码
 修改以下程序代码以创建用户自定义画面文件夹：
-```txt
+```text
 //Creates a screen folder
 private static void CreateScreenFolder(HmiTarget hmitarget)
 {
@@ -15299,7 +15299,7 @@ private static void CreateScreenFolder(HmiTarget hmitarget)
 • TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
 • 已打开一个项目。
 请[打开项目](#打开项目)
-```txt
+```text
 说明无法删除永久性区域。永久性区域是指始终存在的系统画面。
 ```
 应用
@@ -15324,7 +15324,7 @@ hmiTarget.ScreenFolder.Folders.Find("myScreenFolder");
 • TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
 • 已打开一个项目。请[打开项目](#打开项目)
 • 此项目包含 HMI 设备。
-```txt
+```text
 说明无法删除永久性区域。永久性区域是指始终存在的系统画面。
 ```
 修改以下程序代码以从指定文件夹中删除画面模板：
@@ -15397,7 +15397,7 @@ public static void DeleteCycle(HmiTarget hmiTarget)
 • 已打开一个项目。请[打开项目](#打开项目)
 • 此项目包含 HMI 设备。
 修改以下程序代码以从 HMI 设备中删除所选文本列表和所有相关列表条目：
-```txt
+```text
 public static void DeleteTextList(HmiTarget hmiTarget)
 {
     TextListComposition textLists = hmiTarget.TextLists;
@@ -15458,7 +15458,7 @@ private static void DeleteConnection(HmiTarget hmiTarget)
 • 已打开一个项目。
 请[打开项目](#打开项目)
 修改以下程序代码以创建用户自定义的 HMI 变量文件夹：
-```txt
+```text
 private static void CreateUserfolderForHMITags(HmiTarget hmitarget)
 // Creates an HMI tag user folder
 {
@@ -15647,7 +15647,7 @@ private HmiSoftware GetHmiSoftware()
     return hmiSoftware;
 }
 ```
-```txt
+```text
 说明
 在上述程序代码中，扩展名 .apx 指已安装的 TIA Portal 版本。
 ```
@@ -15656,7 +15656,7 @@ private HmiSoftware GetHmiSoftware()
 
 AlarmClasses 说明 (RT Unified)
 要求
-```txt
+```text
 - 可访问 HMI 软件对象
 请参见 “HMISoftware 说明 (页 748)”
 ```
@@ -15699,7 +15699,7 @@ AlarmClasses.Create() (RT Unified)
 请参见“HMISoftware 说明 (页 748)”
 程序代码
 要通过 HmiAlarmClassComposition 类的 Create() 创建报警类别，请修改以下程序代码：
-```txt
+```text
 private void AlarmClassCreate()
 {
     // Create Alarm Class with name "AlarmClass1"
@@ -15715,7 +15715,7 @@ AlarmClasses.Delete() (RT Unified)
 • 可访问 HMI 软件对象请参见“HMISoftware 说明 (页 748)”
 程序代码
 要通过 HmiAlarmClass 类的 Delete() 删除报警类别，请修改以下程序代码：
-```txt
+```text
 public void DeleteAlarmClass()
     //User wants to delete an alarm class with the alarm name AlarmClass1
     {
@@ -15780,7 +15780,7 @@ Console.WriteLine(e.Message);
 }
 ```
 参见
-```txt
+```text
 HMISoftware对象(页746)  
 打开项目(页140)  
 连接到TIA Portal(页90)
@@ -15830,7 +15830,7 @@ AlarmLogs.Create() (RT Unified)
 • 可访问 HMI 软件对象请参见“HMISoftware 说明 (页 748)”
 程序代码
 要通过 HmiAlarmLogComposition 类的 Create() 创建报警日志，请修改以下程序代码：
-```txt
+```text
 private void AlarmLogCreate()
 {
     // Create Alarmlog
@@ -15845,7 +15845,7 @@ AlarmLogs.Delete() (RT Unified)
 要求
 • 可访问 HMI 软件对象请参见“HMISoftware 说明 (页 748)”
 要通过 HmiAlarmLog 类的 Delete() 删除报警日志，请修改以下程序代码：
-```txt
+```text
 private void AlarmLogDelete()
 {
     //User wants to delete alarm log with name "Alarmlog1"
@@ -15898,7 +15898,7 @@ private void AlarmLogPropertiesAccess()
 }
 ```
 [连接到 TIA Portal](#连接到-TIA-Portal)打开项目 (页 140)
-```txt
+```text
 5.13 HMI Unified 设备的数据访问函数 (RT Unified)
 ```
 
@@ -15908,13 +15908,13 @@ private void AlarmLogPropertiesAccess()
 ##### AnalogAlarms 说明 (RT Unified)
 
 要求
-```txt
+```text
 - 可访问 HMI 软件对象
 请参见 “HMISoftware 说明 (页 748)”
 ```
 程序代码
 要对模拟量报警执行任务，可使用枚举模拟量报警或使用 Find()。
-```txt
+```text
 private void AnalogAlarmBrowse()
 {
 HmiSoftware hmiSoftware = GetHmiSoftware();
@@ -16011,7 +16011,7 @@ analogAlarm.Name = "NewAlarm";
 连接到 TIA Portal (页 90)打开项目 (页 140)
 访问模拟量报警上的交叉引用服务 (RT Unified)
 要求
-```txt
+```text
 - 可访问 HMI 软件对象
 请参见 “HMISoftware 说明 (页 748)”
 ```
@@ -16039,7 +16039,7 @@ Console.WriteLine(e.Message);
 }
 }
 ```
-```txt
+```text
 连接到 TIA Portal (页 90)
 打开项目 (页 140)
 ```
@@ -16048,12 +16048,12 @@ Console.WriteLine(e.Message);
 
 审计跟踪说明 (RT Unified)
 要求
-```txt
+```text
 - 可访问 HMI 软件对象
 请参见 “HMISoftware 说明 (页 748)”
 ```
 要对审计跟踪执行任务，可使用枚举报警跟踪或使用 Find()。
-```txt
+```text
 private void AuditTrailBrowse()
 {
 HmiSoftware hmiSoftware = GetHmiSoftware();
@@ -16095,7 +16095,7 @@ AuditTrail auditTrailObj = auditLogObject.Find(auditTrailName);
 ##### • 可访问 HMI 软件对象请参见“HMISoftware 说明 (页 748)”
 
 要访问审计跟踪的属性，请修改以下程序代码：
-```txt
+```text
 private void AuditTrailPropertiesAccess()
 {
 HmiSoftware hmiSoftware = GetHmiSoftware();
@@ -16132,12 +16132,12 @@ auditLogObject.Segment.SegmentStartTime = DateTime.Now.Date;
 
 连接说明 (RT Unified)
 要求
-```txt
+```text
 - 可访问 HMI 软件对象
 请参见 “HMISoftware 说明 (页 748)”
 ```
 要对连接执行任务，可使用枚举连接或使用 Find( )
-```txt
+```text
 private void ConnectionBrowse()
 {
 HmiSoftware hmiSoftware = GetHmiSoftware();
@@ -16167,7 +16167,7 @@ HmiConnection connectionObj = connections.Find(connectionName);
 • 创建连接：Connections.Create() (页 772)
 • 删除连接：Connections.Delete() (页 772)
 TIA Portal Openness API
-```txt
+```text
 5.13 HMI Unified 设备的数据访问函数 (RT Unified)
 ```
 • 连接属性：访问连接属性 (页 773)
@@ -16179,7 +16179,7 @@ Connections.Create() (RT Unified)
 • 可访问 HMI 软件对象请参见“HMISoftware 说明 (页 748)”
 程序代码
 要通过 HmiConnectionComposition 类的 Create() 创建连接，请修改以下程序：
-```txt
+```text
 private void ConnectionCreate()
 {
     // Create a connection with name "Connection_1"
@@ -16194,7 +16194,7 @@ Connections.Delete() (RT Unified)
 要求
 • 可访问 HMI 软件对象请参见“HMISoftware 说明 (页 748)”
 要通过 HmiConnection 类的 Delete() 删除连接，请修改以下程序代码：
-```txt
+```text
 private void ConnectionDelete()
 {
     // Delete a connection with name "Connection_1"
@@ -16242,7 +16242,7 @@ private void ConnectionPropertiesAccess()
 访问连接上的交叉引用服务 (RT Unified)
 要求
 • 可访问 HMI 软件对象请参见“HMISoftware 说明 (页 748)”
-```txt
+```text
 要求
 - 可访问 HMI 软件对象
 请参见 “HMISoftware 说明 (页 748)”
@@ -16270,7 +16270,7 @@ Console.WriteLine(e.Message);
 }
 }
 ```
-```txt
+```text
 连接到 TIA Portal (页 90)
 打开项目 (页 140)
 ```
@@ -16281,7 +16281,7 @@ Console.WriteLine(e.Message);
 ##### Datalogs 说明 (RT Unified)
 
 要对数据日志执行任务，可使用枚举数据日志或使用 Find()。
-```txt
+```text
 private void DatalogBrowse()
 {
 HmiSoftware hmiSoftware = GetHmiSoftware();
@@ -16334,7 +16334,7 @@ private void DatalogCreate()
 • 已打开一个项目。请[打开项目](#打开项目)”
 • 可访问 HMI 软件对象请参见“HMISoftware 说明 (页 748)”
 要通过 HmiDataLog 类的 Delete() 删除数据日志，请修改以下程序代码：
-```txt
+```text
 private void DatalogDelete()
 {
     //user wants to delete datalog with name "Datalog1"
@@ -16389,7 +16389,7 @@ private void DatalogPropertiesAccess()
 DiscreteAlarms 说明 (RT Unified)
 • 可访问 HMI 软件对象请参见“HMISoftware 说明 (页 748)”
 要对离散量报警执行任务，可使用枚举离散量报警或使用 Find()。
-```txt
+```text
 private void DiscreteAlarmBrowse()
 {
 HmiSoftware hmiSoftware = GetHmiSoftware();
@@ -16402,7 +16402,7 @@ foreach (HmiDiscreteAlarm discreteAlarm in discreteAlarms)
 }
 ```
 要通过名称访问单个离散量报警，请修改以下程序代码：
-```txt
+```text
 private void SearchDiscreteAlarm()
 {
 HmiSoftware hmiSoftware = GetHmiSoftware();
@@ -16428,7 +16428,7 @@ DiscreteAlarms.Create() (RT Unified)
 • 可访问 HMI 软件对象请参见“HMISoftware 说明 (页 748)”
 程序代码
 要通过 HmiDiscreteAlarmComposition 类的 Create() 创建离散量报警，请修改以下程序代码：
-```txt
+```text
 private void CreateDiscreteAlarm()
 {
     //Create a discrete alarm with name "Alarm1"
@@ -16441,12 +16441,12 @@ private void CreateDiscreteAlarm()
 打开项目 (页 140)
 DiscreteAlarms.Delete() (RT Unified)
 要求
-```txt
+```text
 - 可访问 HMI 软件对象
 请参见 “HMISoftware 说明 (页 748)”
 ```
 要通过 HmiDiscreteAlarm class 的 Delete() 删除离散量报警，请修改以下程序代码：
-```txt
+```text
 public void DeleteDiscreteAlarm()
     //User wants to delete a discrete alarm with the alarm name Alarm_1
     {
@@ -16536,7 +16536,7 @@ foreach (HmiLoggingTag loggingTag in loggingTags)
 }
 ```
 要通过名称访问单个记录变量，请修改以下程序代码：
-```txt
+```text
 private void SearchLoggingTag()
 {
 HmiSoftware hmiSoftware = GetHmiSoftware();
@@ -16563,7 +16563,7 @@ LoggingTags.Create() (RT Unified)
 • 可访问 HMI 软件对象
 请参见“HMISoftware 说明 (页 748)”
 要通过 HmiLoggingTagComposition 类的 Create() 为变量创建记录变量，请修改以下程序代码：
-```txt
+```text
 private void LoggingTagCreate()
 {
     // Create Logging Tag for given tag.
@@ -16703,7 +16703,7 @@ private void RuntimeSettingsPropertiesAccess()
 要求
 • 可访问 HMI 软件对象请参见“HMISoftware 说明 (页 748)”
 要通过名称访问单个系统变量，请修改以下程序代码：
-```txt
+```text
 private void AccessSystemTagName()
 {
 HmiSoftware hmiSoftware = GetHmiSoftware();
@@ -16728,7 +16728,7 @@ HmiSystemTag hmiSystem选股Obj = hmiSystemTags.Find(systemOmega);
 • 可访问 HMI 软件对象
 请参见“HMISoftware 说明 (页 748)”
 要访问系统变量的属性，请修改以下程序代码：
-```txt
+```text
 private void SystemTagPropertiesAccess()
 {
     //Get the "Name" and "DataType" properties of system tag
@@ -16739,7 +16739,7 @@ private void SystemTagPropertiesAccess()
     string dataType = hmiSystemTag DataType;
 }
 ```
-```txt
+```text
 连接到 TIA Portal (页 90)
 打开项目 (页 140)
 ```
@@ -16818,19 +16818,19 @@ HmiScreen objHmiScreen = objScreens.Create("TestScreen");
 ```
 5.13 HMI Unified 设备的数据访问函数 (RT Unified)
 参见
-```txt
+```text
 连接到 TIA Portal (页 90)
 打开项目 (页 140)
 ```
 Screens.Delete() (RT Unified)
 要求
-```txt
+```text
 - 可访问 HMI 软件对象
 请参见 “HMISoftware 说明 (页 748)”
 ```
 程序代码
 要通过访问 HmiSoftware 对象的 Screens 属性来删除画面，请修改以下程序代码：
-```txt
+```text
 private void DeleteScreen()
 {
     //Case 1
@@ -16942,7 +16942,7 @@ private void SettingPropertyValueScreen()
 }
 ```
 要使用 IEngineeringObject's GetAttribute 获取属性值，请修改以下程序代码：
-```txt
+```text
 private void Getting PropertyValueScreen()
 {
 HmiSoftware hmisoftware = GetHmiSoftware();
@@ -17031,7 +17031,7 @@ private void AccessCrossReferenceServiceforScreen()
     }
 }
 ```
-```txt
+```text
 EventHandlers (RT Unified)
 ```
 EventHandlers 说明 (RT Unified)
@@ -17103,11 +17103,11 @@ private void AccessEvent(HmiSoftware hmiSoftware)
 画面项 (RT Unified)
 画面项说明 (RT Unified)
 要求
-```txt
+```text
 - 可访问 HMI 软件对象
 请参见 “HMISoftware 说明 (页 748)”
 ```
-```txt
+```text
 private void SearchScreenItemByIndex()
 {
 HmiScreenItemBase screenitem = hmiScreen.ScreenItems[1];
@@ -17115,7 +17115,7 @@ HmiScreenItemBase screenitem = hmiScreen.ScreenItems[1];
 要使用Contains方法检查特定画面项是否存在于画面项列表中，请修改以下程序代码：
 ```
 要对画面项执行任务，可使用 enumerate、find、index 命令和 Contains() 方法。
-```txt
+```text
 private void ScreenItemsBrowse()
 {
 HmiSoftware hmiSoftware = GetHmiSoftware();
@@ -17177,7 +17177,7 @@ Screens.Delete() (页 800)
 • 可访问 HMI 软件对象
 请参见“HMISoftware 说明 (页 748)”
 要通过 HmiScreenItemBaseComposition 类的 Create() 创建 Hmiline 画面项，请修改以下程序代码：
-```txt
+```text
 private void ScreenItemCreate()
 {
     // Creating a Hmiline screenitem
@@ -17188,7 +17188,7 @@ private void ScreenItemCreate()
 }
 ```
 要通过 HmiScreenItemBaseComposition 类的 Create() 创建 HmiIOField 画面项，请修改以下程序代码：
-```txt
+```text
 private void CreateScreenItem()
 {
     // Creating a HmiIOField screenitem
@@ -17211,7 +17211,7 @@ private void ControlScreenItemCreate()
 ```
 5.13 HMI Unified 设备的数据访问函数 (RT Unified)
 要通过 HmiScreenItemBaseComposition 类的 create() 创建面板容器，请修改以下程序代码：
-```txt
+```text
 private void createFaceplateContainer(HmiSoftware hmiSoftware, string screenName = "screen_1", string faceplatecontainerName = "Faceplate container_1")  
 { HmiScreen hmiScreen= hmiSoftware.Screens.Find(screenName); HmiScreenItemBaseComposition screenItems = hmiSoftware.ScreenItems; HmiFaceplateContainer faceplate = screenItems.Create<HmiFaceplateContainer>(faceplatecontainerName); }
 ```
@@ -17384,7 +17384,7 @@ ScreenItems.Create() (页 812)
 要求
 • 可访问 HMI 软件对象请参见“HMISoftware 说明 (页 748)”
 要访问椭圆画面项的属性，请修改以下代码：
-```txt
+```text
 private void EllipseScreenItemsPropertiesAccess()
 {
 HmiSoftware hmiSoftware = GetHmiSoftware();
@@ -17456,7 +17456,7 @@ ScreenItems.Create() (页 812)
 请参见“HMISoftware 说明 (页 748)”
 • 可访问 HMI 软件对象
 要访问椭圆扇形画面项的属性，请修改以下代码：
-```txt
+```text
 private void EllipseSegmentScreenItemPropertiesAccess()
 {
 HmiSoftware hmiSoftware = GetHmiSoftware();
@@ -17568,7 +17568,7 @@ ScreenItems.Create() (页 812)
 <table><tr><td>属性名称</td><td>属性类型</td><td>描述</td><td>访问</td></tr><tr><td>RotationCenterPlacement</td><td>HmiRotationCenterPlacement</td><td>指定折线的轴心点</td><td>读/写</td></tr><tr><td>AlternateLineColor</td><td>Color</td><td>指定折线的替代颜色</td><td>读</td></tr><tr><td>DashType</td><td>HmiDashType</td><td>指定折线的线型</td><td>读</td></tr><tr><td>EndType</td><td>HmiLineEndType</td><td>指定折线的线端类型</td><td>读</td></tr><tr><td>StartType</td><td>HmiLineStartType</td><td>指定折线的线起始</td><td>读</td></tr><tr><td>CapType</td><td>HmiCapType</td><td>指定折线的封闭类型</td><td>读</td></tr><tr><td>LineWidth</td><td>byte</td><td>指定折线的线宽</td><td>读</td></tr><tr><td>JoinType</td><td>HmiLineJoinType</td><td>指定折线中的连接类型</td><td>读</td></tr><tr><td>Top</td><td>int</td><td>指定折线的Y轴位置</td><td>读</td></tr><tr><td>Left</td><td>int</td><td>指定折线的X轴位置</td><td>读</td></tr><tr><td>Width</td><td>uint</td><td>指定折线的宽度</td><td>读</td></tr><tr><td>Height</td><td>uint</td><td>指定折线的高度</td><td>读</td></tr><tr><td>RotationAngle</td><td>short</td><td>指定折线旋转</td><td>读</td></tr><tr><td>RotationCenterX</td><td>float</td><td>指定折线的X轴心点</td><td>读</td></tr><tr><td>RotationCenterY</td><td>float</td><td>指定折线的Y轴心点</td><td>读</td></tr><tr><td>Opacity</td><td>float</td><td>指定折线的不透明度不透明度值应在0-1之间</td><td>读</td></tr><tr><td>Name</td><td>string</td><td>指定折线的名称名称字符的长度应在1-128字符之间</td><td>读</td></tr><tr><td>Visible</td><td>bool</td><td>指定是否启用可见</td><td>读/写</td></tr><tr><td>TabIndex</td><td>ushort</td><td>指定折线的选项卡索引</td><td>读/写</td></tr><tr><td>ToolTipText</td><td>MultilingualText</td><td>指定折线的工具提示文本</td><td>读/写</td></tr><tr><td>Authorization</td><td>string</td><td>指定折线的授权</td><td>读/写</td></tr><tr><td>EventHandlers</td><td>HmiPolylineEventHandlerComposition</td><td>指定折线的事件处理器</td><td>读</td></tr><tr><td>ShowFocusVisual</td><td>bool</td><td>指定显示焦点视觉效果是否已启用</td><td>读/写</td></tr></table>
 要求
 要访问折线画面项的属性，请修改以下代码：
-```txt
+```text
 private void PolylineScreenItemsPropertiesAccess()
 {
 HmiSoftware hmiSoftware = GetHmiSoftware();
@@ -17612,7 +17612,7 @@ ScreenItems.Create() (页 812)
 • 可访问 HMI 软件对象
 要求
 要访问多边形画面项的属性，请修改以下代码：
-```txt
+```text
 private void PolygonScreenItemsPropertiesAccess()
 {
 HmiSoftware hmiSoftware = GetHmiSoftware();
@@ -17700,7 +17700,7 @@ ScreenItems.Create() (页 812)
 要求
 • 可访问 HMI 软件对象
 要访问文本框的属性，请修改以下程序代码：
-```txt
+```text
 private void TextboxPropertiesAccess()
 {
 HmiSoftware hmiSoftware = GetHmiSoftware();
@@ -17749,7 +17749,7 @@ font.Bold = true;
 • 可访问 HMI 软件对象
 请参见“HMISoftware 说明 (页 748)”
 要访问进度条画面项的属性，请修改以下程序代码：
-```txt
+```text
 private void BarScreenItemsPropertiesAccess()
 {
 HmiSoftware hmiSoftware = GetHmiSoftware();
@@ -17882,7 +17882,7 @@ font.Weight = HmiFontWeight.Bold;
 • 可访问 HMI 软件对象请参见“HMISoftware 说明 (页 748)”
 要求
 要访问时钟的属性，请修改以下程序代码：
-```txt
+```text
 private void ClockPropertiesAccess()
 {
 HmiSoftware hmiSoftware = GetHmiSoftware();
@@ -17933,7 +17933,7 @@ clock.ShowHours = false;
 要求
 • 可访问 HMI 软件对象请参见“HMISoftware 说明 (页 748)”
 要访问量表的属性，请修改以下程序代码：
-```txt
+```text
 private void GaugeScreenItemsPropertiesAccess()
 {
 HmiSoftware hmiSoftware = GetHmiSoftware();
@@ -18134,7 +18134,7 @@ newselectionitem.IsSelected = false;
 请参见“HMISoftware 说明 (页 748)”
 • 可访问 HMI 软件对象
 要访问滑动条的属性，请修改以下程序代码：
-```txt
+```text
 private void SliderPropertiesAccess()
 {
 HmiSoftware hmiSoftware = GetHmiSoftware();
@@ -18373,14 +18373,14 @@ HmiFunctionTrendAreaPart part = hmifunctiontrendcontrol.FunctionTrendAreas.Creat
 }
 ```
 要在 HMI 功能的功能趋势控件应用部分中搜索趋势区域，请修改以下程序代码：
-```txt
+```text
 private void TrendAreaPartSearch()
 {
 HmiFunctionTrendAreaPart part = hmifunctiontrendcontrol.FunctionTrendAreas.Find("part1");
 }
 ```
 要在 HMI 功能的功能趋势控件应用部分中检查趋势区域，请修改以下程序代码：
-```txt
+```text
 private void IsTrendAreaExist()
 {
 bool bPresent = hmifunctiontrendcontrol.FunctionTrendAreas.Contains(part);
@@ -18516,7 +18516,7 @@ statusBar.Visible = true;
 请参见“HMISoftware 说明 (页 748)”
 • 可访问 HMI 软件对象
 要访问画面窗口的属性，请修改以下程序代码：
-```txt
+```text
 private void ScreenWindowPropertiesAccess()
 {
 HmiSoftware hmiSoftware = GetHmiSoftware();
@@ -18699,7 +18699,7 @@ statusBar.Visible = true;
 
 面板容器说明 (RT Unified)
 要求
-```txt
+```text
 - 可访问 HMI 软件对象
 请参见 “HMISoftware 说明 (页 748)”
 ```
@@ -18755,7 +18755,7 @@ bool isexists = screenitems.Contains(faceplate);
 • 可访问 HMI 软件对象
 请参见“HMISoftware 说明 (页 748)”
 要创建面板容器画面项，请修改以下程序代码：
-```txt
+```text
 private void CreateFaceplateContainer(HmiSoftware hmiSoftware, string FacePlateContainerName = "FaceplateContainer_1")
 {
 HmiScreen hmiScreen= hmiSoftware.Screens.Create(screenName);
@@ -18807,7 +18807,7 @@ ObjhmiLineEnggObj.Invoke ("Delete", null);
 • 可访问 HMI 软件对象
 请参见“HMISoftware 说明 (页 748)”
 要获取面板容器的属性用途，请修改以下程序代码：
-```txt
+```text
 private void FacePlateContainerPropertiesAccess()
 {
 HmiScreen screen = m_hmiSoftware.Screens[0];
@@ -18888,7 +18888,7 @@ private void FacePlateContainerPropertiesAccess()
 要求
 • 可访问 HMI 软件对象请参见“HMISoftware 说明 (页 748)”
 要访问项目库中面板容器（面板类型有新位置）包含的类型属性：
-```txt
+```text
 private void AccessUnifiedFaceplateProperties(createFacePlateContainer)
 {
 HmiFaceplateContainer faceplatecontainer = createFacePlateContainer("FacePlateContainer");
@@ -18906,7 +18906,7 @@ var containedType = faceplateContainer.ContainedType;
 
 可访问 HMI 软件对象请参见“HMISoftware 说明 (页 748)”
 要将 UDT 分配给面板容器，请修改以下程序代码：
-```txt
+```text
 private void AssignUDTTToFaceplateContainer(HmiSoftware hmiSoftware, Project proj)
 {
     var hmiSoftware = GetHmiSoftware(proj);
@@ -18999,7 +18999,7 @@ flame.ToolTipText.Items[0].Text = "<body><p>TestforMultilingualProperty</p></bod
 }
 ```
 5.13 HMI Unified 设备的数据访问函数 (RT Unified)
-```txt
+```text
 说明
 为创建自定义控件，必须更正对应于“containedTypeValue”参数的值。
 关键字“extended.<Widgetname>"应当用于使用TIA Portal Openness 创建任何自定义部件容器，因为我们使用清单中提到的原始名称，而非使用显示名称。
@@ -19133,7 +19133,7 @@ private void ScreenGroupBrowse(HmiSoftware hmiSoftware)
 要求
 • 可访问 HMI 软件对象请参见“HMISoftware 说明 (页 748)”
 要使用 HmiScreenGroupComposition 类的 Create 方法创建画面组 (HmiScreenGroup)，请修改以下程序代码：
-```txt
+```text
 private void CreateScreenGroupFirstLevel(HmiSoftware hmiSoftware)
 {
     HmiScreenGroupComposition screenGroups = hmiSoftware.ScreenGroups;
@@ -19180,7 +19180,7 @@ private void AccessScreenGroupProperties(HmiSoftware hmiSoftware)
 • 可访问 HMI 软件对象请参见“HMISoftware 说明 (页 748)”
 程序代码
 要对变量执行任务，可使用枚举变量或使用 Find()。
-```txt
+```text
 private void TagBrowse()
 {
 HmiSoftware hmiSoftware = GetHmiSoftware();
@@ -19192,7 +19192,7 @@ for each (HmiTag hmiTag in hmiTags)
 }
 }
 ```
-```txt
+```text
 private void TagSearch()
 {
 HmiSoftware hmiSoftware = GetHmiSoftware();
@@ -19205,7 +19205,7 @@ for each (HmiTag hmiTag in hmiTags)
 }
 ```
 要通过名称访问单个变量，请修改以下代码：
-```txt
+```text
 private void AccessTag()
 {
 HmiSoftware hmiSoftware = GetHmiSoftware();
@@ -19268,19 +19268,19 @@ HmiTag hmiTag3 = hmiTagcomp2.Create("Tag_3");
 HmiTag hmiTag4 = hmiTagcomp2.Create("Tag_4", "TableTableName");
 }
 ```
-```txt
+```text
 连接到 TIA Portal (页 90)
 打开项目 (页 140)
 ```
 
 ##### Tags.Delete() (RT Unified)
 
-```txt
+```text
 - 可访问 HMI 软件对象
 请参见 “HMISoftware 说明 (页 748)”
 ```
 要通过 HmiTag 类的 Delete() 删除 HMI 变量，请修改以下程序代码：
-```txt
+```text
 private void DeleteTag()
 {
 HmiSoftware hmiSoftware = GetHmiSoftware();
@@ -19291,7 +19291,7 @@ hmiTag1.Delete();
 }
 ```
 要通过访问 TagTable 对象的 Tags 属性来删除 HMI 变量，请修改以下程序代码：
-```txt
+```text
 private void DeleteTag()
 {
 HmiSoftware hmiSoftware = GetHmiSoftware();
@@ -19332,7 +19332,7 @@ hmiTag.PlcTag = "PlcTag_1";
 }
 ```
 要访问取决于数据类型的变量属性，请修改以下程序代码：
-```txt
+```text
 private void TagProperties()
 {
 HmiSoftware hmiSoftware = GetHmiSoftware();
@@ -19380,7 +19380,7 @@ string commentEng = textItemEnglish.Text;
 • 已打开一个项目。请[打开项目](#打开项目)”
 • 可访问 HMI 软件对象请参见“HMISoftware 说明 (页 748)”
 要在无连接的条件下为变量分配用户自定义数据类型，请修改以下程序代码：
-```txt
+```text
 private void AssignUdtWithoutConnection()
 {
     //Assigning three types of UDT to tag by calling DataType property of tag
@@ -19394,7 +19394,7 @@ private void AssignUdtWithoutConnection()
 }
 ```
 要在有连接的条件下为变量分配用户自定义数据类型，请修改以下程序代码：
-```txt
+```text
 private void AssignUdtWithConnection()
 {
     //Assigning user defined datatype to tag by calling DataType property of
@@ -19408,7 +19408,7 @@ private void AssignUdtWithConnection()
 要在有连接的条件下为变量分配用户自定义数据类型，应在 TIA Portal 项目中存在正确的 PLC类型连接；否则，会发出可恢复的异常。
 5.13 HMI Unified 设备的数据访问函数 (RT Unified)
 要在有连接的条件下为变量分配 PLC 用户自定义数据类型，请修改以下程序代码：
-```txt
+```text
 private void AssignPlcUdtWithConnection()
 {
 HmiSoftware hmiSoftware = GetHmiSoftware();
@@ -19466,7 +19466,7 @@ Console.WriteLine("Date type: " +hmiTag.MembersDataType);
 • 可访问 HMI 软件对象请参见“HMISoftware 说明 (页 748)”
 程序代码
 要通过变量对象上的 GetService() 访问交叉引用服务，请修改以下程序代码：
-```txt
+```text
 private void getCrossReferenceServiceforTag()
 {
 SoftwareContainer softwareContainer = deviceItem.GetService<SoftwareContainer>();
@@ -19493,12 +19493,12 @@ Console.WriteLine(e.Message);
 
 变量表说明 (RT Unified)
 要求
-```txt
+```text
 - 可访问 HMI 软件对象
 请参见 “HMISoftware 说明 (页 748)”
 ```
 要对变量表执行任务，可使用枚举变量表或使用 Find()：
-```txt
+```text
 private void TagTableBrowse()
 {
 HmiSoftware hmiSoftware = GetHmiSoftware();
@@ -19511,7 +19511,7 @@ foreach (HmiTagTable tagTable in tagTables)
 }
 要通过名称访问单个变量表，请修改以下程序代码：
 ```
-```txt
+```text
 private void TagTableSearch()
 {
 HmiSoftware hmiSoftware = GetHmiSoftware();
@@ -19541,7 +19541,7 @@ TagTables.Create() (RT Unified)
 • 可访问 HMI 软件对象请参见“HMISoftware 说明 (页 748)”
 程序代码
 要通过 HmiTagTableComposition 类的 Create() 创建变量表，请修改以下程序代码
-```txt
+```text
 private void TagTableCreate()
 {
     // Create tag table with name "TagTable_1"
@@ -19557,7 +19557,7 @@ TagTables.Delete() (RT Unified)
 • 可访问 HMI 软件对象请参见“HMISoftware 说明 (页 748)”
 程序代码
 要通过 HmiTagTable 类的 Delete() 删除变量表，请修改以下程序代码：
-```txt
+```text
 private void TagTableDelete()
 {
     // Delete tag table with name "TagTable_1"
@@ -19575,7 +19575,7 @@ private void TagTableDelete()
 • 可访问 HMI 软件对象请参见“HMISoftware 说明 (页 748)”
 5.13 HMI Unified 设备的数据访问函数 (RT Unified)
 要访问变量表的属性，请修改以下程序代码：
-```txt
+```text
 private void TagTableProperties()
 {
     //Set and Get the "Name" properties of tag table.
@@ -19679,7 +19679,7 @@ PlcTag: Data_block_1.Element1[1]
 
 • 可访问 HMI 软件对象请参见“HMISoftware 说明 (页 748)”
 要导出变量表，请修改以下程序代码：
-```txt
+```text
 DirectoryInfo directoryInfo = new DirectoryInfo("D:\\Data Exchange");
 HmiTagTableComposition tables = GetHmiSoftware(currentProject).TagTables;
 HmiTagTable tagTable = tables.Find(tagTableName.Text);
@@ -19694,7 +19694,7 @@ TagTable.Tags.Import() (RT Unified)
 • 可访问 HMI 软件对象请参见“HMISoftware 说明 (页 748)”
 程序代码
 要导入变量表，请修改以下程序代码：
-```txt
+```text
 DirectoryInfo directoryInfo = new DirectoryInfo("D:\\Data Exchange");
 HmiSoftware ImportHMISoftware = GetHmiSoftware(currentProject);
 HmiTagTableComposition tables = ImportHMISoftware.TagTables;
@@ -19708,7 +19708,7 @@ bool ImportResult = tagTable.Tags.Import(directoryInfo);
 
 TagTableGroups 说明 (RT Unified)
 要求
-```txt
+```text
 - 可访问 HMI 软件对象
 请参见 “HMISoftware 说明 (页 748)”
 ```
@@ -19733,7 +19733,7 @@ privat void SearchTagTableGroups(HmiSoftware hmiSoftware)
 
 • 可访问 HMI 软件对象请参见“HMISoftware 说明 (页 748)”
 要通过 HmiTagTableGroupComposition 类的 Create() 方法创建变量表组(HmiTagTableGroup)，请修改以下程序代码：
-```txt
+```text
 private void CraeteTagTableGroup(HmiSoftware hmiSoftware)
 {
     HmiTagTableGroupComposition tagTableGroups = hmiSoftware.TagTableGroups;
@@ -19999,7 +19999,7 @@ ulong singlebitRelevant2 = 32768; // Relevant = Decimal equivalent of the Single
 singleBitEntry2.Update(singlebitCondition2, singlebitRelevant2);
 singleBitEntry2.Value = false;
 ```
-```txt
+```text
 连接到 TIA Portal (页 90)
 打开项目 (页 140)
 HMISoftware 说明 (页 748)
@@ -20015,7 +20015,7 @@ HMISoftware 说明 (页 748)
 要求
 • TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)。
 • 已打开一个项目。请[打开项目](#打开项目)”
-```txt
+```text
 Tiaproject = tiaPortal.Projects[0];
 var deviceUnderTest = Tiaproject.Devices[0];
 //Set
@@ -20039,7 +20039,7 @@ var deviceName = deviceItem.Name;
 • 创建工厂视图
 • 删除工厂视图
 • 重命名工厂视图
-```txt
+```text
 要求
 • TIA Portal Openness 已连接到 TIA Portal
 请[连接到 TIA Portal](#连接到-TIA-Portal)"
@@ -20086,7 +20086,7 @@ PlantViewNodeComposition viewNodes = plantView.PlantViewNodes;
 PlantViewNode mixingNode = viewNodes.Create("Mixing");
 PlantViewNode motorNode = mixingNode.Create("Motor");
 ```
-```txt
+```text
 说明可以在工厂视图或工厂视图节点内创建任意数量的工厂视图节点。
 ```
 修改以下程序代码，以移除或删除工厂视图节点：
@@ -20097,7 +20097,7 @@ PlantViewNode mixingNode = plantView.PlantViewNodes.Find("Mixing");
 mixingNode.Delete();
 ```
 修改以下程序代码，通过更新“Name”属性重命名工厂视图节点：
-```txt
+```text
 PlantViewComposition plantViews = m_tiaPortalApp.Projects[0].PlantViews;
 PlantView plantView = plantViews.Find("ABCManufacturingPlant");
 PlantViewNodeComposition viewNodes = plantView.PlantViewNodes;
@@ -20110,12 +20110,12 @@ mixingNode.Name = "New_PlantViewNode_Name";
 可使用 TIA Portal Openness 枚举 TIA Portal 中给定项目内出现的工厂视图。
 5.13 HMI Unified 设备的数据访问函数 (RT Unified)
 要求
-```txt
+```text
 - TIA Portal Openness 已连接到 TIA Portal 请[连接到 TIA Portal](#连接到-TIA-Portal)”
 ```
 • 已打开一个项目请[打开项目](#打开项目)”
 修改以下程序代码，以枚举项目的所有工厂视图：
-```txt
+```text
 PlantViewComposition plantViews = m_tiaPortalApp.Projects[0].PlantViews;
 foreach (var item in plantViews)
 {
@@ -20142,7 +20142,7 @@ plantViews.FindPlantViewNode("ABCManufacturingPlan\Mixing\Motor");
 ```javascript
 PlantViewNodeComposition plantViewNodes = m_tiaPortalApp.Projects[0].PlantViews[0].PlantViewNodes; PlantViewNode plantViewNode = plantViewNodes.Find("Mixing");
 ```
-```txt
+```text
 连接到 TIA Portal (页 90)
 打开项目 (页 140)
 ```
@@ -20156,7 +20156,7 @@ foreach (var item in nodes)
 }
 修改以下程序代码，以枚举任何层级内可用的所有工厂视图节点：
 ```
-```txt
+```text
 PlantViewComposition plantViews = m_tiaPortalApp.Projects[0].PlantViews;
 PlantViewNodeComposition nodes = plantView.PlantViewNodes;
 PlantViewNodeComposition subNodes = nodes[2].PlantViewNodes;
@@ -20166,7 +20166,7 @@ foreach (var item in subNodes)
 }
 ```
 使用设备的工厂视图 (RT Unified)
-```txt
+```text
 5.13 HMI Unified 设备的数据访问函数 (RT Unified)
 ```
 ```javascript
@@ -20321,12 +20321,12 @@ PlantObjectInterface interface = interfaces[0];
 PLCTag 和连接属性仅在将 HMI 设备分配给工厂视图之后才可组态。
 • TIA Portal Openness 已连接到 TIA Portal 请[连接到 TIA Portal](#连接到-TIA-Portal)”
 • 已打开一个项目请[打开项目](#打开项目)”
-```txt
+```text
 连接到 TIA Portal (页 90)
 打开项目 (页 140)
 ```
 修改以下程序代码以访问接口变量的所有属性：
-```txt
+```text
 // Instance inside plant view node
 PlantViewNode mixingNode = plantView.PlantViewNodes.Create("Mixing");
 PlantViewNode mixerObject =
@@ -20429,7 +20429,7 @@ PlantObjectLoggingTagComposition loggingTags = memberTag LoggingTags;
 PlantObjectLoggingTag loggingTag = loggingTags.First Or Default();
 ```
 连接到 TIA Portal (页 90)
-```txt
+```text
 打开项目 (页 140)
 ```
 访问/更新成员变量的记录变量属性 (RT Unified)
@@ -20439,7 +20439,7 @@ PlantObjectLoggingTag loggingTag = loggingTags.First Or Default();
 • TIA Portal Openness 已连接到 TIA Portal 请[连接到 TIA Portal](#连接到-TIA-Portal)”
 • 已打开一个项目请[打开项目](#打开项目)”
 修改以下程序代码，以访问记录变量的所有属性：
-```txt
+```text
 // Instance inside plant view node
 PlantViewNode mixingNode = plantView.PlantViewNodes.Create("Mixing");
 PlantViewNode mixerObject =
@@ -20650,7 +20650,7 @@ scriptDynamic.Delete();
 ##### 访问脚本动态化的属性
 
 修改以下程序代码以获取和设置脚本动态化的属性：
-```txt
+```text
 HmiScreen screen = m_hmiSoftware.Screens[0];
 DynamizationBaseComposition dyns = screen.Dynamizations;
 foreach (DynamizationBase dynamic in dyns)
@@ -20697,7 +20697,7 @@ foreach (DynamizationBase dynamic in dyns)
 ##### 语法检查
 
 修改以下程序代码，使用脚本动态化的 SyntaxCheck 方法检查脚本代码或全局脚本代码的语法：
-```txt
+```text
 HmiScreen screen = m_hmiSoftware.Screens[0];
 DynamizationBaseComposition dyns = screen.Dynamizations;
 foreach (DynamizationBase dynamic in dyns)
@@ -20754,7 +20754,7 @@ TagDynamization tagDyn = dyns.Create<TagDynamization>("Width");
 ##### 针对属性枚举动态化
 
 修改以下程序代码以针对属性枚举动态化：
-```txt
+```text
 HmiScreen screen = m_hmiSoftware.Screens[0];
 DynamizationBaseComposition dyns = screen.Dynamizations;
 // Flashing dynamization
@@ -20768,7 +20768,7 @@ TagDynamization tagDyn = (TagDynamization)dyns.Find("Width");
 ##### 针对属性删除动态化
 
 修改以下程序代码以针对属性删除动态化：
-```txt
+```text
 public void Delete ()
 HmiScreen screen = m_hmiSoftware.Screens[0];
 DynamizationBaseComposition dyns = screen.Dynamizations;
@@ -20791,7 +20791,7 @@ DynamizationType dynamizationType = screenDynamization.DynamizationType;
 ##### 访问变量动态化的属性
 
 修改以下程序代码以获取和设置变量动态化的属性：
-```txt
+```text
 HmiScreen screen = m_hmiSoftware.Screens[0];
 TagDynamization tagDynamization = (TagDynamization)screen.Dynamizations.Find("Width");
 foreach (DynamizationBase dynamization in screen.Dynamizations)
@@ -20827,7 +20827,7 @@ foreach (DynamizationBase dynamization in screen.Dynamizations)
 ##### 访问资源列表动态化的属性
 
 修改以下程序代码以获取和设置资源列表动态化的属性
-```txt
+```text
 HmiScreen screen = m_hmiSoftware.Screens[0];
 foreach (DynamizationBase dynamization in screen.Dynamizations)
 {
@@ -20853,7 +20853,7 @@ HMISoftware 说明 (页 748)
 • 项目已经打开。[打开项目](#打开项目)”
 通过作为服务的项目中的 VersionControlInterface，可使用 TIA Portal Openness 访问 VCI 系统组。VersionControlInterface 是服务，将返回非空对象。
 修改以下程序代码以检索 VersionControlInterface: 中的工作区系统组：
-```txt
+```text
 public void function01()
 {
     //Accessing VCI system group in project
@@ -20871,7 +20871,7 @@ public void function01()
 • 项目已经打开。
 [打开项目](#打开项目)”
 修改以下程序代码以枚举其它 VCI 工作区组中的所有 VCI 工作区用户组。
-```txt
+```text
 WorkspaceUserGroup workspaceGroup = ...;
 WorkspaceUserGroupComposition userGroupComposition = workspaceGroup.Groups;
 foreach (Siemens.Engineering.VersionControl.WorkspaceUserGroup workspaceUserGroup in userGroupComposition)
@@ -20880,7 +20880,7 @@ foreach (Siemens.Engineering.VersionControl.WorkspaceUserGroup workspaceUserGrou
 }
 ```
 修改以下程序代码以访问其它 VCI 工作区组中的个别工作区用户组：
-```txt
+```text
 WorkspaceUserGroup workspaceGroup = ...;
 Siemens.Engineering.VersionControl.WorkspaceUserGroup workspaceUserGroup = workspaceGroup.Groups.Find("Some Group Name");
 ```
@@ -20944,7 +20944,7 @@ workspaceUserGroup.Delete();
 • 项目已经打开。
 请[打开项目](#打开项目)”
 修改以下程序代码以枚举 VCI 组中的所有 VCI 工作区：
-```txt
+```text
 WorkspaceSystemGroup workspaceSystemGroup = ...;
 WorkspaceComposition workspaceComposition = workspaceSystemGroup.Workspaces;
 foreach (Siemens.Engineering.VersionControl.Workspace workspace in workspaceComposition)
@@ -20969,7 +20969,7 @@ workspaceUserGroup.Workspaces.Find("SomeWorkspaceName");
 要求
 • Openness 应用程序已连接 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
 • 项目已经打开。[打开项目](#打开项目)”
-```txt
+```text
 可使用 TIA Portal Openness 在工作区用户组中创建工作区。
 可使用创建操作创建 Siemens.Engineering.VersionControl.Workspace:
 Siemens.Engineering.VersionControl.WorkspaceComposition.Create(string name)
@@ -21005,13 +21005,13 @@ workspace.Name = "New_Workspace_Name";
 #### 程序代码：更新根路径特性
 
 修改以下程序代码，以将工作区路径组态为根目录信息。将该值设为 null 可取消组态工作区根路径。
-```txt
+```text
 var workspace = ...;
 workspace.RootPath = new DirectoryInfo(@"D:\Project_WS");
 ```
 5.14 版本控制接口的功能
 修改以下程序代码，以取消组态工作区：
-```txt
+```text
 var workspace = ...;
 workspace.RootPath = ...;
 ```
@@ -21027,7 +21027,7 @@ workspace.RootPath = ...;
 可使用 TIA Portal Openness 删除工作区。删除工作区时，还会同时删除所有工作区映射。
 程序代码
 修改以下程序代码以删除工作区：
-```txt
+```text
 //Deleting VCI workspace
 Workspace workspace = ...;
 workspace.Delete();
@@ -21066,11 +21066,11 @@ IEngineeringObject 接口由 IEngineeringCompositionObject 和 IEngineeringInsta
 简介
 可使用 TIA Portal Openness 在 VCI 工作区中创建工作区映射。
 可使用创建操作签名创建 Siemens.Engineering.VersionControl.WorkspaceMapping：
-```txt
+```text
 Siemens.Engineering.VersionControl.WorkspaceMappingComposition.Create(string relativeWorkspacePath, IEngineeringObject linkedProjectObject)
 ```
 修改以下程序代码，以创建工作区映射：
-```txt
+```text
 //Creating VCI workspace mapping in VCI workspace
 var workspace = ...;
 var plcBlock = ...;
@@ -21104,7 +21104,7 @@ workspaceMapping.RelativeWorkspacePath = @"\Test\NewBlock_1.xml";
 [打开项目](#打开项目)”
 可使用 TIA Portal Openness 删除 VCI 工作区映射。
 修改以下程序代码，以删除 VCI 工作区映射：
-```txt
+```text
 //Deleting VCI workspace mapping
 WorkspaceMapping workspaceMapping = ...;
 workspaceMapping.Delete();
@@ -21121,7 +21121,7 @@ workspaceMapping.Delete();
 
 可查看操作时必须先从工作空间映射请求 Siemens.Engineering.VersionControl.WorkspaceMapping.IndividualObjectSynchronizatio nStatus 的个别对象的状态、更新状态和同步状态
 建议在对个别对象同步服务调用操作之前执行 null 检查，因为该映射可能支持、也可能不支持个别对象同步。
-```txt
+```text
 var individualObjectSynchronizationStatus =
     workspaceMapping Sierra GetService<IndividualObjectSynchronizationStatus>();
     if (individualObjectSynchronizationStatus != null);
@@ -21134,13 +21134,13 @@ var individualObjectSynchronizationStatus =
 
 #### 程序代码：获取状态
 
-```txt
+```text
 可通过
 Siemens.Engineering.VersionControl.IndividualObjectSynchronizationStatus.GetStatus()
 操作查看个别对象的同步状态，该操作会返回
 Siemens.Engineering.VersionControl.IndividualObjectCompareResult.
 ```
-```txt
+```text
 public class IndividualObjectCompareResult
 {
     CompareState CompareState { get; }
@@ -21150,7 +21150,7 @@ IndividualObjectCompareDetails 标志枚举值用于通知用户已更改的工�
 当 CompareState 为 Equal 时。如果 CompareState 为 unequal，该枚举值可以是 ProjectObjectChanged 或 WorkspaceFileChanged，也可以同时为 ProjectObjectChanged、WorkspaceFileChanged.
 ```
 IndividualObjectCompareResult 对象用于通知当前同步状态。
-```txt
+```text
 [Flags]public enum IndividualObjectCompareDetails
 {
 None = 0,
@@ -21159,7 +21159,7 @@ WorkspaceFileChanged = 2
 }
 ```
 CompareState枚举值用于通知对象是否进行了任何更改。
-```txt
+```text
 public enum CompareState
 {
 Equal,
@@ -21209,7 +21209,7 @@ individualObjectSynchronizationStatus.UpdateStatus();
 
 可强制系统在当前链接的项目对象与工作区之间进行实时对比。对比后会得到反映系统当前状态的同步状态修改，并可用于确定当前链接（但未同步）映射的状态，无需修改已有的项目对象或工作区文件。
 SynchronizationMode 枚举值用于通知系统同步的执行方向：
-```txt
+```text
 public enum SynchronizationMode
 {
 ProjectToWorkspace,
@@ -21218,7 +21218,7 @@ WorkspaceToProject
 该操作将尝试与已链接工作区文件对象同步已链接项目对象。
 修改以下程序代码以同步工作区：
 ```
-```txt
+```text
 var workspaceMapping = ...;
 var individualObjectSynchronizationStatus =
 workspaceMapping Sierra GetService IndividualObjectSynchronizationStatus>();
@@ -21358,7 +21358,7 @@ inactiveCultureSetting.Value = SimaticMlImportOptions.DoNotActivateInactiveCultu
 简介
 可使用 Create() 在 TIA Portal 设置中创建新的项目服务器连接条目。 Create() 会返回ProjectServer，并接受以下参数：
 <table><tr><td>参数</td><td>数据类型</td><td>描述</td></tr><tr><td>aliasName</td><td>string</td><td>指定用于创建项目服务器连接的别名</td></tr><tr><td>protocol</td><td>Protocol</td><td>指定用于创建项目服务器连接的协议类型</td></tr><tr><td>hostname</td><td>string</td><td>指定用于创建项目服务器连接的主机名称</td></tr><tr><td>port</td><td>int</td><td>指定用于创建项目服务器连接的端口号</td></tr></table>
-```txt
+```text
 TiaPortal tiaPortal = new TiaPortal();
 string aliasName = "ProjectServer1";
 Protocol protocol = ProtocolHttps;
@@ -21375,7 +21375,7 @@ ProjectServer projectServer = tiaPortal.ProjectServers.Create(aliasName, protoco
 可使用 TIA Portal Openness 中的 SetProtocol()、SetHostName() 和 SetPort() 在 TIA Portal 设置中编辑已有的项目服务器连接。例如，可使用此 API 编辑协议、主机名称和端口参数。
 说明
 如果需要修改别名，则必须删除项目服务器连接条目，且需要创建新连接。
-```txt
+```text
 TiaPortal tiaPortal = new TiaPortal();
 string aliasName = "ProjectServer1";
 ProjectServer projectServer =
@@ -21396,7 +21396,7 @@ projectServer.SetPort(17000);
 简介
 可使用 DeleteConnection() 将项目服务器连接条目从 TIA Portal 设置中删除。
 程序代码
-```txt
+```text
 TiaPortal tiaPortal = new TiaPortal();
 string aliasName = "ProjectServer1";
 ProjectServer projectServer =
@@ -21416,7 +21416,7 @@ projectServer.DeleteConnection();
 可使用此导航器调用涉及多用户服务器交互而不打开本地会话的任何功能，并且ProjectServers 始终可用。
 本地 Windows 用户将用于基于多用户服务器进行身份验证。
 可使用以下代码示例访问与 ProjectServer 相关的特性：
-```txt
+```text
 TiaPortal tiaPortal = new TiaPortal();
 string aliasName = "ProjectServer1";
 ProjectServer projectServer =
@@ -21443,7 +21443,7 @@ int portNumber = projectServer.Port;
 <table><tr><td>参数</td><td>数据类型</td><td>描述</td></tr><tr><td>projectFileInfo</td><td>FileInfo</td><td>指定服务器路径</td></tr></table>
 对于所有 API，将使用运行 Openness 应用程序/脚本的本地 Windows 用户向多用户服务器进行身份验证。务必将具有执行目标操作所需角色的用户添加到多用户服务器。如果用户未通过身份验证，则将引发异常。
 修改以下程序代码，以将单个用户项目添加到多用户服务器：
-```txt
+```text
 TiaPortal tiaPortal = new TiaPortal();
 string aliasName = "ProjectServer1";
 FileInfo projectFileInfo = new FileInfo("C:\\Projects\\Project1\\Project1.ap17");
@@ -21556,7 +21556,7 @@ SessionCreationMode.Exclusive);
 • 项目已打开
 [打开项目](#打开项目)”
 可使用 Save() 保存给定的会话。Save() 会返回空类型，仅当会话为工程组态或独占会话类型时，才会保存会话。否则，如果会话为服务器项目，则将抛出 MultiuserException。
-```txt
+```text
 // ...
 TiaPortal tiaPortal = new TiaPortal();
 string aliasName = "ProjectServer1";
@@ -21584,7 +21584,7 @@ localSession.Save();
 可使用 DeleteLocalSessionOnServer() 删除给定的本地会话。DeleteLocalSessionOnServer()仅会从多用户服务器删除会话，而不会删除本地磁盘中的会话文件。如果指定的会话是独占会话，则服务器项目锁将自动删除。
 DeleteLocalSessionOnServer() 接受以下参数，以删除本地会话：
 <table><tr><td>参数</td><td>数据类型</td><td>描述</td></tr><tr><td>serverProjectInfo</td><td>ServerProjectInfo</td><td>指定服务器项目上的可用项目列表</td></tr><tr><td>localsessioninfo</td><td>LocalSessionInfo</td><td>指定项目的本地会话信息</td></tr></table>
-```txt
+```text
 //...
 TiaPortal tiaPortal = new TiaPortal();
 string aliasName = "ProjectServer1";
@@ -21649,7 +21649,7 @@ tiaPortal.LocalSessions.Open(localSessionInfo.ProjectFileInfo);
 • 已打开一个项目
 请[打开项目](#打开项目)”
 可使用 OpenServerProject() 为给定本地会话打开服务器项目。OpenServerProject() 会返回服务器项目类型的 LocalSession 对象，并包含 localSessionPath 参数，其数据类型为FileInfo。
-```txt
+```text
 TiaPortal tiaPortal = new TiaPortal();
 string aliasName = "ProjectServer1";
 ProjectServer projectServer =
@@ -21678,7 +21678,7 @@ tiaPortal.LocalSessions.OpenServerProject(localSessionInfo.ProjectFileInfo);
 还可使用 TIA Portal Openness 来获取可用 EngineeringObject 的标记状态信息。
 可使用 TIA Portal Openness 访问以下方法和参数名称：
 <table><tr><td>返回类型</td><td>方法名称</td><td>参数</td></tr><tr><td>MarkStateInfo</td><td>GetMarkStateInfo</td><td>IEngineeringObjectengineeringObject</td></tr></table>
-```txt
+```text
 //Open a local session or a server project
 //Add a block or edit an block of type IEngineeringObject
 MarkStateInfo markStateInfo = localSession.MarkingService.GetMarkStateInfo(muBlock);
@@ -21724,7 +21724,7 @@ if (markStateInfo.IsMarkable)
 简介
 可使用 Close() 关闭服务器项目、多用户会话或独占会话。Close() 将返回空类型，并将丢弃所有待处理的更改。
 修改以下程序代码以关闭服务器项目：
-```txt
+```text
 TiaPortal tiaPortal = new TiaPortal();
 string aliasName = "ProjectServer1";
 ProjectServer projectServer =
@@ -21775,7 +21775,7 @@ multiuserLocalSession.Close();
 简介
 可使用 CloseAndCommit() 保存对服务器项目和独占会话做出的更改。CloseAndCommit()会返回 integer 类型，并具有 string 类型的 Comment 参数。
 修改以下程序以保存服务器项目更改：
-```txt
+```text
 :
 TiaPortal tiaPortal = new TiaPortal();
 string aliasName = "ProjectServer1";
@@ -21791,7 +21791,7 @@ int revisionCreated = serverProject.CloseAndCommit(comment: "Comment");
 :
 ```
 修改以下程序代码以保存独占会话更改：
-```txt
+```text
 :
 TiaPortal tiaPortal = new TiaPortal();
 string aliasName = "ProjectServer1";
@@ -21973,7 +21973,7 @@ private static void Main(string[] args)
 • 通过Identifier 获取特殊工程组态功能权限
 对于工程组态功能权限，Name 特性值将基于用户界面语言。但Identifier特性值将始终保持不变，与用户界面语言无关。
 对于“Find”API，应使用 Identifier 特性值。
-```txt
+```text
 private static SecureString GetSecureString(string value)
 {
     SecureString secureStr = new SecureString();
@@ -22025,7 +22025,7 @@ EngineeringTargetInvocationException。
 • 对给定参数的验证失败（比如特殊字符或长度）
 对于系统设备功能权限，Name 特性值将基于 TIA Portal 界面语言定义。Identifier特性值将始终保持不变，与在 TIA Portal 用户界面中设置的语言无关。
 对于“Find”API，应使用 Identifier 特性值。
-```txt
+```text
 Device device = ...;
 Project project = ...;
 var umacDevice = device.GetService<UmacDevice>();
@@ -22111,7 +22111,7 @@ var engineeringFunctionRights = systemRole.AssignedEngineeringRights;
 • 获取为自定义角色分配的工程组态功能权限
 • 获取为自定义角色分配的设备功能权限
 对于自定义角色，Identifier特性值将始终保持不变，与用户界面语言无关。对于“Find”API，应使用 Identifier 特性值。
-```txt
+```text
 TiaPortal tiaPortal = new TiaPortal();
 Project tiaProject = tiaPortal.Projects[0];
 UmacConfigurator UmacConfiguratorService = tiaProject.GetService<UmacConfigurator>();
@@ -22273,7 +22273,7 @@ UmcServer umcServer = umcServerConfigurator.UmcServer;
 umcServer.Authentication += UmcServer_Authentication;
 ```
 UmcServer\_Authentication() 包含 Event 参数，可通过这些参数传递 UMC 管理员名称和密码。
-```txt
+```text
 private static void UmcServer_Authentication(object sender, UmcAuthenticationEventArgs e)
 {
 e.UmcCredentials.Name = "Admin";
@@ -22289,7 +22289,7 @@ Console.WriteLine("Password is set");
 • 项目已经打开。[打开项目](#打开项目)”
 可使用 TIA Portal Openness 从 UMC 服务器获取 UMC 用户组。GetUserGroupByName ( ) 方法可在 UMC 服务器级从已连接的 UMC 服务器获取 UMC 用户组。
 触发 GetUserGroupByName ( ) 方法后，事件回调会触发 UMC 服务器身份验证。只有具有“UMC 视图”权限的 UMC 用户才能从 UMC 服务器检索 UMC 用户组。
-```txt
+```text
 Project project = ...;
 var umcServerConfigurator = project.GetService<UmcServerConfigurator>();
 UmcServer umcServer = umcServerConfigurator.UmcServer;
@@ -22305,7 +22305,7 @@ Siemens.Engineering.Umac.UmcUserGroupInfo umcUserGroupsFromUmcServer = umcServer
 [打开项目](#打开项目)”
 可使用 TIA Portal Openness 从 UMC 服务器获取 UMC 用户组。可在 UMC 服务器级使用GetUserByName( ) 通过 UMC 用户名从 UMC 服务器获取相应的 UMC 用户。
 触发 GetUserByName( ) 方法后，事件回调会触发 UMC 服务器身份验证。只有具有 UMC 查看权限的 UMC 用户才能从 UMC 服务器获取 UMC 用户。
-```txt
+```text
 程序代码
 Project project = ...;
 var umcServerConfigurator = project.GetService<UmcServerConfigurator>();
@@ -22325,7 +22325,7 @@ umcServer chloride ByName(umcUserName);
 • 项目已打开
 [打开项目](#打开项目)”
 可使用 TIA Portal Openness 将 UMC 用户组从 UMC 服务器添加到 TIA Portal 项目。
-```txt
+```text
 Project project = ...;
 var umcServerConfigurator = project.GetService<UmcServerConfigurator>();
 var umacConfigurator = project.GetService<UmacConfigurator>();
@@ -22407,7 +22407,7 @@ UmcUserComposition umcUserComposition = umacConfigurator.UmcUsers;
 应用
 可使用 TIA Portal Openness 查找 TIA Portal 项目中的相应 UMC 用户。
 程序代码
-```txt
+```text
 string UmcUserName = "XXXX";
 UmcUserComposition umcUsersList = umacConfigurator.UmcUsers;
 UmcUser umcUser = umcUsersList.Find(UmcUserName);
@@ -22423,7 +22423,7 @@ UmcUser umcUser = umcUsersList.Find(UmcUserName);
 应用
 可使用 TIA Portal Openness 查找 TIA Portal 项目中的相应 UMC 用户组。
 程序代码
-```txt
+```text
 //Get UmcUserGroups from the Project.
 string UmcUserGroupName = "XXXX";
 UmcUserGroupComposition umcUserGroupList = umacConfigurator.UmcUserGroups;
@@ -22437,7 +22437,7 @@ UmcUserGroup umcUserGroup = umcUserGroupList.Find(UmcUserGroupName);
 • TIA Portal Openness 应用程序已连接到 TIA Portal。 [连接到 TIA Portal](#连接到-TIA-Portal)”
 • 已打开一个项目请[打开项目](#打开项目)”
 可使用 TIA Portal Openness 为添加到 TIA Portal 项目的 UMC 用户分配相应的角色。
-```txt
+```text
 //Assign the System Role.
 UmacConfigurator umacConfigurationBuilder = ...;
 string s_SystemRoleName = "";
@@ -22460,7 +22460,7 @@ CustomRole customRole = umacConfigurator.CustomRoles.Create("CustomRole");
 请[打开项目](#打开项目)”
 应用
 可使用 TIA Portal Openness 获取为 UMC 用户和 UMC 用户组分配的角色列表。
-```txt
+```text
 //Get assigned roles from UmcUserGroup.
 string UmcUserGroupName = "XXXX";
 UmcUserGroupComposition umcUserGroupList = umacConfigurationBuilder.UmcUserGroups;
@@ -22503,7 +22503,7 @@ umcUserGroup.Roles.Add(customRole);
 • 已打开一个项目请[打开项目](#打开项目)”
 可使用 TIA Portal 应用程序为添加到 TIA Portal 项目的 UMC 用户和 UMC 用户组取消分配相应的角色。
 修改以下程序代码以移除添加到 TIA Portal 项目的 UMC 用户的角色。
-```txt
+```text
 //Remove the System Role.
 bool isSuccessfullyRemoved = umcUser.Roles.Remove(engineeringSystemRole);
 //Remove the Custom Role
@@ -22584,7 +22584,7 @@ umcUserGroupToDelete.Delete();
 • TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)
 • 已通过 TIA Portal Openness 应用程序打开一个项目。请[打开项目](#打开项目)”
 可在 TIA Portal Openness 中使用 Synchronize() 来同步 UMC 数据。如果项目中存在的 UMC用户和 UMC 用户组在域项目中主题，则 Synchronize() 会检索项目中的 UMC 用户和 UMC 用户组。
-```txt
+```text
 private void SynchronizeUMCUser()
 {
 m_UmcServerConfigurator = project.GetService<UmcServerConfigurator>();
@@ -22643,7 +22643,7 @@ private void SettingRuntimeSession()
 <table><tr><td>属性名称</td><td>数据类型</td><td>说明</td><td>访问权限</td></tr><tr><td>IncludesLowerCaseAndUpperCaseCharacters</td><td>Boolean</td><td>设置或者获取includesLowerCaseAndUpperCaseCharacters的值</td><td>读/写</td></tr><tr><td>MinimumNumericCharact erLength</td><td>Short</td><td>设置或者获取密码的minimumNumericCharacterLength值</td><td>读/写</td></tr><tr><td>MinimumLength</td><td>Short</td><td>设置或者获取密码的minimumLength值</td><td>读/写</td></tr><tr><td>MinimumSpecialCharact erLength</td><td>Short</td><td>设置或者获取密码的minimumSpecialCharacterLength值</td><td>读/写</td></tr><tr><td>EnablePasswordAging</td><td>Short</td><td>设置或者获取 enablePasswordAging的值</td><td>读/写</td></tr><tr><td>MinimumUserPasswords BlockedForReuse</td><td>Short</td><td>设置或者获取minimumUserPasswordBlockedForReuse的值</td><td>读/写</td></tr><tr><td>PasswordValidityPrewarningTime</td><td>Short</td><td>设置或者获取passwordValidityPrewarningTime的值,单位为天(超出范围)</td><td>读/写</td></tr><tr><td>PasswordValidity</td><td>Short</td><td>设置或者获取 passwordValidity的值,单位为天(超出范围)</td><td>读/写</td></tr></table>
 程序代码
 5.16 用于访问 CPU 用户管理数据的功能
-```txt
+```text
 private void PasswordPolicySetting()
 {
     var passwordPolicyConfigurator = tiaProject.GetService<PasswordPolicyConfigurator>();
@@ -22695,7 +22695,7 @@ private void PasswordPolicySetting()
     passwordPolicyConfigurator.MinimumUserPasswordsBlockedForReuse;
     //Sets the value of minimumLength of the password which is out of range
 ```
-```txt
+```text
 var minimumLength = -11;
 try
 {
@@ -22748,7 +22748,7 @@ Console.Writeline(exception.Message);
 }
 // Sets the value of minimumUserPasswordsBloackedForReuse which is out of range
 ```
-```txt
+```text
 var minimumUserPasswordsBloackedForReuse = -2;
 try
 {
@@ -22946,7 +22946,7 @@ private static SecureString GetSecureString(string password)
 5.17 OPC 函数
 <table><tr><td>TIA UI名称</td><td>枚举条目</td><td>值</td><td>备注</td></tr><tr><td>Basic256 - 签名和加密</td><td>OpcUaSecurityPolicies256SE</td><td>16</td><td></td></tr><tr><td>Basic256Sha256 - 签名</td><td>OpcUaSecurityPolicies256SHAS</td><td>32</td><td></td></tr><tr><td>Basic256Sha256 - 签名和加密</td><td>OpcUaSecurityPolicies256SHASE</td><td>64</td><td></td></tr><tr><td>Aes128 - Sha256 - RsaOaep - 签名</td><td>OpcUaSecurityPolicies256RSAOAEPS</td><td>128</td><td></td></tr><tr><td>Aes128Sha256 - RsaOaep - 签名和加密</td><td>OpcUaSecurityPolicies256RSAOAEPSSE</td><td>256</td><td></td></tr><tr><td>Aes256Sha256RsaPss - 签名</td><td>OpcUaSecurityPolicies256RSAPSSS</td><td>512</td><td></td></tr><tr><td>Aes256Sha256RsaPss - 签名和加密</td><td>OpcUaSecurityPolicies256RSAPSSSE</td><td>1024</td><td></td></tr></table>
 修改以下程序代码，以使用 OPC UA 设置 OPC UA 的安全策略：
-```txt
+```text
 DeviceItem UpcUaSubmodule = ...;
 object SecurityPolicies = UpcUaSubmodule.GetAttribute("OpcUaSecurityPolicies");
 if (SecurityPolicies | OpcUaSecurityPolicies.OpcUaSecurityPolicies256S == OpcUaSecurityPolicies.OpcUaSecurityPolicies256S)
@@ -22985,7 +22985,7 @@ OpcUaSecurityPolicies.OpcUaSecurityPolicies256SHASE);
 <table><tr><td>参数</td><td>返回类型</td><td>定义</td></tr><tr><td>filePath</td><td>System.IO.FileInfo</td><td>导出文件应写入的文件路径的封装器对象。</td></tr></table>
 引用命名空间类提供以下特性：
 <table><tr><td>特性名称</td><td>数据类型</td><td>描述</td><td>访问</td></tr><tr><td>Author</td><td>System.string</td><td>作者</td><td>读/写</td></tr><tr><td>Comment</td><td>Siemens.Engineering .Multilingual.Text</td><td>注释</td><td>读/写</td></tr><tr><td>Creation Time</td><td>System.DateTime</td><td>引用命名对象的创建时间</td><td>只读</td></tr><tr><td>Enabled</td><td>System.Boolean</td><td>启用引用命名空间并下载到 PLC</td><td>读/写</td></tr><tr><td>LastModified</td><td>System.TimeTime</td><td>引用命名对象的最近修改时间</td><td>只读</td></tr><tr><td>Name</td><td>System.String</td><td>名称</td><td>只读</td></tr></table>
-```txt
+```text
 // Accessing OPC UA interface;
 PlcSoftware software = ....;
 OpcUaProvider provider = software.GetService<OpcUaProvider>();
@@ -23033,7 +23033,7 @@ private void exportReferenceNamespace()
 // Remove the reference namespace object
 private void deleteReferenceNamespace()
 ```
-```txt
+```text
 {
 ReferenceNamespace referenceNamespace = ...;
 referenceNamespace.Delete();
@@ -23115,7 +23115,7 @@ Openness：用于工程组态工作流自动化的 API系统手册, 11/2023
 • 启用/禁用服务器接口
 • 删除服务器接口
 可通过从 PlcSoftware 获取的 OpcProvider 服务与 OPC UA 服务器接口进行交互。
-```txt
+```text
 PlcSoftware software = ....;
 OpcUaProvider provider = software chloride<OpcUaProvider>();
 if (provider != null)
@@ -23124,7 +23124,7 @@ if (provider != null)
 }
 ```
 修改以下程序代码，以允许导航到 OPC UA 服务器接口：
-```txt
+```text
 PlcSoftware software = ....;
 OpcUaProvider provider = software chloride<OpcUaProvider>();
 if (provider != null)
@@ -23135,7 +23135,7 @@ ServerInterfaceComposition serverInterfaces = serverInterfaceGroup.ServerInterfa
 }
 ```
 修改以下程序代码，以枚举 ServiceInterfaceComposition 集合中的项：
-```txt
+```text
 ServerInterfaceComposition serverInterfaces = ....;
 foreach (ServerInterface serverInterface in serverInterfaces)
 {
@@ -23143,7 +23143,7 @@ foreach (ServerInterface serverInterface in serverInterfaces)
 }
 ```
 修改以下程序代码，以添加 OPC UA 服务器接口对象：
-```txt
+```text
 ServerInterfaceComposition serverInterfaces = ....;
 if (serverInterfaces != null)
 {
@@ -23151,7 +23151,7 @@ if (serverInterfaces != null)
 }
 修改以下程序代码，以获取和设置 OPC UA 服务器接口对象的特性：
 ```
-```txt
+```text
 ServerInterfaceComposition serverInterfaces = ....;
 if (serverInterfaces != null)
 {
@@ -23172,16 +23172,16 @@ if (serverInterfaces != null)
 }
 ```
 修改以下程序代码，将服务器接口对象的内容写入到 XML 文件：
-```txt
+```text
 String exportFilePath = Path.Combine(Directory.GetCurrentDirectory(), "ExportInterface.xml");
 ServerInterface serverInterface = ...;
 serverInterface.Export(new FileInfo(exportFilePath));
 ```
 修改以下程序代码，将对象从包含的 ServerInterfaceComposition 中移除并取消对象分配：
-```txt
+```text
 ServerInterface serverInterface = ...; serverInterface.Delete();
 ```
-```txt
+```text
 连接到 TIA Portal (页 90)
 打开项目 (页 140)
 ```
@@ -23319,7 +23319,7 @@ if (screenRules != null && screenRules.Count > 0)
 ```
 案例 2：在画面规则表内查找画面规则组。
 可通过以下 API sivarc.ScreenRule.Groups 在 SiVArc 画面规则表内查找可用的规则和规则组，如下所示：
-```txt
+```text
 var groups = sivarc.ScreenRules.Tables.Find("Default screen rule table").Groups;
 if (groups != null && groups.Count > 0)
 {
@@ -23345,7 +23345,7 @@ if (groups != null && groups.Count > 0)
 #### 组态条件运算符属性
 
 可以在画面规则表中组态条件运算符属性画面规则，如下所示：
-```txt
+```text
 ScreenRule screenRule = sivarc.ScreenRules.Tables.Find("Default screen rule table").Groups.Find("Screen rule group_1).Rules.Find("Screen rule_2");
 if (screenRule != null)
 {
@@ -23354,7 +23354,7 @@ if (screenRule != null)
 ```
 screenRuleGroup.ConditionOperator API 用于在画面规则表中组态条件运算符属性。
 • 对于画面规则：访问条件运算符属性不适用的画面规则时，系统将返
-```txt
+```text
 回 ConditionOperator.None 值。
 ```
 – 访问条件运算符属性不适用的画面规则时，系统将返回ConditionOperator.None值
@@ -23364,7 +23364,7 @@ screenRuleGroup.ConditionOperator API 用于在画面规则表中组态条件运
 #### 组态布局字段
 
 GetLayoutFields API 用于在画面规则编辑器中组态布局字段，如下所示：
-```txt
+```text
 ScreenRule screenRule = sivarc.ScreenRules.Tables.Find("Default screen rule table").Rules.Find("Screen rule");
 {
     var layoutFields = screenRule.GetLayoutFields();
@@ -23387,7 +23387,7 @@ if (screenRule != null)
     screenRule ?.GetLayoutFields() .ToList();
 ```
 5.18 SiVArc Openness
-```txt
+```text
 {
     if (layoutFields ?.Count > 1)
     {
@@ -23480,7 +23480,7 @@ if (createdScreenRule != null)
 ##### 案例 1：在画面规则表文件夹中创建画面规则表
 
 可以在 SiVArc 项目导航下可用的“画面规则表”(Screen rule tables) 文件夹中创建画面规则表。Create方法用于创建新的画面规则表。
-```txt
+```text
 ScreenRuleTable screenRuleTable =
 sivarc.ScreenRules.Tables.Create (name:"OpnsScreenRuleTable")
 If (screenRuleTable !=null)
@@ -23510,7 +23510,7 @@ If (screenRuleTable !=null)
 ##### 案例 1：在画面规则表文件夹中创建画面规则文件夹
 
 可以在 SiVArc 项目导航下可用的“画面规则表”(Screen rule tables) 文件夹中创建画面规则文件夹。Create 方法用于创建新的画面规则文件夹。
-```txt
+```text
 ScreenRuleFolder screenRuleFolder =
 sivarc.ScreenRules.Folders.Create(name:"Folder_ScreenRuleFolder");
 If (screenRuleTable !=null)
@@ -23557,7 +23557,7 @@ Console.WriteLine(group.Name);
 }
 ```
 要从文件夹的规则表中访问规则和规则组，请使用以下代码：
-```txt
+```text
 Console.WriteLine("Rules");
 var rules =
 sivarc.ScreenRules.Folders.Find("RuleFolder").Tables.Find("AddedScreenRuleTable").Rules;
@@ -23598,7 +23598,7 @@ sivarc.ScreenRules.Tables.Find(name:"Default screen rule table").Delete();
 
 #### 5.18.8.5 访问库类型中的规则表
 
-```txt
+```text
 要访问“库类型”(Library Type)文件夹中的“规则表”(RuleTable)，请使用以下API: LibraryType libraryType = project.ProjectLibrary.TypeFolder.Types.Find (name:"Screen rule table")  
 为迭代“库类型”(Library Type)中的不同版本，请使用以下API: LibraryType libraryType = project.ProjectLibrary.TypeFolder.Types.Find (name:"Screen rule table")  
 foreach (var version in LibraryType.Versions) Console.WriteLine("Library type {0} version is {1}", libraryType.Name, version.VersionNumber);
@@ -23607,7 +23607,7 @@ foreach (var version in LibraryType.Versions) Console.WriteLine("Library type {0
 #### 5.18.8.6 创建规则表的实例
 
 要创建一个从库类型到 PNV 的规则表实例，请使用 CreateFrom 方法。CreateFrom 方法使用规则表组合在项目导航下实例化特定的规则表版本。TypeVersion必须强制转换到各自的规则表。下面的代码对此进行了说明：
-```txt
+```text
 LibraryType libraryType =
 project.ProjectLibrary.TypeFolder.Types.Find (name:"Screen rule table");
 Version version = new Version ("0.0.2");
@@ -23635,13 +23635,13 @@ instanceInfo.LibraryTypeVersion;
 #### 访问库类型中的文件夹
 
 要访问主副本中的任何库类型文件夹，使用LibraryTypeFolder API，如下所示：
-```txt
+```text
 LibraryTypeFolder libraryTypeFolder =
 project.ProjectLibrary.TypeFolder.Folders.Find("Folder");
 if (libraryTypeFolder != null && screenRule != null)
 {
 ```
-```txt
+```text
 screenRule.LibraryScreen = libraryTypeFolder;
 }
 ```
@@ -23728,12 +23728,12 @@ project.ProjectLibrary.MasterCopyFolder.MasterCopies.Find ("Block_2");
 ### 读取和写入画面规则的 ScreenObjectLibraryItem 属性
 
 情形 1：假设读取画面规则的ScreenObjectLibraryItem属性值。可以从模板副本中读取画面对象库项的值，如下所示：
-```txt
+```text
 if (sivarc != null)
 {
     ScreenRule screenRule = sivarc.ScreenRules.Tables.Find("Default screen rule table").Rules.Find("ScreenRule")
 ```
-```txt
+```text
 ISivarcLibraryItem screenObjectMasterCopy =
 screenRule?.ScreenObjectLibraryItem;
 if (screenObjectMasterCopy != null)
@@ -23758,7 +23758,7 @@ screenRule.ScreenObjectLibraryItem
 
 ### 读取和写入画面规则的画面主属性
 
-```txt
+```text
 同样，可以访问类型为 ISivarcLibraryMasterCopy（TextlistLibraryItem 和 AlarmLibraryItem）的其它属性来读取/写入值。
 ```
 ```cs
@@ -23841,7 +23841,7 @@ foreach (var devicestatus in devicestatus)
 ```
 情形 2：假设写入规则对象的动态属性。可以读取 PLC 设备列等属性，以检查 PLC 设备（如果为特定规则选择了该设备）的状态，如下所示：
 要更新 PLC 设备（如果为特定规则选择了该设备）的状态，需确保将 plc 名称传递给采用布尔值的 SetAttribute 方法。
-```txt
+```text
 if (sivarc != null)
 {
     ScreenRule screenRule = sivarc.ScreenRules.Tables.Find("Default screen rule table").Rules.Find("ScreenRule")
@@ -23905,7 +23905,7 @@ sivarc.ScreenRules.Tables.Find("Default screen rule table").Rules.Find("Screen r
 #### 分配变量规则属性
 
 可以分配“名称”(Name)、“条件”(Condition)、“注释”(Comment) 和“启用”(Enabled) 等变量规则属性。可以使用TagRule API 设置变量规则属性，如下所示：
-```txt
+```text
 TagRule tagrule = sivarc.TagRules.Tables.Find("Default tag rule table").Rules.Find ("Tag rule_1");
 if (tagRule != null)
 {
@@ -23916,10 +23916,10 @@ if (tagRule != null)
 }
 ```
 同样，可以使用TagRuleGroup API 设置变量规则组属性。
-```txt
+```text
 说明如果为“条件”(Condition)和“注释”(Comment)属性传递的值超过500个字符，则会显示异常。
 ```
-```txt
+```text
 可以使用以下 API 代码更新变量规则的其它属性，例如，TagGroupHierarchy、TagTable 和 ConditionalOperator:
 API TagGroupHierarchy、TagTable 和 ConditionOperator 用于在变量规则编辑器中为变量规则修改层级结构、变量表中的变量组及关联的条件运算符，如下所示：
 TagRule tagRule = sivarc.TagRules.Tables.Find("Default tag rule table").Groups.Find("Tag rule group_1").Rules.Find("Tag rule_2");
@@ -23946,7 +23946,7 @@ if (tagRule != null)
 #### 创建变量定义
 
 要为某一块创建变量定义，必须先确定 PLC（后接其关联块），然后再访问该块的 SiVArc 数据提供程序。访问 SiVArc 数据提供程序后，使用 TagDefinitionComposition 创建新的变量定义。以下代码片段表示同样的含义：
-```txt
+```text
 CodeBlock block = plcSoftware.BlockGroup.Blocks.Find("Block_1") as CodeBlock;
 // Access SivarcDataProvider service
 SivarcDataProvider sivarcDataProvider =
@@ -23965,7 +23965,7 @@ if (tagDefinition != null)
 
 要访问块的文本定义，必须先确定 PLC（后接其关联块），然后再访问该块的 SiVArc 数据提供程序。访问 SiVArc 数据提供程序后，确定要使用 TextDefinitionComposition 向其中写入数值的文本定义列。
 以下代码片段表示同样的含义：
-```txt
+```text
 TextDefinitionComposition textDefinitions =
 sivarcDataProvider.TextDefinitions;
 TextDefinition textDefinition = textDefinitions.Find("Text_definition");
@@ -24065,7 +24065,7 @@ sivarc.Generate("HMI_1", new List<string> {PLC_1}, GenerateOptions.AllTags | Gen
 • ErrorCount - SiVArc 生成之后的错误总数
 • Messages - 反馈消息组合
 要生成 SiVArc 结果，请使用以下 API：
-```txt
+```text
 private void WriteSivarcGenerationResults(SivarcGenerationResult result)
 {
     Console.WriteLine("Is SiVArc generation successful:" +
@@ -24106,7 +24106,7 @@ RecursivelyWriteMessages(message.Messages);
 • PLC - SiVArc 生成所需的 PLC 的列表
 • Generate Options（生成选项）- SiVArc 生成的设置的列表
 下面的代码对组态了多个 HMI 设备和 PLC 的情况下使用Generate方法来执行生成进行了说明：
-```txt
+```text
 if (sivarc != null)
 ```
 ```typescript
@@ -24117,7 +24117,7 @@ if (sivarc != null)
     WriteGenerationResults(result);
 ```
 • 在选择了“GenerationOpions.none”的条件下执行 SivarcGeneration API 时，如果不选择规则集，则系统将“所有规则”(All Rules) 修改为默认规则集，这表示所选设备不生成 SiVArc，并会为所有规则生成 HMI 对象。
-```txt
+```text
 SivarcGenerationResult result = sivarc.Generate(device name: "HMI_RT_1", plcs:new List<string>() { "PLC_1" }, GenerationOptions none);
 ```
 • SivarcGeneration API 在选择了“用户创建的规则”(User created rules) 的条件下执行时，系统将其视为一个规则集，并生成包含对象的相应画面。
@@ -24164,7 +24164,7 @@ Test Suite 对象可用的命名空间
 
 使用以下代码，可访问目标 TIA Portal 项目内 Openness 应用程序中的 Test Suite 服务及其方法。
 要将 Test Suite 作为服务进行访问：
-```txt
+```text
 Using Siemens.Engineering;
 Using Siemens.Engineering.TestSuite;
 TestSuiteService testSuite = project.GetService<TestSuiteService>( ) ;
@@ -24214,7 +24214,7 @@ RuleSetComposition listRuleSets = testSuite.StyleGuideGroup.RuleSets;
 1. 对于 RuleSetComposition 进行索引访问。
 2. 在 RuleSetComposition 执行 Find() 方法。
 以下属性用于访问项目中的单个规则集并从项目中检索特定的规则集：
-```txt
+```text
 RuleSet rulesetDB = testSuite.StyleGuideGroup.RuleSets[1];
 RuleSet ruleSet1 = testSuite.StyleGuideGroup.RuleSets.Find("rulesetDB");
 ```
@@ -24233,7 +24233,7 @@ string ruleSetName = testSuite.StyleGuideGroup.RuleSets[0].Name;
 ```
 使用一个有效名称对所选规则集进行重命名
 通过以下属性，可使用一个有效的名称对所选规则集进行重命名。
-```txt
+```text
 public string Name { get; set; }
 ```
 通过上述“名称”(Name) 属性，可执行以下任务：
@@ -24269,7 +24269,7 @@ myRuleSet1.Name = "myRuleSet_modified";
 ##### 在“WithUI”下打开所选规则集
 
 下述属性用于在“WithUI”模式下于 TIA Portal 编辑器中打开所选规则集。
-```txt
+```text
 public void ShowInEditor();
 ```
 用户可修改和使用以下程序代码示例，从而在“WithUI”模式下于 TIA Portal 编辑器中打开规则集：
@@ -24295,7 +24295,7 @@ myRuleSet.ShowInEditor();
 ##### 在“WithUI”下删除所选规则集
 
 下述属性的作用是，在“withUI/WithoutUI”模式下于 TIA Portal 编辑器中删除所选规则集。
-```txt
+```text
 public void Delete();
 ```
 5.19 Openness 支持
@@ -24328,7 +24328,7 @@ myRuleSet.Delete();
 参考
 可通过以下方法修改规则集的范围：
 • SetScope()
-```txt
+```text
 - CopyScope ()
 ```
 下表列出了该类的语法：
@@ -24536,7 +24536,7 @@ public IEnumerable<RuleSet> LoadFromFile (FileInfo path, ImportOptions loadOptio
 
 ##### 示例：
 
-```txt
+```text
 // Throw Exception if the rule set with the same name exists already
 // Import the rule set with a invalid properties.
 FileInfo LoadFile = new FileInfo(@"D:\Temp\TSRuleSets1.xml");
@@ -24608,7 +24608,7 @@ tiaPortal.GlobalLibraries[0].MasterCopyFolder.Folders[0].MasterCopies.Create(myR
 
 TIA Portal Openness API 接口支持使用 CreateFrom 操作将模板副本复制到项目。此操作将基于源模板副本创建新的对象，并将其放置在调用操作的元素中。该操作将创建一个与原模板副本同名的新规则集。如果该名称在 RuleSetComposition 中已存在，则系统将为新的规则集指定一个新的名称。之后，再返回复制后的新规则集。
 下表描述了类的语法：
-```txt
+```text
 public RuleSet CreateFrom (MasterCopy masterCopy);
 ```
 <table><tr><td>方法的名称</td><td>描述</td></tr><tr><td>CreateFrom()</td><td>用于将项目库/全局库中的模板副本复制到项目</td></tr></table>
@@ -24692,12 +24692,12 @@ public TestCase Find(string Name)
 ##### 访问测试用例名称
 
 以下属性用于访问测试用例名称：
-```txt
+```text
 string testCaseName = testSuite.ApplicationTestGroup.TestCases[0].Name;
 ```
 使用一个有效名称对所选测试用例进行重命名
 通过以下属性，可使用一个有效的名称对所选测试用例进行重命名。
-```txt
+```text
 public string Name { get; set; }
 ```
 说明
@@ -24762,7 +24762,7 @@ PlcSoftware twoHandMonitor = myTestCase.GetScope();
 ##### 在“WIthUI”中打开所选测试用例
 
 使用以下语句，可在“WithUI”模式下在 TIA Portal 编辑器中打开所选的测试用例。
-```txt
+```text
 public void ShowInEditor();
 ```
 通过修改和使用以下程序代码示例，可在“WithUI”模式下在 TIA Portal 编辑器中打开所选的测试用例：
@@ -24789,7 +24789,7 @@ myTestCase.ShowInEditor();
 ##### 在“WithUI/WithoutUI”中删除所选测试用例
 
 使用以下语句，可在“withUI/WithoutUI”模式下删除 TIA Portal 项目中所选的测试用例。
-```txt
+```text
 public void Delete();
 ```
 5.19 Openness 支持
@@ -24822,7 +24822,7 @@ myTestCase.Delete();
 使用以下 API，可更新现有测试用例的范围。
 参考
 通过以下方法，可修改测试用例的范围：
-```txt
+```text
 - SetScope()
 ```
 下表描述了类的语法：
@@ -25000,7 +25000,7 @@ TestCase myTestCase2 = testSuite.ApplicationTestGroup.TestCases.Find("TestCase_1
 myTestCase2.SetScope(twoHandMonitor, m_PlcInstanceName, ExecutionMode.ExternallyManagedPLCSI
 ```
 Openness：用于工程组态工作流自动化的 API系统手册, 11/2023
-```txt
+```text
 MInstance);
 //Retrieve list of test cases to execute:
 IEnumerable<TestCase> TestCaseList = new List<TestCase>() { myTestCase1,myTestCase2 };
@@ -25075,7 +25075,7 @@ public void SaveToFile(FileInfo path);
 下表列出了所需的方法参数：
 <table><tr><td>参数名称</td><td>描述</td></tr><tr><td>FileInfo</td><td>保存测试用例的完整路径</td></tr></table>
 在这里，motorFBTestCase 和 motorFBTestCase1 是“MyProject”中可用的测试用例。
-```txt
+```text
 motorFBTestCase.SaveToFile(exportFile);
 motorFBTestCase1.SaveToFile(new FileInfo(@"D:\Temp\TSTestcases2.tat"));
 ```
@@ -25089,7 +25089,7 @@ public IEnumerable<TestCase> LoadFromFile (FileInfo path, ImportOptions loadOpti
 下表列出了所需的方法参数：
 <table><tr><td>参数名称</td><td>描述</td></tr><tr><td>FileInfo</td><td>保存测试用例的完整路径</td></tr><tr><td>ImportOptions.None</td><td>如果项目中存在具有相同名称的测试用例/文件多次包含具有相同名称的测试用例,则引发异常</td></tr><tr><td>ImportOptions.Override</td><td>覆盖项目中同名的测试用例</td></tr><tr><td>tcLoadOptions.IgnoreInvalidObject</td><td>如果文件中的范围/属性无效,则导入测试用例</td></tr><tr><td>tcLoadOptions.None</td><td>如果导入的测试用例存在无效的范围/属性,则引发异常</td></tr></table>
 此处，motorFBTestCases 是 TestCaseComposition 的一个实例。
-```txt
+```text
 // Load test cases from above obtained file path to project
 // Overwrite test case with the same name exists already in project
 // Throw Exception if the test case created with a invalid scope /invalid properties
@@ -25224,7 +25224,7 @@ string testCaseName = testSuite.SystemTestGroup.SystemTestCases[0].Name;
 ##### 使用有效名称重命名所选测试用例
 
 下述属性用于使用有效名称重命名所选测试用例。
-```txt
+```text
 public string Name { get; set; }
 ```
 通过“Name”属性可以执行以下任务：
@@ -25254,7 +25254,7 @@ String myTestCase_name = myTestCase1.Name;
 
 可使用下述测试用例属性获取所选测试用例的适用范围。
 语法如下：
-```txt
+```text
 public string OPCUAServerAddress { get;}
 public DirectoryInfo OPCUAServerInterfaceFolderPath{ get;}
 public ServerInterfaces OPCUAServerInterfaceType { get;}
@@ -25448,7 +25448,7 @@ public IList<SystemTestCase> LoadFromFile (FileInfo path,ImportOptions loadOptio
 程序代码
 此处，motorFBTestCases 是 SystemTestCaseComposition 的一个实例。
 示例：
-```txt
+```text
 // Load test cases from above obtained file path to project
 // Throw Exception if the test case with the same name exists already
 // Import the test case with a invalid scope/properties
@@ -25612,7 +25612,7 @@ EngineeringExceptions 包括以下类型：
 <table><tr><td>SINUMERIK NCU</td><td>子机架标准名称</td></tr><tr><td>SINUMERIK 840D sl NCU 710.3 PN</td><td>NCU 710.3 PN</td></tr><tr><td>SINUMERIK 840D sl NCU 720.3 PN</td><td>NCU 720.3 PN</td></tr><tr><td>SINUMERIK 840D sl NCU 730.3 PN</td><td>NCU 730.3 PN</td></tr><tr><td>SINUMERIK 840D sl NCU 730.3 PN /319</td><td>NCU 730.3 PN /319</td></tr></table>
 或者，你可以省略参数名。如果名称是“Null”或“String.Empty”，则会使用默认名。
 下列参数可以由 CreateWithItem() 方法使用：
-```txt
+```text
 - default name, 例如:
     project.Devices.CreateWithItem("OrderNumber:6FC5 371-0AA30-0AA0/V4.8", "NCU 710.3 PN", "TestDevice");
 - null, 例如:
@@ -25669,7 +25669,7 @@ foreach (Device device in project.Devices)
 以下示意图指出了位于 ADI4 下“Device”的对象：
 ![](images/edc3f5d1fb609efef005e598431a964911b772cd1e9d8fd8369137b63a639e97.jpg)  
 关于 TIA Portal Openness 对象模型的更多信息，请参见“TIA Portal Openness API”。
-```txt
+```text
 SINUMERIK NCU 的参数格式:
 CreateWithItem(@"OrderNumber:mlfb/FirmwareVersion/","NameOfTheDevice",positionNumber)
 positionNumber 参数是可选的。
@@ -25709,7 +25709,7 @@ if (tiaProcess.InstalledSoftware.Any(sw => sw.Name.Equals("SINUMERK Toolbox") &&
 
 ##### 创建一个 SINUMERIK 840D sl NCU 720.3 PN
 
-```txt
+```text
 TiaPortal portal = new TiaPortal(TiaPortalMode.WithUserInterface);
 Project tiaproject= portal.Projects.Open("..."); //The path of the project
 Device NCUDevice = tiaproject.Devices.CreateWithItem("@OrderNumber:6FC5372-0AA30-0AA0/4.8/", "NCU 720.3 PN", string.Empty, "TestDevice");
@@ -25741,7 +25741,7 @@ NX 模块的固件版本必须与 SINAMICS Integrated 的固件版本一致，�
 
 为通过子网类型"ProfibusIntegrated"将一个 NX 模块连接至一个 NCU，必须通过 NX 标题模块载入"NetworkInterface"服务。
 下面的例子展示了如何载入"NetworkInterface"服务。
-```txt
+```text
 加载 NetworkInterface 服务
 foreach (Device device in project.Devices)
 {
@@ -25759,7 +25759,7 @@ foreach (Device device in project.Devices)
 
 ##### 通过 ProfibusIntegrated 连接一个 NX 模块
 
-```txt
+```text
 Subnet pbiSubnet = ...;
 Node node = networkInterface.Nodes.FirstOrDefault();
 node.ConnectToSubnet(pbiSubnet);
@@ -25778,16 +25778,16 @@ DP 地址通过 DRIVE-CLiQ 端口被分配到 Openness 中的固定 NX。每个�
 
 Safety Integrated 模式会对报文配置产生影响，因为在 Safety Integrated plus(F-PLC)模式中使用了与未激活的 Safety Integrated 模式中不同的报文。然而，只要报文与新选择的 Safety Integrated 模式是兼容的，就可以添加或修改。如适用，在报文配置中模式修改后，要确保修改仍然生效。
 你已通过 SafetyModeProvider 服务激活或禁用了 Safety Integrated (F-PLC)。
-```txt
+```text
 说明
 激活或禁用 Safety Integrated (F-PLC) 时，PLC 必须处于离线模式。
 ```
-```txt
+```text
 说明
 SafetyModeProvider 包含在 Namespace Siemens.Engineering.MC.Sinumerik 中.
 ```
 下列示例说明了如何调用 SafetyModeProvider 服务：
-```txt
+```text
 ...
 Siemens.Engineering.HW.Device cnc = ...;
 try
@@ -25805,7 +25805,7 @@ catch( (EngineeringException ex) )
 
 ##### 调用设备的安全设置
 
-```txt
+```text
 ...
 Siemens.Engineering.HW.Device cnc = ...;
 try
@@ -25822,7 +25822,7 @@ catch( (EngineeringException ex) )
 下图为对象模型 (页 1206)中的软件容器和 PLC 软件：
 ![](images/c094193f72eb218849ab99b7e18e3c029bc41fe19488781df2191191a8b68968.jpg)
 下面的示例代码介绍了如何基于“CPU”属性查找 PLC，与其具体实施（集成的 SINUMERIK PLC，SIMATIC PLC，PC 上的 PLC 软件）无关：
-```txt
+```text
 查找 PLC
 Device ncuDevice = ...
 DeviceItem plc = GetPlc(ncuDevice.DeviceItems);
@@ -25891,7 +25891,7 @@ DeviceItem GetPlc(DeviceItemComposition deviceItems)
 - 默认名称，例如 project.Devices.CreateWithItem("OrderNumber:6FC5317-5AA00-0AA0/V6.15", "NCU 1750", "TestDevice");
 ```
 • null，例如 project.Devices.CreateWithItem("OrderNumber:6FC5 317-5AA00-0AA0/V6.15", null, "TestDevice");
-```txt
+```text
 - string.Empty,
 e.g. project.Devices.CreateWithItem("OrderNumber:6FC5317-5AA00-0AA0/V6.13", string.Empty, "TestDevice");
 ```
@@ -26300,7 +26300,7 @@ NCK 事件
 
 ##### 确定一个 NCK 模块的事件名称
 
-```txt
+```text
 DeviceItem nck = ...;
 string eventName =
 (string)nck.GetAttribute("HardwareInterruptNckToPlcSignalExchangeEventName");
@@ -26309,7 +26309,7 @@ string eventName =
 
 ##### 设置硬件中断
 
-```txt
+```text
 ... DeviceItem nck = ...;
 OB ob40 = ... try
 {
@@ -26341,7 +26341,7 @@ if (archiveProvider != null)
     // Work with the provider
 }
 ```
-```txt
+```text
 ...
 Siemens.Engineering.HW.DeviceItem plc_1 = ...;
 Siemens.Engineering.HW.DeviceItem plc_1_copy = ...;
@@ -26362,7 +26362,7 @@ catch (EngineeringException ex)
 
 ##### 创建 PLC 存档
 
-```txt
+```text
 ...
 Siemens.Engineering.HW.DeviceItem plc = ...;
 try {
@@ -26387,7 +26387,7 @@ SinumerikArchivationMode content, String comment, String author)
 
 ##### 使用 F 地址分配创建 SINUMERIK 归档
 
-```txt
+```text
 ...
 Siemens.Engineering.HW.DeviceItemplc_1=...;
 Siemens.Engineering.HW.DeviceItemplc_1_copy=...;
@@ -26405,7 +26405,7 @@ catch(EngineeringTargetInvocationExceptionex){
 
 ##### 将归档一致地加载到 TIA Portal 中
 
-```txt
+```text
 ...
 try{
     // The path of the
@@ -26430,7 +26430,7 @@ SafetyModeProvider 包含在 Namespace Siemens.Engineering.MC.Sinumerik 中.
 
 ##### 调用 SafetyModeProvider
 
-```txt
+```text
 ...
 Siemens.Engineering.HW.Device cnc = ...;
 try
@@ -26445,7 +26445,7 @@ catch( (EngineeringException ex) )
 }
 ```
 下列示例说明了如何调用设备当前的 Safety Integrated 设置：
-```txt
+```text
 ...
 Siemens.Engineering.HW.Device cnc = ...;
 try
@@ -26465,7 +26465,7 @@ catch( (EngineeringException ex) )
 下图为对象模型 (页 1206)中的软件容器和 PLC 软件：
 ![](images/df8afee258a4c3c2cbcdbadd3cd3d32540dfb35e0e43b74e29baa49c125a4a80.jpg)
 下面的示例代码介绍了如何基于“CPU”属性查找 PLC，与其具体实施（集成的 SINUMERIK PLC，SIMATIC PLC，PC 上的 PLC 软件）无关：
-```txt
+```text
 查找 PLC
 Device ncuDevice = ...
 DeviceItem plc = GetPlc(ncuDevice.DeviceItems);
@@ -26492,7 +26492,7 @@ DeviceItem GetPlc(DeviceItemComposition deviceItems)
 #### 5.21.6.10 导入 SINUMERIK PLC 报警文本
 
 SINUMERIKAlarmTextProvider 类用于导入 TS 或 CSV 格式的 SINUMERIK DB2 报警的文本。
-```txt
+```text
 说明
 SinumerikAlarmTextProvider 包含在 Namespace Siemens.Engineering.MC.Sinumerik 中。
 ```
@@ -26501,7 +26501,7 @@ SinumerikAlarmTextProvider 包含在 Namespace Siemens.Engineering.MC.Sinumerik 
 
 ##### 通过 SinumerikAlarmTextProvider 导入文本
 
-```txt
+```text
 ...Siemens.Engineering.HW.Devicencu=...;
 System.Collections.IEnumerable<System.IO.FileInfo>inputFiles=...;
 try
@@ -26593,7 +26593,7 @@ if (safetyTgrm.CanChangeTelegram(newSafetyTelegramId)) {
 safetyTgrm.TelegramId = newSafetyTelegramId; }
 下列示例说明了如何删除一个安全报文。
 ```
-```txt
+```text
 删除一个安全报文
 using Siemens.Engineering.MC.DriveConfiguration;
 //Remove Safety telegram
@@ -26634,7 +26634,7 @@ if (mainTelegram.CanChangeSize(AddressIoType.Input, newSize, true))
     mainTelegram.ChangeSize(AddressIoType.Input, newSize, true)
 }
 ```
-```txt
+```text
 说明
 SINUMERIK NCU 和 SINAMICS Integrated 位于 TIA Portal Openness 对象模型的同一等级上，作为两个不同的设备出现在"DeviceComposition"下。
 ```
@@ -26645,13 +26645,13 @@ SINUMERIK NCU 和 SINAMICS Integrated 位于 TIA Portal Openness 对象模型的
 SINUMERIK NCU 的驱动通讯通过 SINAMICS Integrated 子组件使用报文进行，如果适用，还可通过额外连接的 NX 模块进行。
 使用“DriveObjectContainer”来配置报文。“DriveObjectContainer”是实际标题模块（设备元素）的一个驱动对象服务。
 若要启动“DriveObjectContainer”服务，需导航至 SINAMICS Integrated 或 NX 模块的标题模块。SINAMICS Integrated 和 NX 模块中，设备和设备元素的等级关系相同。
-```txt
+```text
 下面的例子展示了如何通过"标题模块"属性查找"DriveObjectContainer":
 ```
 
 ##### 通过标题模块查找 DriveObjectContainer
 
-```txt
+```text
 foreach (Device device in project.Devices)
 {
     foreach (DeviceItem deviceItem in device.DeviceItems)
@@ -26706,11 +26706,11 @@ drvObj.Telegrams.EraseTelegram(TelegramType.SafetyTelegram);
 //Remove supplementary telegram
 drvObj.Telegrams.EraseTelegram(TelegramType.SupplementaryTelegram);
 ```
-```txt
+```text
 说明你可以修改，但不能删除一个主报文（MainTelegram）。
 ```
 下列示例说明了如何插入一个安全报文。需要一台驱动对象。
-```txt
+```text
 using Siemens.Engineering.MC.Drives;
 TelegramComposition telegrams = drvObj.Telegrams;
 // Add safety telegram
@@ -26800,7 +26800,7 @@ if (mainTelegram.CanChangeSize(AddressIoType.Input, newSize, true))
 下图为对象模型中的软件容器和 PLC 软件：
 ![](images/29457e255ae7fff5192eaa5754cbe230927cad2264d4f36904ea95e36c5212f1.jpg)
 下面的示例代码介绍了如何基于“CPU”属性查找 PLC，与其具体实施（集成的 SINUMERIK PLC，SIMATIC PLC，PC 上的 PLC 软件）无关：
-```txt
+```text
 查找 PLC
 Device ncuDevice = ...
 DeviceItem plc = GetPlc(mcuDevice.DeviceItems);
@@ -27337,7 +27337,7 @@ in Siemens.Engineering.dll
 
 using Siemens.Engineering.MC.Drives;
 5.23 Startdrive 函数
-```txt
+```text
 DriveFunctionInterface dfi = ...
 DriveObjectActivation driveObjectActivation =
 dfi.DriveObjectFunctions.DriveObjectActivation;
@@ -27371,7 +27371,7 @@ bool isActive = driveObjectActivation.IsActive;
 
 ##### 离线执行驱动函数
 
-```txt
+```text
 using Siemens.Engineering.MC.Drives;
 DriveObject driveObject = ...
 DriveFunctionInterface dfi = driveObject.GetService<DriveFunctionInterface>();
@@ -27384,10 +27384,10 @@ DriveFunctionInterface dfi = driveObject.GetService<DriveFunctionInterface>();
 using Siemens.Engineering.MC.Drives;
 ```
 Openness：用于工程组态工作流自动化的 API系统手册, 11/2023
-```txt
+```text
 下面的例子展示了如何创建一个G120驱动。
 ```
-```txt
+```text
 在线执行驱动函数
 OnlineDriveObject onlineDriveObject = ...
 OnlineDriveFunctionInterface onlineDfi =
@@ -27406,10 +27406,10 @@ onlineDriveObject.GetService<OnlineDriveFunctionInterface>();
 
 ##### G120 的参数格式：
 
-```txt
+```text
 CreateWithItem(@"OrderNumber: mlfb / FirmwareVersion /", "NameOfTheDevice", positionNumber)
 ```
-```txt
+```text
 创建 G120 驱动
 TiaPortal portal = new TiaPortal(TiaPortalMode.WithUserInterface);
 Project tiaproject= portal.Projects.Open("..."); //The path of the project
@@ -27424,14 +27424,14 @@ S120、S150、S200、S210、MV、G130、G150 和 G220 驱动的参数格式：
 ```javascript
 CreateWithItem(@"OrderNumber: mlfb / FirmwareVersion / AdditionalTypeIdentifier", "NameOfTheDevice", positionNumber)
 ```
-```txt
+```text
 AdditionalTypeIdentifier 可能具有的值:
 ```
 • 空字符串（例如用于 G120）
 • S120
 • S150
 • S200
-```txt
+```text
 - S210
 - MV
 - G130
@@ -27470,7 +27470,7 @@ DeviceItem subModul = sdrDevice.PlugNew(@"OrderNumber:6SL3xxx-xxxxx-xxxx", "Moto
 ```cs
 using Siemens.Engineering.MC.Drives;
 ```
-```txt
+```text
 确定离线驱动对象
 //G devices
 Project project = portal.Projects.Open("..."); //Destination folder to open the project
@@ -27511,7 +27511,7 @@ using Siemens.Engineering.MC.Drives;
 using Siemens.Engineering.MC.Drives.DFI;
 ```
 5.23 Startdrive 函数
-```txt
+```text
 确定驱动对象类型
 DriveObject driveObject = ...
 DriveFunctionInterface dfi = driveObject.GetService<DriveFunctionInterface>();
@@ -27585,7 +27585,7 @@ if(bicoSource != null)
 
 using Siemens.Engineering.Download; using Siemens.Engineering.Online;
 5.23 Startdrive 函数
-```txt
+```text
 开始下载后的配置设置评估
 static void PreDownload(DownloadConfiguration configuration)
 {
@@ -27666,7 +27666,7 @@ static void PostDownload(DownloadConfiguration configuration)
 
 如果一台驱动（SINAMICS 固件版本 FW V6.1 及以上）已添加到项目中，则该驱动的安全设置会包含在出厂设置中。
 只有当为项目激活了 UMAC 时，才能从该驱动下载。
-```txt
+```text
 配置 UMAC
 UmacConfigurator UmacConfiguratorService =
 project.GetService<UmacConfigurator>();var projectUsers =
@@ -27681,7 +27681,7 @@ ProjectUser projectUser = projectUsers.Create("AdminUser", "AdminUser123#".ToSec
 
 ##### 添加系统角色
 
-```txt
+```text
 projectUser.Roles.Add(systemRole);
 ```
 还要求已按照下例所述下载有效的 TLS 证书：
@@ -27711,7 +27711,7 @@ if (m_OnlineConfigurationDelegate == null)
     conf.OnlineLegitimation += m_OnlineConfigurationDelegate;
 }
 ```
-```txt
+```text
 编辑 DRIVE-CLiQ 连接
 TiaPortal portal = new TiaPortal(TiaPortalMode.WithUserInterface);
 ```
@@ -27740,7 +27740,7 @@ private static void OnlineCallBackMethod(OnlineConfiguration onlineConfiguration
 #### 5.23.5.9 编辑 DRIVE-CLiQ 连接
 
 以下示例说明了如何使用 Openness 编辑 DRIVE-CLiQ 连接。
-```txt
+```text
 编辑 DRIVE-CLiQ 连接
 Project tiaproject = portal.Projects.Open(new
 FileInfo(@"C:\Users\testUser\Documents\Automation\Project109\Project109.ap
@@ -27775,7 +27775,7 @@ cuDQ.ConnectToPort(subModulDQ); //Create a new connection
 ##### 查找或生成 TIA Portal 进程
 
 using Siemens.Engineering;
-```txt
+```text
 查找或生成 TIA Portal 进程
 // Get the list of the running TIA Portal processes.
 IList<TiaPortalProcess> procs = TiaPortal.GetProcesses();
@@ -27814,7 +27814,7 @@ if (portal.Projects.Count == 1)
 
 ##### 确定所需的 Startdrive 版本是否已安装
 
-```txt
+```text
 using Siemens.Engineering;
 if (tiaProcess.InstalledSoftware.Any(sw => sw.Name.Equals("SINAMICS Startdrive Advanced") && sw.Version.Equals("V15")) { Console.WriteLine("Startdrive is available"); }
 // "V15" is the current startdrive version started at December 2017.
@@ -27932,7 +27932,7 @@ using Siemens.Engineering.MC.Drives;
 using Siemens.Engineering.MC.Drives.DFI;
 using Siemens.Engineering.MC.Drives.Enums;
 ```
-```txt
+```text
 离线配置编码器
 // Project encoder configuration in Offline state
 DeviceItem cuDeviceItem = m_Device.DeviceItems[1];
@@ -27985,7 +27985,7 @@ cuDriveFunctionInterface.HardwareProjection.ProjectEncoderConfiguration(config, 
 using Siemens.Engineering.MC.Drives;
 using Siemens.Engineering.MC.Drives.DFI;
 using Siemens.Engineering.MC.Drives.Enums;
-```txt
+```text
 在线配置编码器
 // Project encoder configuration in Online state
 DeviceItem cuDeviceItem = m_Device.DeviceItems[1];
@@ -28192,7 +28192,7 @@ HardwareProjection hardwareProjection = onlineDfi.HardwareProjection;
 using Siemens.Engineering.MC.Drives;
 ```
 5.23 Startdrive 函数
-```txt
+```text
 确定报文的硬件标识符
 Device s120Drive = m_Project.Devices[1];
 DeviceItem driveUnit = s120Drive.DeviceItems[0];
@@ -28209,7 +28209,7 @@ long identifier = hwIdentifiers[0].Identifier;
 
 using Siemens.Engineering.MC.Drives;
 using Siemens.Engineering.HW.HwIdentifier;
-```txt
+```text
 确定模块接入点的硬件标识符
 Device s120Drive = m_Project.Devices[1];
 DeviceItem driveUnit = s120Drive.DeviceItems[0];
@@ -28256,7 +28256,7 @@ long identifierG220 = hwIdentifiersG220[0].Identifier;
 也可以输入类型名称来区分不同的编码器。编码器可用的类型名称和限制在下表中予以说明。
 以下示例说明了如何在驱动组件下创建组件。
 在电机模块下创建电机和编码器
-```txt
+```text
 DeviceItem subModul = sdrDevice.PlugNew(@"OrderNumber:6SL3xxx-xxxxx-xxxx", "MotorModul", 65535);
 //Plug a motor to the motor modul
 subModul.Container.PlugNew(@"OrderNumber:1PH2092-4WG4x-xxxx", "Motor_1", 65535);
@@ -28282,7 +28282,7 @@ subModul.Container.PlugNew(@"OrderNumber:XExxxxx-xxxxx-xxxx//DRIVE-CLIQ.202", "E
 using Siemens.Engineering.MC.Drives;
 using Siemens.Engineering.MC.Drives.DFI;
 using Siemens.Engineering.MC.Drives.Enums;
-```txt
+```text
 通过硬件配置离线设置电机类型
 //Offline (Only on G120 drives)
 DriveFunctionInterface dfi = ...
@@ -28360,7 +28360,7 @@ using Siemens.Engineering.MC.Drives;
 using Siemens.Engineering.MC.Drives.DFI;
 using Siemens.Engineering.MC.Drives.Enums;
 ```
-```txt
+```text
 配置 G120 驱动的电机配置
 DeviceItem cuDeviceItem = m_Device.DeviceItems[1];
 DriveObject cuDriveObject =
@@ -28440,7 +28440,7 @@ private bool S120ProjectMotorConfigurationTestWithName_ServoInductionMotor()
     }
 }
 ```
-```txt
+```text
 case "p311":
 ce.Value = 30;
 break;
@@ -28513,7 +28513,7 @@ return result;
 
 以下示例显示如何读写驱动参数值。需要一台驱动对象。
 访问参数 using Siemens.Engineering.MC.Drives;
-```txt
+```text
 访问参数
 //Access a parameter via its name
 DriveParameter parameter = driveObject.Parameters.Find("p5391[0]");
@@ -28644,7 +28644,7 @@ bool result = DriveDomainFunctions.PerformRAMtoROMCopyAll发展目标();
 
 ##### 设置 SecureString 密码的示例
 
-```txt
+```text
 public void SetPassword(DownloadPasswordConfiguration
 downloadPasswordConfiguration)
 {
@@ -28711,7 +28711,7 @@ bool rezValue = driveFunctionInterface.SafetyCommissioning.UpdateCheckSums();
 ##### 使用 Safety Integrated 报文
 
 using Siemens.Engineering.MC.Drives;
-```txt
+```text
 使用 Safety Integrated 报文
 TelegramComposition telegrams = drvObj.Telegrams;
 // Add safety telegram
@@ -28754,7 +28754,7 @@ commissioning.SetSimoGearM1fb("2KJ8001-2EG20-4DG1-D0X");
 
 ##### 安装 TechnologyExtensionPackage
 
-```txt
+```text
 string packageFilePath = @"Y:\\TRCDATA_V1_1_0_1.tec";
 TechnologyExtensionInstallationProvider tecInstallationProvider = TiaPortal TokService<TechnologyExtensionInstallationProvider>();
 FileInfo packageFile = new FileInfo(packageFilePath);
@@ -28770,7 +28770,7 @@ Console.WriteLine(ex.Message + "\n" + ex.StackTrace);
 
 ##### 激活 Technology Extension
 
-```txt
+```text
 TechnologyExtension tecExtension= ...
 tecExtension.Activate();
 return tecExtension.IsActivated;
@@ -28778,12 +28778,12 @@ return tecExtension.IsActivated;
 
 ##### 禁用 Technology Extension
 
-```txt
+```text
 TechnologyExtension tecExtension=...
 tecExtension.Deactivate();
 return tecExtension.IsActivated;
 ```
-```txt
+```text
 卸载 TechnologyExtensionPackage
 string tecPackageIdentifier = "TRCDATA/1100802";
 bool confirmUninstallInUse = true;
@@ -28845,7 +28845,7 @@ foreach (TechnologyExtension tecExtension in tecExtensions)
 
 ##### 使用 TechnologyExtension.Name 找到 TechnologyExtension
 
-```txt
+```text
 DriveObject driveObject = ...;
 TechnologyExtensionContainer tecContainer =
 driveObject.GetService<TechnologyExtensionContainer>();
@@ -28957,7 +28957,7 @@ if (mainTelegram.CanChangeSize(AddressIoType.Input, newSize, true))
 ```cs
 using Siemens.Engineering.MC.Drives;
 ```
-```txt
+```text
 const int torqueTelegramNumber = 750;
 TelegramComposition telegrams = drvObj.Telegrams;
 // Add a new torque telegram
@@ -29061,7 +29061,7 @@ cuOnlineDriveObject.Security.DriveDataEncryption.Deactivate(oldpassword);
 using Siemens.Engineering.MC.Drives;
 using Siemens.Engineering.MC.Drives.DFI;
 using Siemens.Engineering.MC.Drives.Enums;
-```txt
+```text
 恢复出厂设置
 OnlineDriveObject onlineDriveObject = ...
 OnlineDriveFunctionInterface onlineDfi =
@@ -29168,7 +29168,7 @@ channel.SetAttribute("OperatingMode", OperatingMode.TimerDQ);
 \*SourceCycleTime 支持以下枚举值：
 <table><tr><td>枚举名称</td><td>值</td></tr><tr><td>Manual</td><td>0</td></tr><tr><td>AutomaticMinimum</td><td>1</td></tr><tr><td>LocalSendClock</td><td>2</td></tr><tr><td>ProfinetSendClock</td><td>3</td></tr></table>
 修改以下程序代码以访问 PROFIdrive Integrated 的属性：
-```txt
+```text
 Siemens.Engineering.HW.SubnetComposition subnetComposition = MyTiaPortal.Projects.First().Subnets;
 Subnet profiDriveSubnet = subnetComposition.Create("System:Subnet.ProfidriveIntegrated", "PROFIdrive Integrated_1");
 //Couple PROFIdrive Integrated to X150 (PROFINET)
@@ -29217,7 +29217,7 @@ x142address.SetAttribute("IsochronousMode", true);
 • 已打开一个项目。
 [打开项目](#打开项目)”
 修改以下程序代码以获取 Drive Controller 报文的地址：
-```txt
+```text
 //Simatic Drive Controller is usually created in a DeviceGroup (group)
 //Getting headmodule of the S120
 DeviceItem s120HeadModule = group.Devices[1].DeviceItems[0];
@@ -29480,7 +29480,7 @@ A Statement 代表 DriveControlChart 或 DCC 块。以下所有属性和方法�
 ##### 修改图的运行顺序
 
 5.25 DCC 功能
-```txt
+```text
 修改图的运行顺序
 DriveControlChart chart;
 IList<IStatement> runtimeSequence = chart.GetRunSequence();
@@ -29491,7 +29491,7 @@ runtimeSequence[3].MoveInRuntimeSequence(0);
 
 下例展示如何优化图运行顺序。
 优化图的运行顺序
-```txt
+```text
 try
 {
     DriveControlChart chart;
@@ -29508,7 +29508,7 @@ DCC Openness (页 1339)
 
 下例展示如何访问图。
 访问图
-```txt
+```text
 DriveControlChartComposition charts = ...
 DriveControlChart firstChart = charts[0];
 // or looping...
@@ -29523,7 +29523,7 @@ foreach(DriveControlChart chart in charts)
 
 下例展示如何导出所有图。
 导出所有图
-```txt
+```text
 try
 {
     charts.Export(@"c:\Charts.dcc");
@@ -29533,7 +29533,7 @@ catch (DccExportException exc)
 }
 ```
 参见
-```txt
+```text
 DCC Openness (页 1339)
 ```
 
@@ -29541,7 +29541,7 @@ DCC Openness (页 1339)
 
 下例展示如何导入一个 DCB 扩展库。
 导入一个 DCB 扩展库
-```txt
+```text
 try
 {
     Project myProject;
@@ -29586,7 +29586,7 @@ DccBlock newBlock = blocks.Create("add_1", "gear", "GMC");
 
 ##### 将块放置在图表的右下角
 
-```txt
+```text
 DriveControlChartContainer chartContainer = ...
 DriveControlChart chart = chartContainer.Charts.Find("DCC_1");
 DccBlockComposition blocks = chart.Blocks;
@@ -29703,7 +29703,7 @@ dccPin.Value = 42;
 
 ##### 编辑引脚
 
-```txt
+```text
 DccBlock block1;
 DccPin input = block.Pins.Find("X1");
 DccPin output = block.Pins.Find("Y");
@@ -29727,7 +29727,7 @@ output.Unpublish();
 #### 5.25.5.13 按执行顺序检索图
 
 下例展示如何按执行顺序检索图。
-```txt
+```text
 检索图
 DriveControlChartComposition charts = ...
 IList<DriveControlChart> chartSequence = charts.GetChartSequence();
@@ -29761,7 +29761,7 @@ DriveControlChart chart2 = charts.Create(); // the next available number will be
 下例展示如何编辑功能图。
 设置功能图属性
 5.25 DCC 功能
-```txt
+```text
 设置功能图属性
 DriveControlChart dccChart;
 dccChart.Name = "DCC_3";
@@ -29777,7 +29777,7 @@ dccChart.PositionY = 234;
 
 ##### 读取并更改运行顺序
 
-```txt
+```text
 DriveControlChartchart;
 IList<IStatement>runtimeSequence=chart.GetRunSequence();
 runtimeSequence[3].MoveInRuntimeSequence(1);
@@ -29812,7 +29812,7 @@ chart.Blocks.Find("add_2").Partition=partition2;
 
 下例展示如何删除图。
 删除图
-```txt
+```text
 try
 {
     DriveControlChart chart;
@@ -29869,7 +29869,7 @@ DCC Openness (页 1339)
 
 ##### 读取连接的源点或汇点
 
-```txt
+```text
 DccConnection connection;
 var sink = connection.Sink;
 if (sink is DccParameter)
@@ -29909,7 +29909,7 @@ chartContainer = driveObject ToketService<DriveControlChartContainer>();
 ![](images/96db15dfe0b156df5db30760ce680b5d0b4200812c14022d60b3ecfa740f0a24.jpg)
 如果不想详细分析或评估不同的错误原因，最简单的方法是捕获一般DccException:
 5.25 DCC 功能
-```txt
+```text
 try
 {
     Project myProject;
@@ -29924,7 +29924,7 @@ catch (DccException exc)
 }
 ```
 如果希望根据错误类型作出响应，则需要捕获所有相关异常：
-```txt
+```text
 try
 {
     DriveControlChartContainer
@@ -30036,7 +30036,7 @@ ExceptionMessageData 返回以下信息：
 
 #### 以下示例显示了可以用来响应例外的选项：
 
-```txt
+```text
 try
 {
     ...
@@ -30104,7 +30104,7 @@ Siemens.Engineering.Safety中定义的以下属性。这两个属性包含以下
 • RuntimegroupComposition RuntimeGroups { get; }
 • SafetySettings Settings { get; }
 Openness 接口 (Siemens.Engineering.dll) 已扩展有 SafetyPrintout 服务，该服务在命名空间 Siemens.Engineering.Safety 中提供以下操作：
-```txt
+```text
 - bool Print(SafetyPrintoutFilePrinter filePrinter, FileInfo fullOutputPath, string documentLayout, SafetyPrintoutOption documentationOption);
 ```
 
@@ -30151,7 +30151,7 @@ Signatures:SafetySignatureComposition 返回 SafetySignature 对象的集合。�
 SafetySignatureProvider signatureProvider = block.GetService<SafetySignatureProvider>()
 ```
 如果块不是 F 块或不是 F-CPU S7-1200/1500 的块，则返回的 signatureProvider 等于null。
-```txt
+```text
 如果存在不可为空的块，则可使用以下代码查询 F 签名：
 SafetySignature signature =
 signatureProvider.Signatures.Find(SafetySignatureType.BlockOfflineSignature);
@@ -30165,7 +30165,7 @@ UInt64 value = signature.value;
 
 此功能可用于 S7-1200/1500 F-CPU。
 必须为操作和设置值安装有效的安全许可证。缺少许可证将产生异常。没有许可证也可以读取值。
-```txt
+```text
 从当前 PLC DeviceItem 实例获取 SafetyAdministration 服务。
 SafetyAdministration safetyAdministration = deviceItem.GetService<SafetyAdministration>();
 // check if the service is not null
@@ -30211,7 +30211,7 @@ safetyAdministration.SetSafetyOfflineProgramPassword(newPassword);
 • 如果无法更改安全程序（[SafetyModificationsPossible](#SafetyModificationsPossible)”），或项目受到UMAC 保护，则不允许通过 Openness 修改安全程序密码。
 • 用户未处于离线状态
 • 安全许可证不存在
-```txt
+```text
 if (safetyAdministration.IsSafetyOfflineProgramPasswordSet)
 {
     SecureString password = new NetworkCredential("", "password").SecurePassword;
@@ -30222,7 +30222,7 @@ if (safetyAdministration.IsSafetyOfflineProgramPasswordSet)
 #### 5.27.5.5 IsLoggedOnToSafetyOflineProgram
 
 程序代码
-```txt
+```text
 bool isLoggedOn =
 safetyAdministration.IsLoggedOnToSafetyOfflineProgram
 ```
@@ -30230,7 +30230,7 @@ safetyAdministration.IsLoggedOnToSafetyOfflineProgram
 
 #### 5.27.5.6 LoginToSafetyOflineProgram
 
-```txt
+```text
 if (!safetyAdministration.IsLoggedOnToSafetyOfflineProgram)
 {
     SecureString password = new NetworkCredential("", "password").SecurePassword;
@@ -30248,7 +30248,7 @@ if (!safetyAdministration.IsLoggedOnToSafetyOfflineProgram)
 
 #### 5.27.5.7 LogofFromSafetyOflineProgram
 
-```txt
+```text
 if (safetyAdministration.IsLoggedOnToSafetyOfflineProgram)
 {
     safetyAdministration.LogoffFromSafetyOfflineProgram();
@@ -30274,7 +30274,7 @@ LogoffFromSafetyOfflineProgram 操作会将用户从安全程序中注销。因�
 PlcBlock mainSafetyFC;
 RuntimeGroup RuntimeGroups.Create("F-runtime group 2", mainSafetyFC);
 ```
-```txt
+```text
 // 创建包含所传递的主安全块 FB 和 IDB 的运行系统组。
 PlcBlock mainSafetyFB;
 PlcBlock mainSafetyIDB;
@@ -30307,7 +30307,7 @@ safetyAdministration.RuntimeGroups.Find("RTG1");
 
 ##### 运行组名称
 
-```txt
+```text
 string name = runtimeGroup.Name;
 ```
 应用
@@ -30315,11 +30315,11 @@ string name = runtimeGroup.Name;
 5.27 F 相关 Openness
 F-OB 名称
 程序代码
-```txt
+```text
 string name = runtimeGroup.FOBName;
 ```
 应用
-```txt
+```text
 返回 F-OB 名称或 null（若未设置 F-OB）。
 ```
 F-OB EventClass
@@ -30339,7 +30339,7 @@ runtimeGroup.SetAttribute("FOBNumber", 123);
 返回并设置 F-OB 编号。如果 F-OB 编号不可用，则返回 null。如果已设置值，且 F-OB 不可用，或值不在有效范围内，则会抛出异常。
 F-OB 循环时间
 程序代码
-```txt
+```text
 Int32 cycleTime = (Int32)
 runtimeGroup.GetAttribute("FOBCycleTime");
 runtimeGroup.SetAttribute("FOBCycleTime", 100000);
@@ -30371,17 +30371,17 @@ string mainSafetyName = runtimeGroup.MainSafetyBlockName;
 ```
 返回主安全块名称或 null（未设置块时）。
 主安全块 IDB 名称
-```txt
+```text
 程序代码
 string mainSafetyIDbName = runtimeGroup.MainSafetyBlockIDbName;
 ```
 应用
-```txt
+```text
 返回主安全实例 DB 的名称或 null（未设置块时）。
 ```
 警告循环时间
 程序代码
-```txt
+```text
 Int32 warnCycleTime = runtimeGroup.WarnCycleTime;
 runtimeGroup.WarnCycleTime = 110000;
 ```
@@ -30389,7 +30389,7 @@ runtimeGroup.WarnCycleTime = 110000;
 返回并设置运行组的警告循环时间。如果设置的值不在有效范围内，则会抛出异常。
 最大循环时间
 程序代码
-```txt
+```text
 Int32 maximumCycleTime = runtimeGroup.MaximumCycleTime;
 runtimeGroup.MaximumCycleTime= 120000;
 ```
@@ -30401,7 +30401,7 @@ F 运行组信息 DB
 string infoDbName = runtimeGroup.InfoDbName;
 runtimeGroup.InfoDbName = "RTGSysInfo";
 ```
-```txt
+```text
 程序代码
 string postProcessingName = runtimeGroup.PostProcessingName;
 runtimeGroup.PostProcessingName = "PostProcessing";
@@ -30422,7 +30422,7 @@ runtimeGroup.PostProcessingName = "PostProcessing";
 PlcBlock block = runtimegroup.GenerateGlobalFIOStatusBlock();
 ```
 创建全局 F-I/O 状态块或覆盖该块（状态块已存在的情况下）。
-```txt
+```text
 安全设置
 程序代码 SafetySettings settings = safetyAdministration.Settings;
 应用
@@ -30435,7 +30435,7 @@ PlcBlock block = runtimegroup.GenerateGlobalFIOStatusBlock();
 
 ##### 分配由安全系统生成的块编号
 
-```txt
+```text
 AssignmentOfBlockNumbers blockNumbers =
 settings.AssignOfBlockNumbers;
 ushort fromFBNumber = blockNumbers.FromFB;
@@ -30470,7 +30470,7 @@ if (version1_6 != null) {
 
 ##### 可以禁用安全模式
 
-```txt
+```text
 bool safetyModeCanBeDisabled = settings.SafetyModeCanBeDisabled;
 settings.SafetyModeCanBeDisabled = true;
 ```
@@ -30478,7 +30478,7 @@ settings.SafetyModeCanBeDisabled = true;
 
 ##### F 变更历史记录激活
 
-```txt
+```text
 bool activationOfFChangeHistory =
 settings.ActivationOfFChangeHistory;
 settings.ActivationOfFChangeHistory = true;
@@ -30496,23 +30496,23 @@ settings.SetAttribute("EnableConsistentUploadFromFCpu", true);
 ##### 启用 F 通信 ID 变量
 
 程序代码
-```txt
+```text
 bool fCommunicationIdTag = (bool)
 settings.GetAttribute("EnableFCommunicationIdTag");
 settings.SetAttribute("EnableFCommunicationIdTag", true);
 ```
 应用
-```txt
+```text
 获取或设置是否启用 F 通信 ID 变量。
 ```
-```txt
+```text
 有关此信息的安全评估，请参见手册《SIMATIC Safety – 组态和编程》。
 ```
 
 ##### 创建无前缀的驱动程序背景数据块
 
 程序代码
-```txt
+```text
 bool prefix =
 settings.CreateDriverInstanceDataBlocksWithoutPrefix;
 settings.CreateDriverInstanceDataBlocksWithoutPrefix = true;
@@ -30531,7 +30531,7 @@ settings.CleanSystemGeneratedObjects();
 ### 5.27.6 SafetyPrintout
 
 此功能可用于 S7-1200/1500 F-CPU。
-```txt
+```text
 从当前 DeviceItem 实例获取 SafetyPrintout 服务。然后调用此服务中的 Print() 函数。此函数成功执行后会返回 True。
 SafetyPrintout printoutService =
 deviceItem.GetService<SafetyPrintout>();

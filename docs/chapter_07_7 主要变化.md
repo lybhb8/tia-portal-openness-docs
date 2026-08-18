@@ -67,7 +67,7 @@ IEngineeringObject 的所有类型隐式实现，因此不需要显式强制转�
 • void SetAttributes(IEnumerable<KeyValuePair<string, object>> attributes) - 将使用给定名称的属性设置为属性中指示的给定值
 引入这一更改后，重新编译扩展方法使用的代码后行为会稍有更改。例如，如果已使用扩展方法，且代码已编译到 V17 工程组态 dll，则不会执行来自扩展方法的调用。在这种情况下，需要对代码进行更改，以保持响应行为的兼容性。同样不会出现任何编译器错误。
 以下示例代码说明了未执行 GetAttribute 的位置：
-```txt
+```text
 static class CustomerExtension
 {
 public static object GetAttribute(this Project project, string name)
@@ -874,7 +874,7 @@ Output_2 := "Tag_4"
 在 TIA Portal 中，名称必须是唯一的。例如，变量名称不得与块名称相同。对于 TIA PortalOpenness API XML 导入，这意味着若 XML 包含一个用户块调用且导入时不存在所调用的块，则这一所调用块的名称必须不同于项目中的所有现有名称。若这一所调用块的名称不唯一，则导入将中止。
 在以下示例中，导入将中止，因为所调用块的名称“Tag\_1”已用于一个变量表。
 7.6 V14 SP1 中的主要变更
-```asp
+```csharp
 <SW.Tags.PlcTag ID="1" CompositionName="Tags">
     <AttributeList>
     <DataTypeName>Int</DataTypeName>

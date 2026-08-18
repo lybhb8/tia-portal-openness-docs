@@ -50,12 +50,13 @@ myst_enable_extensions = [
 ]
 
 #########################################################################
-project = 'SIEMENS Hmi Template Suit V5.0 中文版'
+project = 'TIA OPENNESS 系统手册'
 copyright = f'2025-{time.strftime("%Y")}, 宁波双紫信息科技有限公司'
 release = version = __display_version__
 show_authors = False
 author = 'lybhb8'
 nitpicky = True
+suppress_warnings = ["myst.xref_missing", "misc.highlighting_failure"]
 show_warning_types = True
 
 language = "zh_CN"
@@ -68,7 +69,7 @@ html_css_files = [
 ]
 modindex_common_prefix = ['sphinx.']
 html_static_path = ['_static']
-html_title = 'Hmi Template Suit V5.0 中文版'
+html_title = 'TIA OPENNESS 系统手册'
 
 
 html_additional_pages = {'contents': 'contents.html'}
@@ -80,7 +81,7 @@ html_favicon = '_static/favicon.ico'
 htmlhelp_basename = 'Sphinxdoc'
 
 epub_theme = 'epub'
-epub_basename = 'Hmi Template Suit V5.0 中文版'
+epub_basename = 'TIA OPENNESS 系统手册'
 epub_author = 'lybhb8'
 epub_publisher = 'https://www.sphinx-doc.org/'
 epub_uid = 'web-site'
