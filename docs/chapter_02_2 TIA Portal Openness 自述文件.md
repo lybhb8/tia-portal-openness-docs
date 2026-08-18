@@ -20,12 +20,15 @@ Openness: 用于工程组态工作流自动化的 API
 ### 代码中高亮显示的过时功能示例:
 
 ```cs
+
 private static void ExportCertificate(Siemens.Engineering.Security.Certificate certificate)
 {
 FileInfo fileInfo = new FileInfo($"C:\\Temp\\{certificate.SubjectCommonName}.cer");
 certificate.Export(fileInfo, Siemens.Engineering.Security.CertificateExportFormat.Cer);
 }
+
 ```
+
 考虑按如下方式调整已弃用的代码。
 
 ### 在 API V18 中已弃用
@@ -69,14 +72,18 @@ Siemens.Engineering.AddIn.VersionControl.VciWorkspaceRepositoryWorkflowAddIn 替
 已针对 TIA Portal 版本宣布弃用的功能，并将在下一个 TIA Portal 版本中移除。旧 API 和下一个产品版本中的新 API 都会受到影响。
 对于动态 API 部分，由于技术原因无法生成编译器警告。请参见该区域中已弃用功能的系统手册。
 动态 API 部分示例:
+
 ```text
+
 private static ulong GetPortValue(Siemens.Engineering.HW.DeviceItem item)
 {
     const string attributeName = "PortType";
     ulong attributeValue = (ulong)item.GetAttribute(attributeName);
     return attributeValue;
 }
+
 ```
+
 考虑按如下方式调整已弃用的代码
 
 ### 在 TIA Portal V18 中已弃用（所有 API 版本）
@@ -242,12 +249,16 @@ Test Suite V18 (https://support.industry.siemens.com/cs/ww/en/view/109813414)
 
 自 TIA Portal V18 起，在 WinCC Unified Screen Editor 的范围内，所有 MultilingualText 项都从未格式化更改为格式化。
 这意味着从现在开始所有文本都必须设置格式。纯文本将被拒绝，并提示异常，例如：
+
 ```javascript
+
 Language language = project.LanguageSettings.Languages.Find(new CultureInfo("en-US"));
 MultilingualText multilingualToolTipText1 = ((HmiButton)screenItem1).ToolTipText;
 MultilingualTextItem multilingualTextItem1 = multilingualToolTipText1.Items.Find(language);
 multilingualTextItem1.Text = "<body><p>Modified button text from Openness</p></body>";
+
 ```
+
 2.4 关于编写长期稳定代码的提示
 
 ### 块/UDT 的支持
@@ -256,12 +267,15 @@ multilingualTextItem1.Text = "<body><p>Modified button text from Openness</p></b
 ### 方案的更改，以支持在块中使用 NamedValueType
 
 在 TIA Portal V19 中，引入了对命名值类型的支持（仅适用于 S7-1500 PLC 中的软件单元）。在 Openness 中，自 V19 起，SimaticML 方案中引入了一个新的范围“NamedValueConstant”，以支持在程序块或 PLC 数据类型中使用命名值类型。在通过 SimaticML 导入/导出期间，PLC 编程工件（程序块、PLC 数据类型）中使用的命名值类型在新范围“NamedValueConstant”中可见。
+
 ```xml
+
 <Access Scope="NamedValueConstant" UID="27">
 <Constant Name="_.siemens.simatic.Named_value_type_1#UNDEFs" UID="28"/>
 </Access>
 <Token Text=";" UID="31"/>
 <NewLine Num="2" UID="32"/>
+
 ```
 
 ## 2.4 关于编写长期稳定代码的提示

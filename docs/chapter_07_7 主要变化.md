@@ -22,11 +22,14 @@
 对于 TIA Portal V19，设置密码时应用严格密码策略。这也适用于 TIA Portal Openness 调用，尤其是设置专有技术保护的情况。如果密码未遵循此策略，则会出现异常。
 自 TIA Portal V18 起，在 WinCC Unified Screen Editor 的范围内，所有 MultilingualText 项都从未格式化更改为格式化。
 这意味着从现在开始所有文本都必须设置格式。纯文本将被拒绝，并提示异常，例如：
+
 ```javascript
+
 Language language = project.LanguageSettings.Languages.Find(new CultureInfo("en-US"));
 MultilingualText multilingualToolTipText1 = ((HmiButton)screenItem1).ToolTipText;
 MultilingualTextItem multilingualTextItem1 = multilingualToolTipText1.Items.Find(language);
 multilingualTextItem1.Text = "<body><p>Modified button text from Openness</p></body>";
+
 ```
 
 ### 方案的更改，以支持在块中使用 NamedValueTypes
@@ -34,12 +37,15 @@ multilingualTextItem1.Text = "<body><p>Modified button text from Openness</p></b
 在 TIA Portal V19 中，引入了对命名值类型的支持（仅适用于 S7-1500 PLC 中的软件单元）。在 Openness 中，自 V19 起，SimaticML 方案中引入了一个新的范围
 “NamedValueConstant”，以支持在程序块或 PLC 数据类型中使用命名值类型。
 在通过 SimaticML 导入/导出期间，PLC 编程工件（程序块、PLC 数据类型）中使用的命名值类型在新范围“NamedValueConstant”中可见。
+
 ```xml
+
 <Access Scope="NamedValueConstant" UID="27">
 <Constant Name="_.siemens.simatic.Named_value_type_1#UNDEFs" UID="28"/>
 </Access>
 <Token Text=";" UID="31"/>
 <NewLine Num="2" UID="32"/>
+
 ```
 
 ## 7.2 TIA Portal Openness V17 中有关长期稳定性的主要更改
@@ -51,9 +57,13 @@ multilingualTextItem1.Text = "<body><p>Modified button text from Openness</p></b
 
 对于 TIA Portal Openness V16 及更低版本， GetAttribute/SetAttribute/GetAttributeInfos 实现的可见性取决于类型是否声明“支持动态属性”。要访问 GetAttribute/SetAttribute/GetAttributeInfos 等方法，类型应支持动态属性。如果类型不支持动态属性，则需要显式地强制转换为 IEngineeringObject 才能获得方法 GetAttribute/SetAttribute/GetAttributeInfos。
 以下代码示例显示了 TIA Portal Openness V16 及更低版本的代码执行情况：
+
 ```javascript
+
 var projectAttributeInfos = ((IEngineeringObject) project).GetAttributeInfos();
+
 ```
+
 对于 TIA Portal Openness V17，IEngineeringObject 的所有方法均对实现
 IEngineeringObject 的所有类型隐式实现，因此不需要显式强制转换，所有方法均对用户可见。更改将在所有之前的版本工程组态 dll 中可用，即 V17 中支持 V15、V15.1 和 V16。
 对于以下方法，不需要 typecast：
@@ -67,7 +77,9 @@ IEngineeringObject 的所有类型隐式实现，因此不需要显式强制转�
 • void SetAttributes(IEnumerable<KeyValuePair<string, object>> attributes) - 将使用给定名称的属性设置为属性中指示的给定值
 引入这一更改后，重新编译扩展方法使用的代码后行为会稍有更改。例如，如果已使用扩展方法，且代码已编译到 V17 工程组态 dll，则不会执行来自扩展方法的调用。在这种情况下，需要对代码进行更改，以保持响应行为的兼容性。同样不会出现任何编译器错误。
 以下示例代码说明了未执行 GetAttribute 的位置：
+
 ```text
+
 static class CustomerExtension
 {
 public static object GetAttribute(this Project project, string name)
@@ -75,6 +87,7 @@ public static object GetAttribute(this Project project, string name)
     // Customer Logic
     return ((IEngineeringObject)project);
 }
+
 ```
 
 ### 对 AssignInterface API 的更改
@@ -197,10 +210,13 @@ TIA Portal Openness V16 及以上版本通过附加参数（即 path、importOpt
 
 自 TIA Portal Openness V16 起，以下新特性“StorageDevice”和“StorageFolder”已添加到DataLog/AlarmLog 中，而“StoragePath”和“RequireExplicitRelease”特性分别从 DataLog/AlarmLog 和 ScreenItems 中删除。
 可以找到 StorageDevice 和 StorageFolder 特性的更新代码示例，如下所示：
+
 ```java
+
 HmiDataLog dataLog = hmiSoftware.DataLogs.Find("DataLog1");
 dataLog.Settings.StorageDevice = DeviceNode.Local;
 dataLog.Settings.StorageFolder = @"D:\workdir\DataLogs";
+
 ```
 
 ### 从 HMI 变量中删除特性名称
@@ -481,7 +497,9 @@ ProgramBlocks 中已删除以下类函数：
 已添加以下类函数：
 • GenerateSource 到 PlcExternalSourceSystemGroup
 7.6 V14 SP1 中的主要变更
+
 ```cs
+
 using System;
 using Siemens.Engineering;
 using Siemens.Engineering.HW;
@@ -529,7 +547,9 @@ private static void Main(string[] args)
     externalSourceGroup.GenerateSource (blocks, fileInfoBlock);
     externalSourceGroup.GenerateSource (types, fileInfoType);
 }
+
 ```
+
 7.6 V14 SP1 中的主要变更
 
 #### 7.6.4.3 架构扩展
@@ -540,7 +560,9 @@ private static void Main(string[] args)
 注释及起始值存储于名为“Subelement”的新元素中，该元素可通过“Path"”属性引用数组元素。
 Subelement 包含所引用数组元素的起始值和注释。新架构中移除了 StartValue 的“Path”属性。
 “Subelement”的架构定义：
+
 ```xml
+
 <xs:element name="Subelement" type="Subelement_T"/>
     <xs:complexType name="Subelement_T">
     <xs:sequence>
@@ -551,11 +573,13 @@ Subelement 包含所引用数组元素的起始值和注释。新架构中移除
     </xs:sequence>
     <xs:attribute name="Path" type="IndexPath_TP"/>
 </xs:complexType>
+
 ```
 
 ##### 扩展成员类型：
 
 ```xml
+
 <xs:complexType name="Member_T">
     <xs:sequence>
     <xs:element ref="AttributeList" minOccurs="0" maxOccurs="1"/>
@@ -568,9 +592,13 @@ Subelement 包含所引用数组元素的起始值和注释。新架构中移除
     </xs:choice>
     </xs:sequence>
 </xs:complexType>
+
 ```
+
 将注释及起始值存储在简单数组中：
+
 ```xml
+
 <Member Name="Static_1" Datatype="Array[0..1] of Bool">
     <Comment>
     <MultiLanguageText Lang="de-DE">comment for array</MultiLanguageText>
@@ -588,10 +616,14 @@ Subelement 包含所引用数组元素的起始值和注释。新架构中移除
     </Comment>
     </Subelement>
 </Member>
+
 ```
+
 将注释及起始值存储在 UDT 数组中：
 7.6 V14 SP1 中的主要变更
+
 ```xml
+
 <Member Name="Static_1" Datatype="Array[0..1] of &quot;User_data_type_1&quot;"> <Comment>
     <MultiLanguageText Lang="de-DE">comment for array</MultiLanguageText>
 </Comment>
@@ -629,9 +661,13 @@ Subelement 包含所引用数组元素的起始值和注释。新架构中移除
 </Section>
 </Sections>
 </Member>
+
 ```
+
 将注释及起始值存储在结构数组中：
+
 ```xml
+
 <Member Name="Static_1" Datatype="Array[0..1] of Struct">
     <Member Name="Static_1" Datatype="Int">
     <Subelement Path="0">
@@ -650,6 +686,7 @@ Subelement 包含所引用数组元素的起始值和注释。新架构中移除
     </Subelement>
     </Member>
 </Member>
+
 ```
 
 #### 7.6.4.4 架构更改
@@ -660,16 +697,22 @@ Subelement 包含所引用数组元素的起始值和注释。新架构中移除
 Access 节点的 Type 属性已移至以下范围的 Access 子节点
 • AbsoluteOfset（必选）
 • Address（可选）
+
 ```xml
+
 <StlStatement UID="22">
     <StlToken Text="L" />
     <Access Scope="Address">
     <Address Area="Local" Type="Word" BitOffset="80" />
     </Access>
 </StlStatement>
+
 ```
+
 Constant 的 Type 属性已为新的 ConstantType 子节点所取代。
+
 ```xml
+
 <Access Scope="LocalConstant">
     <IntegerAttribute Name="NumBLs" Informative="true">5</IntegerAttribute>
     <Constant Name="LocalConstant_A">
@@ -678,7 +721,9 @@ Constant 的 Type 属性已为新的 ConstantType 子节点所取代。
     <StringAttribute Name="Format" Informative="true">Dec_signed</StringAttribute>
     </Constant>
 </Access>
+
 ```
+
 Access 中的 Scope 属性值已重命名为 TypedConstant，前提是 ConstantValue 包含类型限定值（例如：int#10）。
 Constant 不具有 Type 属性，前提是 ConstantValue 包含类型限定值（例如：int#10）。
 Scope 为 LocalVariable，则本地变量不包含 Address 节点。
@@ -776,7 +821,9 @@ StatementList (STL\_TE) 的枚举列表：
 • 计时器（若 PLC 支持）
 • 计数器（若 PLC 支持）
 如果同时使用符号访问和绝对访问且未遭到架构或节点类型验证的拒绝，则导入只会在成功解析两种访问信息后才可成功执行。若符号访问所指向的信息与绝对访问的信息不同，则将拒绝导入。
+
 ```xml
+
 <Access Scope="Address">
     <Address Area="Memory" Type="Word" BitOffset="0" />
 </Access>
@@ -789,18 +836,22 @@ StatementList (STL\_TE) 的枚举列表：
     <Parameter Name="ENO" Section="Output" Type="Int" />
 <!-- Import will be aborted because the parameter name 'ENO' is restricted and can not be used. -->
 </CallInfo>
+
 ```
 
 ##### 间接 DB 访问
 
 自 V14 SP1 起，仅在提供“偏移”、“类型”和“符号”后才可导入间接 DB 访问。
+
 ```xml
+
 <Access Scope="LocalVariable" UID="21">
     <Symbol>
     <Component Name="Output_3" />
     <AbsoluteOffset BitOffset="16" Type="Word" />
     </Symbol>
 </Access>
+
 ```
 
 ##### 本地访问的符号和绝对信息
@@ -823,7 +874,9 @@ StatementList (STL\_TE) 的枚举列表：
 • 输入
 • 输出
 以下 STL xml 示例
+
 ```xml
+
 <StlStatement UID="21">
 <StlToken Text="CALL" />
 <Access Scope="Call">
@@ -859,14 +912,19 @@ StatementList (STL\_TE) 的枚举列表：
 </CallInfo>
 </Access>
 </StlStatement>
+
 ```
+
 将得到结果
+
 ```hcl
+
 CALL "Block_2"
 Input_1 := "Tag_1"
 Input_2 := "Tag_2"
 Output_1 := "Tag_3"
 Output_2 := "Tag_4"
+
 ```
 
 ##### 唯一的用户块调用名称
@@ -874,7 +932,9 @@ Output_2 := "Tag_4"
 在 TIA Portal 中，名称必须是唯一的。例如，变量名称不得与块名称相同。对于 TIA PortalOpenness API XML 导入，这意味着若 XML 包含一个用户块调用且导入时不存在所调用的块，则这一所调用块的名称必须不同于项目中的所有现有名称。若这一所调用块的名称不唯一，则导入将中止。
 在以下示例中，导入将中止，因为所调用块的名称“Tag\_1”已用于一个变量表。
 7.6 V14 SP1 中的主要变更
+
 ```csharp
+
 <SW.Tags.PlcTag ID="1" CompositionName="Tags">
     <AttributeList>
     <DataTypeName>Int</DataTypeName>
@@ -895,9 +955,13 @@ Output_2 := "Tag_4"
     </Symbol>
     </Access>
 </Parameter>
+
 ```
+
 在以下示例中，导入将中止，因为两个参数具有相同的名称“Input1”。
+
 ```xml
+
 <StlStatement UID="22">
     <StlToken Text="CALL" />
     <Access Scope="Call">
@@ -922,6 +986,7 @@ Output_2 := "Tag_4"
     </CallInfo>
     </Access>
 </StlStatement>
+
 ```
 
 ##### 库块调用
@@ -939,7 +1004,9 @@ Output_2 := "Tag_4"
 ##### 新的常量范围
 
 在 V14SP1 中，已为常量创建多个新范围。仅在 xml 中的值与常量范围匹配时，导入才会成功。若为某个常量提供的信息与该现有常量未完全匹配，则导入将中止。
+
 ```xml
+
 <Access Scope="LiteralConstant">
     <Constant>
     <ConstantType>Int</ConstantType>
@@ -972,12 +1039,15 @@ Output_2 := "Tag_4"
     <ConstantValue>16#0000_0001</ConstantValue>
     </Constant>
 </Access>
+
 ```
 
 ##### 指令版本标注
 
 自 V14 SP1 起，仅可导入 PLC 上可用于导入的指令版本。若 xml 中无标注的指令版本，则将采用 PLC 中所选的版本。在 LAD 和 FBD 中，一些表示为指令的元素不会采用版本化。仅在不存在版本时才可导入这些元素。
+
 ```xml
+
 <Part Name="MIN" Version="1.0" UID="27" DisabledENO="false">
     <TemplateValue Name="card" Type="Cardinality">2</TemplateValue>
     <TemplateValue Name="value_type" Type="Type">Int</TemplateValue>
@@ -986,17 +1056,21 @@ Output_2 := "Tag_4"
     <TemplateValue Name="card" Type="Cardinality">2</TemplateValue>
     <TemplateValue Name="value_type" Type="Type">Int</TemplateValue>
 </Part>
+
 ```
 
 ##### 禁用 ENO
 
 1200 和 1500 PLC 使用“禁用 ENO”功能来禁用耗时的 ENO 连接状态计算。
 自 V14 SP1 起，DisabledENO 标志仅可在支持该功能的 PLC 上导入。
+
 ```xml
+
 <Part Name="Add" UID="24" DisabledENO="false">
     <TemplateValue Name="Card" Type="Cardinality">2</TemplateValue>
     <TemplateValue Name="SrcType" Type="Type">Int</TemplateValue>
 </Part>
+
 ```
 
 ##### 绝对 L-Stack 访问的类型验证
@@ -1013,7 +1087,9 @@ Output_2 := "Tag_4"
 
 自 V14 SP1 起，LAD 和 FBD 中的元素将在导出期间自动按“代码生成顺序”排序。在某些十分罕见的情况下，已导出的 XML 无法再进行导入。在这些情况下，XML 必须进行调整或相应网络必须删除并重新编程。但连接和引用的顺序仍不可靠。
 在 V14 SP1 中，编译将检查是否已扩展有效的报警常量。由于 V14 中导入的 xml 具有无效报警常量，因此 V14 SP1 中可能会出现项目无法编译的情况。在这种情况下，在 LAD/FDB 编辑器中打开相关网络并删除报警实际操作数。该编辑器将自动重新创建一个有效的报警常量。
+
 ```xml
+
 <FlgNet>
     <Parts>
     <Access Scope="AlarmConstant" UID="21">
@@ -1042,6 +1118,7 @@ Output_2 := "Tag_4"
     </Wire>
     </Wires>
 </FlgNet>
+
 ```
 
 ##### 用户块实例限制和指令
@@ -1090,7 +1167,9 @@ Output_2 := "Tag_4"
 
 自 V14 SP1 起，不区分大小写的指令和调用模板运算或指令参数将会导入并进行自动更正。
 将导入以下代码且错误值“Eq”将更正为“EQ”，错误参数“iN1”将更正为“IN1”；
+
 ```xml
+
 <StlStatement UID="22">
     <StlToken Text="CALL" />
     <Access Scope="Call">
@@ -1108,13 +1187,16 @@ Output_2 := "Tag_4"
     </Instruction>
     </Access>
 </StlStatement>
+
 ```
 
 ##### 调用中使用的多实例
 
 自 V14 SP1 起，若在不存在的调用中使用多实例，则导入将中止。
 以下代码显示了在接口段正确定义多实例的 xml 示例：
+
 ```xml
+
 <SW.Blocks.FB ID="0">
     <AttributeList>
     <Interface>
@@ -1145,6 +1227,7 @@ Output_2 := "Tag_4"
     </CallInfo>
     </Access>
 </StlStatement>
+
 ```
 
 ##### STL 中的模板基数
@@ -1154,7 +1237,9 @@ Output_2 := "Tag_4"
 ##### 导入间接访问
 
 自 V14 SP1 起，间接访问仅在可编译的情况下才能导入。
+
 ```xml
+
 <StlStatement UID="22">
     <StlToken Text="L" />
     <Access Scope="Address">
@@ -1167,7 +1252,9 @@ Output_2 := "Tag_4"
     </Indirect>
     </Access>
 </StlStatement>
+
 ```
+
 7.6 V14 SP1 中的主要变更
 
 ##### 导入状态字
@@ -1187,7 +1274,9 @@ Output_2 := "Tag_4"
 
 如果某个语句不具有节点 <StlStatement/>，则导入将中止。如果出现空语句，请添加<StlToken Text="Empty\_Line" /> 节点。
 如果某个空语句含有注释，则导入将中止。对于仅含有注释的语句，请使用 <StlTokenText="COMMENT" />。
+
 ```xml
+
 <!-- Declaration of an empty statement -->
 <StlStatement UID="23">
     <StlToken Text="EMPTY_LINE" />
@@ -1199,6 +1288,7 @@ Output_2 := "Tag_4"
     </LineComment>
     <StlToken Text="COMMENT" />
 </StlStatement>
+
 ```
 
 #### 7.6.4.6 块属性更改

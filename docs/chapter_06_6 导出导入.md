@@ -173,7 +173,9 @@ Vxx 指当前安装的 TIA Portal 版本。
 
 简介
 将组态数据从 TIA Portal 导出到 XML 文件时，不包括所选图形或对象引用的图形。在导出过程中，图形单独保存。在 XML 文件中，通过一个相关路径和它们的文件名来引用图形。在XML 文件中，图象引用被模型成一个对象；其中包含了属性列表和（如果需要的话）链接列表，就像其他对象一样。
+
 ```xml
+
 <Hmi.Globalization.MultiLingualGraphic ID="0">
     <AttributeList>
     <DefaultDithering>False</DefaultDithering>
@@ -200,6 +202,7 @@ Vxx 指当前安装的 TIA Portal 版本。
     </Hmi.Globalization.GraphicsItem>
     </ObjectList>
 </Hmi.Globalization.MultiLingualGraphic>
+
 ```
 
 ##### 导出图形
@@ -230,19 +233,24 @@ ID"default"作为被选为缺省语言的语言的文件扩展名。
 可导出所有语种项目的图形集合中的单一图形或所有图形。与所有项目图形条目有关的 XML文件将在导出过程中进行创建，并与导出的图形一起被引用。相关图形和 XML 一起保存到文件系统的相同目录下。
 要允许更改导出的图形（“*.jpg”、“*.bmp”、“*.png”、“*.ico”等），这些图形不应进行写保护。## 程序代码：导出图形
 修改以下程序代码以导出所需图形：
+
 ```typescript
+
 //Exports all language variants of a single grafic
 Project project = ...;
 MultiLingualGraphicComposition graphicsComposition = project.Graphics;
 MultiLingualGraphic graphic = graphicsComposition.Find("graphicName");
 graphic.Export(new FileInfo(@"D:\ExportFolder\graphicName.xml"),
 ExportOptions.WithDefaults);
+
 ```
 
 ##### 程序代码：导出所有图形
 
 修改以下程序代码以导出图形集合中的所有图形：
+
 ```cs
+
 //Exports all graphics of a graphic library
 Project project = ...;
 MultiLingualGraphicComposition graphicsComposition = project.Graphics;
@@ -251,6 +259,7 @@ foreach (MultiLingualGraphic graphic in graphicsComposition)
     graphic.Export(new FileInfo(string.Format(@"D:\Graphics\{0}.xml", graphic.Name)),
 ExportOptions.WithDefaults);
 }
+
 ```
 
 #### 6.2.1.3 将图形导入到项目
@@ -266,11 +275,13 @@ XML 文件将和图形的语言版本一起被保存到文件系统的目录下�
 ##### 修改以下程序代码以导入一个或多个图形：
 
 ```text
+
 //Import all language variants of a single graphic
 Project project = ...;
 MultiLingualGraphicComposition graphicComposition = project.Graphics;
 graphicComposition.Import(new FileInfo(@"D:\Graphics\Graphic1.xml"),
 ImportOptions.Override);
+
 ```
 
 ### 6.2.2 项目文本
@@ -332,13 +343,20 @@ project.ExportProjectTexts(new FileInfo(@"D:\Test\ProjectText.xlsx"), new Cultur
 多语言文本导入时，将带有该文本所属的父对象。多语言文本不能显式导入。
 6.3 导入/导出 HMI 设备的数据
 使用示例参数时会使以下程序代码导入项目文本：
+
 ```text
+
 ProjectTextResult result = project.ImportProjectTexts(new FileInfo(@"D:\Test\ProjectText.xlsx"), true);
+
 ```
+
 导入项目文本时，会返回一个对象，指示导入状态以及用于保存导入日志的路径。这些属性可通过以下代码进行访问：
+
 ```text
+
 ProjectTextResultState resultState = result.State;
 FileInfo logFilePath = result.Path;
+
 ```
 
 ## 6.3 导入/导出 HMI 设备的数据
@@ -361,7 +379,9 @@ XML 文件以文档信息开始。它包含计算机特定安装的数据，项�
 ### • 对象
 
 本部分包含要导出的元素。
+
 ```xml
+
 <?xml version="1.0" encoding="UTF-8"?>
 <Document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <DocumentInfo>
@@ -405,6 +425,7 @@ XML 文件以文档信息开始。它包含计算机特定安装的数据，项�
     </ObjectList>
     </Hmi.Screen.Screen>
 </Document>
+
 ```
 
 ### 导出文件的画面对象
@@ -421,7 +442,9 @@ XML 文件中的每个对象都从其类型开始，例如 "Hmi.Screen.Button" �
 <Hmi.Screen.Button CompositionName="ScreenItems" ID="60">
 除起始对象外，其它对象还包含“CompositionName”XML 属性。此属性的值是预设的。有时需要指定此属性，例如，为了更改按钮按下或释放时的标签。
 6.3 导入/导出 HMI 设备的数据
+
 ```xml
+
 <MultilingualText ID="A" CompositionName="TextOff">
     <ObjectList>
     <MultilingualTextItem ID="B" CompositionName="Items">
@@ -450,16 +473,22 @@ XML 文件中的每个对象都从其类型开始，例如 "Hmi.Screen.Button" �
     </MultilingualTextItem>
     </ObjectList>
 </MultilingualText>
+
 ```
+
 每一个对象都包含 "AttributeList" 部分中包含的属性。每一个属性都被模型成一个 XML 元素，例如"BackColor"。属性的值被模型化为 XML 内容，例如“204, 204, 204”。
+
 ```csharp
+
 <Hmi.Screen.Button ID="2" CompositionName="ScreenItems">
     <AttributeList>
     <BackColor>204, 204, 204</BackColor>
     <ObjectName>Button_1</ObjectName>
     </AttributeList>
 </Hmi.Screen.Button>
+
 ```
+
 如果需要，为了引用对象，每个对象都包含一个"LinkList"部分。本部分包含到 XML 文件内部和外部的其它对象的链接。每一个链接都被模型成一个 XML 元素。通过模式文件中的目标对象来定义链接的名称。每个链接还包含“TargetID”属性。如果 XML 文件中包含目标对象，则“TargetID”属性的值为“#”加所引用对象的 ID。如果 XML 文件中不包含目标对象，“TargetID”属性的值则为“@OpenLink”。对该对象的实际引用被模型成从属 XML 元素。
 6.3 导入/导出 HMI 设备的数据
 <Hmi.Tag.Tag ID="17">
@@ -495,7 +524,9 @@ XML 文件中的每个对象都从其类型开始，例如 "Hmi.Screen.Button" �
 请[打开项目](#打开项目)
 TIA Portal Openness API 接口支持将已知 HMI 设备的所有周期导出到 XML 文件中。如果生成相应的导出文件，则表明导出已完成。
 修改以下程序代码以将 HMI 设备的周期导出至 XML 文件：
+
 ```cs
+
 //Exports cycles from an HMI device
 private static void ExportCyclesFromHMITarget(HmiTarget hmitarget)
 {
@@ -506,6 +537,7 @@ private static void ExportCyclesFromHMITarget(HmiTarget hmitarget)
 ExportOptions.WithDefaults);
     }
 }
+
 ```
 
 ##### 导入周期
@@ -515,7 +547,9 @@ ExportOptions.WithDefaults);
 使用 ImportOptions.None 时，可以根据组合数 (Composition count) 确定实际已导入的周期数。您具有这些导入周期的访问权限。
 无法在用户界面中编辑具有属性的标准周期。如果在导入文件中指定应更改这些属性，则导入时会导致 NonRecoverableException 并关闭 TIA Portal。
 修改以下程序代码以将 XML 文件的一个或多个周期导入 HMI 设备：
+
 ```cs
+
 //Imports cycles to an HMI device
 private static void ImportCyclesToHMITarget(HmiTarget hmitarget)
 {
@@ -525,7 +559,9 @@ private static void ImportCyclesToHMITarget(HmiTarget hmitarget)
     string fullFilePath = Path.Combine(dirPathImport, cycleImportFileName);
     cycles.Import(new FileInfo(fullFilePath), ImportOptions.None);
 }
+
 ```
+
 导入组态数据 (页 1397)
 
 ### 6.3.2 变量表
@@ -541,7 +577,9 @@ private static void ImportCyclesToHMITarget(HmiTarget hmitarget)
 ##### 程序代码：从指定文件夹导出所有 HMI 变量表
 
 修改以下程序代码以导出特定文件夹的所有 HMI 变量表：
+
 ```cs
+
 //Exports all tag tables from a tag folder
 private static void ExportAllTagTablesFromTagFolder(HmiTarget hmitarget)
 {
@@ -553,12 +591,15 @@ private static void ExportAllTagTablesFromTagFolder(HmiTarget hmitarget)
     table.Export(info, ExportOptions.WithDefaults);
     }
 }
+
 ```
 
 ##### 程序代码：导出 HMI 变量表
 
 修改以下程序代码以导出单个 HMI 变量表：
+
 ```cs
+
 //Exports a tag table from an HMI device
 private static void ExportTagTableFromHMITarget(HmiTarget hmitarget)
 {
@@ -572,12 +613,15 @@ private static void ExportTagTableFromHMITarget(HmiTarget hmitarget)
     table.Export(info, ExportOptions.WithDefaults);
     }
 }
+
 ```
 
 ##### 程序代码：导出所有 HMI 变量表
 
 修改以下程序代码以导出所有 HMI 变量表：
+
 ```cs
+
 //Exports all tag tables from an HMI device
 private static void ExportAllTagTablesFromHMITarget(HmiTarget hmitarget)
 {
@@ -616,7 +660,9 @@ private static void ExportTablesInSystemFolder(TagSystemFolder folderToExport)
     table.Export(new FileInfo(fullFilePath), ExportOptions.WithDefaults);
     }
 }
+
 ```
+
 6.3 导入/导出 HMI 设备的数据
 
 #### 6.3.2.2 导入 HMI 变量表
@@ -626,7 +672,9 @@ private static void ExportTablesInSystemFolder(TagSystemFolder folderToExport)
 • 已打开一个项目。
 请[打开项目](#打开项目)
 修改以下程序代码以将 XML 文件的 HMI 变量表导入至用户自定义文件夹或系统文件夹：
+
 ```text
+
 //Imports a single HMI tag table from a XML file
 private static void ImportSingleHMITagTable(HmiTarget hmitarget)
 {
@@ -635,6 +683,7 @@ private static void ImportSingleHMITagTable(HmiTarget hmitarget)
     FileInfo info = new FileInfo(@"D:\Samples\Import\myExportedTagTable.xml");
     tables.Import(info, ImportOptions.Override);
 }
+
 ```
 
 ##### 变量导入不正确
@@ -659,7 +708,9 @@ private static void ImportSingleHMITagTable(HmiTarget hmitarget)
 以下对象模型的对象类型可作为 HMI 变量的子级项存在，并在导出过程中被考虑：
 <table><tr><td>MultilingualText</td><td>注释、变量值、显示名称</td></tr><tr><td>TagArrayMemberTag</td><td>HMI 数组元素</td></tr><tr><td>TagStructureMember</td><td>HMI 结构元素</td></tr><tr><td>Event</td><td>已组态事件</td></tr><tr><td>MultiplexEntry</td><td>已组态的变量多路复用条目</td></tr></table>
 修改以下程序代码以将 HMI 变量表中的单个变量导出至 XML 文件：
+
 ```cs
+
 //Exports a selected tag from a tag table
 private static void ExportSelectedTagFromTagTable(HmiTarget hmitarget)
 {
@@ -673,6 +724,7 @@ private static void ExportSelectedTagFromTagTable(HmiTarget hmitarget)
     myTag.Export(info, ExportOptions.WithDefaults);
     }
 }
+
 ```
 
 #### 6.3.2.4 从 HMI 变量表导入单个变量
@@ -684,7 +736,9 @@ private static void ExportSelectedTagFromTagTable(HmiTarget hmitarget)
 以下对象模型的对象类型可作为 HMI 变量的子级项存在，并在导入过程中被考虑：
 <table><tr><td>MultilingualText</td><td>注释、变量值、显示名称</td></tr><tr><td>TagArrayMemberTag</td><td>HMI 数组元素</td></tr><tr><td>TagStructureMember</td><td>HMI 结构元素</td></tr><tr><td>Event</td><td>已组态事件</td></tr><tr><td>MultiplexEntry</td><td>已组态的变量多路复用条目</td></tr></table>
 修改以下程序代码以将 XML 文件的 HMI 变量导入至 HMI 变量表：
+
 ```cs
+
 //Imports a tag into a tag table
 private static void ImportTagIntoTagTable(HmiTarget hmitarget)
 {
@@ -694,6 +748,7 @@ private static void ImportTagIntoTagTable(HmiTarget hmitarget)
     FileInfo info = new FileInfo(@"D:\Samples\Import\myExportedTag.xml");
     tagComposition.Import(info, ImportOptions.Override);
 }
+
 ```
 
 #### 6.3.2.5 导入/导出 HMI 变量时的特殊考虑事项
@@ -716,7 +771,9 @@ private static void ImportTagIntoTagTable(HmiTarget hmitarget)
 导入前，必须确保项目中存在 PLC、相应的 PLC 变量和到相应 PLC 的集成连接。否则，必须在导入前创建这些项。在外部 HMI 变量的后续导入过程中，到 PLC 变量的链接将被再次激活。
 在项目的所有变量表中，外部 HMI 变量的名称必须是唯一的。如果在导入过程中没有为 HMI变量指定合适的变量表，将取消导入。
 使用以下 XML 结构可导入具有集成连接的外部 HMI 变量：
+
 ```xml
+
 <Hmi.Tag.Tag ID="1" CompositionName="Tags">
     <AttributeList>
     <Name>MyIntegratedHmiTag_1</Name>
@@ -733,7 +790,9 @@ private static void ImportTagIntoTagTable(HmiTarget hmitarget)
     </ControllerTag>
     </LinkList>
 </Hmi.Tag.Tag>
+
 ```
+
 精智/高级设备不支持在“结构变量元素”(Elements of structure tags) 的上限和下限属性中分配结构变量。这些结构变量可分配给“简单”变量的限值属性，但不支持分配给结果变量元素的限值属性。
 
 ##### 导出/导入“UDT”数据类型的 HMI 变量时的特殊考虑事项
@@ -746,7 +805,9 @@ private static void ImportTagIntoTagTable(HmiTarget hmitarget)
 说明
 导入过程中，为解决引用问题，将使用找到的第一个数据类型。在此，可执行以下操作：首先，搜索项目库的根目录，然后搜索子文件夹。
 使用以下 XML 结构可导入“UDT”数据类型的 HMI 变量：
+
 ```text
+
 <Hmi.Tag.Tag ID="1" CompositionName="Tags">
     ...
     <LinkedList>
@@ -757,6 +818,7 @@ private static void ImportTagIntoTagTable(HmiTarget hmitarget)
     </LinkedList>
     ...
 </Hmi.Tag.Tag>
+
 ```
 
 ### 6.3.3 VB 脚本
@@ -772,7 +834,9 @@ private static void ImportTagIntoTagTable(HmiTarget hmitarget)
 将考虑导出所有子级别用户定义文件夹。将为每一个已导出的 VB 脚本创建一个单独的 XML文件。
 程序代码：导出 VB 脚本
 修改以下程序代码以将 HMI 设备的所选 VB 脚本导出至 XML 文件：
+
 ```text
+
 //Exports a single vbscript of an HMI device
 private static void ExportSingleVBScriptOfHMITarget(HmiTarget hmitarget)
 {
@@ -783,6 +847,7 @@ private static void ExportSingleVBScriptOfHMITarget(HmiTarget hmitarget)
 FileInfo(string.Format(@"C:\OpennessSamples\Export\Scripts\{0}.xml", vbScript.Name));
     vbScript.Export(info, ExportOptions.None);
 }
+
 ```
 
 #### 6.3.3.2 从文件夹导出 VB 脚本
@@ -797,7 +862,9 @@ FileInfo(string.Format(@"C:\OpennessSamples\Export\Scripts\{0}.xml", vbScript.Na
 ##### 程序代码：从用户定义文件夹中导出 VB 脚本
 
 修改以下程序代码以将用户自定义文件夹的 VB 脚本导出至 XML 文件：
+
 ```cs
+
 //Exports vbscripts of a selected vbscript system folder
 private static void ExportVBScriptOfSelectedVBScriptSystemFolder(HmiTarget hmitarget)
 {
@@ -812,12 +879,15 @@ private static void ExportVBScriptOfSelectedVBScriptSystemFolder(HmiTarget hmita
     script.Export(info, ExportOptions.None);
     }
 }
+
 ```
 
 ##### 程序代码：导出系统文件夹中的所有 VB 脚本
 
 修改以下程序代码以导出系统文件夹中的所有 VB 脚本：
+
 ```cs
+
 //Exports all vbscripts by using a foreach loop
 private static void ExportAllVBScripts(HmiTarget hmitarget)
 {
@@ -831,6 +901,7 @@ private static void ExportAllVBScripts(HmiTarget hmitarget)
     script.Export(info, ExportOptions.None);
     }
 }
+
 ```
 
 #### 6.3.3.3 导入 VB 脚本
@@ -840,7 +911,9 @@ private static void ExportAllVBScripts(HmiTarget hmitarget)
 • 项目已经打开。
 [打开项目](#打开项目)”
 支持批量导入。也可使用具有 Foreach 循环的程序代码 (导出 VB 脚本 (页 1421))。
+
 ```cs
+
 using System;
 using Siemens.Engineering;
 using Siemens.Engineering.HW;
@@ -882,7 +955,9 @@ namespace ImportVBScripts
     vbScripts.Import(info, ImportOptions.None);
     }
 }
+
 ```
+
 修改以下程序代码以将 XML 文件的 VB 脚本导入至 HMI 设备：
 6.3 导入/导出 HMI 设备的数据
 
@@ -899,7 +974,9 @@ namespace ImportVBScripts
 导出的文本列表和图形列表包括其所有条目。可以分别导出文本列表和图形列表。
 将导出 HMI 设备的文本列表。将为每一个导出的文本列表创建一个单独的 XML 文件。
 修改以下程序代码以导出 HMI 设备的文本列表：
+
 ```cs
+
 using System;
 using Siemens.Engineering;
 using Siemens.Engineering.HW;
@@ -923,8 +1000,11 @@ using Siemens.Engineering Bonpiler;
 using Siemens.Engineering.Library;
 using System.IO;
 using System.Security;
+
 ```
+
 ```cs
+
 namespace ExportTextListsFromHMIDevice
 {
     internal class Program
@@ -945,7 +1025,9 @@ namespace ExportTextListsFromHMIDevice
     }
     }
 }
+
 ```
+
 6.3 导入/导出 HMI 设备的数据
 
 #### 6.3.4.2 将文本列表导入到 HMI 设备
@@ -958,13 +1040,16 @@ namespace ExportTextListsFromHMIDevice
 API 接口支持将文本列表从 XML 文件导入到 HMI 设备。
 程序代码
 修改以下程序代码以将 XML 文件的文本列表导入至 HMI 设备：
+
 ```text
+
 //Imports a single TextList
 private static void ImportSingleTextList(HmiTarget hmitarget)
 {
     TextListComposition textListComposition = hmitarget.TextLists;
     IList<TextList> importedTextLists = textListComposition.Import(new FileInfo(@"D:\SamplesImport\myTextList.xml"), ImportOptions.Override);
 }
+
 ```
 
 #### 6.3.4.3 用于文本列表导出/导入的高级 XML 格式
@@ -982,7 +1067,9 @@ private static void ImportSingleTextList(HmiTarget hmitarget)
 • 在文本内引用其它对象
 如果待导出的文本列表为纯文本格式，则将生成一个高级的 XML 导出格式。其中，对象引用将表示为 Open Links。这同样适用于将要使用格式化文本导入的文本列表。
 高级 XML 导出格式也会变得更加复杂。例如，不仅链接了文本列表中的对象名称，还可能通过 Open Link 链接到另一设备的 PLC 变量。此时，要删除 Open Link，必须将所有信息编写到一个字符串中。
+
 ```xml
+
 <?xml version="1.0" encoding="utf-8"?>
 <Document>
 <!-- ... -->
@@ -1040,6 +1127,7 @@ private static void ImportSingleTextList(HmiTarget hmitarget)
 </MultilingualTextItem>
 </ObjectList>
 </MultilingualText>
+
 ```
 
 ### 6.3.5 图形列表
@@ -1052,7 +1140,9 @@ private static void ImportSingleTextList(HmiTarget hmitarget)
 导出的文本列表和图形列表包括其所有条目。可以分别导出文本列表和图形列表。
 为每个图形列表创建一个 XML 文件。图形列表包含中的全局图形对象将被作为 Open Links导出。
 修改以下程序代码以导出 HMI 设备的图形列表：
+
 ```cs
+
 //Exports GraphicLists
 private static void ExportGraphicLists(HmiTarget hmitarget)
 {
@@ -1063,7 +1153,9 @@ private static void ExportGraphicLists(HmiTarget hmitarget)
     graphicList.Export(info, ExportOptions.WithDefaults);
     }
 }
+
 ```
+
 6.3 导入/导出 HMI 设备的数据
 
 #### 6.3.5.2 导入图形列表
@@ -1077,13 +1169,16 @@ API 接口支持将图形列表从 XML 文件导入到 HMI 设备。
 导入中包含图形列表的所有引用图形对象。不包含对全局图形的引用。如果目标项目中存在引用的全局图形，则在导入期间将恢复全局图形的引用。
 程序代码
 修改以下程序代码以将 XML 文件的图形列表导入至 HMI 设备：
+
 ```text
+
 //Imports a single GraphicList
 private static void ImportSingleGraphicList(HmiTarget hmitarget)
 {
     GraphicListComposition graphicListComposition = hmitarget.GraphicsLists;
     IList<GraphicList> importedGraphicLists = graphicListComposition.Import(new FileInfo(@"D:\Samples\Import\myGraphicList.xml"), ImportOptions.Override);
 }
+
 ```
 
 ### 6.3.6 连接
@@ -1098,7 +1193,9 @@ API 接口支持将 HMI 设备的所有连接导出到 XML 文件。
 不支持导出集成连接。
 将为每个已导出的连接创建一个单独的 XML 文件。
 修改以下程序代码以将 HMI 设备的所有连接导出至 XML 文件：
+
 ```cs
+
 //Exports communication connections from an HMI device
 private static void ExportConnectionsFromHMITarget(HmiTarget hmitarget)
 {
@@ -1109,6 +1206,7 @@ private static void ExportConnectionsFromHMITarget(HmiTarget hmitarget)
     connexion.Export(info, ExportOptions.WithDefaults);
     }
 }
+
 ```
 
 #### 6.3.6.2 导入连接
@@ -1121,13 +1219,16 @@ API 接口支持将 HMI 设备的所有连接从 XML 文件导入到 HMI 设备�
 说明
 如果导入连接的项目中已组态一个集成连接，则不会覆盖此连接。此时将取消导入并引发Exception。
 修改以下程序代码以将 XML 文件中 HMI 设备的单个连接导入至 HMI 设备：
+
 ```text
+
 //Imports Communication connections to an HMI device
 private static void ImportConnectionsToHMITarget(HmiTarget hmitarget)
 {
     ConnectionComposition connections = hmitarget.Connections;
     IList<Connection> importedConnectionLists = connections.Import(new FileInfo(@"D:\Samples\Import\myConnectionImport.xml"), ImportOptions.Override);
 }
+
 ```
 
 ### 6.3.7 画面
@@ -1161,7 +1262,9 @@ private static void ImportConnectionsToHMITarget(HmiTarget hmitarget)
 6.3 导入/导出 HMI 设备的数据
 程序代码：导出设备的所有画面
 修改以下程序代码以导出 HMI 设备的用户自定义画面文件夹和画面系统文件夹的所有画面：
+
 ```cs
+
 using System;
 using Siemens.Engineering;
 using Siemens.Engineering.HW;
@@ -1207,8 +1310,11 @@ namespace ExportAllScreensOfHMIDevice
     folder
     private static void ExportScreensOfDevice(HmiTarget hmiTarget)
     {
+
 ```
+
 ```text
+
 ScreenUserFolder folder = hmiTarget.ScreenFolder.Folders.Find("MyScreenFolder");
 //or ScreenSystemFolder folder = hmiTarget.ScreenFolder;
 ScreenComposition screens = folder.Screens;
@@ -1240,6 +1346,7 @@ foreach(ScreenUserFolder subfolder in folder.Folders)
 {
 ExportScreenUserFolder(Path.Combine(screenPath, subfolder.Name), subfolder);
 }
+
 ```
 
 #### 6.3.7.3 从画面文件夹导出画面
@@ -1258,7 +1365,9 @@ ExportScreenUserFolder(Path.Combine(screenPath, subfolder.Name), subfolder);
 • SCADA 特定属性。
 • 不包含任何画面项和属性与默认值相同的图层。
 修改以下程序代码以导出 HMI 设备用户文件夹或系统文件夹中的单个画面：
+
 ```cs
+
 //Exports a single screen from a screen folder
 private static void ExportSingleScreenFromScreenFolder(HmiTarget hmitarget)
 {
@@ -1272,6 +1381,7 @@ private static void ExportSingleScreenFromScreenFolder(HmiTarget hmitarget)
     screen.Export(info, ExportOptions.WithDefaults);
     }
 }
+
 ```
 
 #### 6.3.7.4 向 HMI 设备导入画面
@@ -1298,7 +1408,9 @@ private static void ExportSingleScreenFromScreenFolder(HmiTarget hmitarget)
 ##### 程序代码：向 HMI 设备导入画面
 
 修改以下程序代码以使用 For each 循环将画面导入至 HMI 设备：
+
 ```cs
+
 //Imports all screens to an HMI device
 private static void ImportScreensToHMITarget(HmiTarget hmitarget)
 {
@@ -1311,12 +1423,15 @@ FileInfo(@"D:\Samples\Import\Screen_2.xml")};
     folder.Screens.Import(screenFileInfo, ImportOptions.Override);
     }
 }
+
 ```
 
 ##### 程序代码：导入到新创建的用户文件夹
 
 修改以下程序代码以将某以画面导入至新创建的 HMI 设备用户文件夹：
+
 ```text
+
 //Imports a single screen to a new created user folder of an HMI device
 private static void ImportSingleScreenToNewFolderOfHMITarget(HmiTarget hmitarget)
 {
@@ -1324,7 +1439,9 @@ private static void ImportSingleScreenToNewFolderOfHMITarget(HmiTarget hmitarget
     folder.Screens.Import(new FileInfo(@"D:\Samples\Import\myScreens.xml"),
     ImportOptions.Override);
 }
+
 ```
+
 6.3 导入/导出 HMI 设备的数据
 
 #### 6.3.7.5 导出永久性区域
@@ -1338,7 +1455,9 @@ private static void ImportSingleScreenToNewFolderOfHMITarget(HmiTarget hmitarget
 为每个图层导出以下数据：
 <table><tr><td>图层</td><td>数据</td></tr><tr><td>属性</td><td>Name, Index</td></tr><tr><td>组合</td><td>ScreenItems(包括画面项)</td></tr></table>
 修改以下程序代码以将 HMI 设备的永久性区域导出至 XML 文件：
+
 ```cs
+
 //Exports a permanent area
 private static void ExportScreenoverview(HmiTarget hmitarget)
 {
@@ -1347,6 +1466,7 @@ private static void ExportScreenoverview(HmiTarget hmitarget)
     FileInfo info = new FileInfo(@"D:\Samples\Screens\ExportedOverview.xml");
     overview.Export(info, ExportOptions.WithDefaults);
 }
+
 ```
 
 #### 6.3.7.6 导入永久性区域
@@ -1362,13 +1482,16 @@ private static void ExportScreenoverview(HmiTarget hmitarget)
 如果画面的宽度和高度与设备尺寸不一致，则取消导入并引发 Exception。不支持调整所含的设备项（画面项）。因此，某些设备项可能会超出画面边界。这种情况下，将输出编译器警告。
 永久性区域内的设备项布局必须是唯一且连续的。因此，导入永久性区域后，会根据需要执行一致性检查以修复布局。此操作可能产生某些设备项的已修改的“选项卡索引”。
 修改以下程序代码以将 XML 文件的永久性区域导入至 HMI 设备：
+
 ```text
+
 //Imports a permanent area
 private static void ImportScreenOverview(HmiTarget hmiTarget)
 {
     FileInfo info = new FileInfo(@"D:\Samples\Screens\ExportedOverview.xml");
     hmiTarget.ImportScreenOverview(info, ImportOptions.Override);
 }
+
 ```
 
 #### 6.3.7.7 导出 HMI 设备的所有画面模板
@@ -1383,7 +1506,9 @@ private static void ImportScreenOverview(HmiTarget hmiTarget)
 6.3 导入/导出 HMI 设备的数据
 程序代码：导出设备的所有画面模板
 修改以下程序代码以导出特定文件夹中的所有画面模板：
+
 ```cs
+
 using System;
 using Siemens.Engineering;
 using Siemens.Engineering.HW;
@@ -1431,13 +1556,17 @@ namespace ExportAllScreenTemplatesOfHMIDevice
     screen.Export(new FileInfo(Path.Combine(templatePath, screen.Name + ".xml"));
     ExportOptions.WithDefaults);
     }
+
 ```
+
 ```cs
+
 foreach (ScreenTemplateUserFolder folder in hmiTarget.ScreenTemplateFolder.Folders)
 {
 ExportScreenTemplates(Path.Combine(templatePath, folder.Name), hmiTarget);
 }
 }
+
 ```
 
 #### 6.3.7.8 从文件夹导出画面模版
@@ -1453,7 +1582,9 @@ ExportScreenTemplates(Path.Combine(templatePath, folder.Name), hmiTarget);
 6.3 导入/导出 HMI 设备的数据
 程序代码：导出用户自定义文件夹的一个画面模板
 修改以下程序代码以导出系统文件夹或用户自定义文件夹中的单个画面模板：
+
 ```cs
+
 using System;
 using Siemens.Engineering;
 using Siemens.Engineering.HW;
@@ -1477,8 +1608,11 @@ using Siemens.Engineering Bonpiler;
 using Siemens.Engineering.Library;
 using System.IO;
 using System.Security;
+
 ```
+
 ```cs
+
 namespace ExportScreenTemplatesOfFolder
 {
     internal class Program
@@ -1502,9 +1636,13 @@ namespace ExportScreenTemplatesOfFolder
     {
     DirectoryInfo info = new DirectoryInfo(rootPath);
     info.Create();
+
 ```
+
 Openness：用于工程组态工作流自动化的 API系统手册, 11/2023
+
 ```text
+
 foreach (ScreenTemplate screen in folder.ScreenTemplates)
 {
     screen.Export(new FileInfo(Path.Combine(info.FullName, screen.Name + ".xml"),
@@ -1526,6 +1664,7 @@ foreach (ScreenTemplateUserFolder subfolder in folder.Folders)
 {
     ExportScreenTemplates(Path.Combine(templatePath, subfolder.Name), subfolder);
 }
+
 ```
 
 #### 6.3.7.9 导入画面模板
@@ -1543,7 +1682,9 @@ foreach (ScreenTemplateUserFolder subfolder in folder.Folders)
 程序代码：常规导入
 修改以下程序代码以使用 For each 循环将所有画面模板导入至 HMI 设备：
 using System; using Siemens.Engineering; using Siemens.Engineering.HW; using Siemens.Engineering.HW.Features; using Siemens.Engineering.SW; using Siemens.Engineering.SW.Blocks; using Siemens.Engineering.SW.ExternalSources; using Siemens.Engineering.SW.Tags; using Siemens.Engineering.SW.Types; using Siemens.Engineering.Hmi; using HmiTarget = Siemens.Engineering.Hmi.HmiTarget; using Siemens.Engineering.Hmi.Tag; using Siemens.Engineering.Hmi.Screen; using Siemens.Engineering.Hmi.Cycle; using Siemens.Engineering.Hmi.Communication; using Siemens.Engineering.Hmi.Globalization; using Siemens.Engineering.Hmi.TextGraphicList; using Siemens.Engineering.Hmi.RuntimeScripting; using System.Collections.Generic; using Siemens.Engineering.Compiler; using Siemens.Engineering.Library; using System.IO; using System.Security;
+
 ```cs
+
 namespace ImportingScreenTemplates
 {
     internal class Program
@@ -1564,10 +1705,14 @@ namespace ImportingScreenTemplates
     {
     ScreenTemplateUserFolder screenTemplateFolder = hmiTarget.ScreenTemplateFolder.Folders.Find("MyTemplateFolder");
     ScreenTemplateUserFolder folder = screenTemplateFolder.Folders.Create("MyNewFolder");
+
 ```
+
 ```text
+
 folder.ScreenTemplates.Import(new FileInfo(@"D:\Samples\ImportScreenTemplate.xml"), ImportOptions.Override);
 }
+
 ```
 
 #### 6.3.7.10 导出弹出画面
@@ -1584,7 +1729,9 @@ folder.ScreenTemplates.Import(new FileInfo(@"D:\Samples\ImportScreenTemplate.xml
 ##### 程序代码：从文件夹中导出弹出画面
 
 修改以下程序代码以导出系统文件夹或用户自定义文件夹中的单个弹出画面：
+
 ```cs
+
 using System;
 using Siemens.Engineering;
 using Siemens.Engineering.HW;
@@ -1626,6 +1773,7 @@ namespace ExportingAPopupImage
     }
     }
 }
+
 ```
 
 #### 6.3.7.11 导入弹出画面
@@ -1653,13 +1801,16 @@ namespace ExportingAPopupImage
 ##### 程序代码：将弹出画面导入文件夹中
 
 修改以下程序代码以将弹出画面导入弹出画面系统文件夹或用户自定义文件夹：
+
 ```objectivec
+
 //Imports a pop-up screen to an HMI device
 private static void ImportPopupScreenToHMITarget(HmiTarget hmitarget)
 {
     FileInfo info = new FileInfo(string.Format(@"D:\Samples\Screens\PopupScreen.xml"));
     hmitarget.ScreenPopupFolder.ScreenPopups.Import(info, ImportOptions.None);
 }
+
 ```
 
 #### 6.3.7.12 导出滑入画面
@@ -1679,7 +1830,9 @@ private static void ImportPopupScreenToHMITarget(HmiTarget hmitarget)
 ##### 程序代码：导出滑入画面
 
 修改以下程序代码以从系统文件夹中导出单个滑入画面：
+
 ```cs
+
 //Exports a single slide-in screen
 private static void ExportSingleSlideinScreen(HmiTarget hmitarget)
 {
@@ -1690,6 +1843,7 @@ private static void ExportSingleSlideinScreen(HmiTarget hmitarget)
     FileInfo info = new FileInfo(string.Format(@"D:\Samples\Screens\{0}\{1}.xml"));
     slidein.Export(info, ExportOptions.WithDefaults);
 }
+
 ```
 
 #### 6.3.7.13 导入滑入画面
@@ -1711,13 +1865,16 @@ private static void ExportSingleSlideinScreen(HmiTarget hmitarget)
 ##### 程序代码：将滑入画面导入文件夹中
 
 修改以下程序代码以将滑入画面导入滑入画面系统文件夹中：
+
 ```cs
+
 //Imports a slide-in screen to an HMI device
 private static void ImportSlideinScreenToHMITarget(HmiTarget hmitarget)
 {
     FileInfo info = new FileInfo(@"D:\Samples\Screens\SlideInScreen.xml");
     hmitarget.ScreenSlideinFolder.ScreenSlideins.Import(info, ImportOptions.None);
 }
+
 ```
 
 #### 6.3.7.14 导出带有面板实例的画面
@@ -1740,7 +1897,9 @@ private static void ImportSlideinScreenToHMITarget(HmiTarget hmitarget)
 导出时不包含面板实例内部画面项的以下数据：
 <table><tr><td>画面项</td><td>属性</td></tr><tr><td>IO字段</td><td>Flashing on limit violation</td></tr><tr><td>图形 IO字段</td><td>Fit embedded graphic object to screen size</td></tr></table>
 修改以下程序代码以导出包含面板实例的单个画面：
+
 ```cs
+
 //Exports a single screen including a faceplate instance
 private static void ExportSingleScreenWithFaceplateInstance(HmiTarget hmitarget)
 {
@@ -1753,6 +1912,7 @@ private static void ExportSingleScreenWithFaceplateInstance(HmiTarget hmitarget)
     screen.Export(info, ExportOptions.WithDefaults);
     }
 }
+
 ```
 
 #### 6.3.7.15 导入带有面板实例的画面
@@ -1800,13 +1960,16 @@ private static void ExportSingleScreenWithFaceplateInstance(HmiTarget hmitarget)
 6.4 导入/导出 PLC 设备的数据
 程序代码：导入包括面板实例的画面
 修改以下程序代码以导入包括面板实例的画面：
+
 ```text
+
 //Imports single screen including a faceplate instance
 private static void ImportSingleScreenWithFaceplateInstance(HmiTarget hmitarget)
 {
     FileInfo info = new FileInfo(@"D:\Samples\Screens\ScreenFaceplate.xml");
     hmitarget.ScreenFolder.Screens.Import(info, ImportOptions.None);
 }
+
 ```
 
 ## 6.4 导入/导出 PLC 设备的数据
@@ -1822,9 +1985,13 @@ private static void ImportSingleScreenWithFaceplateInstance(HmiTarget hmitarget)
 可从 TIA Portal 外部通过 Public API 为定义的任务调用这些功能。
 建议的 PC 硬件
 如果处理的是大型项目，请检查计算机是否满足 TIA Portal 硬件要求：
+
 ```text
+
 - RAM: 32 GB（针对大型项目）
+
 ```
+
 CFC 图表提供以下功能：
 • 导出 CFC 图表 (页 1473)
 • 仅导出所选 CFC 图表 (页 1475)
@@ -1922,7 +2089,9 @@ API 用户负责保证通过代码处理密码时的安全措施。
 如果要启动 CFC 图表的选择性 XML 导出，请使用功能“SelectiveExport (页 1475)”。
 <table><tr><td>参数</td><td>数据类型</td><td>描述</td></tr><tr><td>xmlFilePath</td><td>String</td><td>导入文件的文件夹路径和名称</td></tr><tr><td>modelVersion</td><td>String</td><td>要使用的 S7TIA 交换模型版本</td></tr><tr><td>filter</td><td>Int64</td><td>自动化接口的过滤选项</td></tr><tr><td>unattended</td><td>Boolean</td><td>开启或关闭静默模式</td></tr></table>
 修改以下程序代码，将 PLC 中的所有 CFC 图表及其对象导出到 XML 文件。
+
 ```text
+
 plcSoftware = (PlcSoftware) swContainer.Software;
 chartProvider = plcSoftware TokService<ChartProviderS7>();
 if (chartProvider == null)    // in case that CFC is not installed
@@ -1930,7 +2099,9 @@ if (chartProvider == null)    // in case that CFC is not installed
 // Export CFC charts:
 // XML file information for export
 chartProvider.CompleteExport(@"D:\Users\username1\Documents\Automation\OpennessExample.xml", "V2.0", 0, true);
+
 ```
+
 有关更多信息，请参见 TIA Portal Openness 文档：
 • “导出/导入 > 概述 > 导出组态数据 (页 1395)”
 CFC 图表的导出/导入 (页 1470)
@@ -1954,7 +2125,9 @@ TIA Portal 项目视图：导出和导入 CFC 图表 (页 1472)
 要启动所有 CFC 图表的完整 XML 导出，请使用功能“CompleteExport (页 1473)”。
 <table><tr><td>参数</td><td>数据类型</td><td>描述</td></tr><tr><td>xmlFilePath</td><td>String</td><td>导入文件的文件夹路径和名称</td></tr><tr><td>selectedObjects</td><td>String[]</td><td>要导出的图表的名称</td></tr><tr><td>modelVersion</td><td>String</td><td>要使用的 S7TIA 交换模型版本</td></tr><tr><td>filter</td><td>Int64</td><td>自动化接口的过滤选项</td></tr><tr><td>unattended</td><td>Boolean</td><td>开启或关闭静默模式</td></tr></table>
 修改以下程序代码以仅将所选 CFC 图表及其对象导出到 XML 文件。
+
 ```text
+
 plcSoftware = (PlcSoftware) swContainer.Software;
 chartProvider = plcSoftware Sierra<ChartProviderS7>();
 if (chartProvider == null)    // in case that CFC is not installed
@@ -1964,7 +2137,9 @@ if (chartProvider == null)    // in case that CFC is not installed
 chartProvider.SelectiveExport(@"D:\Users\username1\Documents\Automation\OpennessExample.xml", new string[] { "CFC_1", "CFC_3" }, "V2.0", 0, true);
 有关更多信息，请参见 TIA Portal Openness 文档：
 • “导出/导入 > 概述 > 导出组态数据 (页 1395)"
+
 ```
+
 [CFC 图表的导出/导入](#CFC-图表的导出导入)
 TIA Portal 项目视图：导出和导入 CFC 图表 (页 1472)
 
@@ -1977,7 +2152,9 @@ TIA Portal 项目视图：导出和导入 CFC 图表 (页 1472)
 <table><tr><td>参数</td><td>数据类型</td><td>描述</td></tr><tr><td>xmlFilePath</td><td>String</td><td>导入文件的文件夹路径和名称</td></tr><tr><td>modelVersion</td><td>String</td><td>要使用的 S7TIA 交换模型版本</td></tr><tr><td>filter</td><td>Int64</td><td>自动化接口的过滤选项在当前的 CFC 版本中,参数在导出和导入时不被评估,没有功能。</td></tr><tr><td>unattended</td><td>Boolean</td><td>开启或关闭静默模式</td></tr><tr><td>deleteAtTarget</td><td>Boolean</td><td>是否删除 TIA 项目中未包含在原始导出文件中的对象</td></tr></table>
 6.4 导入/导出 PLC 设备的数据
 修改以下程序代码，以便从 XML 文件导入 CFC 图表。
+
 ```text
+
 plcSoftware = (PlcSoftware) swContainer.Software;
 chartProvider = plcSoftware TokService<ChartProviderS7>();
 if (chartProvider == null)    // in case that CFC is not installed
@@ -1985,24 +2162,39 @@ if (chartProvider == null)    // in case that CFC is not installed
 // Import CFC charts
 // XML file information for import
 chartProvider.Import(@"D:\Users\username1\Documents\Automation\OpennessExample.xml", "V2.0", 0, true, false);
+
 ```
+
 有关更多信息，请参见 TIA Portal Openness 文档：
+
 ```text
+
 - “导出/导入 > 概述 > 导入组态数据 (页 1397)”
+
 ```
+
 参见
+
 ```text
+
 CFC 图表的导出/导入 (页 1470)
+
 ```
+
 ```text
+
 TIA Portal 项目视图：导出和导入 CFC 图表 (页 1472)
+
 ```
 
 #### 6.4.1.6 设置 CFC 图表的密码
 
 ```text
+
 - TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)”
+
 ```
+
 • 已打开一个项目。请[打开项目](#打开项目)”
 • PLC 未在线。
 为保护 CFC 图表或层级 CFC 图表以防止意外编辑，可使用密码保护该图表。
@@ -2016,20 +2208,28 @@ TIA Portal 项目视图：导出和导入 CFC 图表 (页 1472)
 ##### 返回值
 
 函数“AddChartProtection”返回 System.Boolean：
+
 ```text
+
 TRUE 密码已成功设置。
 FALSE 密码无法设置。
+
 ```
+
 修改以下程序代码以便为 CFC 图表设置密码。
 在本例中，新密码的散列值包含在缩写的示例值中。
+
 ```text
+
 plcSoftware = (PlcSoftware) swContainer.Software;
 chartProvider = plcSoftware.GetService<ChartProviderS7>();
 if (chartProvider == null) // in case that CFC is not installed
     return;
 // Configure CFC chart password
 bool added = chartProvider.AddChartProtection("CFC_1", "AgGUWq...92M=");
+
 ```
+
 6.4 导入/导出 PLC 设备的数据
 CFC 图表的导出/导入 (页 1470)
 
@@ -2044,23 +2244,34 @@ CFC 图表的导出/导入 (页 1470)
 <table><tr><td>注意</td></tr><tr><td>密码:图表无授权,无专有技术保护该密码仅用于保护CFC图表以防止意外编辑。该访问保护类型并不会提高访问的安全性。该密码不适用于以下保护:保护CFC图表中的专有技术,防止未经授权的访问对CFC图表的访问进行安全相关的授权</td></tr></table>
 参数
 <table><tr><td>参数</td><td>数据类型</td><td>描述</td></tr><tr><td>chartName</td><td>System.String</td><td>受密码保护的图表的名称。</td></tr></table>
+
 ```text
+
 设置 CFC 图表的密码 (页 1478)
 CFC 图表的导出/导入 (页 1470)
+
 ```
+
 函数“GetChartProtection”返回 System.Boolean：
+
 ```text
+
 TRUE 密码已成功读取。  
 FALSE 密码无法读取。
+
 ```
+
 修改以下程序代码以便从 CFC 图表读取密码。
+
 ```text
+
 plcSoftware = (PlcSoftware) swContainer.Software;
 chartProvider = plcSoftware Sierra GetService<ChartProviderS7>();
 if (chartProvider == null) // in case that CFC is not installed
     return;
 // Read CFC chart password
 string passwordHash = chartProvider.GetChartProtection("CFC_1");
+
 ```
 
 #### 6.4.1.8 更改 CFC 图表的密码
@@ -2076,7 +2287,9 @@ string passwordHash = chartProvider.GetChartProtection("CFC_1");
 <table><tr><td>TRUE</td><td>密码已成功更改。</td></tr><tr><td>FALSE</td><td>密码无法更改。</td></tr></table>
 修改以下程序代码以便为 CFC 图表更改密码。
 在本例中，密码“test”被修改为新密码。新密码的散列值包含在缩写的示例值中。
+
 ```text
+
 plcSoftware = (PlcSoftware) swContainer.Software;
 chartProvider = plcSoftware Sierra<ChartProviderS7>();
 if (chartProvider == null)    // in case that CFC is not installed
@@ -2087,17 +2300,24 @@ SecureString securePassword1 = new SecureString();
 foreach (char ch in password1)
     securePassword1.AppendChar(ch);
 bool changed = chartProvider.ChangeChartProtection("CFC_1", securePassword1, "AgGUWq...92M=");
+
 ```
+
 ```text
+
 设置 CFC 图表的密码 (页 1478)
 CFC 图表的导出/导入 (页 1470)
+
 ```
 
 #### 6.4.1.9 从 CFC 图表中删除密码
 
 ```text
+
 - TIA Portal Openness 应用程序已连接到 TIA Portal。请[连接到 TIA Portal](#连接到-TIA-Portal)”
+
 ```
+
 • 已打开一个项目。请[打开项目](#打开项目)”
 • PLC 未在线。
 如果需要删除已组态的 CFC 图表密码，请使用函数“RemoveChartProtection”。
@@ -2109,7 +2329,9 @@ CFC 图表的导出/导入 (页 1470)
 <table><tr><td>TRUE</td><td>密码已成功删除。</td></tr><tr><td>FALSE</td><td>密码无法删除。</td></tr></table>
 修改以下程序代码以便删除 CFC 图表的密码。
 在本例中，为图表“CFC\_1”组态了密码“test”。
+
 ```text
+
 plcSoftware = (PlcSoftware) swContainer.Software;
 chartProvider = plcSoftware.GetService<ChartProviderS7>();
 if (chartProvider == null)    // in case that CFC is not installed
@@ -2120,11 +2342,15 @@ SecureString securePassword1 = new SecureString();
 foreach (char ch in password1)
     securePassword1.AppendChar(ch);
 bool removed = chartProvider.RemoveChartProtection("CFC_1", securePassword1);
+
 ```
+
 ```text
+
 更改 CFC 图表的密码 (页 1481)
 从 CFC 图表读取密码 (页 1480)
 CFC 图表的导出/导入 (页 1470)
+
 ```
 
 ### 6.4.2 块
@@ -2145,7 +2371,9 @@ CFC 图表的导出/导入 (页 1470)
 ##### 基本结构
 
 导出块的接口部分包含在块的 SimaticML 中的 <Interface> 元素中。根对象是<Sections>元素，它表示导出块的接口部分。以下元素描述的顺序表示输入文件中要求的顺序。
+
 ```xml
+
 <Interface>
     <Sections xmlns="http://www.siemens.com/automation/Openness/SW/Interface/v1">
     <Section Name="Input">
@@ -2173,6 +2401,7 @@ CFC 图表的导出/导入 (页 1470)
     <Section Name="Constant" />
 </Sections>
 </Interface>
+
 ```
 
 ##### • 部分
@@ -2192,17 +2421,22 @@ CFC 图表的导出/导入 (页 1470)
 ##### • StartValue
 
 只有当用户设置了变量或常量的默认值时，才会写入<StartValue> 元素。
+
 ```text
+
 ... <Member Name="Static_1" Datatype="Int">
 ... <StartValue>1</StartValue>
 </Member>
 ...
+
 ```
 
 ##### • 注释
 
 只有当用户设置了<Comment>元素时，才会将其写入。变量或常量的注释将导出为多语言文本：
+
 ```xml
+
 <Member Name="Static_3" Datatype="Struct">
     <AttributeList>
     <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute>
@@ -2213,15 +2447,20 @@ CFC 图表的导出/导入 (页 1470)
     <MultiLanguageText Lang="de-DE">An individual comment</MultiLanguageText>
     </Comment>
 </Member>
+
 ```
 
 ##### • 主要属性
 
 主要属性写入 XML 结构的 <Member> 元素中。
+
 ```text
+
 ... <Member Name="Static_1" Datatype="&quot;User_data_type_1&quot;" Remanence="Retain">  
 ... </Member>
+
 ```
+
 下表显示了块接口部分的变量或常量的主要属性。
 <table><tr><td>名称</td><td>数据类型</td><td>默认值</td><td>导入条件</td><td>注释</td></tr><tr><td>名称</td><td>STRING</td><td>-</td><td>必选项</td><td></td></tr><tr><td>数据类型</td><td>ENUM</td><td>-</td><td>必选项</td><td></td></tr><tr><td>版本</td><td>STRING</td><td>-</td><td>可选</td><td></td></tr><tr><td>剩余</td><td>ENUM</td><td>NonRetain</td><td>-</td><td>只在非默认值时写入</td></tr><tr><td>可访问性</td><td>ENUM</td><td>Public</td><td>-</td><td>由系统预定义用户无法更改</td></tr><tr><td>信息</td><td>BOOL</td><td>FALSE</td><td>-</td><td></td></tr></table>
 具有标志“Informative”的成员在导入期间将被忽略。如果属性被删除或设置为FALSE，则发生异常。
@@ -2234,7 +2473,9 @@ CFC 图表的导出/导入 (页 1470)
 ##### • 系统定义的成员属性
 
 系统定义的成员属性将在<AttributeList> 元素中列出。系统定义的成员属性具有<Informative> 标志并在导入时被忽略。
+
 ```xml
+
 <Member Name="Static_3" Datatype="Struct">
     <AttributeList>
     <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute>
@@ -2245,7 +2486,9 @@ CFC 图表的导出/导入 (页 1470)
     <MultiLanguageText Lang="de-DE">An individual comment</MultiLanguageText>
     </Comment>
 </Member>
+
 ```
+
 <table><tr><td>Name</td><td>类型</td><td>默认值</td><td>SimaticML 只读(供参考)</td><td>注释</td></tr><tr><td>At</td><td>string</td><td>&quot;&quot;</td><td>FALSE</td><td>成员与此结构中的另一成员共享偏移量</td></tr><tr><td>SetPoint</td><td>bool</td><td>FALSE</td><td>FALSE</td><td>时间可以与工作内存同步</td></tr><tr><td>UserReadOnly</td><td>bool</td><td>FALSE</td><td>TRUE</td><td>用户不能更改任何成员属性(包括名称)</td></tr><tr><td>UserDeletable</td><td>bool</td><td>TRUE</td><td>TRUE</td><td>编辑器不允许删除成员</td></tr><tr><td>HmiAccessible</td><td>bool</td><td>TRUE</td><td>FALSE</td><td>无 HMI 访问,无结构项</td></tr><tr><td>HmiVisible</td><td>bool</td><td>TRUE</td><td>FALSE</td><td>过滤以减少显示在第一位置的成员数量</td></tr><tr><td>Offset</td><td>int</td><td>-</td><td>TRUE</td><td>DB, FB, FC (Temp)。适用于经典 PLC 和剩余设置为经典的 Plus PLC。</td></tr><tr><td>PaddedSize</td><td>int</td><td>-</td><td>TRUE</td><td>DB, FB, FC (Temp)。适用于经典 PLC 和剩余设置为经典的 Plus PLC。仅适用于数组。</td></tr></table>
 <table><tr><td>Name</td><td>类型</td><td>默认值</td><td>SimaticML 只读(供参考)</td><td>注释</td></tr><tr><td>HiddenAssignment</td><td>bool</td><td>FALSE</td><td>FALSE</td><td>如果与PredefinedAssignment 匹配,则隐藏调用时的分配</td></tr><tr><td>PredefinedAssingment</td><td>string</td><td>&quot;&quot;</td><td>FALSE</td><td>调用时使用的参数输入</td></tr><tr><td>ReadOnlyAssignment</td><td>bool</td><td>FALSE</td><td>FALSE</td><td>用户不能在调用时更改预定义分配</td></tr><tr><td>UserVisible</td><td>bool</td><td>TRUE</td><td>TRUE</td><td>此成员不在 UI上显示</td></tr><tr><td>HmiReadOnly</td><td>bool</td><td>TRUE</td><td>TRUE</td><td>此成员对于 HMI只读</td></tr><tr><td>CodeReadOnly</td><td>bool</td><td>FALSE</td><td>TRUE</td><td>-</td></tr></table>
 
@@ -2258,7 +2501,9 @@ CFC 图表的导出/导入 (页 1470)
 ##### 数据类型“STRUCT”
 
 数据类型“STRUCT”的组成部分在导入/导出文件的 XML 结构中表示为嵌套成员：
+
 ```xml
+
 <Sections xmlns="http://www.siemens.com/automation/Openness/SW/Interface/v2">
     <Section Name="Static">
     <Member Name="Static_1" Datatype="Struct">
@@ -2281,12 +2526,15 @@ CFC 图表的导出/导入 (页 1470)
     </Member>
     </Member>
 </Sections>
+
 ```
 
 ##### 数据类型“ARRAY”基本类型
 
 基本数据类型“ARRAY”的组成部分在导入/导出文件的 XML 结构中表示为具有"Path"属性的子元素：
+
 ```xml
+
 <Sections xmlns="http://www.siemens.com/automation/Openness/SW/Interface/v2">
     <Section Name="Static">
     <Member Name="Static_1" Datatype="Array[0..2] of Int" Remanence="Retain">
@@ -2302,13 +2550,17 @@ CFC 图表的导出/导入 (页 1470)
     </Member>
     </Section>
 </Sections>
+
 ```
+
 6.4 导入/导出 PLC 设备的数据
 
 ##### UDT 的数据类型“ARRAY”
 
 UDT 的数据类型“ARRAY”的组成部分在导入/导出文件的 XML 结构中表示为<member>元素的新 <sections> 元素。UDT 新部分中的成员在 ARRAY 中，分配了具有 "Path" 属性的子元素：
+
 ```xml
+
 <Sections xmlns="http://www.siemens.com/automation/Openness/SW/Interface/v2">
     <Section Name="Static">
     <Member Name="Static_1" Datatype="&quot;User_data_type_1&quot;" Remanence="Retain">
@@ -2333,13 +2585,16 @@ UDT 的数据类型“ARRAY”的组成部分在导入/导出文件的 XML 结�
     </Member>
     </Section>
 </Sections>
+
 ```
 
 ##### “ARRAY”中的数据类型“ARRAY”
 
 在另一个 ARRAY 中，数据类型“ARRAY”的组成部分在导入/导出文件的 XML 结构中表示为具有"Path"属性的子元素。
 如果组成部分由用户编辑，则将另一个 ARRAY 中的成员指定为带有"Path"属性的子元素：
+
 ```text
+
 - ExportOptions.WithDefaults
 始终写入以下属性:
 - Name
@@ -2350,8 +2605,11 @@ UDT 的数据类型“ARRAY”的组成部分在导入/导出文件的 XML 结�
 - SetPoint
 - StartValue
 如果此类型中的默认值是由用户设置，则不写入。
+
 ```
+
 ```xml
+
 <Sections xmlns="http://www.siemens.com/automation/Openness/SW/Interface/v2">
     <Section Name="Static">
     <Member Name="Static_1" Datatype="Array[0..2] of Struct">
@@ -2371,6 +2629,7 @@ UDT 的数据类型“ARRAY”的组成部分在导入/导出文件的 XML 结�
     </Member>
     </Section>
 </Sections>
+
 ```
 
 ##### PLC 数据类型 (UDT)
@@ -2386,7 +2645,9 @@ PLC 数据类型的 XML 结构取决于 TIA Portal Openness 导出设置。
 ##### 覆盖变量
 
 如果变量使用新的数据类型进行覆盖，则相应元素将以新数据类型的 XML 结构进行表示。以下 XML 结构显示由 BYTE 的 ARRAY 覆盖的数据类型 WORD。
+
 ```xml
+
 <Sections xmlns="http://www.siemens.com/automation/Openness/SW/Interface/v2">
     <Section Name="Input" />
     <Section Name="Output" />
@@ -2412,18 +2673,24 @@ PLC 数据类型的 XML 结构取决于 TIA Portal Openness 导出设置。
     <Section Name="Temp" />
     <Section Name="Constant" />
 </Sections>
+
 ```
+
 ```text
+
 - ExportOptions.None
 此设置只能导出修改后的数据或与默认值不同的数据。
 如果属性定义未指定默认值，则始终写入该属性。
 导出文件中还包含对于后续数据导入必须项的所有值。
+
 ```
 
 ##### 块接口
 
 将执行 ReadOnly=“TRUE”和 Informative=“FALSE”的所有属性。块接口的 XML 结构取决于 TIA Portal Openness 导出设置。
+
 ```text
+
 - ExportOptions.WithDefaults
 通常将写入以下属性
 - Name
@@ -2436,10 +2703,15 @@ PLC 数据类型的 XML 结构取决于 TIA Portal Openness 导出设置。
 - PaddedSize（如适用）
 所有其它属性仅在其值与默认值不同时写入。
 如果已明确设置，则 <StartValue> 元素只写入 XML。
+
 ```
+
 ```text
+
 - ExportOptions.ReadOnly
+
 ```
+
 对于块接口，该设置无意义。与其它设置组合使用时，也不会影响最终结果。
 
 #### 6.4.2.2 对象模型和 XML 文件格式的变化
@@ -2477,7 +2749,9 @@ V*\PublicAPI\V*\Schemas\SW.InterfaceSections\_v3.xsd
 • FB、FC 和指令调用
 • 用于调用的 DB
 可以在以下目录中找到访问架构：
+
 ```text
+
 C:\Program Files\Siemens\Automation\Portal
 V*\PublicAPI\V*\Schemas\SW.PlcBlocks.Access_v3.xsd
 公共
@@ -2487,6 +2761,7 @@ C:\Program Files\Siemens\Automation\Portal
 V*\PublicAPI\V*.\Schemas\SW.Common_v2.xsd
 说明
 V* 指已安装的 TIA Portal 版本。
+
 ```
 
 #### 6.4.2.3 利用快照导出数据块
@@ -2506,15 +2781,21 @@ V* 指已安装的 TIA Portal 版本。
 全局数据块、背景数据块和阵列数据块支持快照服务。
 6.4 导入/导出 PLC 设备的数据
 修改以下程序代码以便使用快照服务导出快照值：
+
 ```text
+
 PlcBlock dataBlock = ...;
 InterfaceSnapshot interfaceSnapshot = dataBlock.GetService<InterfaceSnapshot>();
 interfaceSnapshot.Export(new FileInfo("C:\\temp\\MyInterfaceSnapshot.xml"),
 ExportOptions.WithReadOnly);
+
 ```
+
 使用快照服务导出快照值与标准接口 Openness 导出无关，因此不会影响已存在的接口成员导出。但无法导入已导出的 XML
 快照值导出的代码如下：
+
 ```xml
+
 <?xml version="1.0" encoding="utf-8"?>
 <Document>
 <Engineering version="V15 SP1" />
@@ -2545,7 +2826,9 @@ ExportOptions.WithReadOnly);
 </AttributeList>
 </SW.Blocks.InterfaceSnapshot>
 </Document>
+
 ```
+
 如果数据块不包含任何快照值，则导出文件的内容如下所示：
 <SnapshotValues xlmns="http://www.siemens.com/automation/Openness/SW/Interface/Snapshot/ v1"></SnapshotValues>
 参见
@@ -2564,13 +2847,16 @@ ExportOptions.WithReadOnly);
 • 导入不受保护的文件 -> 锁定 -> TIA Portal 块
 块的属性列表指示相关的块具有专有技术保护。
 修改以下程序代码以将具有专有技术保护的块的可见数据导出至 XML 文件：
+
 ```cs
+
 private static void ExportBlock(PlcSoftware plcSoftware)
 {
     PlcBlock plcBlock = plcSoftware.BlockGroup.Blocks.Find("MyBlock");
     plcBlock.Export(new FileInfo(string.Format(@"D:\Samples\{0}.xml", plcBlock.Name)),
     ExportOptions.WithDefaults);
 }
+
 ```
 
 #### 6.4.2.5 导出/导入 SCL 块
@@ -2858,7 +3144,9 @@ TIA Portal Openness 中可支持通过以下方式导入和导出 SCL 编辑器�
 • PLC 未在线。
 只有可见的系统块在块组合中可用，例如，块组合中不可使用 FB 或 FC 块。XML 文件的生成过程与块的导出文件过程相似。
 修改以下程序代码以将块的可见数据导出至 XML 文件：
+
 ```cs
+
 //Exports system blocks
 private static void ExportSystemBlocks(PlcSoftware plcsoftware)
 {
@@ -2871,6 +3159,7 @@ private static void ExportSystemBlocks(PlcSoftware plcsoftware)
     ExportOptions.WithDefaults);
     }
 }
+
 ```
 
 #### 6.4.2.11 导出包含多语言文本的 GRAPH 块
@@ -2883,6 +3172,7 @@ GRAPH 块的导出 XML 中包含 GRAPH 的已翻译步骤名称和转移名称�
 ##### StepName 元素的示例
 
 ```xml
+
 <Steps>
     <Step Number="1" Init="true" Name="Step1" MaximumStepTime="T#10S" WarningTime="T#7S">
     <StepName>
@@ -2894,11 +3184,13 @@ GRAPH 块的导出 XML 中包含 GRAPH 的已翻译步骤名称和转移名称�
 </Step>
 ..
 </Steps>
+
 ```
 
 ##### TransitionName 元素的示例
 
 ```xml
+
 <Transitions>
     <Transition IsMissing="false" Name="Trans1" Number="1" ProgrammingLanguage="LAD">
     <TransitionName>
@@ -2910,6 +3202,7 @@ GRAPH 块的导出 XML 中包含 GRAPH 的已翻译步骤名称和转移名称�
 </Transition>
 ..
 </Transitions>
+
 ```
 
 #### 6.4.2.12 导入块
@@ -2939,7 +3232,9 @@ TIA Portal Openness API 支持从 XML 文件导入采用“LAD”、“FBD”、
 • 如果 xml 文件中未指定块编号，则系统将自动分配块编号。
 • 如果该块在项目中不存在，且未在 xml 文件中指定版本信息，则将分配版本号“0.1”。
 修改以下程序代码：
+
 ```text
+
 //Import blocks
 private static void ImportBlocks(PlcSoftware plcSoftware)
 {
@@ -2947,8 +3242,11 @@ private static void ImportBlocks(PlcSoftware plcSoftware)
     IList<PlcBlock> blocks = blockGroup.Blocks.Import(new FileInfo(@"D:\Blocks\myBlock.xml"),
     ImportOptions.Override);
 }
+
 ```
+
 ```cs
+
 //Import system blocks
 private static void ImportSystemBlocks(PlcSoftware plcSoftware)
 {
@@ -2956,6 +3254,7 @@ private static void ImportSystemBlocks(PlcSoftware plcSoftware)
     plcSoftware.BlockGroup.SystemBlockGroups[0].Groups[0];
     IList<PlcBlock> blocks = systemblockGroup.Blocks.Import(new FileInfo(@"D:\Blocks\myBlock.xml"), ImportOptions.Override);
 }
+
 ```
 
 #### 6.4.2.13 导出块
@@ -3085,7 +3384,9 @@ XML 文件接收块的名称。支持以下块类型：
 
 <table><tr><td></td><td>在单元下导入</td><td>不在单元下导入(没有SWImportOptions.IgnoreUnitAttributes)</td><td>不在单元下导入(有SWImportOptions.IgnoreUnitAttributes)</td></tr><tr><td>从单元下导出 XML</td><td>使用并设置“Access”</td><td>发生可恢复异常</td><td>忽略“Access”</td></tr><tr><td>不从单元下导出 XML</td><td>“Access”获得其默认值</td><td>“Access”不存在</td><td>“Access”不存在</td></tr></table>
 修改以下程序代码以将不具有专有技术保护的块导出至 XML 文件：
+
 ```cs
+
 //Exports a regular block
 private static void ExportRegularBlock(PlcSoftware plcSoftware)
 {
@@ -3093,6 +3394,7 @@ private static void ExportRegularBlock(PlcSoftware plcSoftware)
     plcBlock.Export(new FileInfo(string.Format(@"D:\Samples\{0}.xml", plcBlock.Name)),
     ExportOptions.WithDefaults);
 }
+
 ```
 
 #### 6.4.2.14 引用缺失时导入块/UDT
@@ -3105,7 +3407,9 @@ private static void ExportRegularBlock(PlcSoftware plcSoftware)
 Openness 接口支持在以下条件中使用新导入模式：
 <table><tr><td>导入</td><td>对象引用</td></tr><tr><td>UDT</td><td>UDT</td></tr><tr><td>DB(全局)</td><td>UDT</td></tr><tr><td>IDBofUDT</td><td>UDT</td></tr><tr><td>IDBofFB</td><td>FB</td></tr><tr><td>ArrayDB</td><td>UDT 数据类型的 Array</td></tr><tr><td>FB</td><td>UDT(接口),多实例</td></tr><tr><td>FC</td><td>UDT(接口)</td></tr></table>
 要实现导入，请使用 SWImportOptions.IgnoreMissingReferencedObject，即使缺少引用对象。
+
 ```cs
+
 [Flagged] Enum SWImportOptions
 {
     None = 0,
@@ -3122,7 +3426,9 @@ private static void Main(string[] args)
     PlcTypeComposition.Import(file, ImportOptions.None, SWImportOptions.IgnoreMissingReferencedObjects);
     //...
 }
+
 ```
+
 打开项目 (页 140)
 
 #### 6.4.2.15 为结构更改对象导入块/UDT
@@ -3135,7 +3441,9 @@ private static void Main(string[] args)
 Openness 接口支持在以下条件中使用新导入模式：
 <table><tr><td>导入</td><td>对象引用</td></tr><tr><td>Tag</td><td>UDT</td></tr><tr><td>UDT</td><td>UDT</td></tr><tr><td>DB(全局)</td><td>UDT</td></tr><tr><td>IDBofUDT</td><td>UDT</td></tr><tr><td>IDBofFB</td><td>FB</td></tr><tr><td>ArrayDB</td><td>UDT 数据类型的 Array</td></tr><tr><td>FB</td><td>UDT(接口),多实例</td></tr><tr><td>FC</td><td>UDT(接口)</td></tr></table>
 可以通过相应的 Import 方式的新过载来使用新模式。新过载具有一个附加参数，用于接受新标记的枚举 SWImportOptions 的值。使用“SWImportOptions.IgnoreStructuralChanges”可允许在存在结构变更的情况下进行导入，但数据可能丢失。
+
 ```typescript
+
 Flagged Enum SWImportOptions
 {
     None = 0,
@@ -3148,7 +3456,9 @@ PlcBlockComposition.Import(file, ImportOptions.None, SWImportOptions.IgnoreStruc
 ...
 // UDTs
 PlcTypeComposition.Import(file, ImportOptions.None, SWImportOptions.IgnoreStructuralChanges);
+
 ```
+
 连接到 TIA Portal (页 90)
 打开项目 (页 140)
 
@@ -3173,7 +3483,9 @@ PlcTypeComposition.Import(file, ImportOptions.None, SWImportOptions.IgnoreStruct
 • XML 包含“Access”属性
 • XML 导入到非单元环境中
 如果导出的 XML 不包含 Access 属性，并且将导入到单元中，则导入逻辑不会考虑新的导入选项。
+
 ```text
+
 PlcSoftware plcTarget = GetControllerTargetByPLCName(Session.OpnsProject.Devices, PLCName);
 PlcUnitProvider plcUnitProvider = plcTarget TokService<PlcUnitProvider>();
 PlcSoftware plcSoftware = plcTarget TokService<SoftwareContainer>() as PlcSoftware;
@@ -3187,20 +3499,27 @@ PlcBlock block2 = plcUnit2.BlockGroup.Blocks.Find("Block_2");
 //assuming Block_2 is already existing under Unit_2
 PlcBlock block3 = plcSoftware.BlockGroup.Blocks.Find("Block_3");
 //assuming Block_3 is already existing under the PLC
+
 ```
 
 ##### 程序代码：对象从单元导出并导入到单元中
 
 下例使用块证明了新导入选项的响应，plc 类型和变量表同样适用。
 修改以下程序代码，以导出“Access”属性通过 ExportOptions.WithDefaults 设为值“Unpublished”（默认值）的块，并通过 SWImportOptions.None 导出：
+
 ```text
+
 block1.SetAttribute("Access", UnitAccessType.Unpublished);
 block1.Export(new FileInfo("somepath"), ExportOptions.WithDefaults);
 block1.Delete();
 plcUnit2.BlockGroup.Blocks.Import(new FileInfo("somepath"), ImportOptions.None, SWImportOptions.None);
+
 ```
+
 修改以下程序代码，以导出“Access”属性通过 ExportOptions.WithDefaults 设为值“Unpublished”（默认值）的块，并通过 SWImportOptions.IgnoreUnitAttributes 导出：
+
 ```typescript
+
 block1.SetAttribute("Access", UnitAccessType.Unpublished);
 block1.Export(new FileInfo("somepath"), ExportOptions.WithDefaults);
 block1.Delete();
@@ -3215,48 +3534,73 @@ block1.SetAttribute("Access", UnitAccessType.Published);
 block1.Export(new FileInfo("somepath"), ExportOptions.None);
 block1.Delete();
 plcUnit2.BlockGroup.Blocks.Import(new FileInfo("somepath"), ImportOptions.None, SWImportOptions.IgnoreUnitAttributes);
+
 ```
+
 说明以上所有程序代码中没有发生异常，导入成功。
 
 ##### 程序代码：对象从单元导出并导入到非单元环境中
 
 修改以下程序代码，以导出“Access”属性通过 ExportOptions.WithDefaults 设为值“Unpublished”（默认值）的块，并通过 SWImportOptions.None 导出：
+
 ```text
+
 block1.SetAttribute("Access", UnitAccessType.Unpublished);
 block1.Export(new FileInfo("somepath"), ExportOptions.WithDefaults);
 block1.Delete();
 plcUnit2.BlockGroup.Blocks.Import(new FileInfo("somepath"), ImportOptions.None, SWImportOptions.None);
+
 ```
+
 6.4 导入/导出 PLC 设备的数据
+
 ```text
+
 说明  
 以上程序代码中，导入不成功，发生了一个可恢复异常，
+
 ```
+
 修改以下程序代码，以导出“Access”属性通过 ExportOptions.WithDefaults 设为值“Unpublished”（默认值）的块，并通过 SWImportOptions.IgnoreUnitAttributes 导出：
+
 ```text
+
 block1.SetAttribute("Access", UnitAccessType.Published);
 block1.Export(new FileInfo(„somepath"), ExportOptions.None);
 block1.Delete();
 plcUnit2.BlockGroup.Blocks.Import(new FileInfo("somepath"), ImportOptions.None, SWImportOptions.None);
+
 ```
+
 ```text
+
 说明在以上程序代码中，导入成功，且未发生异常。
+
 ```
+
 修改以下程序代码，以导出“Access”属性通过 ExportOptions.None 设为值“Published”的块，并通过 SWImportOptions.None 导出：
+
 ```text
+
 block1.SetAttribute("Access", UnitAccessType.Published);
 block1.Export(new FileInfo(„somepath"), ExportOptions.None);
 block1.Delete();
 plcUnit2.BlockGroup.Blocks.Import(new FileInfo("somepath"), ImportOptions.None, SWImportOptions.None);
+
 ```
+
 以上程序代码中，导入成功，发生了一个可恢复异常。
 修改以下程序代码，以导出“Access”属性通过 ExportOptions.None 设为值“Published”的块，并通过 SWImportOptions.IgnoreUnitAttributes 导出：
+
 ```text
+
 block1.SetAttribute("Access", UnitAccessType.Published);
 block1.Export(new FileInfo(„somepath"), ExportOptions.None);
 block1.Delete();
 plcUnit2.BlockGroup.Blocks.Import(new FileInfo("somepath"), ImportOptions.None, SWImportOptions.IgnoreUnitAttributes);
+
 ```
+
 在以上程序代码中，没有发生异常，导入成功。
 
 ##### 对象从非单元环境导出并导入到单元中
@@ -3277,6 +3621,7 @@ plcUnit2.BlockGroup.Blocks.Import(new FileInfo("somepath"), ImportOptions.None, 
 ##### 程序代码：为 SCL、LAD、FBD、STL、Graph 和 CEM 块创建背景数据块
 
 ```text
+
 PlcSoftware plc = ...;
 // To create instance DB of SCL block
 plc.BlockGroup.Blocks.CreateInstanceDB("ConveyerDB", true, 5, "Conveyer_SCL_Block");
@@ -3290,6 +3635,7 @@ plc.BlockGroup.Blocks.CreateInstanceDB("ReadIODB", true, 6, "ReadIO_STL_Block");
 plc.BlockGroup.Blocks.CreateInstanceDB("ConveyerDB", true, 6, "Conveyer_Graph_Block");
 // To create instance DB of CEM block
 plc.BlockGroup.Blocks.CreateInstanceDB("RelayDB", true, 6, "Relay_CEM_Block");
+
 ```
 
 #### 6.4.2.18 在不导出的情况下访问数据块值参数
@@ -3303,7 +3649,9 @@ plc.BlockGroup.Blocks.CreateInstanceDB("RelayDB", true, 6, "Relay_CEM_Block");
 6.4 导入/导出 PLC 设备的数据
 <table><tr><td>特性名称</td><td>数据类型</td><td>模型化/动态</td><td>访问</td></tr><tr><td>ExternalWritable</td><td>bool</td><td>动态</td><td>读/写</td></tr><tr><td>Retain</td><td>bool</td><td>动态</td><td>读/写</td></tr><tr><td>SetPoint</td><td>bool</td><td>动态</td><td>读/写</td></tr><tr><td>DataTypePoint</td><td>bool</td><td>动态</td><td>读/写</td></tr><tr><td>Snapshot</td><td>bool</td><td>动态</td><td>读</td></tr><tr><td>DefaultValue</td><td>bool</td><td>动态</td><td>读</td></tr></table>
 修改以下程序代码，以访问数据块接口成员详细信息：
+
 ```text
+
 public static void PrintMemberAttributes( plcBlockInterface)
 {
     foreach(Member member in plcBlockInterface.Members)
@@ -3320,11 +3668,13 @@ public static void PrintMemberAttributes( plcBlockInterface)
     Console.WriteLine($"DefaultValue: {member.getAttribute("DefaultValue")}");
     }
 }
+
 ```
 
 ##### 修改以下程序代码以从 DB 中读取起始值：
 
 ```text
+
 PlcBlockInterface bi = dbbblock.Interface;
 MemberComposition members = bi.Members;
 Member member = members.Find("Room_Temperature");
@@ -3342,9 +3692,13 @@ axisSpeed = axisSpeedvar.GetAttribute("StartValue");
 initialSpeedvar = paramF.Find("DischargeValve.FlowMeter.InitialSpeed[0]") ;
 object initialSpeed = initialSpeedvar.StartValue;
 initialSpeed = initialSpeedvar.GetAttribute("StartValue");
+
 ```
+
 修改程序代码以将起始值写入 DB：
+
 ```csharp
+
 PlcBlockInterface bi = dbbblock.Interface;
 MemberComposition members = bi.Members
 Member member = members.Find("Room_Temperature");
@@ -3362,14 +3716,19 @@ axisSpeed.SetAttribute("StartValue", 40.5);
 initialSpeedvar = paramF.Find("DischargeValve.FlowMeter.InitialSpeed[0]")；
 object initialSpeed = initialSpeedvar.StartValue;
 initialSpeed.SetAttribute("StartValue", 12);
+
 ```
+
 修改以下程序代码以将变量的起始值设为“myTest”：
+
 ```text
+
 PlcSoftware myPlcSoftware =
 tiaProject.Devices[0].DeviceItems[1].GetService<SoftwareContainer>().Software as
 PlcSoftware;
 DataBlock myDatablock = myPlcSoftware.BlockGroup.Blocks[1] as DataBlock;
 myDatablock.Interface.Members[0].SetAttribute("StartValue", " 'myTest'");
+
 ```
 
 #### 6.4.2.19 导出/导入 Plc 报警文本列表
@@ -3393,16 +3752,22 @@ myDatablock.Interface.Members[0].SetAttribute("StartValue", " 'myTest'");
 导出
 可通过两种 API 方法进行导出。如果要导出以所有已激活项目语言表示的 PLC/软件单元的所有文本列表，唯一需要的参数是“path”，
 该参数定义了成功导出后结果 XLSX 文件的放置位置。
+
 ```javascript
+
 FileInfo fileInfo = new FileInfo(Path.Combine(Environment.CurrentDirectory, $\{xlsxName}.xlsx"));
 PlcAlarmTextListProvider textListProvider = GetTextListProvider(unitName);
 textListProvider.ExportToXlsx(fileInfo);
+
 ```
+
 如果不需要导出 PLC/软件单元的所有文本列表，或者应对需要导出的文本列表所使用的语言进行过滤，可在 API 中使用另一种方法，
 此方法通过文本列表名称标识要导出的文本列表，并通过语言列表标识需导出的文本列表使用的语言。
 6.4 导入/导出 PLC 设备的数据
 ExportToXlsx 操作用法示例：
+
 ```text
+
 private void ExportPlcOrUnit(
     string stationName,
     string plcName,
@@ -3450,9 +3815,13 @@ private void ExportPlcOrUnit(
     {
     PlcUnitProvider unitProvider = plcTarget.GetService<PlcUnitProvider>();
 }
+
 ```
+
 6.4 导入/导出 PLC 设备的数据
+
 ```typescript
+
 PlcUnit unit = unitProvider.UnitGroup.Units.Where(unit => unit.Name == unitName).FirstOrDefault();
 if (unit == null)
 {
@@ -3462,6 +3831,7 @@ return unit.GetService<PlcAlarmTextListProvider>();
 }
 return plcTarget.GetValue<PlcAlarmTextListProvider>();
 }
+
 ```
 
 ##### 错误处理：
@@ -3486,7 +3856,9 @@ ImportOptions.Override，则导入期间将更新已存在的文本列表。
 导入是一个复杂的过程，因此可能出现多种错误。如果错误不属于严重错误，导入将完成，方法会返回包含日志文件（其中包含导入期间生成的消息）路径的 TextListXlsxResult 对象，
 且其状态为 TextListXlsxResultState.Warning。
 如果错误属于严重错误，则会抛出包含错误详细信息的 UserException。如果错误属于致命错误，则将抛出 NonRecoverableException。
+
 ```xml
+
 <?xml version="1.0" standalone="no"?>
 <?xml-stylesheet type='text/xsl' href='MassDataHandlerLogFile.xsl'?>
 <LogFile
@@ -3503,7 +3875,9 @@ projectName="D:\TIA\dev\WM5_WinCC_HW_Work\binaries\Debug\x64\Tests\Siemens.Simat
 <Message>Import completed: 2 text lists with 9 entries.</Message>
 </LogEntry>
 </LogFile>
+
 ```
+
 • 导出期间由 TIA Portal V16 生成的 XLSX 文件的自定义特性 FileVersion 应指定为值 1。
 • 导出期间由 TIA Portal V16 生成的 XLSX 文件的自定义特性 FileContent 应指定为值 Alarm textlists。
 • 导入期间会在 TIA 项目的 Logs 文件夹中生成日志文件
@@ -3527,6 +3901,7 @@ TextListXlsxResult 包含导出或导入结果的相关信息。其中包含的�
 ##### 程序代码：使用 DocumentInfoOptions 进行导出
 
 ```text
+
 PlcTagTable tagTable = FindTagTableToBeExported("TestTagTable");
 FileInfo testTagTableExportFile = new FileInfo(@"E:\temp\TestTagTable.xml");
 // No document info will be exported since the configuration is None.
@@ -3542,6 +3917,7 @@ PlcUserConstant plcUserConstant = tagTable.UserConstants.Find("TestUserConstant"
 // Full Document info will be exported
 plcUserConstant.Export(testUserConstantExportFile, ExportOptions.WithDefaults,
 DocumentInfoOptions.All);
+
 ```
 
 #### 6.4.2.21 报警实例文本导出/导入
@@ -3583,7 +3959,9 @@ PlcAlarmTextXlsxExportOption 具有以下值：
 • 路径
 • 语言
 导入可以采用 PLC 或软件单元。路径参数是强制项，语言可以为空。在这种情况下，所有活动的项目语言的文本都将被导入。（如果 Excel 文件包含项目中处于非活动状态的语言，则这些语言将不会被激活，并且不会以这些语言进行导入。）
+
 ```typescript
+
 FileInfo fileInfo = new FileInfo(Path.Combine(s_XlsxFilesFolderName, $" {xlsxName}.xlsx"));
 List(Language> cultureInfos = new List(Language>();
 PlcSoftware plcTarget = ...;
@@ -3595,7 +3973,9 @@ LanguageComposition supportedLanguages = languageSettings.Languages;
 cultureInfo = cultureInfos.Add(supportedLanguages.Find(CultureInfo.GetCultureInfo("en-US")))
 PlcAlarmTextProvider alarmTextsProvider = plcTarget.GetService<PlcAlarmTextProvider>();
 result = alarmTextsProvider.ImportInstanceTextsFromXlsx(fileInfo, cultureInfo);
+
 ```
+
 有关导出或导入结果的信息将在 PlcAlarmTextXlsxResult 对象中提供。其中包含的用作LogFilePath 的 FileInfo 结构指向已完成过程的日志文件。State（类型为PlcAlarmTextXlsxResultState）将显示过程的最终状态。值可以为 OK、Warning 或 Error。如果结果为 Error，说明过程失败，如果结果为 Warning，说明过程成功完成一部分。
 
 ##### 不可恢复的异常
@@ -3626,7 +4006,9 @@ result = alarmTextsProvider.ImportInstanceTextsFromXlsx(fileInfo, cultureInfo);
 6.4 导入/导出 PLC 设备的数据
 可在 ProjectBase 工程组态对象下访问。
 AlarmClassDataProvider 类中存在以下用于导出的操作：导出操作有一个参数：path。通过路径参数，可在要放置导出结果的位置提供文件路径。参数类型为 FileInfo。操作结果为 AlarmClassExportImportResult object。结果中包含错误、警告计数以及导出结果的状态（Success、Warning 或 Error），还包含 Messages 组成特性，其中包括导出过程中生成的消息及状态（Success、Error 或Warning）。导出操作用法示例：
+
 ```javascript
+
 FileInfo fileInfo = new FileInfo(@"D:\AlarmClasses.DAT");
 AlarmClassDataProvider provider = Project.GetService<AlarmClassDataProvider>();
 if (fileInfo.Exists)
@@ -3645,7 +4027,9 @@ Assert.AreEqual(AlarmClassExportImportResultState.Success,
     messages.First Or Default().State);
 Assert.IsTrue(File.Exists(fileInfo.FullName), "Exported file does not exist.");
 fileInfo.Delete();
+
 ```
+
 • 如果导出过程的整体状态为　Error，则会出现 UserException，错误消息列表将存储在异常本身。
 可从客户端侧捕捉到 EngineeringTargetInvocationException 异常，其中的DetailMessageData 特性包含错误消息。
 • 可能的错误：
@@ -3654,6 +4038,7 @@ fileInfo.Delete();
 ##### 导入操作用法示例：
 
 ```typescript
+
 FileInfo fileInfo = new FileInfo(@"D:\AlarmClasses.DAT");
 AlarmClassDataProvider provider = Project.GetService<AlarmClassDataProvider>();
 AlarmClassExportImportResult result;
@@ -3666,7 +4051,9 @@ Assert.AreEqual(1, messages.Count);
 Assert.AreEqual($"Import of Alarm class settings file ' {fileInfo.FullName}' was successful.", messages.First Or Default().Message);
 Assert.AreEqual(AlarmClassExportImportResultState.Success,
 messages.First Or Default().State);
+
 ```
+
 • 如果导出过程的整体状态为 Error，则会出现 UserException，错误消息列表存储在异常本身。
 可从客户端侧捕捉到 EngineeringTargetInvocationException 异常，其中的DetailMessageData 特性包含错误消息。
 • 可能的错误
@@ -3697,16 +4084,22 @@ SupervisionXlsxResult 下提供以下特性：
 SupervisionXlsxResultState 具有以下枚举值：
 <table><tr><td>ENUM</td><td>值</td></tr><tr><td rowspan="2">SupervisionXlsxResultState</td><td>Success</td></tr><tr><td>Failure</td></tr></table>
 修改以下程序代码导出 ProDiag 块的全局监控：
+
 ```text
+
 // File Path for the export
 FileInfo fileInfo = new FileInfo(@"C:\Users\z003jwfc\Desktop\Supervisions_Openness.Xlsx");
 //SW is nothing but PlcSoftware / PlcUnit.
 var proDiagBlock = (FB)SW.BlockGroup.Blocks.Find("Block1");
 SupervisionProvider supervisionProvider = proDiagBlock TokService<SupervisionProvider>();
 SupervisionXlsxResult result = supervisionProvider.ExportSupervisionsToXlsx(fileInfo);
+
 ```
+
 修改以下程序代码导入 ProDiag 块的全局监控：
+
 ```cs
+
 // File Path for the import
 FileInfo fileInfo = new FileInfo(@"C:\Users\z003jwfc\Desktop\SupervisionsOpenness.Xlsx");
 //SW is nothing but PlcSoftware / PlcUnit.
@@ -3720,6 +4113,7 @@ SupervisionXlsxResult result =
 supervisionProvider.ImportSupervisionSettingsFromXlsx(fileInfo, ImportOptions.None);
 SupervisionXlsxResult result =
 supervisionProvider.ImportSupervisionSettingsFromXlsx(fileInfo, ImportOptions.Override);
+
 ```
 
 #### 6.4.2.24 通过全局概览编辑器导出/导入 ProDiag 监控
@@ -3737,15 +4131,21 @@ SupervisionXlsxResult 下提供以下特性：
 SupervisionXlsxResultState 具有以下 ENUM 值：
 <table><tr><td>ENUM</td><td>值</td></tr><tr><td rowspan="2">SupervisionXlsxResultState</td><td>Success</td></tr><tr><td>Failure</td></tr></table>
 修改以下程序代码导出全局监控：
+
 ```cs
+
 //File Path for the export
 FileInfo fileInfo = new FileInfo(@"C:\Users\z003jwfc\Desktop\Supervisions_Openness.Xlsx");
 //SW is nothing but PlcSoftware / PlcUnit.
 SupervisionProvider supervisionProvider = SW.GetService<SupervisionProvider>();
 SupervisionXlsxResult result = supervisionProvider.ExportSupervisionsToXlsx(fileInfo);
+
 ```
+
 修改以下程序代码导入全局监控：
+
 ```cs
+
 //File Path for the import.
 FileInfo fileInfo = new FileInfo(@"C:\Users\z003jwfc\Desktop\Supervisions_Openness.Xlsx");
 //SW is nothing but PlcSoftware / PlcUnit.
@@ -3758,7 +4158,9 @@ SupervisionXlsxResult result =
 supervisionProvider.ImportSupervisionsSettingsFromXlsx(fileInfo, ImportOptions.None);
 SupervisionXlsxResult result =
 supervisionProvider.ImportSupervisionsSettingsFromXlsx(fileInfo, ImportOptions.Override);
+
 ```
+
 打开项目 (页 140)
 
 #### 6.4.2.25 导出/导入 ProDiag 监控的设置
@@ -3773,7 +4175,9 @@ SupervisionSettingsExportImportResult 下提供以下属性：
 ENUM SupervisionSettingExportImportResultState 具有以下值:
 <table><tr><td>ENUM</td><td>值</td></tr><tr><td rowspan="2">SupervisionSettingExportImportResultState</td><td>Success</td></tr><tr><td>ErrorRollback</td></tr></table>
 修改以下程序代码导出监控设置：
+
 ```typescript
+
 // MyProject obtains SupervisionSettingsProvider
 SupervisionSettingsProvider settingsProvider =
 MyProject.GetService<SupervisionSettingsProvider>();
@@ -3792,11 +4196,13 @@ exportMessageList.Count;
 // Read out specific message text from each message
 exportMessageList [0].Message;
 // Output: "Export of file 'D:\temp\SupervisionSettings.dat' with the ProDiag supervision settings was successful.";
+
 ```
 
 ##### 修改以下程序代码导入监控设置：
 
 ```text
+
 // MyProject obtains SupervisionSettingsProvider
 SupervisionSettingsProvider settingsProvider =
 MyProject.GetService<SupervisionSettingsProvider>();
@@ -3815,7 +4221,9 @@ importMessageList.Count;
 // Read out specific message text from each message
 importMessageList[0].Message;
 // Output: "Import of the file 'D:\temp\SupervisionSettings.dat' with the ProDiag supervision settings was successful.";
+
 ```
+
 连接到 TIA Portal (页 90)打开项目 (页 140)
 
 #### 6.4.2.26 导出/导入监控表和强制表
@@ -3832,7 +4240,9 @@ importMessageList[0].Message;
 ##### 程序代码：导出监控表和强制表
 
 修改以下程序代码导出监控表：
+
 ```text
+
 SoftwareContainer softwareContainer = ((IEngineeringServiceProvider)item).GetService<SoftwareContainer>();
 PlcSoftware plcSoftware = softwareContainer.Software as PlcSoftware;
 PlcWatchTableComposition exportWatchTables =
@@ -3842,29 +4252,39 @@ if(watchTable != null)
 {
     watchTable.Export((FileInfo) fileInfo, ExportOptions.None);
 }
+
 ```
+
 监控表中的导出选项应设置为（None、 WithDefaults、WithReadOnly、WithDefaultsAndReadOnly）。监控表仅具有一个发布特性，即，名称。发布此名称以供读取。
 修改以下程序代码导出强制表：
+
 ```typescript
+
 SoftwareContainer softwareContainer = ((IEngineeringServiceProvider)item).GetService<SoftwareContainer>();
 PlcSoftware plcSoftware = softwareContainer.Software as PlcSoftware;
 PlcForceTableComposition exportForceTables =
 plcSoftware.PlcWatchAndForceTableGroup.ForceTables;
 PlcForceTable forceTable = exportForceTables[0];
 forceTable.Export((FileInfo) fileInfo, ExportOptions.None);
+
 ```
+
 每种情况下只有一个 ForceTable，其名称是只读的。
 
 ##### 程序代码：导入监控表和强制表
 
 修改以下程序代码导入监控表：
+
 ```text
+
 SoftwareContainer softwareContainer = ((IEngineeringServiceProvider)item).GetService<SoftwareContainer>();
 PlcSoftware plcSoftware = softwareContainer.Software as PlcSoftware;
 PlcWatchTableComposition importWatchTables =
 plcSoftware.PlcWatchAndForceTableGroup.WatchTables;
 IList<PlcWatchTable> WatchTables = importWatchTables.Import((FileInfo)fileInfo, ImportOptions.None);
+
 ```
+
 导入的 WatchTable 将添加至 WatchTables 列表。监控表中的导入选项应设置为（None、Override）之一。
 ForceTables 可采用类似方式导入，但只允许包含一个 ForceTable。如果使用 None 选项（而非 Override 和某个非空选项），且 ForceTable 已存在，则导入将失败，并会提示以下信息RecoverableException: 只允许导入一个 ForceTable。请使用 Override 导入选项覆盖现有强制表。
 
@@ -3876,7 +4296,9 @@ ForceTables 可采用类似方式导入，但只允许包含一个 ForceTable。
 请[打开项目](#打开项目)
 • PLC 未处于在线状态。
 修改以下程序代码以将用户数据类型导出至 XML 文件：
+
 ```text
+
 //Exports a user defined type
 private static void ExportUserDefinedType(PlcSoftware plcSoftware)
 {
@@ -3886,6 +4308,7 @@ private static void ExportUserDefinedType(PlcSoftware plcSoftware)
     udt.Export(new FileInfo(string.Format(@"C:\OpennessSamples\udts\{0}.xml", udt.Name)),
 ExportOptions.WithDefaults);
 }
+
 ```
 
 #### 6.4.2.28 导入用户数据类型
@@ -3897,7 +4320,9 @@ ExportOptions.WithDefaults);
 API 接口支持从 XML 文件导入用户数据类型。
 导入文件语法
 以下代码示例为用户自定义数据类型的导入文件的一部分：
+
 ```text
+
 <section Name="Input">
     <Member Name="Input1" Datatype=quot;myudt1&quot;>
     <Sections>
@@ -3905,16 +4330,24 @@ API 接口支持从 XML 文件导入用户数据类型。
     <Member Name="MyUDT1Member1" Datatype="bool"/>
     <Member Name="MyUDT1Member2" Datatype=&quot;myudt1&quot;>
     <Sections...
+
 ```
+
 6.4 导入/导出 PLC 设备的数据
+
 ```text
+
 说明
 用户自定义数据类型的元素的语法
 如果用户自定义数据类型的导入文件中的用户自定义数据类型的元素语法不正确，会发生异常。
 确保用户自定义的数据类型标有 &quot;。
+
 ```
+
 修改以下程序代码以导入用户数据类型：
+
 ```text
+
 //Imports user data type
 private static void ImportUserDataType(PlcSoftware plcSoftware)
 {
@@ -3922,7 +4355,9 @@ private static void ImportUserDataType(PlcSoftware plcSoftware)
     PlcTypeComposition types = plcSoftware.TypeGroup.Types;
     IList<PlcType> importedTypes = types.Import(fullFilePath, ImportOptions.Override);
 }
+
 ```
+
 导入组态数据 (页 1397)
 
 #### 6.4.2.29 以 OPC UA XML 格式导出数据
@@ -3932,7 +4367,9 @@ private static void ImportUserDataType(PlcSoftware plcSoftware)
 • PLC 未处于在线状态。
 可以使用 TIA Portal Openness 以 OPC UA XML 文件的形式导出 PLC 数据。对于操作的输入参数，您需要一个绝对目录路径，用于保存 xml 文件。
 修改以下程序代码，以 OPC UA XML 文件的形式导出 PLC 数据：
+
 ```text
+
 //Export PLC data as OPC UA XML file
 private static void OpcUaExport(Project project, DeviceItem plc)
 {
@@ -3941,6 +4378,7 @@ as OpcUaExportProvider;
 if (opcUaExportProvider == null) return;
 opcUaExportProvider.Export(plc, new FileInfo(string.Format(@"D:\OPC UA export files\{0}.xml", plc.Name)));
 }
+
 ```
 
 #### 6.4.2.30 UDT 和 DB 导出/导入
@@ -3954,7 +4392,9 @@ opcUaExportProvider.Export(plc, new FileInfo(string.Format(@"D:\OPC UA export fi
 使用以下 XML 结构导出为其定义了监控条件的布尔变量的元素：
 <?xml version="1.0" encoding="utf-8"?> <Document> <Engineering version="V17" /> <DocumentInfo> <Created>2020-06-08T20:10:12.6308242Z</Created> <ExportSetting>None</ExportSetting> <InstalledProducts> <Product> <DisplayName>Totally Integrated Automation Portal</DisplayName> <DisplayVersion>V17</DisplayVersion> </Product> <OptionPackage> <DisplayName>TIA Portal Openness</DisplayName> <DisplayVersion>V17</DisplayVersion> </OptionPackage> <OptionPackage> <DisplayName>TIA Portal Version Control Interface</DisplayName> <DisplayVersion>V17</DisplayVersion> </OptionPackage> <Product> <DisplayName>Feature Cycle 3 TIA Portal</DisplayName> <DisplayVersion>V17</DisplayVersion> </Product> <Product> <DisplayName>STEP 7 Professional</DisplayName> <DisplayVersion>V17</DisplayVersion> </Product> <OptionPackage> <DisplayName>SIMATIC Energy Suite</DisplayName> <DisplayVersion>V17</DisplayVersion> </OptionPackage> <OptionPackage> <DisplayName>STEP 7 Safety</DisplayName> <DisplayVersion>V17</DisplayVersion> </OptionPackage> <Product> <DisplayName>WinCC Professional</DisplayName> <DisplayVersion>V17</DisplayVersion> </Product> </InstalledProducts> </DocumentInfo> <SW.Types.PlcStruct ID="0"> <AttributeList> <Interface><Sections> <Section Name="None"> <Member Name="Element\_1" Datatype="Bool" /> </Section> </Sections> </Interface> <Name>User\_data\_type\_1</Name>
 Openness：用于工程组态工作流自动化的 API系统手册, 11/2023
+
 ```xml
+
 <Supervisions><PLCDataTypeSupervisions>
 <PLCDataTypeSupervision Number="1" Type="Operand">
 <SupervisedOperand Name="#Element_1" />
@@ -4003,13 +4443,17 @@ Openness：用于工程组态工作流自动化的 API系统手册, 11/2023
 </ObjectList>
 </SW.Types.PlcStruct>
 </Document>
+
 ```
+
 如果要导入 UDT 并为布尔变量分配监控条件，可使用上述 XML 变量。但导入后不能通过Openness 为布尔变量设置监控信息。
 监控仅适用于 UDT 的布尔变量，如果您尝试为 UDT 中的任何非布尔型成员导入或导出“PLCDataTypeSupervisions”变量，则会抛出异常。
 6.4 导入/导出 PLC 设备的数据
 已导出/导入 DB 的 XML 结构
 使用以下 XML 结构导出 UDT 实例的成员（不考虑 UDT 是否具有监控条件）以及包含 UDT 实例作为其成员的结构的数组：
+
 ```xml
+
 <?xml version="1.0" encoding="utf-8"?>
 <Document>
 <Engineering version="V17" />
@@ -4052,8 +4496,11 @@ Datatype="&quot;Udt_With_Supervision&quot;"><AttributeList><BooleanAttribute Nam
 <MemoryLayout>Optimized</MemoryLayout>
 <MemoryReserve>100</MemoryReserve>
 <Name>Data_block_5</Name>
+
 ```
+
 ```xml
+
 <Number>16</Number>
 <ProgrammingLanguage>DB</ProgrammingLanguage>
 </AttributeList>
@@ -4081,7 +4528,9 @@ Datatype="&quot;Udt_With_Supervision&quot;"><AttributeList><BooleanAttribute Nam
 </ObjectList>
 </SW.Blocks.GlobalDB>
 </Document>
+
 ```
+
 可以仅为 UDT 实例使用 assignedProDiagFB 属性。不会导出任何无效数据，因为无效数据应已通过编译清理，因此导出期间不会抛出任何异常。如果您尝试为全局 DB 中的非 UDT 实例或任何块中的其它任何成员导入“AssignedProDiagFB”变量，会抛出提示不受支持的异常。
 连接到 TIA Portal (页 90)
 打开项目 (页 140)
@@ -4133,7 +4582,9 @@ Openness：用于工程组态工作流自动化的 API系统手册, 11/2023
 根据 TIA Portal Openness 导出设置，导出文件包含一组已定义的属性和元素。高版本 TIAPortal 导出的文件与低版本的 TIA Portal 不兼容，因此无法导入后者。使用最新 TechObject版本导出的 SimaticML 文件也支持用于较新的版本。
 SimaticML 格式几乎与用户块的导出/导入格式相同。
 对于工艺对象，元素 SW.TechnologicalObject.TechnologicalInstandDB 中需要使用以下元素。
+
 ```xml
+
 <SW.TechnologicalObjects.TechnologicalInstanceDB ID="0">
 <AttributeList>
     <InstanceOfName>TO_SpeedAxis</InstanceOfName>
@@ -4153,6 +4604,7 @@ SimaticML 格式几乎与用户块的导出/导入格式相同。
 ...
 </ObjectList>
 </SW.TechnologicalObjects.TechnologicalInstanceDB>
+
 ```
 
 ##### • InstanceOfName
@@ -4190,7 +4642,9 @@ TIA Portal 项目中工艺对象数据块的数量
 
 唯一有效的内容是 Motion\_DB。
 以下元素描述的顺序表示直接映射到工艺对象数据块的速度轴工艺对象的参数。
+
 ```xml
+
 <section Name="Static">
     ...
     <Member Name="DynamicLimits" Datatype="TO_Struct_DynamicLimits" Version="6.0">
@@ -4213,9 +4667,13 @@ TIA Portal 项目中工艺对象数据块的数量
     </Member>
     ...
 </Section>
+
 ```
+
 以下元素描述的顺序表示未直接映射到工艺对象数据块的速度轴工艺对象的参数。
+
 ```xml
+
 <ParameterData>
     <Parameters xmlns="http://www.siemens.com/automation/Openness/SW/Parameters/v1">
     <Parameter Name="_Units.VelocityUnit" />
@@ -4234,7 +4692,9 @@ TIA Portal 项目中工艺对象数据块的数量
     </AdditionalData>
 </Parameters>
 </ParameterData>
+
 ```
+
 更多关于 Interface 元素以及 SimaticML 元素属性的信息，请[块接口部分的 XML 结构](#块接口部分的-XML-结构)。
 
 #### 6.4.3.3 导出工艺对象
@@ -4262,7 +4722,9 @@ TIA Portal Openness API 支持将表 工艺对象和版本概述 (页 1603) 中
 • LeadingAxisProxy 工艺对象特有的参数 (页 1618)
 • 用于测量输入工艺对象的特定参数 (页 1618)
 • 用于输出凸轮和凸轮轨迹工艺对象的特定参数 (页 1619)
+
 ```cs
+
 // Find a specific technology object by its name and export this
 private static void ExportTechnologicalObject(FileInfo path, ExportOptions options, PlcSoftware plcSoftware, String nameOfTO)
 {
@@ -4272,17 +4734,25 @@ private static void ExportTechnologicalObject(FileInfo path, ExportOptions optio
     // Export TO
     technologicalObject.Export(path, options);
 }
+
 ```
+
 • 凸轮工艺对象特有的参数 (页 1620)
 • 运动系统工艺对象特有的参数 (页 1625)
+
 ```javascript
+
 void Export(FileInfo path, ExportOptions options);
+
 ```
+
 path 参数描述应创建的导出文件的路径和文件名。参数 (ExportOptions options) 指定导出选项 (页 1395)。
 <table><tr><td>属性</td><td>说明</td></tr><tr><td>ExportOptions.None</td><td>仅导出修改过的参数。</td></tr><tr><td>ExportOptions.WithDefaults</td><td>此选项会导出采用其默认值的参数。默认值本身不会导出。同样为XML导出的TO特定部分定义了相同的特性。针对每种TO类型定义了各自导出的默认值。</td></tr><tr><td>ExportOptions.WithReadOnly</td><td>此选项可导出其他信息属性和值。导入过程中,只读值不会回写到DB中。针对每种TO类型定义了各自导出的只读值。</td></tr><tr><td>ExportOptions.WithDefaults | ExportOptions.WithReadOnly</td><td>以上两个选项的组合。</td></tr></table>
 修改以下程序代码以查找工艺对象并将其导出至 XML 文件：
 修改以下程序代码以将工艺对象 OutputCam 导出至 XML 文件：
+
 ```cs
+
 // Export OutputCam
 private static void ExportOutputCam(FileInfo path, ExportOptions options, TechnologicalInstanceDB parentTO, String nameOfOutputCam)
 {
@@ -4295,6 +4765,7 @@ private static void ExportOutputCam(FileInfo path, ExportOptions options, Techno
     // Export
     outputCam.Export(path, options);
 }
+
 ```
 
 #### 6.4.3.4 导入工艺对象
@@ -4306,7 +4777,9 @@ private static void ExportOutputCam(FileInfo path, ExportOptions options, Techno
 TIA Portal Openness API 支持从 XML 文件导入工艺对象。
 如果导入数据包含的参数不是针对各自的 TO 类型定义的，则会抛出EngineeringTargetInvocationException。
 如果参数值的格式不正确，并且不能转换为参数的类型，则会抛出EngineeringTargetInvocationException 。导入将成功完成，但编译时将生成错误。
+
 ```text
+
 开放式连接
 在 TIA Portal 中，删除连接到 TO 的变量时会创建开放式连接。开放式连接的其它特性与通过删除已连接变量的方式创建的开放式连接的特性完全相同。如果导入期间伙伴 TO 缺失，这种情况下将建立开放式连接。这一点同样适用于不可用于某些连接的 TO 类型。
 程序代码
@@ -4330,7 +4803,9 @@ API 支持导出和导入工艺对象。
 有关所有可用变量的列表，请访问 Internet (https://support.industry.siemens.com/cs/cn/zh/view/109773400) 中的《SIMATIC STEP 7 S7-1200 Motion Control 功能手册》。
 说明
 仅为属于“Interface”部分的参数导出数据类型信息。
+
 ```
+
 6.4 导入/导出 PLC 设备的数据
 附加参数 TO\_PositioningAxis
 以下附加参数未直接映射到 DB 成员，将根据 ExportOption 导出到 ParameterData 部分：
@@ -4476,7 +4951,9 @@ API 支持导入和导出工艺对象。以下部分介绍了具体参数。
 
 TO\_Cam 类型或 TO\_CAM\_10k 类型的凸轮工艺对象的凸轮配置文件将导出到元素ParameterData 中。
 以下元素描述的顺序表示 ParameterData 的结构。
+
 ```xml
+
 <ParameterData>
     <Parameters xmlns="http://www.siemens.com/automation/Openness/SW/Parameters/v1">
     <ProfileData xmlns="http://www.siemens.com/automation/Openness/SW/Motion/Cam/v1">
@@ -4496,6 +4973,7 @@ TO\_Cam 类型或 TO\_CAM\_10k 类型的凸轮工艺对象的凸轮配置文件�
     </ProfileData>
 </Parameters>
 </ParameterData>
+
 ```
 
 ##### ParameterData 的 XML 结构
@@ -4542,7 +5020,9 @@ API 支持导入和导出工艺对象。
 
 解释器程序工艺对象的源代码将导出到 XML 元素 SourceData。
 以下元素顺序表示 ParameterData 的结构。
+
 ```xml
+
 <ParameterData>
 <Parameters xmlns="http://www.siemens.com/automation/Openness/SW/Parameters/v1">
     <SourceData xmlns="http://www.siemens.com/automation/Openness/SW/Motion/InterpreterProgram/v1">
@@ -4560,7 +5040,9 @@ API 支持导入和导出工艺对象。
 </SourceData>
 </Parameters>
 </ParameterData>
+
 ```
+
 6.4 导入/导出 PLC 设备的数据
 
 #### 6.4.3.7 PID 控制
@@ -4611,7 +5093,9 @@ API 接口支持导出和导入工艺对象。有关所有可用的参数列表�
 为每个 PLC 变量表导出一个 XML 文件。
 TIA Portal Openness API 支持从系统组及其子组中导出所有 PLC 变量表。
 修改以下程序代码以从系统组及其子组中导出所有 PLC 变量表：
+
 ```cs
+
 private static void ExportAllTagTables(PlcSoftware plcSoftware)
 {
     PlcTagTableSystemGroup plcTagTableSystemGroup = plcSoftware.TagTableGroup;
@@ -4639,7 +5123,9 @@ private static void ExportAllTagTables(PlcSoftware plcSoftware)
     ExportUserGroupDeep(userGroup);
     }
 }
+
 ```
+
 导出组态数据 (页 1395)
 
 #### 6.4.4.2 导入 PLC 变量表
@@ -4649,7 +5135,9 @@ private static void ExportAllTagTables(PlcSoftware plcSoftware)
 • 已打开一个项目。请[打开项目](#打开项目)
 6.4 导入/导出 PLC 设备的数据
 修改以下程序代码以将 PLC 变量表或带有 PLC 变量表的文件夹结构从 XML 文件导入至系统组或用户自定义组：
+
 ```cs
+
 //Imports tag tables to the tag system group
 private static void ImportTagTable(PlcSoftware plcSoftware)
 {
@@ -4659,7 +5147,9 @@ private static void ImportTagTable(PlcSoftware plcSoftware)
     // Or, to import into a subfolder:
     // plcTagTableSystemGroup.Groups.Find("SubGroup").TagTables.Import(new FileInfo(@"D:\Samples\myTagTable.xml"), ImportOptions.Override);
 }
+
 ```
+
 关于 TIA Portal Openness 性能的说明 (页 140)
 
 #### 6.4.4.3 导出来自 PLC 变量表的单个变量或常量
@@ -4680,7 +5170,9 @@ API 接口支持将 PLC 变量表中的单个变量或常量导出到 XML 文件
 PLC 系统常量
 PLC 系统常量从导出和导入中删除。
 修改以下程序代码以将特定变量或常量从 PLC 变量表导出至 XML 文件：
+
 ```cs
+
 //Exports a single tag or constant of a controller tag table
 private static void ExportTag(PlcSoftware plcSoftware, string tagName)
 {
@@ -4703,7 +5195,9 @@ private static void ExportTag(PlcSoftware plcSoftware, string tagName)
     ExportOptions.WithDefaults);
     }
 }
+
 ```
+
 [导出组态数据](#导出组态数据)
 关于 TIA Portal Openness 性能的说明 (页 140)
 6.4 导入/导出 PLC 设备的数据
@@ -4716,7 +5210,9 @@ private static void ExportTag(PlcSoftware plcSoftware, string tagName)
 说明
 常量只能以用户常量进行导入。
 修改以下程序代码以从 XML 文件导入变量组或逐个导入变量和常量：
+
 ```cs
+
 //Imports tags into a plc tag table
 private static void ImportTag(PlcSoftware plcSoftware, string tagtableName)
 {
@@ -4733,7 +5229,9 @@ private static void ImportConstant(PlcSoftware plcSoftware, string tagtableName)
     if (tagTable == null) return;
     tagTable.UserConstants.Import(new FileInfo(@"D:\Samples\myConstants.xml"), ImportOptions.Override);
 }
+
 ```
+
 导出组态数据 (页 1395)
 关于 TIA Portal Openness 性能的说明 (页 140)
 
@@ -4785,7 +5283,9 @@ AutomationML 数据交换模型基于 CAEX 模式版本 V2.15。
 • 更多信息
 本节包括有关编写工具、参考文档版本（定义 AML 文件内容的文档）等的信息。
 下面的 XML 描述了具有最新 AR APC 建议的 AML 文件，该文件对应于 TIA Portal V19 导出的文件信息，而此文件信息显示 <AddtionalInformation> 部分。
+
 ```xml
+
 <?xml version="1.0" encoding="utf-8"?>
 <CAEXFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" FileName="Project82.aml" SchemaVersion="2.15" xsi:noNamespaceSchemaLocation="CAEX_ClassModel_V2.15.xsd">
 <AdditionalInformation>
@@ -4806,7 +5306,9 @@ AutomationML 数据交换模型基于 CAEX 模式版本 V2.15。
 ...
 ...
 </CAEXFile>
+
 ```
+
 说明
 CAx 应根据已安装的 TIA Portal 版本导出和导入相应 AR APC 版本的 AML 文件。
 
@@ -4816,7 +5318,9 @@ CAx 应根据已安装的 TIA Portal 版本导出和导入相应 AR APC 版本�
 ### • 实例层级
 
 本部分包含所导出内部元素的层级序列。
+
 ```xml
+
 <InstanceHierarchy Name="APC Sample Instance Hierarchy">
     <InternalElement ID="d4dc896a-f4a5-41b6-9c48-8d3a0a5a4343" Name="CAx_asterisk_AML_03_V14">
     <Attribute Name="ProjectManufacturer" AttributeDataType="xs:string" />
@@ -4844,6 +5348,7 @@ CAx 应根据已安装的 TIA Portal 版本导出和导入相应 AR APC 版本�
     </InternalElement>
     </InstanceHierarchy>
 </CAEXFile>
+
 ```
 
 ### 内部元素
@@ -4860,7 +5365,9 @@ AutomationProject 包含所有角色类别的所有内部元素。每个内部�
 ### • 角色类别
 
 SupportedRoleClass 元素定义内部元素的对象类型。在用于将标准 AML 映射到 TIAPortal Openness 和 TIA Portal 的对象模型的角色类别库中定义对象类型。
+
 ```html
+
 InternalElement ID="1d1a37ed-19d9-4a23-bc91-51f5a8e0244b" Name="Ungrouped devices">
     <InternalElement ID="ab193f5d-0375-4a6d-a576-a903e2b77cca" Name="ET 200SP station_1">
     ...
@@ -4876,9 +5383,13 @@ InternalElement ID="1d1a37ed-19d9-4a23-bc91-51f5a8e0244b" Name="Ungrouped device
     "AutomationProjectConfigurationRoleClassLib/DeviceUserFolder" />
     </InternalElement>
 ...
+
 ```
+
 • 内部连接元素 InternalLink 定义连接的通信伙伴。
+
 ```xml
+
 <InstanceHierarchy Name="APC Sample Instance Hierarchy">
     <InternalElement ID="d4dc896a-f4a5-41b6-9c48-8d3a0a5a4343" Name="CAx_asterisk_AML_03_V14">
     <Attribute Name="ProjectManufacturer" AttributeDataType="xs:string" />
@@ -4904,9 +5415,13 @@ InternalElement ID="1d1a37ed-19d9-4a23-bc91-51f5a8e0244b" Name="Ungrouped device
     </InternalElement>
 </InstanceHierarchy>
 </CAEXFile>
+
 ```
+
 属性被分配至内部元素，如下所示：
+
 ```xml
+
 <InternalElement ID="1d1a37ed-19d9-4a23-bc91-51f5a8e0244b" Name="Ungrouped devices">
     <InternalElement ID="ab193f5d-0375-4a6d-a576-a903e2b77cca" Name="ET 200SP station_1">
     <Attribute Name="TypeIdentifier" AttributeDataType="xs:string">
@@ -4939,6 +5454,7 @@ InternalElement ID="1d1a37ed-19d9-4a23-bc91-51f5a8e0244b" Name="Ungrouped device
     RefPartnerSideB="46683602-5129-4504-a9d1-48e6421e2cf0:CommunicationPortInterface" />
     ...
 </InternalElement>
+
 ```
 
 ### 属性的处理模式
@@ -4975,24 +5491,35 @@ OrderNumber 为硬件目录中所有模块的通用类型标识符（GSD 除外�
 含 FirmwareVersion 信息。有关固件版本的信息将在一个单独的 AML 属性
 “FirmwareVersion”中进行处理。
 TypeIdentifierType 的格式如下所示：
+
 ```html
+
 - <OrderNumber>
 示例：OrderNumber:3RK1 200-0CE00-0AA2
+
 ```
 
 #### 订货号中的通配符
 
 硬件目录中存在几个订货号包含“通配符”字符的模块，这类字符用于表示实际硬件的特定集群，例如不同长度的 S7-300 机架。
 对于这种情况，可使用特定OrderNumber和“通配符”OrderNumber创建硬件对象的实例。不过，不能将通配符通用于任意位置。示例：可通过以下方式创建 S7-300 机架：
+
 ```batch
+
 OrderNumber:6ES7 390-1***0-0AA0
+
 ```
+
 或者
 OrderNumber:6ES7 390-1AE80-0AA0
 请注意，不能对实例使用以下结构：
+
 ```batch
+
 OrderNumber:6ES7 390-1AE80-0A*0
+
 ```
+
 读取类型标识符时返回的值始终是硬件目录中的订货号。
 示例：读取 OrderNumber:6ES7 390-1AE80-0AA0 将返回 OrderNumber:6ES7390-1***0-0AA0
 
@@ -5009,18 +5536,24 @@ OrderNumber:6ES7 390-1AE80-0A*0
 – SM：子模块
 • GsdId：GSD/GSDML 的 ID 编号
 CAx 导入/导出支持以下格式的类型标识符：
+
 ```text
+
 - GSD.<GsdName>/<GsdType>
 示例：
 GSD: SIEM8139.GSD/DAP
 GSD: GSDML-V2.31-SIEMENS-SINAMICS_DCP-20140313.XML/D
+
 ```
+
 ```text
+
 - <GsdName>/<GsdType>/<GsdId>
 示例：
 GSD: SIEM8139.GSD/M/4
 GSD: GSDML-V2.31-SIEMENS-SINAMICS_G110M-20140704.XML/M/
 IDM_DRIVE_47
+
 ```
 
 #### Type identifier type：System
@@ -5066,7 +5599,9 @@ Rack.
 #### 导出单基本单元
 
 以下示例展示了使用 TIA Portal 中单基本单元组态的 DI 模块的 AML 文件
+
 ```html
+
 <InternalElement ID="6f76c890-5c5d-41c4-9ade-96543b0222ac" Name="DI 8x24VDC ST_1">
 ...
 <InternalElement ID="69233c1f-7ef7-4999-8e84-691d0ff3a210" Name="BaseUnit">
@@ -5085,13 +5620,16 @@ Rack.
 <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/DeviceItem" />
 </InternalElement>
 ...
+
 ```
 
 #### 导出双基本单元
 
 以下示例展示了使用 TIA Portal 中双基本单元组态的两个 DI 模块的 AML 文件例如，为基本单元组态的第一个模块前缀为“IX300”，为同一双基本单元组态的第二个模块前缀为“IX301”。
 导出期间，仅使用包含 IX300 后缀的基本单元组态的第一个模块应该与 AML 文件中的基本单元子模块一起导出。使用 IX301 组态的第二个模块不应与其下的任何子模块一起引入。
+
 ```html
+
 <InternalElement ID="6f76c890-5c5d-41c4-9ade-96543b0222ac" Name="DI 8x24VDC ST_1">
 ...
 <InternalElement ID="3a1bee8a-12d0-4ec4-849c-333d45113d9c" Name="BaseUnit">
@@ -5120,6 +5658,7 @@ Rack.
 <Value>true</Value>
 </Attribute>
 ...
+
 ```
 
 #### 导入基本单元
@@ -5158,7 +5697,9 @@ OrderNumber:xxxx 193-6[B|U|T]x6x-xxxx
 在 TIA Portal 中，多个机架之间的扩展机架连接系统直接在发送方和接收方（两者均为DeviceItem 对象）下建立模块。但是，依照 AR APC 建议，这些连接系统将被模块化为CommunicationPort 下的端口到端口连接。具有空 CommunicationPort 对象的空CommunicationInterface 将被添加到 IM 模块下，以便与建议接口内联。
 以下示例显示了所导出 AML 文件中的部分元素结构的上述设备组态：
 <InternalElement ID="1ddb8d5c-d6cc-42c9-b1d8-621219b139f6" Name="RackExtension"> <Attribute Name="Type" AttributeDataType="xs:string"> <Value>ExtensionRack</Value> </Attribute> ... <InternalElement ID="f25e531a-1793-4896-ade5-a87bd98de06e" Name="IM 46x SenderPort\_1"> <Attribute Name="Label" AttributeDataType="xs:string"> <Value>X1</Value> </Attribute> <Attribute Name="PositionNumber" AttributeDataType="xs:int"> <Value>1</Value> </Attribute> <Attribute Name="BuiltIn" AttributeDataType="xs:boolean"> <Value>true</Value> </Attribute> <ExternalInterface ID="9a824a06-89b9-4ba8-bee0-83c89b1f5e53" Name="CommunicationPortInterface" RefBaseClassPath="AutomationProjectConfigurationInterfaceClassLib/ CommunicationPortInterface" /> <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/ CommunicationPort" /> </InternalElement> <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/ CommunicationInterface" /> </InternalElement> <InternalElement ID="d841278f-558a-41ab-9f03-91eeb454dc6b" Name="RackExtension"> <Attribute Name="Type" AttributeDataType="xs:string"> <Value>ExtensionRack</Value> </Attribute> <InternalElement ID="2e1ff3b2-8a3e-4d5b-a95c-3ed027287db9" Name="IM 46x ReceiverPort\_1"> <Attribute Name="Label" AttributeDataType="xs:string"> <Value>X1</Value> </Attribute> <Attribute Name="PositionNumber" AttributeDataType="xs:int"> <Value>1</Value> </Attribute> <Attribute Name="BuiltIn" AttributeDataType="xs:boolean"> <Value>true</Value> </Attribute> <ExternalInterface ID="98460c75-a05d-4c23-8f88-33878ccd79c5" Name="CommunicationPortInterface" RefBaseClassPath="AutomationProjectConfigurationInterfaceClassLib/ CommunicationPortInterface" /> <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/ CommunicationPort" /> </InternalElement> <InternalElement ID="7615a32e-09dc-4171-88ed-118026357bae" Name="IM 46x SenderPort\_1"> <Attribute Name="Label" AttributeDataType="xs:string">
+
 ```xml
+
 <Value>X2</Value>
 </Attribute>
 <Attribute Name="PositionNumber" AttributeDataType="xs:int">
@@ -5208,7 +5749,9 @@ CommunicationInterface" />
 <InternalLink Name="Link To Port_2"
 RefPartnerSideA="7615a32e-09dc-4171-88ed-118026357bae:CommunicationPortInterface"
 RefPartnerSideB="c11d2227-91db-41ae-9d94-d822e3ab9c7a:CommunicationPortInterface" />
+
 ```
+
 Openness：用于工程组态工作流自动化的 API系统手册, 11/2023
 只有扩展机架连接系统存在的情况下，才能导出扩展机架接口。此外，ExtensionRack 空接口下添加的空端口数取决于参与模块级扩展机架连接系统的端口数。在上述示例中，“IM460-0\_1”模块支持两个端口（IM 46x SenderPort\_1 和 IM 46x SenderPort\_2）。但是，仅一个端口在 TIA Portal 中进行了连接组态。因此，导出的 AML 文件在扩展机架接口下将只包含一个端口。
 
@@ -5219,7 +5762,9 @@ Openness：用于工程组态工作流自动化的 API系统手册, 11/2023
 #### ExternalInterface-
 
 <ExternalInterface> 内部元素应该添加到参与连接的 <CommunicationPort> 内部元素下
+
 ```xml
+
 <InternalElement ID="[IM Module Unique ID]" Name="[IM Module Name]">
 ...
 <InternalElement ID="[Dummy Interface Unique ID]" Name="RackExtension">
@@ -5241,13 +5786,17 @@ Openness：用于工程组态工作流自动化的 API系统手册, 11/2023
 </InternalElement>
 <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/DeviceItem" />
 </InternalElement>
+
 ```
 
 #### 内部连接
 
 扩展机架连接使用 <InternalLink> 变量表示。<InternalLink> 变量应该添加到多个机架（即设备）的共同父设备下。内部连接名称在公共父项中是唯一的。
+
 ```text
+
 <InternalLink Name="Link To [Internal link Name]" RefPartnerSideA="[Communication Port UniqueID]:[Communication Port External Interface Name]" RefPartnerSideB="[Communication Port UniqueID]:[Communication Port External Interface Name]" />
+
 ```
 
 ### 6.5.8 导出/导入具有 GSD/GSDML 自定义属性的 AML 文件
@@ -5259,7 +5808,9 @@ Openness：用于工程组态工作流自动化的 API系统手册, 11/2023
 通过自定义属性交换模块的附加数据，而不能交换端口、接口、节点等处的附加数据。自定义属性在 AR APC 中定义为未排序的名称值对列表。
 有关非 GSD/GSDML 自定义属性的信息，请[导出/导入具有非 GSD/GSDML 自定义属性的 AML 文件](#导出导入具有非-GSDGSDML-自定义属性的-AML-文件)”
 此处给出了 AML 结构：
+
 ```xml
+
 <Attribute Name="CustomAttributes">
 <RefSemantic CorrespondingAttributePath="ListType" />
 <Attribute Name="AttributeName1" AttributeDataType="xs:string">
@@ -5269,7 +5820,9 @@ Openness：用于工程组态工作流自动化的 API系统手册, 11/2023
 <Value>AttributeValue2</Value>
 </Attribute>
 </Attribute>
+
 ```
+
 GSD/GSDML 模块不支持在 TIA Portal 中进行通道组态。因此，不支持通过 AML 导出/导入可用的通道自定义属性。
 为了在 TIA Portal 中正确标识自定义属性，自定义属性的名称必须符合以下定义：
 自定义属性名称由 <name>、<attribute\_location>、<value\_location> 三部分组成。
@@ -5282,7 +5835,9 @@ GSD/GSDML 模块不支持在 TIA Portal 中进行通道组态。因此，不支�
 – BitOfset：数值在其起始字节中的起始位位置（从 0 开始）。
 – BitLength：数值的完整长度（单位为位）
 自定义属性的完整示例：
+
 ```xml
+
 <Attribute name = "CustomAttribute">
 <RefSemantic CorrespondingAttributePath="ListType"/>
 <Attribute Name="IDTP_No_Unit_DIAG#0-1-0-2-7-1" AttributeDataType="xs:string">
@@ -5294,23 +5849,30 @@ GSD/GSDML 模块不支持在 TIA Portal 中进行通道组态。因此，不支�
 <Value>1<Value>
 </Attribute>
 </Attribute>
+
 ```
+
 在某些（罕见）情况下，GSD/GSDML 中的属性是明确建模的（不属于参数数据集的一部分）。此时，会通过属性名称访问值。
 导出时，TIA Portal 始终会导出完整数据集，以使伙伴应用程序对所包含的数据具有完全访问权限
+
 ```xml
+
 <Attribute name = "CustomAttribute">
 <RefSemantic CorrespondingAttributePath="ListType"/>
 <Attribute Name="PrmData#0-1-0-2-0-16" AttributeDataType="xs:string">
 <Value>128, 0<Value>
 </Attribute>
 </Attribute>
+
 ```
 
 #### 导出/导入具有 PRM 数据自定义属性的 AML 文件
 
 对于 TIA Portal V17，应可通过 CAx 导出和导入交换 GSD/GSDML 模块的参数数据。在 AML文件中，该参数数据应表示为自定义属性。
 以下代码片段显示了通过可插拔模块发现 AML 文件的情况下，AML 文件中的 PrmData 预期应采用的格式。
+
 ```xml
+
 <InternalElement ID="049f1260-7c97-458e-84bd-12682f943f19" Name="Slave_1">
 <Attribute Name="BuiltIn" AttributeDataType="xs:boolean">
 <Value>false</Value>
@@ -5326,9 +5888,13 @@ Value>
 </Attribute>
 <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/CommunicationInterface" />
 </InternalElement>
+
 ```
+
 以下代码片段显示了 PrmData 在 TIA Portal 中通过内置子模块提供，但在 AML 文件中通过可插拔父模块提供的情况下，PrmData 采用的格式。
+
 ```xml
+
 <InternalElement ID="8fb83cae-ae30-45d2-9d4c-6db1154af02d" Name="IE-AS-i-LINK">
 ... 
 <Attribute Name="CustomAttributes">
@@ -5348,7 +5914,9 @@ Value>
 </InternalElement>
 <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/DeviceItem" />
 </InternalElement>
+
 ```
+
 • 在以上代码片段中，自定义属性名称“PrmData#0-130-0-4-0-32”的含义如下：
 – PrmData#0：属性名称以及包含该属性的子模块的位置号
 – 130：数据集编号：
@@ -5368,6 +5936,7 @@ Value>
 #### 以下代码片段给出了此类示例。
 
 ```xml
+
 <InternalElement ID="1cf85c26-cc2a-4413-b91b-e4b55e183762" Name="Slave_1">
 ...
 <Attribute Name="CustomAttributes">
@@ -5404,7 +5973,9 @@ Value>
 </Attribute>
 </SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/DeviceItem" />
 </InternalElement>
+
 ```
+
 在上例中，所有单独的自定义属性均从属于数据集编号 0。但这些自定义属性尝试更改不同字节和位的值。
 • CAx 导入应支持为自定义属性值采用整型和十六进制格式（例如 0x67），但一次只能为给定的属性使用一种格式。
 
@@ -5413,7 +5984,9 @@ Value>
 对于 TIA Portal V17，应可通过 CAx 导出和导入交换具有读写访问权限的 GSD/GSDML 模块的所有属性。在 AML 文件中，这些属性应表示为自定义属性。
 CAx 导出应忽略在 TIA Portal 中为只读的所有此类属性，TIA Portal 导出的 AML 文件中的自定义属性部分应包含可写属性。
 以下代码片段显示了通过可插拔模块发现 AML 文件的情况下，AML 文件中的自定义属性预期应采用的格式。
+
 ```xml
+
 <InternalElement ID="806532c8-109a-42c6-82e9-84e8ba308aad" Name="cp1604">
 <Attribute Name="BuiltIn" AttributeDataType="xs:boolean">
 <Value>false</Value>
@@ -5426,9 +5999,13 @@ CAx 导出应忽略在 TIA Portal 中为只读的所有此类属性，TIA Portal
 </Attribute>
 <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/DeviceItem" />
 </InternalElement>
+
 ```
+
 以下代码片段显示了自定义属性在 TIA Portal 中通过内置子模块提供，但在 AML 文件中通过可插拔父模块提供的情况下，导出自定义属性应采用的格式。
+
 ```xml
+
 <InternalElement ID="806532c8-109a-42c6-82e9-84e8ba308aad" Name="cp1604">
     <Attribute Name="CustomAttributes">
     <RefSemantic CorrespondingAttributePath="ListType" />
@@ -5451,7 +6028,9 @@ CAx 导出应忽略在 TIA Portal 中为只读的所有此类属性，TIA Portal
     <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/DeviceItem" />
     </InternalElement>
 </InternalElement>
+
 ```
+
 在以上程序片段中，#0 表示属性真正属于的内置子项的位置号。
 CAx 导出应忽略正在作为适用 AR APC 版本建议的一部分导出的所有属性。
 CAx 不应通过接口和端口及其下级的任何子模块导出自定义属性。唯一的例外情况是PrmData。
@@ -5483,7 +6062,9 @@ CAx 导出应仅考虑在 TIA Portal Openness 中可读写的属性，并且应�
 • TypeIdentifier.AttributeName#PositionNumber，其中
 <table><tr><td>属性</td><td>描述</td></tr><tr><td>TypeIdentifier</td><td>可插拔(子)模块的规范化 TypeIdentifier(包括固件版本),被格式化为用“_”替换特殊字符</td></tr><tr><td>AttributeName</td><td>Openness 中属性的名称。</td></tr><tr><td>PositionNumber</td><td>这仅适用于在 AML 文件中其可插入父模块下导出的内置(子)模块的属性。此为内置(子)模块的位置编号。</td></tr></table>
 以下代码片段显示了通过可插拔模块发现 AML 文件的情况下，AML 文件中的自定义属性预期应采用的格式。
+
 ```xml
+
 <InternalElement ID="298d6b6a-fe70-4edd-9230-39b0ae2238a5" Name="PLC_1">
 <Attribute Name="CustomAttributes">
 <RefSemantic CorrespondingAttributePath="ListType" />
@@ -5505,9 +6086,13 @@ AttributeDataType="xs:string">
 <Value>False</Value>
 </Attribute>
 </InternalElement>
+
 ```
+
 以下代码片段显示了自定义属性在 TIA Portal 中通过内置子模块提供，但在 AML 文件中通过可插拔父模块提供的情况下，导出自定义属性应采用的格式。
+
 ```xml
+
 <InternalElement ID="298d6b6a-fe70-4edd-9230-39b0ae2238a5" Name="PLC_1">
 <Attribute Name="CustomAttributes">
 <RefSemantic CorrespondingAttributePath="ListType" />
@@ -5528,7 +6113,9 @@ AttributeDataType="xs:string">
 <Value>1800</Value>
 </Attribute>
 </InternalElement>
+
 ```
+
 在以上程序片段中，#3 表示 TIA Portal 中属性真正属于的内置子项的位置编号。
 CAx 导出应忽略正在作为适用 AR APC 版本建议的一部分导出的所有属性。
 以下情况下，CAx 应支持通过（子）模块导入自定义属性：
@@ -5543,7 +6130,9 @@ CAx 导入应忽略相应的警告正在作为适用 AR APC 建议的一部分�
 • CAx 导入接受具有完整 IdentifyingName 的自定义属性的 AML 文件（格式：TypeIdentifier.AttributeName#PositionNumber）
 • CAx 导入接受具有部分 IdentifyingName 的自定义属性的 AML 文件 - 只有属性名称和后缀（如 #positionnumber），但没有 TypeIdentifier
 下面的代码段显示了 CAx 导入期间接受的不同名称格式。
+
 ```xml
+
 <InternalElement ID="298d6b6a-fe70-4edd-9230-39b0ae2238a5" Name="PLC_1">
 <Attribute Name="CustomAttributes">
 <RefSemantic CorrespondingAttributePath="ListType" />
@@ -5555,6 +6144,7 @@ AttributeDataType="xs:string">
 <Value>False</Value>
 </Attribute>
 </InternalElement>
+
 ```
 
 #### 导出/导入具有通道自定义属性的 AML 文件
@@ -5565,7 +6155,9 @@ CAx 导出应仅考虑在 Openness 中可读写的通道下的属性，并且应
 • <TypeIdentifier>.Channels.<Type><IoType>\_<ChannelNumber>.<AttributeName>#<PositionNumber>，其中
 <table><tr><td>自定义属性</td><td>描述</td></tr><tr><td>TypeIdentifier</td><td>可插拔(子)模块的规范化 TypeIdentifier(包括固件版本),被格式化为用“_”替换特殊字符。</td></tr><tr><td>AttributeName</td><td>Openness 中属性的名称</td></tr><tr><td>PositionNumber</td><td>这仅适用于通道在内置(子)模块下建模的通道属性。此为内置(子)模块的位置编号。</td></tr><tr><td>类型</td><td>这是通道类型,模拟量或数字量(简称 A 或 D)</td></tr><tr><td>IoType</td><td>这是通道的 IO 类型,输入或输出(简称为 I 或 O)</td></tr><tr><td>ChannelNumber</td><td>这是从 0 到 N 为每个通道提供的连续整数</td></tr></table>
 以下代码片段显示了通过可插拔模块发现通道的情况下，AML 文件中的自定义属性预期应采用的格式。
+
 ```xml
+
 <InternalElement ID="928ac5b5-2625-4f40-a624-d731ed673522" Name="DO 8x24VDC/0.5A_1"><Attribute Name="TypeName" AttributeDataType="xs:string">
 <Value>DO8 x 24VDC / 0.5A</Value>
 </Attribute>
@@ -5609,7 +6201,9 @@ CAx 导出应仅考虑在 Openness 中可读写的通道下的属性，并且应
 <Value>False</Value>
 </Attribute>
 <Attribute Name="6ES7322_8BF00_0AB0.Channels.DO_0.DiagnosticsWireBreak" AttributeDataType="xs:string">
+
 ```
+
 Openness：用于工程组态工作流自动化的 API系统手册, 11/2023
 <Value>False</Value>
 </Attribute>
@@ -5618,7 +6212,9 @@ AttributeDataType="xs:string"><Value>False</Value>
 </Attribute>
 </Attribute>
 以下代码片段显示了如果在内置子模块中发现自定义属性时其预期导出的格式
+
 ```xml
+
 <InternalElementID="5bda81fa-8c31-4e1a-b41a-f5100eb2ff2f"Name="AI5/AQ2_1">
 <AttributeName="PositionNumber"AttributeDataType="xs:int">
 <Value>8</Value>
@@ -5666,8 +6262,11 @@ AttributeDataType="xs:string"><Value>False</Value>
 </Attribute>
 <AttributeName="CustomAttributes">
 <RefSemanticCorrespondingAttributePath="ListType"/>
+
 ```
+
 ```xml
+
 <AttributeName="6ES7511_1CK00_0AB0_V2_9.Channels.AI_0.HardwareInterruptLowLimit2Active#8"AttributeDataType="xs:string">
     <Value>False</Value>
     </Attribute>
@@ -5685,7 +6284,9 @@ AttributeDataType="xs:string"><Value>False</Value>
     </Attribute>
     </Attribute>
 </ExternalInterface>
+
 ```
+
 在以上程序片段中，#8 表示 TIA Portal 中通道真正属于的内置子项的位置编号。CAx 导出应忽略正在作为适用 AR APC 版本建议的一部分导出的所有属性。
 以下情况下，CAx 应支持导入通道的自定义属性：
 • 如果文件未被删减并且具有其自定义属性的通道位于（子）模块下。
@@ -5696,6 +6297,7 @@ AttributeDataType="xs:string"><Value>False</Value>
 #### 下面是显示通道自定义属性的代码片段。
 
 ```xml
+
 <InternalElement ID="0d5e860b-6581-467a-be7a-fcfa37e0ee6b" Name="DI 32x24VDC HF_1">
 ...
 <Attribute Name="BuiltIn" AttributeDataType="xs:boolean">
@@ -5722,8 +6324,11 @@ AttributeDataType="xs:string"><Value>False</Value>
 ...
 </Attribute>
 </ExternalInterface>
+
 ```
+
 ```xml
+
 <InternalElement ID="0d5e860b-6581-467a-be7a-fcfa37e0ee6b" Name="DI 32x24VDC HF_1">
 ...
 <Attribute Name="BuiltIn" AttributeDataType="xs:boolean">
@@ -5745,7 +6350,9 @@ AttributeDataType="xs:string"><Value>False</Value>
 ...
 </Attribute>
 </ExternalInterface>
+
 ```
+
 在导入期间，TIA Portal 可以容忍通道自定义属性名称。前缀“TypeIdentifier”或通道信息可选。通道上提供通道自定义属性：
 • CAx 导入接受具有完整 IdentifyingName 的自定义属性的 AML 文件（格式：TypeIdentifier.Channels.TypeIoType\_ChannelNumber.AttributeName#PositionNumber)
 • CAx 导入接受具有部分 IdentifyingName 的自定义属性的 AML 文件 - 只有属性名称和后缀（如 #positionnumber），但没有 TypeIdentifier 和通道信息。
@@ -5756,6 +6363,7 @@ AttributeDataType="xs:string"><Value>False</Value>
 #### 下面的代码段显示了 CAx 导入期间接受的不同名称格式。
 
 ```xml
+
 <ExternalInterface ID="ff89bfc5-ee51-4525-a388-a9b02213515e" Name="Channel_DI_0" RefBaseClassPath="AutomationProjectConfigurationInterfaceClassLib/Channel">
     <Attribute Name="CustomAttributes">
     <RefSemantic CorrespondingAttributePath="ListType" />
@@ -5769,14 +6377,18 @@ AttributeDataType="xs:string"><Value>False</Value>
     </Attribute>
 </ExternalInterface>
 ...
+
 ```
+
 可插拔设备项上提供通道自定义属性：
 • CAx 导入接受具有完整 IdentifyingName 的自定义属性的 AML 文件（格式：TypeIdentifier.Channels.TypeIoType\_ChannelNumber.AttributeName#PositionNumber)
 • CAx 导入接受具有部分 IdentifyingName 的自定义属性的 AML 文件 - 仅限包含通道信息(Channels.<Type><IoType>\_<ChannelNumber>) 的属性名称和后缀（如#positionnumber），但没有 TypeIdentifier。
 • 以下是支持的格式：
 – <TypeIdentifier>.Channels.<Type><IoType>\_<ChannelNumber>.<AttributeName># <PositionNumber>
 – Channels.<Type><IoType>\_<ChannelNumber>.<AttributeName>#<PositionNumber >
+
 ```xml
+
 <ExternalInterface ID="ff89bfc5-ee51-4525-a388-a9b02213515e" Name="Channel_DI_0" RefBaseClassPath="AutomationProjectConfigurationInterfaceClassLib/Channel">
     <Attribute Name="CustomAttributes">
     <RefSemantic CorrespondingAttributePath="ListType" />
@@ -5790,6 +6402,7 @@ AttributeDataType="xs:string"><Value>False</Value>
 </Attribute>
 </ExternalInterface>
 ...
+
 ```
 
 #### 无效的通道自定义属性
@@ -5797,7 +6410,9 @@ AttributeDataType="xs:string"><Value>False</Value>
 以下情况下，CAx 不应支持导入通道的自定义属性：
 • 如果通道的自定义属性同时分布在设备项自定义属性部分和通道的自定义属性部分下，则 在这种情况下，将仅处理设备项下的通道自定义属性，并且将忽略通道下的其余自定义 属性并发出警告。
 下面的代码片段显示了分布在设备项和通道下的通道自定义属性。
+
 ```xml
+
 <InternalElement ID="0d5e860b-6581-467a-be7a-fcfa37e0ee6b" Name="DI 32x24VDC HF_1">
     <Attribute Name="BuiltIn" AttributeDataType="xs:boolean">
     <Value>false</Value>
@@ -5836,7 +6451,9 @@ AttributeDataType="xs:string"><Value>False</Value>
     </Attribute>
     </ExternalInterface>
     </RefSemantic>
+
 ```
+
 自定义属性对其它属性具有复杂的依赖层级时，自定义属性的导入可能会受到限制。例如：属性 A 取决于属性 B 和属性 C。因此，只有在导入 B 和 C 之后才能导入 A。这种行为可能因模块而异。在这种情况下，导入可能不会成功，并会导致跳过这些属性（向用户发出有关跳过的通知），并且在完成 AML 导入后，用户必须在 TIA Portal 中明确组态失败/跳过的自定义属性。
 
 #### 导出/导入具有网络对象特定自定义属性的 AML 文件
@@ -5849,7 +6466,9 @@ CAx 应基于接口、端口、节点、IO 系统和子网等各种网络对象�
 • <TypeIdentifier>.Interface.<Label>.<AttributeName>，其中
 <table><tr><td>自定义属性</td><td>描述</td></tr><tr><td>Typeldentifier</td><td>可插拔(子)模块的规范化 Typeldentifier(包括固件版本),被格式化为用“_”替换特殊字符。</td></tr><tr><td>AttributeName</td><td>Openness 中属性的名称</td></tr></table>
 以下代码片段显示了通过可插拔模块发现接口的情况下，AML 文件中的自定义属性预期应采用的格式。
+
 ```xml
+
 <InternalElement ID="d539b22a-9ff4-4cf7-b0f4-2f46c652f82a" Name="PROFINET interface_1">
 <Attribute Name="Label" AttributeDataType="xs:string">
 <Value>X1</Value>
@@ -5888,6 +6507,7 @@ AttributeDataType="xs:string"><Value>1000000</Value>
 AttributeDataType="xs:string
 <Value NikeTrue</Value>
 </Attribute>
+
 ```
 
 #### 端口组态
@@ -5896,7 +6516,9 @@ AttributeDataType="xs:string
 • <TypeIdentifier>.Interfaces.<InterfaceLabel>.Ports.<PortLabel>.<AttributeName>，其中
 <table><tr><td>自定义属性</td><td>描述</td></tr><tr><td>Typeldentifier</td><td>可插拔(子)模块的规范化 Typeldentifier(包括固件版本),被格式化为用“_”替换特殊字符。</td></tr><tr><td>AttributeName</td><td>Openness 中属性的名称</td></tr></table>
 以下代码片段显示了通过接口发现端口的情况下，AML 文件中的自定义属性预期应采用的格式。
+
 ```xml
+
 <InternalElement ID="fc31e87d-2162-43f6-ae4c-211fb5e21dec" Name="Port_1">
 <Attribute Name="Label" AttributeDataType="xs:string">
 <Value>P1R</Value>
@@ -5928,6 +6550,7 @@ AttributeDataType="xs:string
 <Attribute Name="6ES7511_1AK00_0AB0_V1_8.Interfaces.X1.Ports.P1R.TransmissionRateAndDuplex" AttributeDataType="xs:string">
 <Value>TransmissionRateAndDuplex.Automatic</Value>
 </Attribute>
+
 ```
 
 #### 节点组态
@@ -5936,7 +6559,9 @@ AttributeDataType="xs:string
 • <TypeIdentifier>.Interfaces.<InterfaceLabel>.Nodes.<NodeLabel>.<AttributeName>，其中
 <table><tr><td>自定义属性</td><td>描述</td></tr><tr><td>Typeldentifier</td><td>可插拔(子)模块的规范化 Typeldentifier(包括固件版本),被格式化为用“_”替换特殊字符。</td></tr><tr><td>AttributeName</td><td>Openness 中属性的名称</td></tr></table>
 以下代码片段显示了通过接口发现节点的情况下，AML 文件中的自定义属性预期应采用的格式。
+
 ```xml
+
 <InternalElement ID="609cefa0-208f-4c51-bee5-60002332ef84" Name="E1">
 <Attribute Name="SubnetMask" AttributeDataType="xs:string">
 <Value>255.255.255.0</Value>
@@ -5970,6 +6595,7 @@ AttributeDataType="xs:string">
 </SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/Node" />
 <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationEthernetRoleClassLib/NodeEthernet" />
 </InternalElement>
+
 ```
 
 #### 子网组态
@@ -5978,7 +6604,9 @@ AttributeDataType="xs:string">
 • <TypeIdentifier>.<AttributeName>，其中
 <table><tr><td>自定义属性</td><td>描述</td></tr><tr><td>TypeIdentifier</td><td>子网的规范化 TypeIdentifier,被格式化为用“_”替换特殊字符。</td></tr><tr><td>AttributeName</td><td>Openness 中属性的名称</td></tr></table>
 以下代码片段显示了发现子网的情况下，AML 文件中的自定义属性预期应采用的格式。
+
 ```xml
+
 <InternalElement ID="cb471149-05a1-4063-b591-25a00d84c288" Name="PROFIBUS_1">
 <Attribute Name="Type" AttributeDataType="xs:string">
 <Value>Profibus</Value>
@@ -6003,6 +6631,7 @@ AttributeDataType="xs:string">
 <Attribute Name="System_Subnet_Profibus.TransmissionSpeed" AttributeDataType="xs:string"><Value>BaudRate.Baud1500000</Value>
 </Attribute>
 </Attribute>
+
 ```
 
 #### IO 系统组态
@@ -6011,7 +6640,9 @@ AttributeDataType="xs:string">
 • <TypeIdentifier>.Interfaces.<InterfaceLabel>.IOSystem.<AttributeName>，其中
 <table><tr><td>自定义属性</td><td>描述</td></tr><tr><td>Typeldentifier</td><td>可插拔(子)模块的规范化 Typeldentifier(包括固件版本),被格式化为用“_”替换特殊字符。</td></tr><tr><td>AttributeName</td><td>Openness 中属性的名称</td></tr></table>
 以下代码片段显示了通过接口发现 IO 系统的情况下，AML 文件中的自定义属性预期应采用的格式。
+
 ```xml
+
 <InternalElement ID="f6edc86b-f995-4459-9429-b30c36b0b475" Name="PROFINET IO-System">
 <Attribute Name="Number" AttributeDataType="xs:int">
 <Value>100</Value>
@@ -6026,7 +6657,9 @@ Name="6ES7515_2AM00_0AB0_V1_8.Interfaces.X1.IoSystem.UseIoSystemNameAsDeviceName
 <Value>False</Value>
 </Attribute>
 </Attribute>
+
 ```
+
 在导入期间，TIA Portal 在以下情况下可以容忍自定义属性名称：
 • CAx 导入接受具有完整 IdentifyingName 的自定义属性的 AML 文件。
 • CAx 导入接受仅具有属性名称的自定义属性的 AML 文件。
@@ -6048,7 +6681,9 @@ Name="6ES7515_2AM00_0AB0_V1_8.Interfaces.X1.IoSystem.UseIoSystemNameAsDeviceName
 6.5 导入/导出硬件数据
 导出
 在导出期间为上述组态所生成的 AML 文件如下所示。
+
 ```xml
+
 <?xmlversion="1.0"encoding="utf-8"?>
 <CAEXFilexmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"FileName="PluggablePortTransformations.aml"SchemaVersion="2.15"xsi:noNamespaceSchemaLocation="CAEX_ClassModel_V2.15.xsd">
     /..
@@ -6092,9 +6727,13 @@ Name="6ES7515_2AM00_0AB0_V1_8.Interfaces.X1.IoSystem.UseIoSystemNameAsDeviceName
     <Value>false</Value></Attribute>
     </InitSource>
 </lambda>
+
 ```
+
 Openness：用于工程组态工作流自动化的 API系统手册, 11/2023
+
 ```xml
+
 </Attribute>
 <ExternalInterfaceID="0655ee61-7a4b-4ece-99a9cb626893f996"Name="CommunicationPortProxyInterface"RefBaseClassPath="AutomationProjectConfigurationInterfaceClassLib/CommunicationPortProxyInterface"/
 ><SupportedRoleClassRefRoleClassPath="AutomationProjectConfigurationRoleClassLib/DeviceItem"/>
@@ -6114,13 +6753,16 @@ Openness：用于工程组态工作流自动化的 API系统手册, 11/2023
 </InternalElement>
 </InstanceHierarchy>
 </CAEXFile>
+
 ```
 
 #### 端口和设备项连接
 
 多个端口和设备项之间端口-设备项连接的 XML 表示将使用以下所示格式完成。
 • “CommunicationPortProxyInterface”类型的 ExternalInterface-<ExternalInterface> 将添加到参与连接的 <CommunicationPort> 和 <DeviceItem> 内部元素下。
+
 ```xml
+
 <InternalElement ID="[Port Unique ID]" Name="[Port Name]">
 <Attribute Name="Label" AttributeDataType="xs:string">
 <Value>P1R</Value>
@@ -6158,11 +6800,17 @@ CommunicationPortProxyInterface" />
 <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/
 DeviceItem" />
 </InternalElement>
+
 ```
+
 • Internal link- 端口设备项连接使用 <InternalLink> 变量表示。<InternalLink> 变量应添加到多个端口和设备项（即机架）的共同父设备下。内部连接名称在公共父项中是唯一的。
+
 ```csharp
+
 <InternalLink Name="Link To [Internal link Name]" RefPartnerSideA="[Communication Port UniqueID]:CommunicationPortProxyInterface" RefPartnerSideB="[DeviceItem UniqueID]:CommunicationPortProxyInterface" />
+
 ```
+
 导入
 可从上述导出过程所生成的 AML 文件导入已转换的可插拔端口详细信息。但也可导入在之前版本的 TIA Portal 项目中创建的 AML 文件。
 • 导出层级更改行为将仅适用于 V19 及更高的版本。更低版本的 TIA portal 的行为与之前相同。
@@ -6200,7 +6848,9 @@ PCT 日志文件位置：在 CAX 日志文件所在的位置创建 PCT 日志文
 • 在一些组态中，IO 链路主端口可在没有 S7-PCT 的情况下进行初始组态（例如：设置操作模式 = IO 链路手动），但稍后可使用 S7-PCT 工具进行更改/覆盖。此组态不受 AML 交换的支持。
 6.5 导入/导出硬件数据
 以下是通过 CAx 导出来导出组态后创建的 AML 片段：
+
 ```xml
+
 <?xml version="1.0" encoding="utf-8"?>
 <CAEXFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="CAEX_ClassModel_V2.15.xsd" FileName="Project2_.aml" SchemaVersion="2.15">
 ..
@@ -6248,16 +6898,21 @@ CommunicationPortIOLink" />
 ..
 <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/CommunicationInterface" </InternalElement>
 """
+
 ```
+
 Openness：用于工程组态工作流自动化的 API系统手册, 11/2023
 <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/ DeviceItem"> <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationIOLinkRoleClassLib/ DeviceItemIOLinkMaster" /> </InternalElement> .. </InternalElement> <InternalElement ID="73292b01-7f22-44c8-98b1-2a007580cea0" Name="SIRIUS 3RR2441 3ph Current Monitoring Relay for IO-Link"> <InternalElement ID="d55d0b10-0d2f-44e6-9b96-72725a88ca41" Name="SIRIUS 3RR2441 3ph Current Monitoring Relay for IO-Link"> .. <InternalElement ID="ab97d538-5e44-4a97-bab1-d228c1af8c0b" Name="IOLink"> <Attribute Name="Label" AttributeDataType="xs:string"> <Value>IO-Link</Value> </Attribute> <Attribute Name="Type" AttributeDataType="xs:string"> <Value>IO-Link</Value> </Attribute> <Attribute Name="BuiltIn" AttributeDataType="xs:boolean"> <Value>true</Value> </Attribute> <InternalElement ID="f6ff4404-58fb-43ce-bf5d-e365e55c17b5" Name="IOLink Port 1"> <Attribute Name="PositionNumber" AttributeDataType="xs:int"> <Value>1</Value> </Attribute> <Attribute Name="Label" AttributeDataType="xs:string"> <Value>Port 1</Value> </Attribute> <ExternalInterface ID="065e309d-01cc-410e-951d-0fa7cac979d0" Name="CommunicationPortInterface" RefBaseClassPath="AutomationProjectConfigurationInterfaceClassLib/ CommunicationPortInterface" /> <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/ CommunicationPort" / <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationIOLinkRoleClassLib/ CommunicationPortIOLink" /> </InternalElement> <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/ CommunicationInterface" /> </InternalElement> <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/ DeviceItem" / <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationIOLinkRoleClassLib/ DeviceItemIOLinkDevice" /> </InternalElement> <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/ Device" /> </InternalElement>
+
 ```xml
+
 <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/AutomationProject" />
 ..
 <InternalLink Name="IOLink Port 1" RefPartnerSideA="f6ff4404-58fb-43ce-bf5d-e365e55c17b5:CommunicationPortInterface" RefPartnerSideB="4670a2aa-f441-458d-8dcc-e31b7712e325:CommunicationPortInterface" />
 </InternalElement>
 </InstanceHierarchy>
 </CAEXFile>
+
 ```
 
 #### 导入带有 IO 链路信息的 AML 文件
@@ -6282,13 +6937,17 @@ Openness：用于工程组态工作流自动化的 API系统手册, 11/2023
 • 已打开一个项目
 请[打开项目](#打开项目)”
 可使用 TIA Portal Openness 获取、添加和移除扩展机架连接，以便可在 CAx 导出/导入期间利用 TIA Portal Openness 实现扩展机架连接支持。
+
 ```typescript
+
 ImConnection imConnection = portDeviceItem.GetService<ImConnection>();
 imConnection.Connect(partnerport);
 imConnection.Disconnect();
 imConnection.GetPartnerPort();
 var imConnectionOwner = imConnection.OwnedBy;
+
 ```
+
 连接到 TIA Portal (页 90)
 打开项目 (页 140)
 
@@ -6303,7 +6962,9 @@ var imConnectionOwner = imConnection.OwnedBy;
 #### 采用用户自定义数据类型的 AML 文件
 
 下面是一个示例 AML 文件，其中包含具有用户自定义数据类型的复杂变量。
+
 ```xml
+
 <CAEXFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" FileName="singletag.aml" SchemaVersion="2.15" xsi:noNamespaceSchemaLocation="CAEX_ClassModel_V2.15.xsd">
     <AdditionalInformation>
     ...
@@ -6351,8 +7012,11 @@ var imConnectionOwner = imConnection.OwnedBy;
     <Value>E0.1</Value>
     </Attribute>
     <Attribute Name="Comment" AttributeDataType="xs:string">
+
 ```
+
 ```xml
+
 <Value>Motor drive overheat</Value>
 <Attribute Name="aml-lang=de-DE" AttributeDataType="xs:string">
 <Value>Motor drive overheat</Value>
@@ -6385,6 +7049,7 @@ RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/CommunicationInterf
 <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/AutomationProject" /></InternalElement>
 </InstanceHierarchy>
 </CAEXFile>
+
 ```
 
 #### 在 TIA Portal 上导入复杂变量且不创建 UDT
@@ -6450,7 +7115,9 @@ CAx 不支持基于 TIA Portal 导出和导入某些 Scalance 设备项。
 #### 程序代码：访问 CaxProvider 服务
 
 修改以下程序代码以访问CaxProvider 服务：
+
 ```cs
+
 //For Single Project
 ProjectBase project = tiaPortal.Projects.Open(...);
 //Or
@@ -6467,10 +7134,15 @@ if(caxProvider != null)
 {
     // Perform CAx export and import operation
 }
+
 ```
+
 ```text
+
 caxProvider.Export(project, new FileInfo(@"D:\Temp ProjektExport.aml"), new FileInfo(@"D:\Temp\ProjectExport_Log.log"));
+
 ```
+
 在项目层级导出 CAx
 要在项目级导出 CAx 数据，可在 TIA Portal V14 及更高版本中使用 Export() 及以下参数：
 <table><tr><td>名称</td><td>类型</td><td>示例</td><td>描述</td></tr><tr><td>ProjectToExport</td><td>Project</td><td>tiaPortal.Projects[0]</td><td>要导出的项目对象</td></tr><tr><td>ExportFilePath</td><td>FileInfo</td><td>newFileInfo(@&quot;D:\Temp\ProjectExport.aml&quot;)</td><td>AML文件的完整导出文件路径</td></tr><tr><td>LogFilePath</td><td>FileInfo</td><td>newFileInfo(@&quot;D:\Temp\ProjectExport_Log.log&quot;)</td><td>日志文件的完整文件路径</td></tr></table>
@@ -6497,7 +7169,9 @@ TransferResultMessage: 中支持以下特性
 <table><tr><td>枚举选项</td><td>描述</td></tr><tr><td>TransferResultState.Success</td><td>传输已成功完成</td></tr><tr><td>TransferResultState.Information</td><td>传输完成并提示信息</td></tr></table>
 <table><tr><td>枚举选项</td><td>描述</td></tr><tr><td>TransferResultState.Warning</td><td>传输完成并提示警告</td></tr><tr><td>TransferResultState.Error</td><td>传输完成并提示错误</td></tr></table>
 修改以下程序代码以在项目级别导出 CAx 数据：
+
 ```text
+
 private static void CaxTransferAtProjectLevel(Siemens.Engineering.ProjectBase project, CaxProvider caxProvider)
 {
     FileInfo exportFilePath = new FileInfo("D:\\temp\\ExportFile.aml");
@@ -6523,6 +7197,7 @@ int nestingDepth = 0)
     warnings: {message accident})
     PrintCaxDetailResult(messageMaries, nestingDepth + 1);
 }
+
 ```
 
 #### 在设备层级导出 CAx
@@ -6549,7 +7224,9 @@ TransferResultMessage: 中支持以下特性
 6.5 导入/导出硬件数据
 <table><tr><td>枚举选项</td><td>描述</td></tr><tr><td>TransferResultState.Warning</td><td>传输完成并提示警告</td></tr><tr><td>TransferResultState.Error</td><td>传输完成并提示错误</td></tr></table>
 修改以下程序代码以在设备级导出 CAx 数据：
+
 ```cs
+
 private static void CaxTransferAtDeviceLevel(Siemens.Engineering.ProjectBase project, CaxProvider caxProvider)
 {
     FileInfo exportFilePath = new FileInfo("D:\\temp\\ExportFile.aml");
@@ -6573,6 +7250,7 @@ PrintCaxDetailResult(Siemens.Engineering.Cax.TransferResultMessageComposition me
     PrintCaxDetailResult(message总价，nestingDepth + 1);
 }
 }
+
 ```
 
 ### 6.5.15 导入 CAx 数据
@@ -6585,7 +7263,9 @@ PrintCaxDetailResult(Siemens.Engineering.Cax.TransferResultMessageComposition me
 可通过导入功能导入 CAx 数据。通过CaxProvider服务访问导入函数。要获取 CaxProvider服务，对 Project 对象处调用 GetService 方法。
 使用 TIA Portal V19 时，新增的导入 API 提供结构化 TransferResult 作为返回值，并且不会生成日志文件。用户可处理传输结果，并以自定义格式存储结果。
 修改以下程序代码：
+
 ```cs
+
 //Access the CaxProvider service
 Project project = tiaPortal.Projects.Open(...);
 CaxProvider caxProvider = project.GetService<CaxProvider>();
@@ -6593,6 +7273,7 @@ if(caxProvider != null)
 {
     // Perform Cax export and import operation
 }
+
 ```
 
 #### CAx 导入
@@ -6626,6 +7307,7 @@ TransferResultMessage: 中支持以下特性
 #### 修改以下程序代码导入 CAx 数据：
 
 ```cs
+
 private static void ImportCaxTransfer(Siemens.Engineering.ProjectBase project, CaxProvider
 caxProvider)
 {
@@ -6653,6 +7335,7 @@ int nestingDepth = 0)
     PrintCaxDetailResult(message总价，nestingDepth + 1);
 }
 }
+
 ```
 
 ### 6.5.16 子模块的导出/导入
@@ -6669,7 +7352,9 @@ int nestingDepth = 0)
 可将子模块数据从 TIA Portal 层级导出到 AML 文件层级。
 6.5 导入/导出硬件数据
 以下示例描述从 TIA Portal 中将 Bus Adapter 作为子模块导出期间生成的部分 AML 文件结构。
+
 ```xml
+
 <?xml version="1.0" encoding="utf-8"?>
 <CAEXFile FileName="Project4.aml" SchemaVersion="2.15"
 xsi:noNamespaceSchemaLocation="CAEX_ClassModel_V2.15.xsd">
@@ -6719,8 +7404,11 @@ xsi:noNamespaceSchemaLocation="CAEX_ClassModel_V2.15.xsd">
 <Attribute Name="FirmwareVersion" AttributeDataType="xs:string">
 <Value>V0.0</Value>
 </Attribute>
+
 ```
+
 ```xml
+
 <InternalElement ID="40f8bbce-35d3-4d65-907a-bece3e0144e0" Name="PROFINET interface">
 <Attribute Name="Label" AttributeDataType="xs:string">
 <Value>X1</Value>
@@ -6770,7 +7458,9 @@ xsi:noNamespaceSchemaLocation="CAEX_ClassModel_V2.15.xsd">
 </Attribute>
 <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/CommunicationPort" />
 </InternalElement>
+
 ```
+
 CAx 应根据已安装的 TIA Portal 版本导出和导入相应 AR APC 版本的 AML 文件。
 
 #### 导入子模块
@@ -6803,7 +7493,9 @@ CAx 应根据已安装的 TIA Portal 版本导出和导入相应 AR APC 版本�
 Network View  
 ![](images/78c149d3c55932796864e295ea91a778e0b0e47f9a8ae82ffa51f1077ec6f7c3.jpg)
 在导出期间为上述组态所生成的部分 AML 文件如以下示例所示：
+
 ```xml
+
 <?xml version="1.0" encoding="utf-8"?>
 <CAEXFile FileName="MultipleBA_01.aml" SchemaVersion="2.15"
 xsi:noNamespaceSchemaLocation="CAEX_ClassModel_V2.15.xsd">
@@ -6853,8 +7545,11 @@ RefBaseClassPath="CommunicationInterfaceClassLib/LogicalEndPoint" />
 <Value>V0.0</Value>
 </Attribute>
 <InternalElement ID="f04874a8-2d35-47c4-93ae-d6fdc2668479" Name="PROFINET interface">
+
 ```
+
 ```typescript
+
 <Attribute Name="Label" AttributeDataType="xs:string">
     <Value>X1</Value>
     </Attribute>
@@ -6867,6 +7562,7 @@ RefBaseClassPath="CommunicationInterfaceClassLib/LogicalEndPoint" />
     <ExternalInterface ID="81a7d9df-99b8-4eca-8e72-404b22bd05e7"
 Name="LogicalEndPoint_Interface" RefBaseClassPath="CommunicationInterfaceClassLib/LogicalEndPoint" />
     <InternalElement ID="83eb7d69-8cd5-4217-a07a-0c656d215ec7" Name="IE1">
+
 ```
 
 #### 在接口级具有子模块和集成端口的设备
@@ -6884,7 +7580,9 @@ Name="LogicalEndPoint_Interface" RefBaseClassPath="CommunicationInterfaceClassLi
 以下组态显示了具有主从和拓扑连接的模块。
 ![](images/e9abbb2c065948842788d941c4132ae8c28b9350b328135595677708fb288acd.jpg)
 在导出期间为上述组态所生成的 AML 文件如下所示：
+
 ```xml
+
 <?xml version="1.0" encoding="utf-8"?>
 <CAEXFile FileName="Project_BusAdapter_Demo.aml" SchemaVersion="2.15"
 xsi:noNamespaceSchemaLocation="CAEX_ClassModel_V2.15.xsd">
@@ -6926,8 +7624,11 @@ xsi:noNamespaceSchemaLocation="CAEX_ClassModel_V2.15.xsd">
 <InternalElement ID="11731ed5-7922-41c9-b179-a5ae029cc10d" Name="Port_2">
 <Attribute Name="Label" AttributeDataType="xs:string">
 <Value>P2R</Value>
+
 ```
+
 ```xml
+
 </Attribute>
 ...
 <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/CommunicationPort" />
@@ -6953,6 +7654,7 @@ RefBaseClassPath="AutomationProjectConfigurationInterfaceClassLib/CommunicationP
 </InternalElement>
 <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/CommunicationInterface" />
 </InternalElement>
+
 ```
 
 #### 裁剪的 AML
@@ -7002,7 +7704,9 @@ CAx 导入操作受限。如果用户具有上述访问权限，则导入应成�
 请[打开项目](#打开项目)”
 在 TIA Portal 中，可使用 CAx 导入来组态通道和变量之间的连接，而无需 I/O 模块的起始地址和/或 AML 文件中指定的变量的逻辑地址。
 以下 AML 文件示例描述了无起始地址和逻辑地址属性的情况下生成的 XML 文件。
+
 ```xml
+
 <?xml version="1.0" encoding="utf-8"?><CAEXFile FileName="TagsExport.aml" SchemaVersion="2.15" xsi:noNamespaceSchemaLocation="CAEX_ClassModel_V2.15.xsd">
 ...
 <InstanceHierarchy Name="APC Sample Instance Hierarchy">
@@ -7049,8 +7753,11 @@ CAx 导入操作受限。如果用户具有上述访问权限，则导入应成�
 </Attribute>
 <Attribute Name="2">
 <Attribute Name="StartAddress" AttributeDataType="xs:int">
+
 ```
+
 ```xml
+
 <Value>832</Value>
 </Attribute>
 <Attribute Name="Length" AttributeDataType="xs:int">
@@ -7099,9 +7806,13 @@ CAx 导入操作受限。如果用户具有上述访问权限，则导入应成�
 <Attribute Name="Number" AttributeDataType="xs:int">
 <Value>0</Value>
 </Attribute>
+
 ```
+
 Openness：用于工程组态工作流自动化的 API系统手册, 11/2023
+
 ```xml
+
 <Attribute Name="Length" AttributeDataType="xs:int">
     <Value>1</Value>
     </Attribute>
@@ -7134,6 +7845,7 @@ Openness：用于工程组态工作流自动化的 API系统手册, 11/2023
     </InternalElement>
     </InstanceHierarchy>
 </CAEXFile>
+
 ```
 
 #### 布尔数据类型 (%I0.0) 的变量
@@ -7239,18 +7951,25 @@ CAx 实现基于 TIA Openness Public API's。仅当用户在安装 TIA Portal �
 示例：拓扑视图
 ![](images/fdbfb85454e1930233f67b8f12481074de4a2b258c520f807cd96530f165d34f.jpg)
 下图显示了所导出 AML 文件中的部分元素结构。其中，包含两个唯一的 PLC 端口 ID。
+
 ```text
+
 <InternalElement ID="e1966b52-b8b3-47b4-8866-a754ebb77648" Name="Port_1">
     <Attribute Name="Label" AttributeDataType="xs:string">
     ...
     <InternalElement ID="75f31daf-575f-48a2-ab35-8f07a376eb1b" Name="Port_1">
     <Attribute Name="Label" AttributeDataType="xs:string">
+
 ```
+
 <InteralLink> 元素包含三个必须项属性。
+
 ```xml
+
 <InternalLink Name="Link to Port_1"
 RefPartnerSideA="e1966b52-b8b3-47b4-8866-a754ebb77648:CommunicationPortInterface"
 RefPartnerSideB="75f31daf-575f-48a2-ab35-8f07a376eb1b:CommunicationPortInterface" />
+
 ```
 
 ### 6.5.23 通过库参考导入设备
@@ -7264,6 +7983,7 @@ RefPartnerSideB="75f31daf-575f-48a2-ab35-8f07a376eb1b:CommunicationPortInterface
 #### 以下 AML 结构描述了导入到 TIA Portal 项目的操作过程中应使用的 XML 文件。
 
 ```text
+
 <InternalElement ID="bed34f88-7a3f-4e37-a32f-df1a6dcb954a" Name="S71500/ET200MP station_1">
 <Attribute Name="TypeIdentifier" AttributeDataType="xs:string">
 <Value>System:Device.S71500</Value>
@@ -7284,7 +8004,9 @@ RefPartnerSideB="75f31daf-575f-48a2-ab35-8f07a376eb1b:CommunicationPortInterface
 ...
 </InternalElement>
 ...
+
 ```
+
 6.5 导入/导出硬件数据
 示例：导入的组态
 上面的 AML 片段对应于站，并在下文介绍了 TIA Portal 中的 PLC。
@@ -7399,7 +8121,9 @@ Languages &resources
 Online access
 Card Reader/USB memory
 以下结构示例为不带机架和模块的单个设备“S7-400 station\_1”的导出内容：
+
 ```xml
+
 <InstanceHierarchy Name="APC Sample Instance Hierarchy">
     <InternalElement ID="288b7850-688e-43b3-941e-d615ba900a02" Name="Project3">
     <Attribute Name="ProjectManufacturer" AttributeDataType="xs:string" />
@@ -7421,6 +8145,7 @@ Card Reader/USB memory
     </InternalElement>
 </InstanceHierarchy>
 </CAEXFile>
+
 ```
 
 #### 没有类型标识符和通用类型标识符的设备
@@ -7436,6 +8161,7 @@ CAx 导入应能够处理没有类型标识符信息或具有通用类型标识�
 #### 以下 XML 结构显示了具有非通用类型标识符的设备组态：
 
 ```xml
+
 <InternalElement ID="04f5d5f08-316a-4a1d-9290-9bfd75b2b2ca" Name="S7-400 station_1">
     <Attribute Name="TypeIdentifier" AttributeDataType="xs:string">
     <Value>System:Device.S7400</Value>
@@ -7445,9 +8171,13 @@ CAx 导入应能够处理没有类型标识符信息或具有通用类型标识�
     </Attribute>
     <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/Device"/>
 </InternalElement>
+
 ```
+
 以下 XML 结构显示了具有通用类型标识符的设备组态：
+
 ```xml
+
 <InternalElement ID="04f5d5f08-316a-4a1d-9290-9bfd75b2b2ca" Name="S7-400 station_1">
     <Attribute Name="TypeIdentifier" AttributeDataType="xs:string">
     <Value>System:Device.Generic</Value>
@@ -7457,9 +8187,13 @@ CAx 导入应能够处理没有类型标识符信息或具有通用类型标识�
     </Attribute>
     <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/Device"/>
 </InternalElement>
+
 ```
+
 以下 XML 结构显示了具有设备可用类型标识符的设备组态。
+
 ```xml
+
 <InternalElement ID="a887601f-3ced-4f50-88ff-a9ec6eabb682" Name="S7-400 station_1">
     <Attribute Name="TypeIdentifier" AttributeDataType="xs:string">
     <Value>System:Device.S7400</Value>
@@ -7469,16 +8203,22 @@ CAx 导入应能够处理没有类型标识符信息或具有通用类型标识�
     </Attribute>
     <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/Device"/>
 </InternalElement>
+
 ```
+
 以下 XML 结构显示了没有设备可用类型标识符的设备组态。
+
 ```xml
+
 <InternalElement ID="a887601f-3ced-4f50-88ff-a9ec6eabb682" Name="S7-400 station_1">
     <Attribute Name="Comment" AttributeDataType="xs:string">
     <Value>S7400 Device</Value>
     </Attribute>
     <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/Device"/>
 </InternalElement>
+
 ```
+
 用于导入/导出的 CAx 数据的结构 (页 1639)
 AML 类型标识符 (页 1643)
 
@@ -7507,7 +8247,9 @@ CAx 数据导入支持以下由 AML 类型标识符指定的设备类型：
 #### 示例：导入通用设备
 
 以下结构示例介绍了无机架和模块的通用 "S7-400 station" 设备的导入过程。
+
 ```xml
+
 <InstanceHierarchy Name="APC Sample Instance Hierarchy">
     <InternalElement ID="d4dc896a-f4a5-41b6-9c48-8d3a0a5a4343" Name="MyProject">
     <Attribute Name="ProjectManufacturer" AttributeDataType="xs:string" />
@@ -7530,13 +8272,17 @@ CAx 数据导入支持以下由 AML 类型标识符指定的设备类型：
     </InternalElement>
     </InstanceHierarchy>
 </CAEXFile>
+
 ```
+
 6.5 导入/导出硬件数据
 
 #### 示例：导入设备用户文件夹层次结构
 
 以下结构示例介绍了文件夹层次结构的导入。
+
 ```xml
+
 <InternalElement ID="4fe37f4f-2661-4492-95f0-3d8a8160c851" Name="Project1">
     <Attribute Name="ProjectManufacturer" AttributeDataType="xs:string" />
     <Attribute Name="ProjectSign" AttributeDataType="xs:string" />
@@ -7561,6 +8307,7 @@ CAx 数据导入支持以下由 AML 类型标识符指定的设备类型：
     <SupportedRoleClass RefRoleClassPath=
     "AutomationProjectConfigurationRoleClassLib/AutomationProject" />
 </InternalElement>
+
 ```
 
 #### 导入的用户文件夹层次结构
@@ -7568,12 +8315,16 @@ CAx 数据导入支持以下由 AML 类型标识符指定的设备类型：
 未分组和未分配的设备的文件夹名称特定于语言。建议使用与导出时相同的用户界面语言执行导入。否则，未分组和未分配的设备将导入到根据导出语言命名的文件夹中。
 例如，如果用英语导出包含设备系统组“Ungrouped devices”的项目，然后用德语导入 AML 文件。则该项目的设备系统组中将出现“Nicht gruppierte Gerate”（德语），但在 CAx 导入时将创建“Ungrouped device”用户组。
 将以下层次结构导入到项目导航中：
+
 ```text
+
 Group_1
 Group_2
 Group_3
 Group_4
+
 ```
+
 用于导入/导出的 CAx 数据的结构 (页 1639)
 AML 类型标识符 (页 1643)
 
@@ -7598,7 +8349,9 @@ AML 文件中的 Address 属性包含有必须项的设置 RefSemantic，用于�
 示例：带有地址对象的 IO 设备项
 ![](images/dc4fb98aa583192e6f1716a567741a2770372d3a0b2dc2f082546c61eb1c7f72.jpg)
 下图显示了所导出 AML 文件中的部分元素结构。其中，包含有 Address 元素及其属性。
+
 ```xml
+
 <Attribute Name="Address">
     <RefSemantic CorrespondingAttributePath="OrderedListType" />
     <Attribute Name="1">
@@ -7613,6 +8366,7 @@ AML 文件中的 Address 属性包含有必须项的设置 RefSemantic，用于�
     </Attribute>
     </Attribute>
 </Attribute>
+
 ```
 
 #### 修剪 XML
@@ -7622,6 +8376,7 @@ AML 文件中的 Address 属性包含有必须项的设置 RefSemantic，用于�
 #### 下图显示了修剪前所导出 AML 文件中的部分元素结构。
 
 ```xml
+
 <InternalElement ID="5511a117-42c6-44b7-be5d-0f33cd46e932" Name="AS-i Master_1">
 <Attribute Name="PositionNumber" AttributeDataType="xs:int">
 <Value>4</Value>
@@ -7643,9 +8398,13 @@ AML 文件中的 Address 属性包含有必须项的设置 RefSemantic，用于�
 </Attribute>
 </Attribute>
 </Attribute>
+
 ```
+
 在修剪后的 AML 文件中，将删除子模块信息 like <InternalElement> 元素，但保留其相应的地址对象。
+
 ```xml
+
 <Attribute Name="Address">
 <RefSemantic CorrespondingAttributePath="OrderedListType"/>
 <Attribute Name="1">
@@ -7660,7 +8419,9 @@ AML 文件中的 Address 属性包含有必须项的设置 RefSemantic，用于�
 </Attribute>
 </Attribute>
 </Attribute>
+
 ```
+
 Pruned AML (页 1635)
 
 ### 6.5.27 导出/导入带有通道的设备
@@ -7684,7 +8445,9 @@ Pruned AML (页 1635)
 示例：带有通道的设备
 ![](images/414cbba584a9b7c9feec811b8057eafd11e1632f21c38f6435e506d7fb73793d.jpg)
 下图显示了所导出 AML 文件中的部分元素结构。
+
 ```xml
+
 <ExternalInterface ID="31ca16d3-6322-43b6-95bc-e2d7d7bfc7b7" Name="Channel_DI_0"
     RefBaseClassPath="AutomationProjectConfigurationInterfaceClassLib/Channel">
     <Attribute Name="Type" AttributeDataType="xs:string">
@@ -7700,6 +8463,7 @@ Pruned AML (页 1635)
     <Value>1</Value>
     </Attribute>
 </ExternalInterface>
+
 ```
 
 ### 6.5.28 设备项对象的导出
@@ -7766,7 +8530,9 @@ CAx 数据导入支持以下由 AML 类型标识符指定的设备项类型：
 如果导入文件中存在带有空值的FirmwareVersion 属性，则设备项导入操作失败，并记录一条错误消息。
 示例：导入通用设备
 以下结构示例介绍了通用机架“Rack\_1”的导入过程。
+
 ```xml
+
 <InternalElement ID="6563466e-2de9-42ca-951d-eb8f2545958d" Name="S7-400 station_1">
     <Attribute Name="TypeIdentifier" AttributeDataType="xs:string">
     <Value>System:Device.S7400</Value>
@@ -7812,6 +8578,7 @@ CAx 数据导入支持以下由 AML 类型标识符指定的设备项类型：
     <SupportedRoleClass RefRoleClassPath=
     "AutomationProjectConfigurationRoleClassLib/Device" />
 </InternalElement>
+
 ```
 
 #### 导入的组态
@@ -7847,6 +8614,7 @@ CAx 数据导入支持以下由 AML 类型标识符指定的设备项类型：
 #### 下图所示为导出的 AML 文件的结构。
 
 ```xml
+
 <InternalElement ID="9ae02cde-dfb4-4d43-a649-68b9ede7fc3d" Name="Ungrouped devices">
     <InternalElement ID="12d4ce0f-346d-4bfa-b139-c9d0db64c794" Name="GSD device_1">
     <Attribute Name="TypeIdentifier" AttributeDataType="xs:string">
@@ -7897,6 +8665,7 @@ CAx 数据导入支持以下由 AML 类型标识符指定的设备项类型：
     <SupportedRoleClass RefRoleClassPath=
     "AutomationProjectConfigurationRoleClassLib/DeviceUserFolder" />
 </InternalElement>
+
 ```
 
 #### 带和不带 TypeIdentifier 的通用和非通用机架
@@ -7910,7 +8679,9 @@ CAx 导入应能够处理不带类型标识符信息或通用类型标识符（�
 CAx 导出与通用机架处理无关。CAx 始终导出非通用机架类型标识符。
 对于通用设备或没有类型标识符的设备以及通用机架、类型标识符替换，标头模块（对于分散设备）或 PLC（对于中央设备）必须存在于 AML 文件中所述的机架内，否则没有类型标识符的设备或通用设备和通用机架类型标识符替换将失败。
 以下 XML 结构显示了具有设备（具有类型标识符）和机架（具有TypeIdentifier）的 GSDML设备组态：
+
 ```xml
+
 <InternalElement ID="bc3b50fa-5cfa-4bf3-a496-8e46080d4f86" Name="GSD device_1">
 <Attribute Name="TypeIdentifier" AttributeDataType="xs:string">
 <Value>GSD:GSDML-V2.32-SIEMENS-SINAMICS_DCMASTER-20160531.XML/D</Value>
@@ -7935,9 +8706,13 @@ CAx 导出与通用机架处理无关。CAx 始终导出非通用机架类型标
 <Attribute Name="DeviceItemType" AttributeDataType="xs:string">
 <Value>HeadModule</Value>
 </Attribute>
+
 ```
+
 以下 XML 结构显示了具有设备（无类型标识符）和机架（通用类型标识符）的 GSDML 设备组态：
+
 ```xml
+
 <InternalElement ID="bc3b50fa-5cfa-4bf3-a496-8e46080d4f86" Name="GSD device_1">
 <InternalElement ID="c80f2d97-66c9-4f31-bf6b-17e3e0de0509" Name="Rack">
 <Attribute Name="TypeName" AttributeDataType="xs:string">
@@ -7959,9 +8734,13 @@ CAx 导出与通用机架处理无关。CAx 始终导出非通用机架类型标
 <Attribute Name="DeviceItemType" AttributeDataType="xs:string">
 <Value>HeadModule</Value>
 </Attribute>
+
 ```
+
 以下 XML 结构显示了具有设备（通用类型标识符）和机架（通用类型标识符）的 GSDML 设备组态：
+
 ```xml
+
 <InternalElement ID="bc3b50fa-5cfa-4bf3-a496-8e46080d4f86" Name="GSD device_1">
 <Attribute Name="TypeIdentifier" AttributeDataType="xs:string">
 <Value>System:Device.Generic</Value>
@@ -7990,7 +8769,9 @@ CAx 导出与通用机架处理无关。CAx 始终导出非通用机架类型标
 <Attribute Name="TypeIdentifier" AttributeDataType="xs:string">
 <Value>GSD:GSDML-V2.32-SIEMENS-SINAMICS_DCMASTER-20160531.XML/DAP/IDD_14</Value>
 </Attribute>
+
 ```
+
 [AML 类型标识符](#AML-类型标识符)
 连接到 TIA Portal (页 90)
 打开项目 (页 140)
@@ -8006,7 +8787,9 @@ CAx 导出与通用机架处理无关。CAx 始终导出非通用机架类型标
 6.5 导入/导出硬件数据
 AML 文件的导出
 以下示例显示了具有虚拟接口的 AML 文件：
+
 ```xml
+
 <InternalElement ID="822622a0-056a-494c-a802-2463c5e1b47d" Name="SCALANCE interface_1">
 <Attribute Name="PositionNumber" AttributeDataType="xs:int">
 <Value>1</Value>
@@ -8052,11 +8835,16 @@ RefBaseClassPath="AutomationProjectConfigurationInterfaceClassLib/CommunicationP
 </InternalElement>
 <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/CommunicationInterface" />
 </InternalElement>
+
 ```
+
 ```text
+
 <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/DeviceItem" />
 </InternalElement>
+
 ```
+
 在 TIA Portal v16 之前，虚拟接口导出时将包含以下属性：
 • 名称为 ScalanceInterface\_1
 • 标记为开关
@@ -8084,7 +8872,9 @@ CAx 支持导入虚拟接口。在此情况下，预期在 TIA Portal 合适父�
 在 AML 结构中，子网具有以下相关元素：
 • “节点”角色类别的内部元素定义设备项的接口。
 • <InternalLink>定义子网的连接伙伴。<InternalLink>变量名唯一，且始终添加到 AML 文件的项目内部元素下。
+
 ```xml
+
 <SupportedRoleClass RefRoleClassPath=
 "AutomationProjectConfigurationRoleClassLib/AutomationProject" />
 <InternalLink Name="Link To Port_1"
@@ -8099,9 +8889,13 @@ RefPartnerSideB="1062a384-d3ca-4183-9ac2-0934a5ab7286:LogicalEndPoint_Subnet" />
 </InternalElement>
 </InstanceHierarchy>
 </CAEXFile>
+
 ```
+
 在节点和子网内部元素中表示已连接节点和子网。如果节点或子网未连接，则节点和子网的 <ExternalInterface> 元素不存在。
+
 ```xml
+
 <InternalElement ID="1062a384-d3ca-4183-9ac2-0934a5ab7286" Name="PN/IE_1">
     <Attribute Name="Type" AttributeDataType="xs:string">
     <Value>Ethernet</Value>
@@ -8111,7 +8905,9 @@ RefPartnerSideB="1062a384-d3ca-4183-9ac2-0934a5ab7286:LogicalEndPoint_Subnet" />
     RefBaseClassPath="CommunicationInterfaceClassLib/LogicalEndPoint" />
     <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/Subnet" />
 </InternalElement>
+
 ```
+
 在 TIA Portal V16 中，对于子网类型和节点属性，CAx 导入支持以太网和 Profinet，导出将始终支持以太网。
 CAx 导入/导出支持以下类型的子网：
 • 以太网
@@ -8159,6 +8955,7 @@ CAx 导入特例，其中“类型”(Type) 属性是必选项 - Profibus 子网
 #### 下图所示为导出的 AML 文件的结构：
 
 ```xml
+
 <InstanceHierarchy Name="APC Sample Instance Hierarchy">
     <InternalElement ID="e9d2bedb-f8c1-4148-acda-c3c68836c7dd" Name="Project2">
     ...
@@ -8203,8 +9000,11 @@ CAx 导入特例，其中“类型”(Type) 属性是必选项 - Profibus 子网
     </InternalElement>
     </InternalElement>
 </InstanceHierarchy>
+
 ```
+
 ```xml
+
 <InternalElement ID="7cf0ea2b-b66f-4ad4-8a03-5a8691cbe04d" Name="PLC_2">
     <InternalElement ID="b287020d-667b-483d-a8e0-c5466ac2f5c3" Name="PROFINET interface_1">
     <Attribute Name="Label" AttributeDataType="xs:string">
@@ -8247,6 +9047,7 @@ CAx 导入特例，其中“类型”(Type) 属性是必选项 - Profibus 子网
     </InternalElement>
     </InternalElement>
 </InternalElement>
+
 ```
 
 #### Profinet/以太网节点的扩展角色
@@ -8259,6 +9060,7 @@ IpProtocolSelection 等扩展属性，则应使用附加角色导出 Profinet/�
 #### 下面的 XML 程序段描述了具有扩展角色的“以太网”节点的 AML 文件。
 
 ```xml
+
 <InternalElement ID="9c4393a9-44d5-49b4-9314-02eb0f94b6c0" Name="IE1">
 <Attribute Name="SubnetMask" AttributeDataType="xs:string">
 <Value>255.255.255.0</Value>
@@ -8279,7 +9081,9 @@ IpProtocolSelection 等扩展属性，则应使用附加角色导出 Profinet/�
 <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/Node" />
 <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationEthernetRoleClassLib/NodeEthernet" />
 </InternalElement>
+
 ```
+
 用于导入/导出的 CAx 数据的结构 (页 1639)
 连接到 TIA Portal (页 90)
 打开项目 (页 140)
@@ -8291,7 +9095,9 @@ IpProtocolSelection 等扩展属性，则应使用附加角色导出 Profinet/�
 • PLC 处于离线状态。
 IO 系统在 AML 结构中表示为 <InternalElement>。
 作为主机或 IO 控制器的 IO 系统添加到接口设备项的 <CommunicationInterface> 元素下。
+
 ```xml
+
 <InternalElement ID="[Communication Interface UniqueID]"
     Name="[Communication Interface Name]">
 <!--Node-->
@@ -8317,9 +9123,13 @@ IO 系统在 AML 结构中表示为 <InternalElement>。
 <SupportedRoleClass
     RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/CommunicationInterface" />
 </InternalElement>
+
 ```
+
 作为从设备或 IO 设备的已连接 IO 系统作为 <ExternalInterface> 元素添加到接口设备项的 <CommunicationInterface> 下。
+
 ```xml
+
 <InternalElement ID="[Communication Interface UniqueID]"
     Name="[Communication Interface Name]">
     ...
@@ -8337,7 +9147,9 @@ IO 系统在 AML 结构中表示为 <InternalElement>。
     <SupportedRoleClass
     RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/CommunicationInterface" />
 </InternalElement>
+
 ```
+
 IO 系统的连接伙伴表示为 <InternalLink> 元素。<InternalLink> 变量添加到 IO 系统和已连接从设备项的共同父项下，例如：项目、DeviceFolder、DeviceItem。
 <InternalLink> 变量名称在公共父项中是唯一的。
 
@@ -8373,7 +9185,9 @@ CAx 数据交换可导出和导入以下硬件对象的注释和多语言注释�
 导出该组态后，会将多语言注释生成为设备、设备项或变量的嵌套属性。
 • 父属性“Comment”应包含采用默认语言的值。
 • 对于每个外语注释，都存在一个子属性。
+
 ```xml
+
 <Attribute Name="Comment" AttributeDataType="xs:string">
     <Value>English</Value>
     <Attribute Name="aml-lang=en-US" AttributeDataType="xs:string">
@@ -8388,7 +9202,9 @@ CAx 数据交换可导出和导入以下硬件对象的注释和多语言注释�
     ...
     ...
 </Attribute>
+
 ```
+
 用于导入/导出的 CAx 数据的结构 (页 1639)
 连接到 TIA Portal (页 90)
 打开项目 (页 140)
@@ -8409,7 +9225,9 @@ CAx 数据交换可导出和导入以下硬件对象的注释和多语言注释�
 6.5 导入/导出硬件数据
 AML 导出
 在导出期间为上述组态所生成的 AML 文件如下所示。
+
 ```xml
+
 <?xml version="1.0" encoding="utf-8"?><CAEXFile FileName="ET200AL_with_ExtensionRacks章节Version="2.15" xsi:noNamespaceSchemaLocation="CAEX_ClassModel_V2.15.xsd">
 ...
 <InternalElement ID="2b90fale-df69-437d-8a77-eaa455cdfaba" Name="RackExtension">
@@ -8452,9 +9270,13 @@ RefBaseClassPath="AutomationProjectConfigurationInterfaceClassLib/CommunicationP
 RefBaseClassPath="AutomationProjectConfigurationInterfaceClassLib/CommunicationPortInterface" />
 <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/CommunicationPort" />
 </InternalElement>
+
 ```
+
 Openness：用于工程组态工作流自动化的 API系统手册, 11/2023
+
 ```xml
+
 <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/CommunicationInterface" />
 </InternalElement>
 <InternalElement ID="54119ad3-34b6-4e63-bc18-bee23312900a" Name="RackExtension">
@@ -8485,11 +9307,15 @@ RefPartnerSideB="ad638a2a-538e-4840-9d99-7712522431ba:CommunicationPortInterface
 <InternalLink Name="Link To Port_2" 
 RefPartnerSideA="6bb61ad0-13ac-455b-9a90-6cbaddeaabd4:CommunicationPortInterface" 
 RefPartnerSideB="cac8af19-67bc-41aa-a3f0-7149af8f67d4:CommunicationPortInterface" />
+
 ```
+
 只有扩展机架连接系统存在的情况下，才能导出扩展机架接口。此外，ET-Con 空接口下添加的空端口数取决于参与模块级扩展机架连接系统的端口数。
 多个机架之间扩展机架连接的 XML 表示将使用以下所示格式完成。
 • ExternalInterface-<ExternalInterface>内部元素应该添加到参与连接的<CommunicationPort> 内部元素下
+
 ```xml
+
 <InternalElement ID="[IM Module Unique ID]" Name="[IM Module Name]">
 <InternalElement ID="[Dummy Interface Unique ID]" Name="RackExtension">
 <Attribute Name="Type" AttributeDataType="xs:string">
@@ -8510,10 +9336,15 @@ RefPartnerSideB="cac8af19-67bc-41aa-a3f0-7149af8f67d4:CommunicationPortInterface
 </InternalElement>
 <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/DeviceItem" />
 </InternalElement>
+
 ```
+
 Internal link- 扩展机架连接使用 <InternalLink> 变量表示。<InternalLink> 变量应该添加到多个机架（即设备）的共同父设备下。内部连接名称在公共父项中是唯一的。
+
 ```text
+
 <InternalLink Name="Link To [Internal link Name]" RefPartnerSideA="[Communication Port UniqueID]:[Communication Port External Interface Name]" RefPartnerSideB="[Communication Port UniqueID]:[Communication Port External Interface Name]" />
+
 ```
 
 #### 导入 AML
@@ -8531,7 +9362,9 @@ Internal link- 扩展机架连接使用 <InternalLink> 变量表示。<InternalL
 ![](images/6c02fe504c1dec06ad25a11070d19a04090d7a7319db377c19bf8f04d186dee4.jpg)
 6.5 导入/导出硬件数据
 在导出期间为上述组态所生成的 AML 文件如下所示。
+
 ```text
+
 <?xml version="1.0" encoding="utf-8"?><CAEXFile
 FileName="ET200SP_with_ET200AL_ExtensionRack_And_SideBySideConnection.aml"
 SchemaVersion="2.15" xsi:noNamespaceSchemaLocation="CAEX_ClassModel_V2.15.xsd">
@@ -8585,9 +9418,13 @@ CommunicationPort" />
 ...
 </InternalElement>
 <InternalElement ID="a0ff4884-cb81-40ed-85c8-823650687a8f" Name="Port_2">
+
 ```
+
 Openness：用于工程组态工作流自动化的 API系统手册, 11/2023
+
 ```xml
+
 <Attribute Name="Label" AttributeDataType="xs:string">
     <Value>X31</Value>
     </Attribute>
@@ -8635,8 +9472,11 @@ Openness：用于工程组态工作流自动化的 API系统手册, 11/2023
     <Value>true</Value>
     </Attribute>
 </Attribute>
+
 ```
+
 ```xml
+
 <ExternalInterface ID="e611d310-9ff7-45bb-b379-36e9cbea5080" Name="CommunicationPortInterface" RefBaseClassPath="AutomationProjectConfigurationInterfaceClassLib/CommunicationPortInterface" />
 <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/CommunicationPort" />
 </InternalElement>
@@ -8677,9 +9517,13 @@ Openness：用于工程组态工作流自动化的 API系统手册, 11/2023
 <Value>2</Value>
 </Attribute>
 <Attribute Name="BuiltIn" AttributeDataType="xs:boolean">
+
 ```
+
 Openness：用于工程组态工作流自动化的 API系统手册, 11/2023
+
 ```xml
+
 <Value>true</Value>
 </Attribute>
 <ExternalInterface ID="ef830254-217a-42b3-b2f1-2363acf79b69"
@@ -8700,7 +9544,9 @@ RefPartnerSideB="e713beda-1d1c-48d7-8674-8640080c87f7:CommunicationPortInterface
 <InternalLink Name="Link To Port_4"
 RefPartnerSideA="0201304e-39a9-4c9a-8316-2dd86fd95d0c:CommunicationPortInterface"
 RefPartnerSideB="b220aab7-ed61-481e-a9e5-5588b510c46c:CommunicationPortInterface" />
+
 ```
+
 对于并列式连接，只有在模块插入位置彼此相邻的情况下，才能导出扩展机架接口。此外，ET-Con 空接口下添加的空端口数取决于参与模块级扩展机架连接系统的端口数。上例中，“DI\_02”模块插入在“DI\_01”与“DI\_03”模块之间，因此，在导出的 AML 文件中，相应的 ET-Con空接口有两个空端口。但如果使用的是“AI\_01”模块，则没有任何并列式模块。因此，在这种情况下，“AI\_01”模块不含任何 ET-Con 空接口详细信息。再次将 AML 文件导入到空 TIA Portal项目会创建同一个具有扩展机架连接的多机架设备。
 • 对于 ET200 AL 和 ET200SP 模块，插入相关模块时，TIA Portal 支持主机架与扩展机架之间的默认连接。在这种情况下，AML 文件中的连接信息在导入过程中不相关。
 • AML 文件中的并列式连接说明在导入过程中不相关，因为并列式连接是在两个相邻模块导入到同一机架时自动建立的。
@@ -8724,8 +9570,11 @@ PLC 变量、变量表和变量用户文件夹可通过 CAx 导入/导出功能�
 • <ExternalInterface>
 表示一个 PLC 变量，专用于相关变量表或变量用户文件夹的内部元素。
 带有 PLC 变量的映射通道通过<internal link>元素导出为通信伙伴。以下 XML 结构显示了一个示例：
+
 ```xml
+
 <InternalLink Name="Link To Tag_1" RefPartnerSideA="b33451f6-d88f-4900-8dbe-41f1be1e3535:Channel_DI_0" RefPartnerSideB="b2b937ee-d5db-4826-9340-027b1da22828:Tag_1" />
+
 ```
 
 #### PLC 变量用户文件夹
@@ -8750,7 +9599,9 @@ TIA Portal V16 支持导出和导入 AR APC V1.1.0 的 AML 文件中的 IoType �
 • 变量用户文件夹“Group\_1”
 • 包括的变量表“Tag table\_1”
 • 四个变量
+
 ```xml
+
 <InternalElement ID="a310b193-ba04-49d7-a8e3-004619c7d9d2" Name="Default tag table">
     <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/TagTable" />
 </InternalElement>
@@ -8780,7 +9631,9 @@ TIA Portal V16 支持导出和导入 AR APC V1.1.0 的 AML 文件中的 IoType �
     <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/TagUserFolder" />
 </InternalElement>
 ...
+
 ```
+
 用于导入/导出的 CAx 数据的结构 (页 1639)
 连接到 TIA Portal (页 90)
 打开项目 (页 140)
@@ -8804,7 +9657,9 @@ TIA Portal 的 AML 文件中只有一个属性适用于 R/H PLC（如果在 TIA 
 ![](images/cf1a2ea723bf6bff2225fdc6b06626cc4a922f006bfd18d023fa1d74e8955ddc.jpg)
 ![](images/f050f95fdc668f16e2e82ae7571b0d3d0e460f817fd99b978caeac5ebdbb506a.jpg)
 下图所示为所导出 R/H PLC 的 AML 文件的结构。
+
 ```xml
+
 <InternalElement ID="e1879cf8-8222-4ce3-b171-60c56aed7f18" Name="PROFINET interface_1">
 <Attribute Name="Label" AttributeDataType="xs:string">
 <Value>X1</Value>
@@ -8834,7 +9689,9 @@ TIA Portal 的 AML 文件中只有一个属性适用于 R/H PLC（如果在 TIA 
 <ExternalInterface ID="802676fa-212f-4bf5-b112-de94993a0340" Name="LogicalEndPoint_Node" RefBaseClassPath="CommunicationInterfaceClassLib/LogicalEndPoint" />
 <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/Node" />
 </InternalElement>
+
 ```
+
 [连接到 TIA Portal](#连接到-TIA-Portal)打开项目 (页 140)
 
 ### 6.5.38 导出/导入带有自定义变量和 deviceitem 的 AML
@@ -8854,7 +9711,9 @@ TIA Portal 的 AML 文件中只有一个属性适用于 R/H PLC（如果在 TIA 
 6.5 导入/导出硬件数据
 导出的 AML 文件
 在导出带有自定义 deviceItem 的 AML 文件期间，将生成以下 AML 文件。
+
 ```xml
+
 <?xml version="1.0" encoding="utf-8"?>
 <CAEXFile FileName="Project26.aml" SchemaVersion="2.15"
 xsi:noNamespaceSchemaLocation="CAEX_ClassModel_V2.15.xsd">
@@ -8901,7 +9760,9 @@ xsi:noNamespaceSchemaLocation="CAEX_ClassModel_V2.15.xsd">
 <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/AutomationProject" />
 </InternalElement>
 </InstanceHierarchy>
+
 ```
+
 Openness：用于工程组态工作流自动化的 API系统手册, 11/2023
 6.5 导入/导出硬件数据
 </CAEXFile>
@@ -8927,7 +9788,9 @@ Openness：用于工程组态工作流自动化的 API系统手册, 11/2023
 6.5 导入/导出硬件数据
 导出文件的 AML 结构
 下图所示为导出的 AML 文件的结构。
+
 ```xml
+
 <InternalElement ID="9c944d2c-e0ae-4f39-b35a-a63faaf35be7" Name="PLC_1">
 <Attribute Name="TypeName" AttributeDataType="xs:string">
 <Value>CPU 1511TF-1 PN</Value>
@@ -8974,9 +9837,13 @@ Openness：用于工程组态工作流自动化的 API系统手册, 11/2023
 <InternalElement ID="5a24516f-17d6-4b2a-a4ac-efc1b577875d" Name="Card reader/writer_1">
 <Attribute Name="PositionNumber" AttributeDataType="xs:int">
 <Value>4</Value>
+
 ```
+
 Openness：用于工程组态工作流自动化的 API系统手册, 11/2023
+
 ```xml
+
 </Attribute>
 <Attribute Name="BuiltIn" AttributeDataType="xs:boolean">
 <Value>true</Value>
@@ -9024,8 +9891,11 @@ Openness：用于工程组态工作流自动化的 API系统手册, 11/2023
 <Attribute Name="BuiltIn" AttributeDataType="xs:boolean">
 <Value>true</Value>
 </Attribute>
+
 ```
+
 ```xml
+
 <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/CommunicationPort" />
 </InternalElement>
 <InternalElement ID="4a47c05e-9656-4e02-9b51-23b065b6fe47" Name="Port_2">
@@ -9074,6 +9944,7 @@ Openness：用于工程组态工作流自动化的 API系统手册, 11/2023
 </Attribute>
 </InternalElement>
 </InternalElement>
+
 ```
 
 #### 设备项的扩展角色
@@ -9086,7 +9957,9 @@ Failsafe\_FDestinationAddress 等扩展属性，则设备项应以附加角色�
 #### 含设备项的 AML 文件
 
 下面的 XML 程序段描述了含有“设备项”的 AML 文件，其支持具有扩展角色的故障安全属性模块。
+
 ```xml
+
 <InternalElement ID="9d6c270a-2a48-426a-9dae-8cf88c5a591a" Name="PLC_1">
 <Attribute Name="TypeName" AttributeDataType="xs:string">
 <Value>CPU 414F-3 PN/DP</Value>
@@ -9119,7 +9992,9 @@ Failsafe\_FDestinationAddress 等扩展属性，则设备项应以附加角色�
 <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationRoleClassLib/DeviceItem" />
 <SupportedRoleClass RefRoleClassPath="AutomationProjectConfigurationProfiSafeRoleClassLib/DeviceItemProfiSafe" />
 </InternalElement>
+
 ```
+
 [连接到 TIA Portal](#连接到-TIA-Portal)
 打开项目 (页 140)
 
