@@ -4,13 +4,13 @@
 :caption: 目录
 :maxdepth: 2
 
-chapter_01_1 网络安全信息
-chapter_02_2 TIA Portal Openness 自述文件
-chapter_03_3 TIA Portal Openness 中的新功能
-chapter_04_4 基本知识
-chapter_05_5 TIA Portal Openness API
-chapter_06_6 导出导入
-chapter_07_7 主要变化
+1 网络安全信息
+2 TIA Portal Openness 自述文件
+3 TIA Portal Openness 中的新功能
+4 基本知识
+5 TIA Portal Openness API
+6 导出导入
+7 主要变化
 ```
 
 ## 快速开始 (C#)
