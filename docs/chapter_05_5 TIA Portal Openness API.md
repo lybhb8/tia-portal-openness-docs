@@ -19,7 +19,7 @@
 下图所示为位于 PlcSoftware 下的对象。
 5.1 TIA Portal Openness 对象
 ![](images/0057a9f3eb81ab917e49ffb514940d3b8c71d6d130f92de80ae301f738fb5cb1.jpg)
-\*强制表必须位于 PlcWatch 和 ForceTableSystemGroup 中
+*强制表必须位于 PlcWatch 和 ForceTableSystemGroup 中
 
 #### 访问列表中的对象
 
@@ -45,7 +45,7 @@ Screen screen = screens.Find("myScreen");
 简介
 下图所示为 PLC 的域模型，其中简要介绍了 TIA Portal Openness 中的当前模型。
 ![](images/99dcdb6ef689873cc53c86e9c87e002bbb7ab275e0a746cca14cd9fffd38d989.jpg)
-\* 强制表必须位于 PlcWatch 和 ForceTableSystemGroup 中
+* 强制表必须位于 PlcWatch 和 ForceTableSystemGroup 中
 
 #### TIA Portal Openness API 中块和类型的表示
 
@@ -4172,7 +4172,7 @@ void Export(' ' 'FileInfo'' exportFileInfo, ' ' 'ExportOptions'' exportOptions)
 ```
 在以下情况下将发生异常：
 • 出现“无法导出，因为版本数据处于正在使用中状态”用户异常，且要导出的版本处于“测试中”状态
-• 出现常规用户 DataExchange，如“无法导出，因为文件‘D:\\\*.xml’已存在”的“FileAlreadyExists”异常。
+• 出现常规用户 DataExchange，如“无法导出，因为文件‘D:\\*.xml’已存在”的“FileAlreadyExists”异常。
 
 #### 库类型版本工程组态对象
 
@@ -5621,7 +5621,7 @@ string typeIdentifier = subnet.TypeIdentifier;
 <table><tr><td>属性</td><td>数据类型</td><td>可写</td><td>访问</td><td>描述</td></tr><tr><td>Name</td><td>string</td><td>读/写</td><td>动态</td><td>子网的名称</td></tr><tr><td>NetType</td><td>NetType</td><td>读取</td><td>模型化</td><td>子网的类型。</td></tr><tr><td>IsochronousMode</td><td>bool</td><td>读取</td><td>动态</td><td>已启用恒定总线循环时间</td></tr><tr><td>SourceCycleTime*</td><td>Int32</td><td>读/写</td><td>动态</td><td>总线源循环时间</td></tr></table>
 5.8 网络功能
 <table><tr><td>属性</td><td>数据类型</td><td>可写</td><td>访问</td><td>描述</td></tr><tr><td>DpCycleTime</td><td>double</td><td>读/写</td><td>动态</td><td>DP 循环时间</td></tr><tr><td>IsochronousTiTo AutoCalculation</td><td>bool</td><td>读/写</td><td>动态</td><td>如果启用了自动计算和设置 Ti(在过程值中读取)及 To(输出过程值)值,则为“真”。</td></tr><tr><td>IsochronousTi</td><td>double</td><td>读/写</td><td>动态</td><td>时间 Ti(在过程值中读取)</td></tr><tr><td>IsochronousTo</td><td>double</td><td>读/写</td><td>动态</td><td>时间 To(输出过程值)</td></tr></table>
-\*SourceCycleTime 支持以下枚举值：
+*SourceCycleTime 支持以下枚举值：
 <table><tr><td>枚举名称</td><td>值</td></tr><tr><td>Manual</td><td>0</td></tr><tr><td>AutomaticMinimum</td><td>1</td></tr><tr><td>LocalSendClock</td><td>2</td></tr><tr><td>ProfinetSendClock</td><td>3</td></tr></table>
 修改以下程序代码以获取或设置子网的属性：
 ```lua
@@ -11735,10 +11735,10 @@ TIA Portal Openness API 接口支持生成 STL 或 SCL 块、数据块和 PLC �
 块仅支持 STL 和 SCL 编程语言。在以下情况下会发生异常：
 • 编程语言不是 STL 或 SCL
 • 目标位置已存在同名文件
-用户数据类型仅支持“\*.udt”文件扩展名。在以下情况下会发生异常：
-• 对于 DB，文件扩展名不是“\*.db”
-• 对于 STL 块，文件扩展名不是“\*.awl”
-• 对于 SCL 块，文件扩展名不是“\*.scl”
+用户数据类型仅支持“*.udt”文件扩展名。在以下情况下会发生异常：
+• 对于 DB，文件扩展名不是“*.db”
+• 对于 STL 块，文件扩展名不是“*.awl”
+• 对于 SCL 块，文件扩展名不是“*.scl”
 修改以下程序代码，根据块和类型生成源文件：
 ```text
 PlcExternal质量安全Group.GenerateSource(IEnumerable<IGenerateSource> plcBlocks, FileInfo sourceFile, GenerateOptions generateOptions);
@@ -12188,7 +12188,7 @@ S7-1500 Motion Control (页 629)
 
 下表列出了具体的数据类型映射：
 <table><tr><td>格式</td><td>TIA Portal 中的数据类型</td><td>C# 中的数据类型</td></tr><tr><td>二进制数字</td><td>Bool</td><td>bool</td></tr><tr><td></td><td>BBool</td><td>bool</td></tr><tr><td></td><td>Byte</td><td>byte</td></tr><tr><td></td><td>Word</td><td>ushort</td></tr><tr><td></td><td>DWord</td><td>uint</td></tr><tr><td></td><td>LWord</td><td>ulong</td></tr><tr><td>整型</td><td>SInt</td><td>sbyte</td></tr><tr><td></td><td>Int</td><td>short</td></tr><tr><td></td><td>Dint</td><td>int</td></tr><tr><td></td><td>LInt</td><td>long</td></tr><tr><td></td><td>USInt</td><td>byte</td></tr><tr><td></td><td>UInt</td><td>ushort</td></tr><tr><td></td><td>UDint</td><td>uint</td></tr><tr><td></td><td>ULInt</td><td>ulong</td></tr><tr><td>浮点数</td><td>Real</td><td>float</td></tr><tr><td></td><td>LReal</td><td>double</td></tr><tr><td></td><td>Time</td><td>double</td></tr><tr><td>字符串</td><td>Char</td><td>char</td></tr><tr><td></td><td>WChar</td><td>char</td></tr><tr><td></td><td>String</td><td>string</td></tr><tr><td></td><td>WString</td><td>string</td></tr><tr><td>硬件数据类型</td><td>HW_*</td><td>ushort</td></tr><tr><td></td><td>Block_*</td><td>ushort</td></tr></table>
-\* TIA Portal 项目中设备类型扩展的占位符
+* TIA Portal 项目中设备类型扩展的占位符
 
 #### 5.11.4.4 查询工艺对象的组成
 
@@ -18927,7 +18927,7 @@ HMI 自定义 Web 控件容器中支持以下属性：
 <table><tr><td>属性名称</td><td>属性类型</td><td>描述</td><td>可访问性</td></tr><tr><td>Authorization</td><td>string</td><td>指定自定义 Web 控件容器的授权</td><td>读/写</td></tr><tr><td>EventHandlers</td><td>HmiCustomWebControlContainerEventHandlerComposition</td><td>指定自定义 Web 控件容器的事件处理器</td><td>读</td></tr><tr><td>Interface</td><td>HmiCustomControlInterfaceComposition</td><td>指定自定义 Web 控件容器的界面</td><td>读</td></tr><tr><td>RequireExplicitUnlock</td><td>bool</td><td>指定是否需要显式解锁</td><td>读/写</td></tr><tr><td>Left</td><td>int</td><td>指定控件窗口的 X 坐标的值</td><td>读/写</td></tr><tr><td>Caption</td><td>HmiTextPart</td><td>指定要在画面窗口或窗口控件(标签)的说明中显示的文本</td><td>读</td></tr><tr><td>CaptionColor</td><td>Color</td><td>指定自定义 Web 控件容器的说明颜色</td><td>读/写</td></tr><tr><td>ContainedType</td><td>string</td><td>指定包含的面板类型</td><td>读/写</td></tr><tr><td>CurrentQuality</td><td>HmiQuality</td><td>指定自定义 Web 控件容器的连接状态</td><td>读</td></tr><tr><td>Dynamization</td><td>DynamizationBaseComposition</td><td>指定自定义 Web 控件容器的动态化</td><td>读</td></tr><tr><td>Enabled</td><td>bool</td><td>指定允许操作控件是否已启用</td><td>读/写</td></tr><tr><td>Height</td><td>uint</td><td>指定自定义 Web 控件容器的高度</td><td>读/写</td></tr><tr><td>Icon</td><td>string</td><td>指定自定义 Web 控件容器的图标</td><td>读/写</td></tr><tr><td>Name</td><td>string</td><td>指定自定义 Web 控件容器的名称</td><td>读/写</td></tr><tr><td>PropertyEventHandlers</td><td>PropertyEventHandlerComposition</td><td>指定自定义 Web 控件容器的属性事件处理器</td><td>读</td></tr><tr><td>ShowFocusVisual</td><td>bool</td><td>指定显示焦点是否已启用</td><td>读/写</td></tr></table>
 5.13 HMI Unified 设备的数据访问函数 (RT Unified)
 <table><tr><td>属性名称</td><td>属性类型</td><td>描述</td><td>可访问性</td></tr><tr><td>TabIndex</td><td>ushort</td><td>指定选项卡索引为0的画面项不包含在选项卡顺序中</td><td>读/写</td></tr><tr><td>Top</td><td>int</td><td>指定自定义Web控件容器的Y坐标的值</td><td>读/写</td></tr><tr><td>Visible</td><td>bool</td><td>指定自定义Web控件容器的可见性</td><td>读/写</td></tr><tr><td>Width</td><td>uint</td><td>指定控件窗口的宽度</td><td>读/写</td></tr><tr><td>WindowFlags</td><td>HmiWindowFlag</td><td>指定窗口组态,如ShowCaption、ShowBorder、AlwaysOnTop。</td><td>读/写</td></tr></table>
-访问 HMI 自定义 Web 控件容器的路径位于以下位置：C:\ProgramFiles\SiemensAutomation\Portal V\*\Data\Hmi\CustomControls其中，V\* 指已安装的 TIA Portal 版本。
+访问 HMI 自定义 Web 控件容器的路径位于以下位置：C:\ProgramFiles\SiemensAutomation\Portal V*\Data\Hmi\CustomControls其中，V* 指已安装的 TIA Portal 版本。
 • 可访问 HMI 软件对象
 请参见“HMISoftware 说明 (页 748)”
 要访问 HMI 自定义 Web 控件容器类型的工厂概览控件，请修改以下程序代码：
@@ -25623,7 +25623,7 @@ EngineeringExceptions 包括以下类型：
 ```
 下面的表格列举了设备及其类型标识符的分配。
 <table><tr><td>SINUMERIK NCU</td><td>类型标识符</td></tr><tr><td>SINUMERIK 840D sl NCU 710.3 PN</td><td>订货号:6FC5 371-0AA30-0Axx/Vy.z</td></tr><tr><td>SINUMERIK 840D sl NCU 720.3 PN</td><td>订货号:6FC5 372-0AA30-0Axx/Vy.z</td></tr><tr><td>SINUMERIK 840D sl NCU 730.3 PN</td><td>订货号:6FC5 373-0AA30-0Axx/Vy.z</td></tr><tr><td>SINUMERIK 840D sl NCU 730.3 PN /319</td><td>订货号:6FC5 373-0AA31-0Axx/Vy.z</td></tr></table>
-创建 SINUMERIK 设备时，允许将占位符放入类型标识符。之后您可以用设备特定的符号代替这些占位符。比如，如果输入类型标识符“OrderNumber:6FC5 372-0\*\*\*0-0AA0/V4.8”，那么系统将会创建固件版本为 FW4.8 的 SINUMERIK 840D sl NCU 720.3 PN。
+创建 SINUMERIK 设备时，允许将占位符放入类型标识符。之后您可以用设备特定的符号代替这些占位符。比如，如果输入类型标识符“OrderNumber:6FC5 372-0***0-0AA0/V4.8”，那么系统将会创建固件版本为 FW4.8 的 SINUMERIK 840D sl NCU 720.3 PN。
 
 #### 设备元素的分类
 
@@ -29165,7 +29165,7 @@ channel.SetAttribute("OperatingMode", OperatingMode.TimerDQ);
 特性
 通过 TIA Portal Openness，可访问包含 ischronous 的以下 PROFIdrive Integrated 属性：
 <table><tr><td>属性</td><td>数据类型</td><td>可写</td><td>访问</td><td>描述</td></tr><tr><td>Name</td><td>string</td><td>读/写</td><td>动态</td><td>子网的名称</td></tr><tr><td>NetType</td><td>NetType</td><td>读取</td><td>模型化</td><td>子网的类型。</td></tr><tr><td>IsochronousMode</td><td>bool</td><td>读取</td><td>动态</td><td>已启用恒定总线循环时间</td></tr><tr><td>SourceCycleTime*</td><td>Int32</td><td>读/写</td><td>动态</td><td>总线源循环时间</td></tr><tr><td>DpCycleTime</td><td>double</td><td>读/写</td><td>动态</td><td>DP 循环时间</td></tr><tr><td>IsochronousTiToAutoCalculation</td><td>bool</td><td>读/写</td><td>动态</td><td>如果启用了自动计算和设置 Ti(在过程值中读取)及 To(输出过程值)值,则为“真”。</td></tr><tr><td>IsochronousTi</td><td>double</td><td>读/写</td><td>动态</td><td>时间 Ti(在过程值中读取)</td></tr><tr><td>IsochronousTo</td><td>double</td><td>读/写</td><td>动态</td><td>时间 To(输出过程值)</td></tr></table>
-\*SourceCycleTime 支持以下枚举值：
+*SourceCycleTime 支持以下枚举值：
 <table><tr><td>枚举名称</td><td>值</td></tr><tr><td>Manual</td><td>0</td></tr><tr><td>AutomaticMinimum</td><td>1</td></tr><tr><td>LocalSendClock</td><td>2</td></tr><tr><td>ProfinetSendClock</td><td>3</td></tr></table>
 修改以下程序代码以访问 PROFIdrive Integrated 的属性：
 ```text

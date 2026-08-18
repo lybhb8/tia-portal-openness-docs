@@ -98,13 +98,13 @@ private static ulong GetPortValue(Siemens.Engineering.HW.DeviceItem item)
 
 ### 硬件参数
 
-Siemens\Automation\Portal V\*\PublicAPI\V\*\HW Parameter
+Siemens\Automation\Portal V*\PublicAPI\V*\HW Parameter
 Description\Openness\_hardware\_parameter\_description.pdf 下的 TIA Portal 安装文件夹中提供了硬件参数的说明
 属性可以具有依赖性并相互影响。因此，如果设备项或通道的属性已改变，则必须验证设备项或通道的所有属性。
 
 ### 说明
 
-V\* 指根据安装的 TIA Portal 版本调整的路径。
+V* 指根据安装的 TIA Portal 版本调整的路径。
 
 ### 复制 TIA Portal Openness 应用程序
 
@@ -154,10 +154,10 @@ TIA Portal Test Suite 的 Openness 支持在 Test Suite V19 的相应在线帮�
 ### 通过 AML 导入 ASi 从站
 
 如果下列 ASi 从站之一通过 aml 文件导入，则不论在何种情况下，设备项的固件版本均会设置为 V13.0:
-• ASIsafe FS400 RCV-B: 3SF7 844-\*B\*\*\*\*-\*\*\*\*1
+• ASIsafe FS400 RCV-B: 3SF7 844-*B****-****1
 • ASIsafe FS400 RCV-M: 3SF7 844- $^{*}$ M $^{***}$ - $^{***}$ 1
 • ASIsafe FS400 TRX-M: 3SF7 844- $^{*}$ M $^{***}$ - $^{**}$ TO
-• ASIsafe FS400 RCV-C: 3SF7 844-\*T\*\*\*-\*\*\*1
+• ASIsafe FS400 RCV-C: 3SF7 844-*T***-***1
 
 ### 功能键的导出和导入
 
@@ -271,7 +271,7 @@ multilingualTextItem1.Text = "<body><p>Modified button text from Openness</p></b
 
 如果考虑了关于编写长期稳定代码的一些提示，则可在不修改应用程序代码的前提下将您的应用程序用于其他版本的 TIA Portal。
 说明
-文档中的 V\* 和 \*.ap\* 分别指根据安装的 TIA Portal 版本调整的路径和扩展名。
+文档中的 V* 和 *.ap* 分别指根据安装的 TIA Portal 版本调整的路径和扩展名。
 
 ### 注册路径和 appconfig 文件
 
@@ -279,7 +279,7 @@ multilingualTextItem1.Text = "<body><p>Modified button text from Openness</p></b
 "C:\Program Files\Siemens\Automation\Portal V14\PublicAPI\V14"
 SP1\Siemens.Engineering.dll"
 必须更改为
-"C:\Program Files\Siemens\Automation\Portal V\*\PublicAPI\V\*\Siemens.Engineering.dll"
+"C:\Program Files\Siemens\Automation\Portal V*\PublicAPI\V*\Siemens.Engineering.dll"
 要编写长期稳定的代码，注册路径应是可组态的，且必须更新应用程序组态文件。
 
 ### 安装路径
@@ -288,15 +288,15 @@ SP1\Siemens.Engineering.dll"
 "C:\Program Files\Siemens\Automation\Portal V14\PublicAPI\V14"
 SP1\Siemens.Engineering.dll"
 必须更改为
-"C:\Program Files\Siemens\Automation\Portal V\*\PublicAPI\V\*\Siemens.Engineering.dll"
+"C:\Program Files\Siemens\Automation\Portal V*\PublicAPI\V*\Siemens.Engineering.dll"
 要编写长期稳定的代码，安装路径应是可组态的。
 
 ### TIA Portal 项目文件和库的扩展名
 
 更改 TIA Portal 项目文件和库的扩展名时需做适当修改，例如：
-\*.ap14
+*.ap14
 必须更改为
-\*.ap\*
+*.ap*
 要编写长期稳定的代码，TIA Portal 项目文件和库的扩展名应是可组态的。
 
 ### 打开项目
@@ -318,13 +318,13 @@ SP1\Siemens.Engineering.dll"
 - Siemens.Engineering.dll 汇编程序
 由于 V16、V17 和 V18 的 Siemens.Engineering.dll 汇编程序包含在供货范围内，因此基于 V16、V17 和 V18 的应用程序无需修改即可在 V19 中运行。要利用 V19 的功能，必须集成 V19 的 dll 并重新编译应用程序。
 Siemens.Engineering.dll 汇编程序位于安装目录中的“PublicAPI\[version]”下。例如，可以在“C:\Program Files\Siemens\Automation\Portal
-V\*\PublicAPI\V19\Siemens.Engineering.dll"中找到 V19 dll 文件。
+V*\PublicAPI\V19\Siemens.Engineering.dll"中找到 V19 dll 文件。
 V15.1 Siemens.Engineering.dll 不再作为 TIA Portal Openness V19 的一部分提供。
 - 导出 Simatic ML 文件
 V16、V17 和 V18 的 Siemens.Engineering.dll 汇编程序将创建 TIA Portal 版本 V19 的 Simatic ML 文件。
 - 导入 Simatic ML 文件
 每个 Siemens.Engineering.dll 汇编程序都可以导入对应版本和任何早期版本所支持版本的 Simatic ML 文件。例如，可通过 Siemens.Engineering.dll 汇编程序 V19 导入 V18 的 Simatic ML 文件。
-V\* 指已安装的 TIA Portal Openness API 版本。
+V* 指已安装的 TIA Portal Openness API 版本。
 有关对象模型更改的更多信息，[TIA Portal Openness 对象模型](#TIA-Portal-Openness-对象模型)”。
 
 ### 新增功能

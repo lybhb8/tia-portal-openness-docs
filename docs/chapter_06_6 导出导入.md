@@ -228,7 +228,7 @@ ID"default"作为被选为缺省语言的语言的文件扩展名。
 • 已打开一个项目。
 请[打开项目](#打开项目)
 可导出所有语种项目的图形集合中的单一图形或所有图形。与所有项目图形条目有关的 XML文件将在导出过程中进行创建，并与导出的图形一起被引用。相关图形和 XML 一起保存到文件系统的相同目录下。
-要允许更改导出的图形（“\*.jpg”、“\*.bmp”、“\*.png”、“\*.ico”等），这些图形不应进行写保护。## 程序代码：导出图形
+要允许更改导出的图形（“*.jpg”、“*.bmp”、“*.png”、“*.ico”等），这些图形不应进行写保护。## 程序代码：导出图形
 修改以下程序代码以导出所需图形：
 ```typescript
 //Exports all language variants of a single grafic
@@ -283,7 +283,7 @@ ImportOptions.Override);
 • 已打开一个项目。
 [打开项目](#打开项目)”
 应用
-在 TIA Portal 中，该项目文本位于项目的“语言和资源 (Language & resources)”节点中。这些文本信息将导出到一个“\*.xlsx”文件中，用作翻译示例。导出和导入项目文本的限制与 UI 中的限制相同。这些限制包括：
+在 TIA Portal 中，该项目文本位于项目的“语言和资源 (Language & resources)”节点中。这些文本信息将导出到一个“*.xlsx”文件中，用作翻译示例。导出和导入项目文本的限制与 UI 中的限制相同。这些限制包括：
 • 导出的文本只能导入到其导出时所处的项目中。
 • 只能将文本翻译成项目中可用的语言。必要时，可通过 TIA Portal Openness 添加项目语言。
 • 只能重新导入现有文本，如果已删除或者重新创建原始项目中的文本，则该文本的导入会失败。
@@ -2453,16 +2453,16 @@ XML 文件始终包含两个主要部分：
 接口
 接口可包含多个部分（例如，输入、输入输出和静态）：在以下目录中给出了该架构下的所有相关部分：
 • C:\Program Files\Siemens\Automation\Portal
-V\*\PublicAPI\V\*\Schemas\SW.InterfaceSections\_v3.xsd
-• C:\Program Files\Siemens\Automation\Portal V\*\PublicAPI\V\*\Schemas\SW.Interface.Snapshot .xsd
+V*\PublicAPI\V*\Schemas\SW.InterfaceSections\_v3.xsd
+• C:\Program Files\Siemens\Automation\Portal V*\PublicAPI\V*\Schemas\SW.Interface.Snapshot .xsd
 
 ##### 编译单元
 
 对于 GRAPH、LAD/FBD、STL 和 SCL 块的编译单元，存在多个架构。可以在以下目录中找到这些架构：
-• GRAPH：C:\Program Files\Siemens\Automation\Portal V\*\PublicAPI\V\*\Schemas\SW.PlcBlocks.Graph\_v4.xsd
-• LAD/FBD：C:\Program Files\Siemens\Automation\PortalV\*\PublicAPI\V\*\Schemas\SW.PlcBlocks.LADFBD\_v3.xsd
-• STL：C:\Program Files\Siemens\Automation\Portal V\*\PublicAPI\V\*\Schemas\SW.PlcBlocks.STL\_v3.xsd
-• SCL：C:\Pogram Files\Siemens\Automation\Portal V\*\PublicAPI\V\*\Schemas\ SW.PlcBlocks.SCL\_v2.xsd
+• GRAPH：C:\Program Files\Siemens\Automation\Portal V*\PublicAPI\V*\Schemas\SW.PlcBlocks.Graph\_v4.xsd
+• LAD/FBD：C:\Program Files\Siemens\Automation\PortalV*\PublicAPI\V*\Schemas\SW.PlcBlocks.LADFBD\_v3.xsd
+• STL：C:\Program Files\Siemens\Automation\Portal V*\PublicAPI\V*\Schemas\SW.PlcBlocks.STL\_v3.xsd
+• SCL：C:\Pogram Files\Siemens\Automation\Portal V*\PublicAPI\V*\Schemas\ SW.PlcBlocks.SCL\_v2.xsd
 
 ##### 子架构
 
@@ -2610,7 +2610,7 @@ SCL 块中的单行和多行注释用 LineComment XML 变量表示。
 • 在 SCL 中不使用 Comment 变量（用于多语言注释）。
 • 包含 Inserted 属性，默认值为 false
 • Inserted="false" 表示 SCL 块中的 "//" 单行注释。
-• Inserted="true" 表示 SCL 块中的 "(\*\*)" 多行注释。
+• Inserted="true" 表示 SCL 块中的 "(**)" 多行注释。
 • NoClosingBracket="true" 表示 SCL 块中的注释没有闭括号。此属性是可选的，默认值为false。
 • XML 不表示 SCL 块中的注释层级结构。
 <table><tr><td>SCL 块</td><td>XML 变量</td></tr><tr><td rowspan="3">// one line comment</td><td></td></tr><tr><td>one line comment</td></tr><tr><td></td></tr><tr><td rowspan="3">(* one line commentsecond line *)</td><td></td></tr><tr><td>one linecommentsecondline</td></tr><tr><td></td></tr></table>
@@ -4994,7 +4994,7 @@ OrderNumber:6ES7 390-1AE80-0AA0
 OrderNumber:6ES7 390-1AE80-0A*0
 ```
 读取类型标识符时返回的值始终是硬件目录中的订货号。
-示例：读取 OrderNumber:6ES7 390-1AE80-0AA0 将返回 OrderNumber:6ES7390-1\*\*\*0-0AA0
+示例：读取 OrderNumber:6ES7 390-1AE80-0AA0 将返回 OrderNumber:6ES7390-1***0-0AA0
 
 #### Type identifier type：GSD
 
@@ -6991,7 +6991,7 @@ CAx 导入操作受限。如果用户具有上述访问权限，则导入应成�
 为了导出 TIA Portal V16 及更低版本的 TypeIdentifier 格式，添加了新的设置：
 ![](images/8df91413fdf6862b5b34ed3cf891fd910f1842da0e274fef7860168cc6cd18f9.jpg)
 如果选中“使用 V16 及更低版本中的 TypeIdentifier 格式”(With TypeIdentifier format fromV16 and below) 这一复选框，AML 中的 TypeIdentifier 值将以旧格式导出，例如OrderNumber:6ES7 516-3AN00-0AB0。
-如果取消选中该复选框，则在导出 AML 中的TypeIdentifier值时，订货号通配符以“\*”表示，且将移除空格，例如 OrderNumber:6ES7590-1\*\*\*0-0AA0。
+如果取消选中该复选框，则在导出 AML 中的TypeIdentifier值时，订货号通配符以“*”表示，且将移除空格，例如 OrderNumber:6ES7590-1***0-0AA0。
 导入过程中，任意通配符和空格均将作为TypeIdentifier 订货号的一部分被接受。
 
 ### 6.5.19 导入 CAx 数据（无逻辑地址）
@@ -7192,9 +7192,9 @@ CAx 实现基于 TIA Openness Public API's。仅当用户在安装 TIA Portal �
 在 GUI 的 CAx 导出期间
 ![](images/77936f5fc907db95ed9bca7fea2f45a2f0f3e8a24ba0186dbe4212dcd633c2e7.jpg)
 为在项目升级期间支持先前项目版本的 AML 双向交换，AML GUID 现在存储在
-“CustomIdentity”(App ID) 而非设备/设备项的“Comment”部分。预期设备/设备项的 AMLGUID 将唯一且可以任何编辑语言存储。因此，在项目升级期间，视为所有注释编辑语言获取唯一的 AML GUID。尽管设备/设备项的 AML GUID 唯一，但如果将包含匹配 [AR\_APC:ID:\*]正则表达式新的 GUID 以任何编辑语言添加到注释，则从编辑语言拾取的第一个 GUID 将被视为设备/设备项的 AML GUID。
-注释中的 AML GUID 移动到 CustomIdentity 后，将通过移除下图中所示的 [AR\_APC:ID:\*] 更新设备/设备项注释
-如果注释包含多个 [AR\_APC:ID:\*] 部分，则与该模式匹配的 GUID 会设置到 CustomIdentity库，且会从注释中移除相同内容。其余文本将视为注释。
+“CustomIdentity”(App ID) 而非设备/设备项的“Comment”部分。预期设备/设备项的 AMLGUID 将唯一且可以任何编辑语言存储。因此，在项目升级期间，视为所有注释编辑语言获取唯一的 AML GUID。尽管设备/设备项的 AML GUID 唯一，但如果将包含匹配 [AR\_APC:ID:*]正则表达式新的 GUID 以任何编辑语言添加到注释，则从编辑语言拾取的第一个 GUID 将被视为设备/设备项的 AML GUID。
+注释中的 AML GUID 移动到 CustomIdentity 后，将通过移除下图中所示的 [AR\_APC:ID:*] 更新设备/设备项注释
+如果注释包含多个 [AR\_APC:ID:*] 部分，则与该模式匹配的 GUID 会设置到 CustomIdentity库，且会从注释中移除相同内容。其余文本将视为注释。
 
 #### 复制导入的设备
 
