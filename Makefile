@@ -1,58 +1,82 @@
-# Makefile for TIA Portal Openness Documentation
+PYTHON ?= python3.10
 
-.PHONY: help clean html pdf test test-content test-links test-build
+.PHONY: all
+all: format style-check type-check doclinter test
 
-help:
-	@echo "Available commands:"
-	@echo "  make html      - Build HTML documentation"
-	@echo "  make pdf       - Build PDF documentation"
-	@echo "  make clean     - Remove build artifacts"
-	@echo "  make test      - Run all tests"
-	@echo "  make test-build    - Run build tests"
-	@echo "  make test-content  - Run content tests"
-	@echo "  make test-links    - Run link tests"
-	@echo "  make test-examples - Run example tests"
+.PHONY: check
+check: style-check type-check doclinter
 
-html:
-	python -m sphinx -b html docs/ _build/html/
-	@echo ""
-	@echo "Build complete. Open _build/html/index.html in your browser."
+.PHONY: clean
+clean: clean
+	# clean Python cache files:
+	find . -name '*.pyc' -exec rm -f {} +
+	find . -name '*.pyo' -exec rm -f {} +
+	find . -name __pycache__ -exec rm -rf {} +
 
-pdf:
-	python -m sphinx -b latex docs/ _build/latex/
-	@cd _build/latex/ && make
-	@echo ""
-	@echo "PDF build complete. Check _build/latex/*.pdf"
+	# clean backup files:
+	find . -name '*~' -exec rm -f {} +
+	find . -name '*.bak' -exec rm -f {} +
+	find . -name '*.swp' -exec rm -f {} +
+	find . -name '*.swo' -exec rm -f {} +
 
-clean:
-	rm -rf _build/
-	rm -rf docs/_build/
-	rm -rf docs/_static/
-	rm -rf docs/_sources/
-	@echo "Cleaned build artifacts."
+	# clean generated:
+	find . -name '.DS_Store' -exec rm -f {} +
 
-test: test-build test-content test-links test-examples
-	@echo ""
-	@echo "All tests completed."
+	# clean rendered documentation:
+	rm -rf doc/build/
+	rm -rf doc/_build/
+	rm -rf build/sphinx/
 
-test-build:
-	@echo "Running build tests..."
-	python tests/test_build.py
+	# clean caches:
+	find . -name '.mypy_cache' -exec rm -rf {} +
+	find . -name '.ruff_cache' -exec rm -rf {} +
 
-test-content:
-	@echo "Running content tests..."
-	python tests/test_content.py
+	# clean test files:
+	rm -rf tests/.coverage
+	rm -rf tests/build
+	rm -rf .tox/
+	rm -rf .cache/
+	find . -name '.pytest_cache' -exec rm -rf {} +
+	rm -f tests/test-server.lock
 
-test-links:
-	@echo "Running link tests..."
-	python tests/test_links.py
+	# clean build files:
+	rm -rf dist/
+	rm -rf build/
 
-test-examples:
-	@echo "Running example tests..."
-	python tests/test_examples.py
+.PHONY: style-check
+style-check:
+	@echo '[+] running flake8' ; flake8 .
+	@echo '[+] running ruff' ; ruff check .
 
-watch:
-	@sphinx-autobuild docs/ _build/html/
+.PHONY: format
+format:
+	@ruff format .
 
-serve:
-	@python -m http.server 8000 --directory _build/html
+.PHONY: type-check
+type-check:
+	@mypy
+
+.PHONY: doclinter
+doclinter:
+	@sphinx-lint --enable all --disable triple-backticks --max-line-length 85 --sort-by filename,line \
+			     $(addprefix -i doc/, _build _static _templates _themes) \
+	             AUTHORS.rst CHANGES.rst CODE_OF_CONDUCT.rst CONTRIBUTING.rst README.rst doc/
+
+.PHONY: test
+test:
+	@$(PYTHON) -X dev -X warn_default_encoding -m pytest -v $(TEST)
+
+.PHONY: covertest
+covertest:
+	@$(PYTHON) -X dev -X warn_default_encoding -m pytest -v --cov=sphinx --junitxml=.junit.xml $(TEST)
+
+.PHONY: build
+build:
+	@$(PYTHON) -m build .
+
+.PHONY: docs
+docs:
+ifndef target
+	$(info You need to provide a target variable, e.g. `make docs target=html`.)
+endif
+	$(MAKE) -C doc $(target)
