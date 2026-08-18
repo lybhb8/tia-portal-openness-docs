@@ -1,7 +1,6 @@
 # TIA Portal Openness 系统文档
 
 ```{toctree}
-
 :caption: 目录
 :maxdepth: 2
 
@@ -12,18 +11,15 @@ chapter_04_4 基本知识
 chapter_05_5 TIA Portal Openness API
 chapter_06_6 导出导入
 chapter_07_7 主要变化
-
 ```
 
 ## 快速开始 (C#)
 
 ```csharp
-
 using Siemens.Engineering;
 
 var portal = Engineering.Create("TIA Portal");
 var project = portal.GetCurrentProcess();
-
 ```
 
 ## 文档导航
