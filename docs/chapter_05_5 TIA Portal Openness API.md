@@ -7754,7 +7754,7 @@ Assert.AreEqual(0, compileResult?.ErrorCount);
 重载 Create() 接受 Openness 中的以下参数名：
 <table><tr><td>参数</td><td>返回类型</td><td>描述</td></tr><tr><td>Create(NetworkInterface, TransferAreaType)</td><td>MulticastableTransferArea</td><td>创建一个传输区域,并将其添加到指定网络接口上具有指定状态(例如DDX)的现有CCDX连接</td></tr><tr><td>Create(NetworkInterface, TransferAreaType, Name)</td><td>MulticastableTransferArea</td><td>通过指定的名称创建一个传输区域,并将其添加到指定网络接口上具有指定状态(例如DDX)的现有CCDX连接</td></tr><tr><td>Create(NetworkInterface, TransferAreaType, Name, Length)</td><td>MulticastableTransferArea</td><td>通过指定的名称和长度创建一个传输区域,并将其添加到指定网络接口上具有指定状态(例如DDX)的现有CCDX连接。</td></tr><tr><td>Create(MulticastableTransferArea, TransferAreaType)</td><td>MulticastableTransferArea</td><td>新建一个具有指定类型的传输区域,并将分配为现有发送方端传输区域的接收方。</td></tr></table>
 
-```aidl
+```text
 
 // Given the NetworkInterfaces
 private void CreatingTransferArea()
