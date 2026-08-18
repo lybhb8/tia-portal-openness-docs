@@ -1,0 +1,280 @@
+{# Sphinx layout template for the sphinxdoc theme. #}
+{%- extends "basic/layout.html" %}
+
+{% block extrahead %}
+{{ super() }}
+{%- if not embedded and pagename == root_doc %}
+<style>.related { display: none; }</style>
+{%- endif %}
+{% endblock %}
+
+{% block header %}
+{{ svgs() }}
+<div class="pageheader">
+  <div class="brand">
+    <a href="{{ pathto(root_doc)|e }}">
+      <img src="{{ pathto('_static/sphinx-logo.svg', resource=true) }}" alt="logo" />
+      <span>SIEMENS</span>
+    </a>
+  </div>
+
+  <div class="icons">
+  
+  </div> 
+  
+  <div class="icons">
+  
+  </div>
+
+  <div class="icons">
+  
+  </div> 
+  
+  <div class="icons">
+  
+  </div>
+
+  <div class="icons">
+  
+  </div> 
+  
+  <div class="icons">
+  
+  </div>
+    
+  <div class="icons">
+  
+  </div> 
+  
+  <div class="icons">
+  
+  </div>
+  <div class="icons">
+  
+  </div> 
+  
+  <div class="icons">
+  
+  </div>
+
+  <div class="icons">
+  
+  </div> 
+  
+  <div class="icons">
+  
+  </div>
+
+  <div class="icons">
+  
+  </div> 
+  
+  <div class="icons">
+  
+  </div>
+    
+  <div class="icons">
+  
+  </div> 
+  
+  <div class="icons">
+  
+  </div>
+  <div class="icons">
+  
+  </div> 
+  
+  <div class="icons">
+  
+  </div>
+
+  <div class="icons">
+  
+  </div> 
+  
+  <div class="icons">
+  
+  </div>
+
+  <div class="icons">
+  
+  </div> 
+
+
+
+  <div class="icons">
+    <a href="http://blowmoldingshare.cn/" title="{{ _('我的博客') }}" target="_blank">
+      <svg><use href="#blog"></use></svg>
+    </a>
+  </div>
+
+
+  <div class="icons">
+    <a href="https://www.ad.siemens.com.cn/download" title="{{ _('西门子下载中心') }}" target="_blank">
+      <svg><use href="#siemens"></use></svg>
+    </a>
+  </div>
+
+ 
+
+  <div class="icons">
+    <a href="https://github.com/lybhb8/91174767_HMITemplateSuiteUnified_V5.0_zh" title="{{ _('源码仓库') }}" target="_blank">
+      <svg><use href="#github"></use></svg>
+    </a>
+  </div>
+
+
+
+  
+</div>
+{% endblock %}
+
+{%- block relbar1 %}
+<div class="related" role="navigation" aria-label="Related">
+  <h3>{{ _('Navigation') }}</h3>
+  <ul>
+    <li><a href="{{ pathto(root_doc)|e }}">Hmi Template Suit V5.0 中文版</a> &raquo;</li>
+    {%- for parent in parents %}
+      <li class="nav-item nav-item-{{ loop.index }}"><a href="{{ parent.link|e }}" {% if loop.last %}{{ accesskey("U") }}{% endif %}>{{ parent.title }}</a>{{ reldelim1 }}</li>
+    {%- endfor %}
+    <li class="nav-item nav-item-this"><a href="{{ link|e }}">{{ title }}</a></li>
+  </ul>
+</div>
+{% endblock %}
+
+{%- block content %}
+<div class="document">
+  <div class="sphinxsidebar" role="navigation" aria-label="Main">
+    {%- include "searchfield.html" %}
+    {%- if display_toc %}
+      <div class="sphinxsidebar-navigation__contents">
+        <h3>{{ _('On this page') }}</h3>
+        {{ toc }}
+      </div>
+    {%- endif %}
+    <div class="sphinxsidebar-navigation__pages">
+      {{ toctree(includehidden=True, maxdepth=3, titles_only=True) }}
+    </div>
+  </div>
+  {%- block document %}
+  <div class="body" role="main">
+    {% block body %}{% endblock %}
+    {{ prev_next() }}
+  </div>
+  {%- endblock %}
+</div>
+{%- endblock %}
+
+{%- block relbar2 %}{% endblock %}
+
+{%- block footer %}
+<div class="footer" role="contentinfo">
+  {{ copyright_block() }}
+  {% trans sphinx_version=sphinx_version|e %}Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> {{ sphinx_version }}.{% endtrans %}
+</div>
+{%- endblock %}
+
+{% macro prev_next() %}
+  <div class="related-pages" role="navigation" aria-label="Related">
+    {% if prev -%}
+      <a class="prev-page" href="{{ prev.link }}">
+        <svg><use href="#svg-arrow-right"></use></svg>
+        <div class="page-info">
+          <div class="context">
+            <span>{{ _("Previous") }}</span>
+          </div>
+          {% if prev.link == pathto(root_doc) %}
+          <div class="title">{{ _("Home") }}</div>
+          {% else %}
+          <div class="title">{{ prev.title }}</div>
+          {% endif %}
+        </div>
+      </a>
+    {%- else %}
+    <div></div>
+    {%- endif %}
+    {% if next -%}
+      <a class="next-page" href="{{ next.link }}">
+        <div class="page-info">
+          <div class="context">
+            <span>{{ _("Next") }}</span>
+          </div>
+          <div class="title">{{ next.title }}</div>
+        </div>
+        <svg><use href="#svg-arrow-right"></use></svg>
+      </a>
+    {%- endif %}
+  </div>
+{% endmacro %}
+
+{% macro svgs() %}
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  
+  <symbol id="github" viewBox="0 0 16 16">
+    <title>GitHub</title>
+    <svg
+      stroke="currentColor"
+      fill="currentColor"
+      stroke-width="0"
+      viewBox="0 0 16 16"
+    >
+      <path
+        fill-rule="evenodd"
+        d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"
+      ></path>
+    </svg>
+  </symbol>
+  
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+
+  <symbol id="siemens" viewBox="0 0 16 16">
+    <title>SIEMENS download centre</title>
+    <svg
+      stroke="currentColor"
+      fill="#099"
+      stroke-width="0"
+      viewBox="0 0 64 64"
+    >
+      <path 
+        d="M0 0h64v64H0z" 
+        fill="#099"
+      ></path>
+
+      <path
+        fill= "#fff"
+        d="M19.01 49.22v-7.04c4.013 1.262 7.563 1.892 10.65 1.892 4.258-.005 6.388-1.134 6.388-3.39a2.76 2.76 0 0 0-.933-2.118c-.63-.603-2.256-1.448-4.874-2.535-4.698-1.922-7.76-3.564-9.185-4.926-1.847-1.797-2.77-4.065-2.77-6.804 0-3.53 1.345-6.224 4.034-8.082s6.153-2.77 10.39-2.733c2.352 0 5.757.434 10.213 1.3v6.78c-3.313-1.323-6.388-1.985-9.223-1.985-4.003 0-6.005 1.1-6.005 3.303.01.84.47 1.612 1.21 2.015.663.42 2.508 1.31 5.537 2.67 4.354 1.933 7.253 3.614 8.697 5.042 1.715 1.697 2.572 3.89 2.572 6.582 0 3.87-1.68 6.82-5.042 8.847-2.733 1.65-6.262 2.472-10.59 2.47-3.727-.007-7.44-.442-11.067-1.298z"
+      ></path>
+    </svg>
+  </symbol>
+  
+  <symbol id="blog" viewBox="0 0 24 24">
+    <title>My blog</title>
+    <svg
+      stroke=""
+      fill=""
+      stroke-width="0"
+      viewBox="0 0 1024 1024"
+    >
+
+      <path d="M512 512m-497.58814815 0a497.58814815 497.58814815 0 1 0 995.1762963 0 497.58814815 497.58814815 0 1 0-995.1762963 0Z" 
+      fill="#2ac"
+      ></path>
+
+      <path 
+      d="M344.31279408 786.43806815V237.56193185h177.21419851c62.42910815 0 109.25093925 10.92266667 140.47762963 32.7558637 31.21455408 21.83319703 46.82183111 54.88033185 46.82183111 99.10499556 0 13.72615111-1.61412741 27.08821333-4.83024592 40.11045926-3.21611852 13.02224592-8.192 24.98863408-14.90337186 35.91130074-6.72350815 10.92266667-15.12182518 20.58315852-25.1949511 28.98147556-10.07312592 8.39831703-21.97883259 14.97618963-35.69284742 19.73361778 13.71401482 2.24521482 26.80907852 6.65069037 39.26091852 13.22856296a116.69777067 116.69777067 0 0 1 32.7558637 25.61972148c9.38135703 10.4978963 16.79663408 22.88905482 22.25796742 37.16133926 5.46133333 14.27228445 8.192 30.23151408 8.192 47.87768888 0 55.99687111-18.76271408 98.06127408-56.27600592 126.19320889-37.52542815 28.13193482-91.68971852 42.21003852-162.51714372 42.21003853H344.31279408zM601.32314075 387.4816c0-10.35226075-1.67480889-19.73361778-5.03656297-28.13193482-3.36175408-8.39831703-8.75026963-15.53445925-16.16554667-21.42056296-7.41527703-5.87396741-16.94226963-10.42507852-28.55670519-13.65333333-11.62657185-3.21611852-25.69253925-4.83024592-42.21003851-4.83024592h-62.57474371v145.29573925h62.57474371c16.79663408 0 31.00823703-2.02676148 42.62267259-6.09242074 11.61443555-4.05352297 21.12929185-9.66049185 28.55670518-16.79663407 7.41527703-7.13614222 12.73097482-15.32814222 15.95922964-24.56386371 3.21611852-9.22358518 4.83024592-19.16321185 4.83024593-29.8067437z m-82.32049778 314.54852741c16.51749925 0 31.00823703-2.09957925 43.46007703-6.29873778 12.45184-4.19915852 22.88905482-10.01244445 31.28737185-17.42772148 8.39831703-7.41527703 14.7577363-16.16554667 19.10253037-26.2508089 4.33265778-10.07312592 6.50505482-20.85015703 6.50505481-32.33109333 0-23.78714075-8.89590518-42.41635555-26.66344295-55.85123555-17.77967408-13.43488-45.00138667-20.15838815-81.67727408-20.15838815h-64.24955259v158.31798519h72.23523556z" 
+      fill="#ffffff"
+      ></path>
+
+    </svg>
+  </symbol>
+
+</svg>
+{% endmacro %}
+
+
+
